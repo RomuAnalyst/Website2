@@ -1,0 +1,41 @@
+---
+author: "Romu"
+date: "01/01/2023"
+categories:
+  - news
+  - code
+  - analysis
+listing:
+  contents: posts/**/*.qmd
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [date, image, title, reading-time, description, categories]
+  feed: true
+page-layout: full
+title-block-banner: false
+knitr:
+  opts_chunk: 
+    collapse: true
+execute: 
+  echo: false
+
+---
+
+:::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+# <i class="fa-brands fa-r-project" aria-label="R project"></i> et Posit
+
+##### [Introduction et installation](test2.html)
+Présentation, prise en main, en passant par le processus d'installation.
+:::
+
+
+:::: 
+
+
+
+## Tous les documents :

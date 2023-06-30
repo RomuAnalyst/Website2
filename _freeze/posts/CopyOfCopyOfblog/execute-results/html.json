@@ -1,0 +1,14 @@
+{
+  "hash": "d7e579a9ab5ce2edf73863cdda1b8647",
+  "result": {
+    "markdown": "---\nauthor: \"Romu\"\ndate: \"01/01/2023\"\ncategories:\n  - news\n  - code\n  - analysis\nlisting:\n  contents: posts/**/*.qmd\n  sort: \"date desc\"\n  type: default\n  categories: true\n  sort-ui: true\n  filter-ui: true\n  fields: [date, image, title, reading-time, description, categories]\n  feed: true\npage-layout: full\ntitle-block-banner: false\nknitr:\n  opts_chunk: \n    collapse: true\nexecute: \n  echo: false\n\n---\n\n\n:::: {.grid}\n\n::: {.g-col-12 .g-col-md-6}\n# <i class=\"fa-brands fa-r-project\" aria-label=\"R project\"></i> et Posit\n\n##### [Introduction et installation](test2.html)\nPrésentation, prise en main, en passant par le processus d'installation.\n:::\n\n\n:::: \n\n\n\n## Tous les documents :",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

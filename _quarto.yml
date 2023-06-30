@@ -1,0 +1,73 @@
+project:
+  type: website
+  output-dir: docs
+  #resources: 
+  #  - "*.css"
+    
+execute:
+  freeze: true
+
+website:
+  title: "RomuAnalyst"
+  site-url: https://romuanalyst.github.io/RomuAnalyst_website
+  description: Website, portfolio, aide à l'apprentissage...
+  repo-url: https://github.com/.............
+  image: images/logo.png
+  page-navigation: true
+  reader-mode: true
+  navbar:
+    logo: img/tree.png
+    title: "<span class='icon-line'></span>RomuAnalyst👨🏾‍💻<span class='icon-line'></span>"
+    right:
+      - text: R
+        href: R et Posit.qmd
+      - text: Posts
+        href: test2.qmd
+      - text: Rendu élèves
+        href: blog.qmd
+      - text: packages
+        href: packages.qmd
+      - text: community
+        href: community.qmd
+      - text: contact
+        href: contact.qmd
+      #- icon: github
+      #  href: https://github.com/EllaKaye
+      #- icon: twitter
+      #  href: https://twitter.com/ellamkaye
+  favicon: images/favicon.png
+  twitter-card: 
+    title: "RomuAnalyst"
+    description: Mon site sur mes projets
+    image: images/logo.png
+    image-alt: |
+      L'arbre centralise ou donne accès à de multitude de résultats.
+    image-width: 500
+    image-height: 500
+    card-style: summary # alternative summary_large_image
+    creator: "@Romu"
+    site: "@Romu"
+  open-graph: 
+    #description: The personal website of Ella Kaye
+    image: images/logo.png
+    image-alt: |
+       L'arbre centralise ou donne accès à de multitude de résultats.
+    image-width: 500
+    image-height: 500
+    locale: fr-FR
+
+format:
+  html:
+    theme: 
+      light: assets/ek-theme-light.scss
+      dark: assets/ek-theme-dark.scss
+    css: assets/ek-styles.css
+    code-block-border-left: true
+    highlight-style: 
+      light: assets/ek-light.theme
+      dark: assets/ek-dark.theme
+    smooth-scroll: true
+    link-external-newwindow: true
+    
+editor: source
+

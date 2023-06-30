@@ -1,0 +1,73 @@
+---
+about:
+  template: jolla
+  id: about-block
+  image: "img/Sans titre.jpg"
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/MarvinSchmittML
+    - icon: github
+      text: Github
+      href: https://github.com/marvinschmitt
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
+    - icon: envelope
+      text: Email
+      href: "mailto:titi.minet971@gmail.com"
+      
+knitr:
+  opts_chunk: 
+    collapse: true
+execute: 
+  echo: false
+page-layout: full
+include-in-header: 
+  - _includes/fontawesome-2up.html
+listing:
+  id: sample-listings
+  contents: posts
+  sort: "date desc"
+  max-items: 2
+  type: table
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, description]
+  date-format: "DD/MM/YY"
+output-directory : docs
+---
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Cours d'introduction à R (faire une liste avec le nom des cours en lien. Ces liens reverront vers le cours en question)</p>
+<div style="margin-top: auto;"><a href="about.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+</div>
+</div>
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
+<div style="margin-top: auto;"><a href="contact.qmd" class="card-link third-color-link heading-font">BIO</a></div>
+</div>
+</div>
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
+<div style="margin-top: auto;"><a href="contact.qmd" class="card-link third-color-link heading-font">BIO</a></div>
+</div>
+</div>
+:::
+::: {.g-col-3}
+<div class="card-body d-flex flex-column"> 
+<div style="margin-top: auto;"><p class="card-text"><b><u>2 derniers articles :</u></b></p>
+</div></div>
+:::
+::: {.g-col-9 #sample-listings}
+:::
+:::

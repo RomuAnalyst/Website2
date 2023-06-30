@@ -1,0 +1,28 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/CopyOfCopyOfblog.html",
+      "/posts/CopyOfblog.html",
+      "/posts/2022-12-11_welcome-quarto/index.html",
+      "/posts/2021-05-26_custom-highlighting-distill-2/index.html",
+      "/posts/2021-05-25_custom-highlighting-distill-1/index.html",
+      "/posts/2021-05-08_welcome-distill/index.html",
+      "/posts/2020-12-09_advent-of-code-2020/index.html",
+      "/posts/2017-06-17_n-letter-words/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/CopyOfCopyOfblog.html",
+      "/posts/CopyOfblog.html",
+      "/posts/2022-12-11_welcome-quarto/index.html",
+      "/posts/2021-05-26_custom-highlighting-distill-2/index.html",
+      "/posts/2021-05-25_custom-highlighting-distill-1/index.html",
+      "/posts/2021-05-08_welcome-distill/index.html",
+      "/posts/2020-12-09_advent-of-code-2020/index.html",
+      "/posts/2017-06-17_n-letter-words/index.html"
+    ]
+  }
+]

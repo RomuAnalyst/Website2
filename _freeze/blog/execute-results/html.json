@@ -1,0 +1,14 @@
+{
+  "hash": "4d81fd8c8d71a6df40f5ba6573079c31",
+  "result": {
+    "markdown": "---\nlisting:\n  contents: posts/**/*.qmd\n  sort: \"date desc\"\n  type: grid\n  categories: true\n  sort-ui: true\n  filter-ui: true\n  fields: [date, image, title, reading-time, description, categories]\n  feed: true\npage-layout: full\ntitle-block-banner: false\nknitr:\n  opts_chunk: \n    collapse: true\nexecute: \n  echo: false\ninclude-in-header: \n  - _includes/fontawesome-2up.html\n---\n\n\n:::: {.grid}\n\n::: {.g-col-12 .g-col-md-6}\n# <i class=\"fa-brands fa-r-project\" aria-label=\"R project\"></i> et Posit\n\n##### [Introduction et installation](test2.html)\nPrésentation, prise en main, en passant par le processus d'installation.\n:::\n\n\n:::: \n\n\n\n## Tous les documents :",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
