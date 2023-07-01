@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
@@ -84,19 +84,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="assets/ek-styles.css">
 <meta name="twitter:title" content="RomuAnalyst">
@@ -121,8 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -153,8 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -174,49 +176,244 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="présentation-de-r-et-de-son-environnement" class="level1">
-<h1>Présentation de R et de son environnement</h1>
-<section id="quest-ce-que" class="level2">
-<h2 class="anchored" data-anchor-id="quest-ce-que">Qu’est-ce que <i class="fab fa-r-project"></i> ?</h2>
-<p>Le logiciel <strong>R</strong> est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) <strong>R</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
-<p><strong>R</strong> est un <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&amp;idCourse=2368">langage interprété</a> (comme <code>Python</code>) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans qu’il soit besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple on peut à partir d’une ligne de commande écrire :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello world!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>## [1] "Hello world!"</code></pre>
-<p>Pour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est <code>.R</code> mais on pourrait tout aussi bien les écrire dans un <code>.txt</code>.</p>
-<p>Pour simplifier l’utilisation de <strong>R</strong>, il est nécessaire d’avoir une interface graphique (appelée aussi <em>GUI</em> pour Graphic User Interfaces). Celle offerte par <strong>R</strong> est très simpliste et beaucoup préfèrent utiliser <strong>RStudio</strong> (<a href="www.rstudio.com">www.rstudio.com</a>) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage.</p>
+<section id="ggplo2" class="level1">
+<h1>Utiliser <em>GGplot2</em> pour faire et superposer des graphiques</h1>
+<style type="text/css">
+.red {
+  color: red;
+}
+</style>
+<p>Le but de la visualisation de données étant de représenter graphiquement des données brutes (ou quasi-brutes), il est souvent nécessaire de prendre en compte plusieurs variables. Nous devons donc aller plus loin que les graphiques de base (nuage de points, droite de regression, boite à moustache, diagramme en barres ou circulaires, …), pour les combiner par exemple.</p>
+<p>Avec le langage de base (package <code>graphics</code> notamment), il est possible de faire des graphiques évolués, mais avec beaucoup de paramétrages <em>à la main</em>. Pour cela on va commencer par s’intéresser au jeu de données <code>mtcars</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?mtcars ou help(mtcars)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>## 'data.frame':    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp,mtcars<span class="sc">$</span>mpg)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="02-ggplo2Rmd_files/figure-html/mtcars-1.png" width="672"></p>
+<p>Essayons d’améliorer ce graphique… Ci dessous, un exemple de graphique avancé, représentant 4 variables (trois quantitatives et une qualitative), ainsi qu’une explication succincte des différentes fonctions utilisées, et quelques paramètres de celles-ci.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"serif"</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>)<span class="sc">+</span>.<span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>couleurs_am <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">"Dark2"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg <span class="sc">~</span> hp, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> mtcars,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> wt<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> couleurs_am[mtcars<span class="sc">$</span>am<span class="sc">+</span><span class="dv">1</span>],</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Consommation en fonction de la Puissance"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">sub =</span> <span class="st">"Source : 1974 Motor Trend US magazine"</span>, <span class="at">font.sub =</span> <span class="dv">3</span>, <span class="at">cex.sub =</span> .<span class="dv">8</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Puissance (en ch)"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Consommation en Miles/Galon"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lwd.ticks =</span> .<span class="dv">5</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>at.y <span class="ot">=</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lwd.ticks =</span> .<span class="dv">5</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">y =</span> at.y, <span class="at">x =</span> <span class="dv">35</span>, <span class="at">labels =</span> at.y, <span class="at">srt =</span> <span class="dv">0</span>, <span class="at">pos =</span> <span class="dv">2</span>, <span class="at">xpd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">=</span> <span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Automatique"</span>, <span class="st">"Manuelle"</span>), </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> couleurs_am, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.width =</span> <span class="dv">50</span>, <span class="at">text.col =</span> couleurs_am, </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Boite de vitesse"</span>, <span class="at">title.col =</span> <span class="st">"black"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(l1<span class="sc">$</span>rect<span class="sc">$</span>left, l1<span class="sc">$</span>rect<span class="sc">$</span>top<span class="sc">-</span>l1<span class="sc">$</span>rect<span class="sc">$</span>h<span class="dv">-1</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">range</span>(mtcars<span class="sc">$</span>wt), <span class="at">title =</span> <span class="st">"Poids  (1000 lbs)"</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">pt.cex =</span> <span class="fu">range</span>(mtcars<span class="sc">$</span>wt)<span class="sc">/</span><span class="dv">3</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">col =</span> <span class="fu">gray</span>(.<span class="dv">5</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.width =</span> <span class="dv">50</span>, <span class="at">adj =</span> <span class="sc">-</span>.<span class="dv">25</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>outliers_hp <span class="ot">=</span> <span class="fu">subset</span>(mtcars, <span class="at">subset =</span> hp <span class="sc">&gt;</span> <span class="dv">250</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(outliers_hp<span class="sc">$</span>hp, outliers_hp<span class="sc">$</span>mpg, <span class="fu">row.names</span>(outliers_hp), <span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">font =</span> <span class="dv">4</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>outliers_mpg <span class="ot">=</span> <span class="fu">subset</span>(mtcars, <span class="at">subset =</span> mpg <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(outliers_mpg<span class="sc">$</span>hp, outliers_mpg<span class="sc">$</span>mpg, <span class="fu">row.names</span>(outliers_mpg), <span class="at">pos =</span> <span class="dv">4</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">font =</span> <span class="dv">4</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<img src="pics/images/Consommation en fonction de la puissance.png" class="img-fluid">
+</center>
+<ul>
+<li>La fonction <code>par()</code> permet de modifier les paramètres graphiques, tel que :
+<ul>
+<li><code>mar</code> pour les marges (un vecteur numérique de taille 4 qui permet de définir les tailles des marges dans l’ordre suivant : bas, gauche, haut, droite. Par défaut il vaut c(5.1, 4.1, 4.1, 2.1) )</li>
+<li><code>family</code> pour la famille de police d’écriture</li>
+<li>certains paramètres ci-après sont définissables globalement dans la fonction <code>par()</code>, ou localement dans les fonctions suivantes</li>
+</ul></li>
+<li>Les paramètres de la fonction <code>plot()</code>
+<ul>
+<li><code>pch</code> : symbole utilisé pour chaque point (ici <code>19</code> indique un rond plein)</li>
+<li><code>cex</code> : taille du point (ici en fonction de la variable <code>wt</code>)</li>
+<li><code>col</code> : couleur des points (ici en fonction de la variable <code>am</code>)</li>
+<li><code>main</code>, <code>sub</code>, <code>xlab</code>, <code>ylab</code> : resp. titre, sous-titre, intitulé en abscisse et intitulé en ordonnée</li>
+<li><code>*.sub</code> : indication spécifique pour le sous-titre</li>
+<li><code>bty</code> : type de la boite (ici <code>n</code> veut dire rien autour du graphique)</li>
+<li><code>axes</code> : présence ou non des axes (non ici)</li>
+</ul></li>
+<li>La fonction <code>axis()</code> qui permet d’ajouter un axe (<code>1</code> : en abscisse, et <code>2</code> : en ordonnée)
+<ul>
+<li>si rien d’indiqué pour <code>at</code>, utilisation des <code>ticks</code> par défaut</li>
+<li><code>lwd</code> : largeur de la ligne (ici non-présente)</li>
+<li><code>lwd.ticks</code> : largeur des ticks (assez fine ici)</li>
+<li>renvoie les valeurs des ticks</li>
+</ul></li>
+<li>La fonction <code>text()</code> permet d’écrire du texte sur le graphique
+<ul>
+<li>le <code>x = 35</code> est choisi par expérience</li>
+<li><code>srt</code> : angle du texte</li>
+<li><code>pos</code> : ajustement du texte par rapport aux coordonnées indiquées</li>
+<li><code>xpd</code> : permet d’écrire en dehors du graphique (dans les marges donc)</li>
+</ul></li>
+<li>La fonction <code>legend()</code> permet d’ajouter une légende
+<ul>
+<li>position : soit <span class="math inline">\((x,y)\)</span>, soit chaine spécifique</li>
+<li><code>legend</code> : texte des items</li>
+<li><code>col</code>, <code>bty</code>, <code>cex</code>, <code>pch</code> : identique à précédemment</li>
+<li><code>text.width</code> et <code>text.col</code> : largeur du texte des items et couleur(s)</li>
+<li><code>title</code> et <code>title.col</code> : titre de la légende (et couleur du titre)</li>
+<li>renvoie une liste avec deux objets (<code>rect</code> qui contient des infos sur le rectangle occupé par la légende dans le graphique et <code>text</code> qui contient les coordonnées du texte des items)</li>
+<li><code>pt.cex</code> : taille des symboles</li>
+<li><code>adj</code>: ajustement du texte</li>
+</ul></li>
+</ul>
+<p>L’utilisateur souhaite réaliser des graphiques (nuages de points, histogrammes, densité…) et les personnaliser (légendes, titres, échelles…).</p>
+<p>::: {.recommandation data-latex=““} Il est recommandé d’utiliser le package ggplot2 qui permet de réaliser et de personnaliser un grand nombre de représentations graphiques; Il est conseillé aux utilisateurs débutants d’utiliser l’add-in esquisse pour se familiariser avec ggplot2.</p>
+<p>Vous pouvez également accéder à <code>esquisse</code> en exécutant le code suivant:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">esquisser</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’objectif du <em>package</em> <code>ggplot2</code> est de fournir une approche unique pour produire quasiment toute représentation graphique de données. Ce <em>package</em> propose un grand nombre de fonctions permettant de personnaliser finement les représentations graphiques. Cette fiche n’est donc qu’une introduction succincte à <code>ggplot2</code>. Pour des formations plus détaillées, se référer à {#ggplot2Ressources}.</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p><strong>La fonction essentielle de <code>ggplot2</code> est <code>ggplot()</code>.</strong> Il faut définir quatre éléments pour construire un graphique avec <code>ggplot()</code>:</p>
+<ul>
+<li>la <strong>table de données</strong> ;</li>
+<li>le <strong><em>mapping</em></strong> : on définit dans l’<em>aesthetic</em> (ou <code>aes</code>) le lien entre les variables des données et ce que l’on veut représenter sur le graphique (quelle variable sur l’axe <code>x</code>, sur l’axe <code>y</code>, quelle variable pour définir une graduation de couleurs…) ;</li>
+<li>la <strong>forme géométrique ou <em>geometry</em> </strong> : on définit la représentation graphique qu’on souhaite utiliser. Les géométries ont toutes un nom qui commence par <code>geom_</code>; par exemple, il faut utiliser la géométrie <code>geom_point()</code> pour réaliser un nuage de points;</li>
+<li>les <strong>paramètres</strong> : on définit les autres paramètres qui dépendent de constantes (par exemple : je veux que toutes mes lignes soient rouges ou de taille 2 pixels).</li>
+</ul>
+<p><strong>La construction d’un graphique repose sur le principe de couches successives.</strong> Les différentes couches graphiques se superposent et s’enchaînent grâce à l’<strong>opérateur <code>+</code></strong>, comme un pipe. Il est possible d’aller à la ligne dans une instruction <code>ggplot()</code>, il suffit que l’opérateur <code>+</code> figure à la fin de la ligne.</p>
+<p>Voici un exemple de code qui crée un nuage de points (géométrie <code>geom_point()</code>) à partir des données <code>mes_donnees</code>, avec les variables <code>variable1</code> en abscisse et <code>variable2</code> en ordonnée:</p>
+<details>
+<summary>
+<strong>Se mettre d’accord sur la trame qui sera le squelette du rapport</strong>
+</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>## Warning: Use of `iris$Sepal.Length` is discouraged. Use `Sepal.Length` instead.</code></pre>
+<pre><code>## Warning: Use of `iris$Sepal.Width` is discouraged. Use `Sepal.Width` instead.</code></pre>
+<img src="02-ggplo2Rmd_files/figure-html/unnamed-chunk-3-1.png" width="672">
+</details>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="prise-en-main-de-r-studio" class="level2">
-<h2 class="anchored" data-anchor-id="prise-en-main-de-r-studio">Prise en main de <strong>R-studio</strong></h2>
-<p>La fenêtre de <strong>RStudio</strong> se divise généralement en quatre sous-fenêtres: en partant de haut à gauche et en les parcourant dans le sens horaire on trouve :</p>
-<ol type="1">
-<li>un éditeur de texte pour les scripts</li>
-<li>l’espace de travail ou d’historique de commandes</li>
-<li>le navigateur de fichiers, graphiques, packages, documentations</li>
-<li>la console <strong>R</strong>, c’est à dire la ligne de commande ainsi que les résultats des exécutions du code.</li>
-</ol>
-<p>Typiquement on tape le code dans l’éditeur et on l’exécute ensuite dans la console. Pour cela on place le curseur dans la ligne qu’on veut exécuter et on envoie la commande à la console à l’aide de la combinaison <code>cmd Retour</code> dans IOS et <code>ctrl Retour</code> sous Windows ou tout simplement à l’aide de la commande <code>Run</code>.</p>
+<section id="mapping" class="level3">
+<h3 class="anchored" data-anchor-id="mapping">Le <em>mapping</em> et l’utilisation d’<code>aes()</code></h3>
+<p>Le <em>mapping</em> désigne dans <code>ggplot2</code> la relation entre un <strong>attribut graphique</strong> de la <code>geometry</code> (abscisse, ordonnée, couleur…) et <strong>une variable</strong> présente dans la table de données. On déclare le <em>mapping</em> grâce à la fonction <code>aes()</code> (pour <em>aesthetic</em>), qui sert donc à identifier les variables que l’on souhaite représenter sur le graphique.</p>
+<p><strong>Les arguments fondamentaux de <code>aes()</code> sont les variables représentées sur l’axe des abscisses et l’axe des ordonnées (<code>x</code> et <code>y</code>).</strong> Par exemple, on écrit <code>aes(x = niveau_vie_median, y = taux_chomage)</code> si l’on souhaite représenter pour chaque iris le taux de chômage (sur l’axe <code>y</code>) en fonction du niveau de vie médian (sur l’axe <code>x</code>).</p>
+<p>Par ailleurs, la fonction <code>aes()</code> admet d’autres arguments qui permettent de modifier l’apparence des attributs graphiques selon une troisième variable du jeu de données. Voici les arguments supplémentaires les plus courants:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Attribut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>color</code></strong></td>
+<td>Couleur des lignes ou des points</td>
+</tr>
+<tr class="even">
+<td><strong><code>shape</code></strong></td>
+<td>Forme des points</td>
+</tr>
+<tr class="odd">
+<td><strong><code>size</code></strong></td>
+<td>Taille des points</td>
+</tr>
+<tr class="even">
+<td><strong><code>alpha</code></strong></td>
+<td>Transparence des points</td>
+</tr>
+<tr class="odd">
+<td><strong><code>fill</code></strong></td>
+<td>Couleur des surfaces</td>
+</tr>
+<tr class="even">
+<td><strong><code>linetype</code></strong></td>
+<td>Type de ligne (continue, pointillée, …)</td>
+</tr>
+</tbody>
+</table>
+<p>Dans l’exemple qui suit, on représente pour chaque iris le taux de chômage (sur l’axe <code>y</code>) en fonction du niveau de vie médian (sur l’axe <code>x</code>), en colorant les points en fonction de la part des cadres et professions intellectuelles supérieures parmi les actifs de l’iris (<code>color = part_cadres</code>).</p>
+<p>Il est également possible d’utiliser ces mêmes arguments pour modifier un attribut graphique sans le lier à une variable. En ce cas, on définit l’attribut <strong>à l’extérieur de l’<em>aesthetic</em></strong> (donc à l’extérieur de <code>aes()</code>). Voici l’exemple précédent, modifié pour que tous les points soient (rouge), et non en fonction d’une variable. L’argument <code>color</code> est donc à l’extérieur de <code>aes()</code>.</p>
+<div class="remarque">
+<p>La notion de <em>mapping</em> et la définition des attributs graphiques à l’intérieur et à l’extérieur d’<code>aes()</code> sont une des principales difficultés de <code>ggplot2</code>. Il est normal de tâtonner lorsqu’on commence à les utiliser. Pour s’y retrouver, il suffit de suivre la règle suivante. <strong>Si on établit un lien entre les valeurs d’une variable et un attribut graphique, il s’agit d’un <em>mapping</em> qui doit être défini à <em>l’intérieur</em> de la fonction <code>aes()</code>. Dans le cas contraire, il s’agit d’un simple paramètre du graphique, qui doit être défini à <em>l’extérieur</em> de la fonction <code>aes()</code>.</strong></p>
+</div>
 </section>
-<section id="laide-en-ligne" class="level2">
-<h2 class="anchored" data-anchor-id="laide-en-ligne">L’aide en ligne</h2>
-<p><strong>R</strong> dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant <code>?</code> suivi par la <em>fonction</em> (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>affichera par exemple la page d’aide pour la fonction <code>mean()</code>. La commande</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>aura le même effet.</p>
-<p>On peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
-<p>Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!</p>
-</section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>Les deux grands avantages de <strong>R</strong> est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.</p>
-<p>Toute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou <em>packages</em> ou <em>library</em>) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du <strong>CRAN</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
-<p>Pour installer un package:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>) </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On telecharge et installe le package dplyr utilisé dans la manipulation de données</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Une fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># sans guillemets!</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co"># fonction équivalente</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Important : il est à noter que <code>#</code> sert à commenter les instructions.</p>
+<section id="les-formes-géométriques" class="level3">
+<h3 class="anchored" data-anchor-id="les-formes-géométriques">Les formes géométriques</h3>
+<p>La forme géométrique ou <em>geometry</em> désigne le type de représentation graphique utilisée (nuage de points, histogrammes…). On spécifie le type de représentation que l’on souhait en utilisant une fonction dont le nom commence par <strong><code>geom_</code></strong>. Le tableau ci-dessous présente quelques représentations graphiques classiques.</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 32%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>geometry</em></th>
+<th>Description</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_point()</code></td>
+<td>Nuage de points</td>
+<td><code>x</code>, <code>y</code>, <code>shape</code>, <code>fill</code>, <code>size</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_line()</code></td>
+<td>Ligne</td>
+<td><code>x</code>, <code>y</code>, <code>linetype</code></td>
+</tr>
+<tr class="odd">
+<td><code>geom_bar()</code></td>
+<td>Diagramme en barres</td>
+<td><code>x</code>, <code>fill</code>, <code>linetype</code>, <code>weight</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_histogram()</code></td>
+<td>Histogramme</td>
+<td><code>x</code>, <code>fill</code>, <code>linetype</code>, <code>weight</code></td>
+</tr>
+<tr class="odd">
+<td><code>geom_boxplot()</code></td>
+<td>Boîte à moustaches</td>
+<td><code>x</code>, <code>y</code>, <code>fill</code>, <code>weight</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_density()</code></td>
+<td>Courbe de densité</td>
+<td><code>x</code>, <code>y</code>, <code>fill</code>, <code>color</code>, <code>linetype</code></td>
+</tr>
+</tbody>
+</table>
+<p>Voici deux exemples d’utilisation.</p>
+<div class="remarque">
+<p>Il existe un grand nombre de géométries dans <code>ggplot2</code>. Vous pouvez en afficher la liste en exécutant la commande <code>help.search("^geom_", package = "ggplot2")</code>.</p>
+<p>Par ailleurs, de très nombreux <em>packages</em> proposent encore d’autres géométries pour réaliser des représentations graphiques particulières (cartes avec <code>ggmap</code>, arbres généalogiques avec <code>ggtree</code> et <code>ggenealogy</code>, résultats d’élections avec <code>ggparliament</code>…).</p>
+</div>
 
 
 </section>
@@ -392,12 +589,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copié");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copié");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

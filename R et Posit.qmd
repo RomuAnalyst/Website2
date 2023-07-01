@@ -47,7 +47,7 @@ La fenêtre de **RStudio** se divise généralement en quatre sous-fenêtres. En
 
 ![](img/Console_Rstudio.png)
 
-Typiquement, on tape le code dans l'éditeur (1) puis on l'exécute. il se retrouve alors dans console. Pour cela on place le curseur dans la ligne qu'on veut exécuter et on envoie la commande à la console à l'aide de la combinaison <kbd>⌘</kbd><kbd>**⏎**</kbd> dans IOS et <kbd>Ctrl</kbd><kbd>**⏎**</kbd> sous Windows ou tout simplement à l'aide de la commande `Run`.
+Typiquement, on tape le code dans l'éditeur (1) puis on l'exécute. il se retrouve alors dans console. Pour cela on place le curseur dans la ligne qu'on veut exécuter et on envoie la commande à la console à l'aide de la combinaison `⌘ + ⏎` dans IOS et `Ctrl + ⏎` sous Windows ou tout simplement à l'aide de la commande `Run`.
 
 ## L'aide en ligne
 
