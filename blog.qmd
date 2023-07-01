@@ -22,7 +22,7 @@ include-in-header:
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-# <i class="fa-brands fa-r-project" aria-label="R project"></i> et Posit
+# {{< fa brands r-project >}} et Posit
 
 ##### [Introduction et installation](test2.html)
 Présentation, prise en main, en passant par le processus d'installation.

@@ -20,11 +20,11 @@ toc-title: Table des matières
 
 # R et son environnement
 
-## Qu'est-ce que <i class="fab fa-r-project"></i> ?
+## Qu'est-ce que {{< fa brands r-project >}} ?
 
 Le logiciel **R** est un langage dédié à la statistique. Il a été développé à partir des années 90 à l'University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) **R** : [cran.r-project.org](http://cran.r-project.org).
 
-**R** est un [langage interprété](http://www.france-ioi.org/algo/course.php?idChapter=561&idCourse=2368) (comme `Python`<i class="fa-brands fa-python"></i>) et non compilé, c'est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu'il est "exécuté à la volée". Par exemple, on peut à partir d'une ligne de commande écrire :
+**R** est un [langage interprété](http://www.france-ioi.org/algo/course.php?idChapter=561&idCourse=2368) (comme `Python`{{< fa brands python >}}) et non compilé, c'est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu'il est "exécuté à la volée". Par exemple, on peut à partir d'une ligne de commande écrire :
 
 ```{r}
 #| column: margin
