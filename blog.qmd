@@ -6,7 +6,7 @@ listing:
   categories: true
   sort-ui: true
   filter-ui: true
-  fields: [date, image, title, reading-time, description, categories]
+  fields: [date, title,image, categories]
   feed: true
 page-layout: full
 title-block-banner: false

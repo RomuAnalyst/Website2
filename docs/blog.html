@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-image','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-image','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -224,9 +224,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="no-anchor card-title listing-title">
 <i class="fa-brands fa-r-project" aria-label="R project"></i> et Posit
 </h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
@@ -237,9 +234,6 @@ code
 <div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
 analysis
 </div>
-</div>
-<div class="card-text listing-description">
-
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -258,9 +252,6 @@ Jan 1, 2023
 <h5 class="no-anchor card-title listing-title">
 <i class="fa-brands fa-r-project" aria-label="R project"></i> et Posit
 </h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
@@ -271,9 +262,6 @@ code
 <div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
 analysis
 </div>
-</div>
-<div class="card-text listing-description">
-
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -295,9 +283,6 @@ Jan 1, 2023
 <h5 class="no-anchor card-title listing-title">
 Welcome to my Quarto website!
 </h5>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
 Quarto
@@ -305,9 +290,6 @@ Quarto
 <div class="listing-category" onclick="window.quartoListingCategory('distilltools'); return false;">
 distilltools
 </div>
-</div>
-<div class="card-text listing-description">
-<p>Resources I found inspiring and useful when building my new site, plus notes on my customisations</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -329,9 +311,6 @@ Dec 11, 2022
 <h5 class="no-anchor card-title listing-title">
 Custom syntax highlighting for {distill} part 2
 </h5>
-<div class="listing-reading-time card-text text-muted">
-27 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('distill'); return false;">
 distill
@@ -345,9 +324,6 @@ accessibility
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-</div>
-<div class="card-text listing-description">
-<p>How to create an appealing and accessible colour palette for a syntax highlighting scheme</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -368,9 +344,6 @@ May 26, 2021
 <h5 class="no-anchor card-title listing-title">
 Custom syntax highlighting for {distill} part 1
 </h5>
-<div class="listing-reading-time card-text text-muted">
-15 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('distill'); return false;">
 distill
@@ -387,9 +360,6 @@ accessibility
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-</div>
-<div class="card-text listing-description">
-<p>A guide to modifying the default {distill} syntax highlighting theme, including colour choice considerations, and its implementation in {distilltools}</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -412,9 +382,6 @@ drop of water, with the word distill underneath, in white.
 <h5 class="no-anchor card-title listing-title">
 Welcome to my {distill} website!
 </h5>
-<div class="listing-reading-time card-text text-muted">
-8 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('distill'); return false;">
 distill
@@ -428,9 +395,6 @@ package development
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-</div>
-<div class="card-text listing-description">
-<p>Resources and sites I found inspiring when building my new site, and a sneak-peek at {distilltools}, an exciting new project for {distill} users</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -451,9 +415,6 @@ May 8, 2021
 <h5 class="no-anchor card-title listing-title">
 Advent of Code 2020
 </h5>
-<div class="listing-reading-time card-text text-muted">
-33 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -461,9 +422,6 @@ R
 <div class="listing-category" onclick="window.quartoListingCategory('Advent of Code'); return false;">
 Advent of Code
 </div>
-</div>
-<div class="card-text listing-description">
-<p>My attempts at Advent of Code, 2020</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -486,9 +444,6 @@ same bright pink, on a white background
 <h5 class="no-anchor card-title listing-title">
 <code>n_letter_words</code> and a personal (publicly available) package
 </h5>
-<div class="listing-reading-time card-text text-muted">
-3 min
-</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -496,9 +451,6 @@ R
 <div class="listing-category" onclick="window.quartoListingCategory('package development'); return false;">
 package development
 </div>
-</div>
-<div class="card-text listing-description">
-<p>How I created a handy function and a personal package</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
