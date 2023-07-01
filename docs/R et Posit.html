@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Romu">
-<meta name="dcterms.date" content="2023-01-01">
 
 <title>RomuAnalyst – r-et-posit</title>
 <style>
@@ -78,6 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,15 +86,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -124,8 +124,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -156,8 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#r-et-son-environnement" id="toc-r-et-son-environnement" class="nav-link active" data-scroll-target="#r-et-son-environnement">R et son environnement</a>
   <ul class="collapse">
-  <li><a href="#quest-ce-que" id="toc-quest-ce-que" class="nav-link" data-scroll-target="#quest-ce-que">Qu’est-ce que <i class="fab fa-r-project"></i> ?</a></li>
+  <li><a href="#quest-ce-que-fa-brands-r-project" id="toc-quest-ce-que-fa-brands-r-project" class="nav-link" data-scroll-target="#quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project"></i> ?</a></li>
   <li><a href="#prise-en-main-de-rstudio" id="toc-prise-en-main-de-rstudio" class="nav-link" data-scroll-target="#prise-en-main-de-rstudio">Prise en main de <strong>Rstudio</strong></a></li>
   <li><a href="#laide-en-ligne" id="toc-laide-en-ligne" class="nav-link" data-scroll-target="#laide-en-ligne">L’aide en ligne</a></li>
   <li><a href="#utilisation-de-rrstudio" id="toc-utilisation-de-rrstudio" class="nav-link" data-scroll-target="#utilisation-de-rrstudio">Utilisation de R/Rstudio</a></li>
@@ -194,13 +194,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="r-et-son-environnement" class="level1 page-columns page-full">
 <h1>R et son environnement</h1>
-<section id="quest-ce-que" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="quest-ce-que">Qu’est-ce que <i class="fab fa-r-project"></i> ?</h2>
+<section id="quest-ce-que-fa-brands-r-project" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project"></i> ?</h2>
 <p>Le logiciel <strong>R</strong> est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) <strong>R</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
 <p><strong>R</strong> est un <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&amp;idCourse=2368">langage interprété</a> (comme <code>Python</code><i class="fa-brands fa-python"></i>) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :</p>
 
 <div class="no-row-height column-margin column-container"><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello world!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello world!'</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello world!"</code></pre>
 </div>
@@ -222,9 +222,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="laide-en-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="laide-en-ligne">L’aide en ligne</h2>
 <p><strong>R</strong> dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant <code>?</code> suivi par la <em>fonction</em> (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>affichera par exemple la page d’aide pour la fonction <code>mean()</code>. La commande</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>aura le même effet.</p>
 <p>On peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
 <p>Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!</p>
@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="no-row-height column-margin column-container"><div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> (<span class="dv">20</span> <span class="sc">+</span> <span class="dv">10</span>)<span class="sc">/</span><span class="dv">5</span>       <span class="co"># création de n et assignation du résultat de l'opération</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n                      <span class="co"># appel de l'objet n pour affichage de sa valeur</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n                      <span class="co"># appel de l'objet n pour affichage de sa valeur</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Astuce
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -274,17 +274,17 @@ Important
 <p>Les deux grands avantages de <strong>R</strong> est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.</p>
 <p>Toute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou <em>packages</em> ou <em>library</em>) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du <strong>CRAN</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
 <p>Pour installer un package:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>) <span class="co"># avec guillemets!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>) <span class="co"># avec guillemets!</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Une fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># sans guillemets!</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co"># fonction équivalente</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co"># fonction équivalente</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Astuce
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -468,12 +468,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copié");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copié");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
