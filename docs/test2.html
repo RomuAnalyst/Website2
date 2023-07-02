@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#ggplo2" id="toc-ggplo2" class="nav-link active" data-scroll-target="#ggplo2">Utiliser <em>GGplot2</em> pour faire et superposer des graphiques</a>
+  <li><a href="#ggplo2" id="toc-ggplo2" class="nav-link active" data-scroll-target="#ggplo2">Utiliser <em>ggplot2</em> pour faire et superposer des graphiques</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping">Le <em>mapping</em> et l’utilisation d’<code>aes()</code></a></li>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="ggplo2" class="level1">
-<h1>Utiliser <em>GGplot2</em> pour faire et superposer des graphiques</h1>
+<h1>Utiliser <em>ggplot2</em> pour faire et superposer des graphiques</h1>
 <style type="text/css">
 .red {
   color: red;
@@ -271,13 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp,mtcars<span class="sc">$</span>mpg)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="test2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p><img src="02-ggplo2Rmd_files/figure-html/mtcars-1.png" width="672"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp,mtcars<span class="sc">$</span>mpg)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<img src="img/mtcars_plot.png" class="img-fluid">
+</center>
+<p><br></p>
 <p>Essayons d’améliorer ce graphique… Ci dessous, un exemple de graphique avancé, représentant 4 variables (trois quantitatives et une qualitative), ainsi qu’une explication succincte des différentes fonctions utilisées, et quelques paramètres de celles-ci.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"serif"</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>)<span class="sc">+</span>.<span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>couleurs_am <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">"Dark2"</span>)</span>

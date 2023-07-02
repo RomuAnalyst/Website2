@@ -13,7 +13,7 @@ toc: true
 toc-title: Table des matières
 ---
 
-# Utiliser *GGplot2* pour faire et superposer des graphiques{#ggplo2}
+# Utiliser *ggplot2* pour faire et superposer des graphiques{#ggplo2}
 
 
 
@@ -51,11 +51,12 @@ head(iris)
 str(mtcars)
 ```
 
-```{r}
+```r
 plot(mtcars$hp,mtcars$mpg)
 ```
 
-<img src="02-ggplo2Rmd_files/figure-html/mtcars-1.png" width="672" />
+<center>![ ](img/mtcars_plot.png)</center>  
+<br>
 
 Essayons d'améliorer ce graphique...
 Ci dessous, un exemple de graphique avancé, représentant 4 variables (trois quantitatives et une qualitative), ainsi qu'une explication succincte des différentes fonctions utilisées, et quelques paramètres de celles-ci.  
