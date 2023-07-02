@@ -1,9 +1,16 @@
 ---
+page-layout: full
+title-block-banner: false
+knitr:
+  opts_chunk: 
+    collapse: true
 execute: 
   message: false
   warning: false
 editor_options: 
   chunk_output_type: console
+toc: true
+toc-title: Table des matières
 ---
 
 # Utiliser *GGplot2* pour faire et superposer des graphiques{#ggplo2}
@@ -16,7 +23,16 @@ editor_options:
 }
 </style>
 
-
+| Shortcode                                          | Icon                                      |
+| -------------------------------------------------- | ----------------------------------------- |
+| `{{{< fa thumbs-up >}}}`                           | {{< fa thumbs-up >}}                      |
+| `{{{< fa folder >}}}`                              | {{< fa folder >}}                         |
+| `{{{< fa chess-pawn >}}}`                          | {{< fa chess-pawn >}}                     |
+| `{{{< fa brands bluetooth >}}}`                    | {{< fa brands bluetooth >}}               |
+| `{{{< fa brands twitter size=2xl >}}}` (HTML only) | {{< fa brands twitter size=2xl >}}        |
+| `{{{< fa brands github size=5x >}}}` (HTML only)   | {{< fa brands github size=5x >}}          |
+| `{{{< fa battery-half size=Huge >}}}`              | {{< fa battery-half size=Huge >}}         |
+| `{{{< fa envelope title="An envelope" >}}}`        | {{< fa envelope title="An envelope" >}}   |
 
 
 
@@ -25,41 +41,17 @@ Le but de la visualisation de données étant de représenter graphiquement des 
 Avec le langage de base (package `graphics` notamment), il est possible de faire des graphiques évolués, mais avec beaucoup de paramétrages *à la main*. Pour cela on va commencer par s'intéresser au jeu de données `mtcars`.
 
 
-```r
-head(mtcars)
+```{r}
+head(iris)
 ```
 
-```
-##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-```
 
-```r
+```{r}
 # ?mtcars ou help(mtcars)
 str(mtcars)
 ```
 
-```
-## 'data.frame':	32 obs. of  11 variables:
-##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
-##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
-##  $ disp: num  160 160 108 258 360 ...
-##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
-##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
-##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
-##  $ qsec: num  16.5 17 18.6 19.4 17 ...
-##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
-##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
-##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
-##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
-```
-
-```r
+```{r}
 plot(mtcars$hp,mtcars$mpg)
 ```
 
@@ -101,7 +93,7 @@ text(outliers_mpg$hp, outliers_mpg$mpg, row.names(outliers_mpg), pos = 4, cex = 
 ```
   
 <center>![ ](pics/images/Consommation en fonction de la puissance.png)</center>  
-
+<br>
 
 
 - La fonction `par()` permet de modifier les paramètres graphiques, tel que :
@@ -144,7 +136,6 @@ text(outliers_mpg$hp, outliers_mpg$mpg, row.names(outliers_mpg), pos = 4, cex = 
 
 L'utilisateur souhaite réaliser des graphiques (nuages de points, histogrammes, densité...) et les personnaliser (légendes, titres, échelles...).
 
-::: {.recommandation data-latex=""}
 Il est recommandé d'utiliser le package ggplot2 qui permet de réaliser et de personnaliser un grand nombre de représentations graphiques;
 Il est conseillé aux utilisateurs débutants d'utiliser l'add-in esquisse pour se familiariser avec ggplot2.
 
@@ -216,12 +207,12 @@ Par ailleurs, la fonction `aes()` admet d'autres arguments qui permettent de mod
 
 Attribut   |Description
 -----------------|------------------------------------
-**`color`**| Couleur des lignes ou des points
-**`shape`**| Forme des points
-**`size`**| Taille des points
-**`alpha`**| Transparence des points
-**`fill`**| Couleur des surfaces
-**`linetype`**| Type de ligne (continue, pointillée, ...)
+*`color`*| *Couleur des lignes ou des points*
+*`shape`*| *Forme des points*
+*`size`*| *Taille des points*
+*`alpha`*| *Transparence des points*
+*`fill`*| *Couleur des surfaces*
+*`linetype`*| *Type de ligne (continue, pointillée, ...)*
 
 
 Dans l'exemple qui suit, on représente pour chaque iris le taux de chômage (sur l'axe `y`) en fonction du niveau de vie médian (sur l'axe `x`), en colorant les points en fonction de la part des cadres et professions intellectuelles supérieures parmi les actifs de l'iris (`color = part_cadres`).
