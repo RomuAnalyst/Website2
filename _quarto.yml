@@ -21,9 +21,13 @@ website:
     title: "<span class='icon-line'></span>RomuAnalyst👨🏾‍💻<span class='icon-line'></span>"
     right:
       - text: R
-        href: R et Posit.qmd
-      - text: Posts
-        href: test2.qmd
+        menu: 
+          - text: "{{< fa brands r-project >}} et Posit"
+            href: R et Posit.qmd
+          - text: "ggplot2"
+            href: test2.qmd
+      - text: Articles
+        href: blog.qmd
       - text: Rendu élèves
         href: blog.qmd
       - text: packages
