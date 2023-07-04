@@ -13,7 +13,7 @@ toc: true
 toc-title: Table des matières
 ---
 
-# Utiliser *ggplot2* pour faire et superposer des graphiques{#ggplo2}
+# `ggplot2`, créer et superposer des graphiques{#ggplo2}
 
 
 

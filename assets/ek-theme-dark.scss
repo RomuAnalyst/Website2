@@ -22,13 +22,11 @@ $theme: "litera" !default;
  */
 
 @font-face {
-  font-family: 'LEMONMILKPro-Regular';
-  src: local('LEMONMILKPro-Regular'), url('fonts/LEMONMILKPro-Regular.woff2') format('woff2'), url('fonts/LEMONMILKPro-Regular.woff') format('woff');
+  font-family: 'Times New Roman';
 }
 
 @font-face {
-  font-family: 'LEMONMILKPro-Light';
-  src: local('LEMONMILKPro-Light'), url('fonts/LEMONMILKPro-Light.woff2') format('woff2'), url('fonts/LEMONMILKPro-Light.woff') format('woff');
+  font-family: 'Times New Roman';
 }
 
 /*!
@@ -41,21 +39,19 @@ $theme: "litera" !default;
   */
 
 @font-face {
-  font-family: 'MonoLisa-Regular';
-  src: local('MonoLisa-Regular'), url('fonts/MonoLisa-Regular.woff2') format('woff2'), url('fonts/MonoLisa-Regular.woff') format('woff');
+  font-family: 'Times New Roman';
 }
 
 @font-face {
-  font-family: 'MonoLisa-RegularItalic';
-  src: local('MonoLisa-RegularItalic'), url('fonts/MonoLisa-RegularItalic.woff2') format('woff2'), url('fonts/MonoLisa-RegularItalic.woff') format('woff');
+  font-family: 'Times New Roman';
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@300;400;500;600;700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@300;400;500;600;700&display=swap');
 
 // fonts
-$font-family-sans-serif: "LEMONMILKPro-Light", Helvetica, sans-serif !default;
-$font-family-monospace: "MonoLisa-Regular", monospace;
-$headings-font-family: "LEMONMILKPro-Regular", Helvetica, sans-serif !default;
+$font-family-sans-serif: "Times New Roman", Helvetica, sans-serif !default;
+$font-family-monospace: "Times New Roman", monospace;
+$headings-font-family: "Times New Roman", Helvetica, sans-serif !default;
 
 // litera bootswatch theme colors
 /*
@@ -152,7 +148,7 @@ code {
 }
 
 code span.co {
-  font-family: "MonoLisa-RegularItalic", "Fira Mono", monospace;
+  font-family: "Times New Roman", "Fira Mono", monospace;
 }
 
 h1 code {
@@ -247,7 +243,7 @@ div.tippy-content a:hover {
 
 // navbar
 .navbar-title {
-  font-size: $font-size-base * 1.75;
+  font-size: $font-size-base * 1.50;
 }
 
 // the line in the navbar logo

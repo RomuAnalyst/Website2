@@ -22,12 +22,12 @@ $theme: "litera" !default;
 */
 
 @font-face {
-  font-family: 'Comic Sans MS';
+  font-family: 'Times New Roman';
 
 }
 
 @font-face {
-  font-family: 'Comic Sans MS';
+  font-family: 'Times New Roman';
 
 }
 
@@ -41,21 +41,21 @@ $theme: "litera" !default;
   */
 
 @font-face {
-  font-family: 'Comic Sans MS';
+  font-family: 'Times New Roman';
 }
 
 @font-face {
-  font-family: 'Comic Sans MS';
+  font-family: 'Times New Roman';
 
 }
 
 // @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
 
 // fonts
-$font-family-sans-serif: 'Comic Sans MS', Helvetica, sans-serif !default;
+$font-family-sans-serif: 'Times New Roman', Helvetica, sans-serif !default;
 //$font-family-sans-serif: "ABCSocialExtendedEdu-Regular", Helvetica, sans-serif !default;
-$font-family-monospace: 'Comic Sans MS', monospace;
-$headings-font-family: 'Comic Sans MS', Helvetica, sans-serif !default;
+$font-family-monospace: 'Times New Roman', monospace;
+$headings-font-family: 'Times New Roman', Helvetica, sans-serif !default;
 
 
 // litera bootswatch theme colors
@@ -141,7 +141,7 @@ $navbar-fg: $body-color;
 $code-bg: $gray-200;
 $code-color: $second-color;
 $card-bg: $body-bg;
-$card-border-color: $gray-300;
+$card-border-color: $light;
 
 // font size and OpenType tweaks - adjust to make Fira Mono same size as Lemon Milk Light
 
@@ -158,7 +158,7 @@ code {
 }
 
 code span.co {
-  font-family: "MonoLisa-RegularItalic", "Fira Mono", monospace;
+  font-family: "Times New Roman", "Fira Mono", monospace;
 }
 
 h1 code {
