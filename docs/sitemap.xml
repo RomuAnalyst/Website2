@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/index.html</loc>
-    <lastmod>2023-07-04T18:57:07.484Z</lastmod>
+    <lastmod>2023-07-05T23:25:57.367Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/R et Posit.html</loc>
@@ -15,5 +15,9 @@
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/test2.html</loc>
     <lastmod>2023-07-04T18:57:45.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/About.html</loc>
+    <lastmod>2023-07-05T23:21:00.921Z</lastmod>
   </url>
 </urlset>

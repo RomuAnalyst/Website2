@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "RomuAnalyst",
     "section": "",
-    "text": "Cours d’introduction à  et Posit (faire une liste avec le nom des cours en lien. Ces liens reverront vers le cours en question)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nDescription\n\n\n\n\n\n\n01/01/23\n\n\n et Posit\n\n\n\n\n\n\n\n01/01/23\n\n\n et Posit\n\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nDescription\n\n\n\n\n\n\n01/01/23\n\n\n et Posit\n\n\n\n\n\n\n\n01/01/23\n\n\n et Posit\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "R et Posit.html",
@@ -103,5 +103,33 @@
     "title": "R et son environnement",
     "section": "",
     "text": "Le logiciel R est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) R : cran.r-project.org.\nR est un langage interprété (comme Python) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :\n\n\nprint('Hello world!')\n\n[1] \"Hello world!\"\n\nPour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est .R mais on pourrait tout aussi bien les écrire dans un .txt.\nPour simplifier l’utilisation de R, il est nécessaire d’avoir une interface graphique (appelée aussi GUI pour Graphic User Interfaces). Celle offerte par R est très simpliste et beaucoup préfèrent utiliser RStudio (www.rstudio.com) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage."
+  },
+  {
+    "objectID": "About.html",
+    "href": "About.html",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n\n  \n  \nRomuanalyst aime apprendre et faire profiter de son savoir. Quand il ne travaille pas sur ses activitées professionnelles ou personnelles, son hobby est le basket .\n\n\nDU1 Dataviz | IUT2 Paris Rives-de-Seine | 2022\nLicence Data Mining | IUT Paris Rives-de-Seine | 2022\nDUT3 STID4 | IUT Paris Rives-de-Seine | 2022\n\n\n\nChargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R  IUT Paris Rives-de-Seine | depuis septembre 2022\n\n\n\n\n\nPour des informations plus complètes, vous pouvez me contacter en utilisant les liens ci dessus."
+  },
+  {
+    "objectID": "About.html#derniers-diplômes",
+    "href": "About.html#derniers-diplômes",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "DU1 Dataviz | IUT2 Paris Rives-de-Seine | 2022\nLicence Data Mining | IUT Paris Rives-de-Seine | 2022\nDUT3 STID4 | IUT Paris Rives-de-Seine | 2022"
+  },
+  {
+    "objectID": "About.html#experiences-actuelles",
+    "href": "About.html#experiences-actuelles",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "Chargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R  IUT Paris Rives-de-Seine | depuis septembre 2022"
+  },
+  {
+    "objectID": "About.html#footnotes",
+    "href": "About.html#footnotes",
+    "title": "Romuald ZAMI",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎"
   }
 ]
