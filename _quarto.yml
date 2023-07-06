@@ -33,7 +33,7 @@ website:
       - text: packages
         href: packages.qmd
       - text: community
-        href: https://github.com/marvinschmitt
+        href: community.qmd
       - text: Bio
         href: About.qmd
       #- icon: github
@@ -72,6 +72,6 @@ format:
       light: assets/ek-light.theme
       dark: assets/ek-dark.theme
     smooth-scroll: true
-    
+    link-external-newwindow: true
 editor: source
 
