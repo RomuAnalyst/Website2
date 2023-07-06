@@ -34,8 +34,8 @@ website:
         href: packages.qmd
       - text: community
         href: community.qmd
-      - text: contact
-        href: contact.qmd
+      - text: Bio
+        href: About.qmd
       #- icon: github
       #  href: https://github.com/EllaKaye
       #- icon: twitter
@@ -72,7 +72,6 @@ format:
       light: assets/ek-light.theme
       dark: assets/ek-dark.theme
     smooth-scroll: true
-    link-external-newwindow: true
     
 editor: source
 
