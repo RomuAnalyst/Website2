@@ -33,7 +33,7 @@ website:
       - text: packages
         href: packages.qmd
       - text: community
-        href: community.qmd
+        href: https://github.com/marvinschmitt
       - text: Bio
         href: About.qmd
       #- icon: github
