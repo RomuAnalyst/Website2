@@ -13,5 +13,11 @@
   },
   "About.qmd": {
     "About.html": "c733f5e4"
+  },
+  "ia.qmd": {
+    "ia.html": "96c3dfc3"
+  },
+  "posts/testing-syntax-highlighting/index.qmd": {
+    "index.html": "9d095f78"
   }
 }

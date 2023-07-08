@@ -131,5 +131,54 @@
     "title": "Romuald ZAMI",
     "section": "Notes de bas de page",
     "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎"
+  },
+  {
+    "objectID": "About.html#fa-regular-diploma-derniers-diplômes",
+    "href": "About.html#fa-regular-diploma-derniers-diplômes",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "DU1 Dataviz | IUT2 Paris Rives-de-Seine | 2022\nLicence Data Mining | IUT Paris Rives-de-Seine | 2022\nDUT3 STID4 | IUT Paris Rives-de-Seine | 2022"
+  },
+  {
+    "objectID": "ia.html#syntaxe-des-fonctions",
+    "href": "ia.html#syntaxe-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Syntaxe des fonctions",
+    "text": "Syntaxe des fonctions\nLa syntaxe générale d’une fonction en R est la suivante :\n\nnom_de_la_fonction &lt;- function(paramètres) {\n  # Corps de la fonction\n  # Instructions à exécuter\n  # ...\n  # Retourner une valeur si nécessaire\n  return(valeur)\n}\n\nUne fonction commence par le mot-clé function suivi du nom de la fonction, puis des paramètres entre parenthèses. Le corps de la fonction est entouré par des accolades {} et contient les instructions à exécuter. Une fonction peut également retourner une valeur à l’aide du mot-clé return."
+  },
+  {
+    "objectID": "ia.html#utilisation-des-fonctions",
+    "href": "ia.html#utilisation-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Utilisation des fonctions",
+    "text": "Utilisation des fonctions\nPour utiliser une fonction, vous devez l’appeler en utilisant son nom suivi des arguments entre parenthèses. Les arguments sont les valeurs que vous fournissez à la fonction pour qu’elle effectue ses opérations. Voici un exemple d’utilisation d’une fonction intégrée à R :\n\n# Utilisation de la fonction mean() pour calculer la moyenne\nvaleurs &lt;- c(5, 10, 15, 20)\nmoyenne &lt;- mean(valeurs)\nprint(moyenne)\n## [1] 12.5\n\nDans cet exemple, nous utilisons la fonction mean() pour calculer la moyenne des valeurs stockées dans le vecteur valeurs. Le résultat est stocké dans la variable moyenne et ensuite affiché à l’aide de la fonction print()."
+  },
+  {
+    "objectID": "ia.html#paramètres-des-fonctions",
+    "href": "ia.html#paramètres-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Paramètres des fonctions",
+    "text": "Paramètres des fonctions\nLes fonctions peuvent accepter des paramètres, également appelés arguments, qui sont des valeurs fournies à la fonction lors de son appel. Les paramètres permettent de personnaliser le comportement d’une fonction en lui fournissant des données spécifiques à traiter. Par exemple, la fonction mean() accepte un paramètre na.rm qui spécifie si les valeurs manquantes doivent être ignorées lors du calcul de la moyenne. Voici un exemple d’utilisation de ce paramètre :\n\nvaleurs &lt;- c(5, 10, NA, 20)\nmoyenne &lt;- mean(valeurs, na.rm = TRUE)\nprint(moyenne)\n## [1] 11.66667\n\nDans cet exemple, la valeur NA représente une valeur manquante. En spécifiant na.rm = TRUE, nous demandons à la fonction mean() d’ignorer les valeurs manquantes lors du calcul de la moyenne."
+  },
+  {
+    "objectID": "ia.html#retour-de-valeurs-des-fonctions",
+    "href": "ia.html#retour-de-valeurs-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Retour de valeurs des fonctions",
+    "text": "Retour de valeurs des fonctions\nLes fonctions peuvent également retourner des valeurs qui peuvent être utilisées plus tard dans le code. Pour cela, nous utilisons le mot-clé return suivi de la valeur que nous souhaitons renvoyer. Voici un exemple :\n\n# Fonction pour calculer le carré d'un nombre\ncarre &lt;- function(x) {\n  resultat &lt;- x^2\n  return(resultat)\n}\n\n# Utilisation de la fonction carre()\nnombre &lt;- 5\nres &lt;- carre(nombre)\nprint(res)\n## [1] 25\n\nDans cet exemple, nous avons défini une fonction carre() qui prend un argument x et calcule le carré de ce nombre. La valeur carrée est stockée dans la variable resultat, puis renvoyée à l’aide de return(). Lorsque nous appelons la fonction carre() avec le nombre 5, le résultat est stocké dans la variable res et ensuite affiché à l’aide de print()."
+  },
+  {
+    "objectID": "ia.html#exemples-dutilisation-de-fonctions-avec-des-datasets-intégrés-à-r",
+    "href": "ia.html#exemples-dutilisation-de-fonctions-avec-des-datasets-intégrés-à-r",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Exemples d’utilisation de fonctions avec des datasets intégrés à R",
+    "text": "Exemples d’utilisation de fonctions avec des datasets intégrés à R\nMaintenant, explorons des exemples concrets d’utilisation de fonctions avec des datasets intégrés à R pour illustrer leur utilité dans l’analyse de données.\n\nExemple 1 : Analyse du dataset iris\nLe dataset “iris” contient des informations sur les mesures des sépales et des pétales de différentes espèces de fleurs. Supposons que nous voulons calculer la moyenne des longueurs des pétales pour chaque espèce de fleur. Voici comment nous pouvons le faire en utilisant une fonction :\n\n# Chargement du dataset iris\ndata(iris)\n\n# Définition de la fonction pour calculer la moyenne des longueurs de pétales par espèce\ncalculer_moyenne_petales &lt;- function(espece) {\n  donnees_espece &lt;- subset(iris, Species == espece)\n  moyenne &lt;- mean(donnees_espece$Petal.Length)\n  return(moyenne)\n}\n\n# Utilisation de la fonction pour calculer la moyenne des longueurs de pétales pour chaque espèce\nespeces &lt;- unique(iris$Species)\nfor (espece in especes) {\n  moyenne &lt;- calculer_moyenne_petales(espece)\n  print(paste(\"Moyenne des longueurs de pétales pour\", espece, \":\", moyenne))\n}\n## [1] \"Moyenne des longueurs de pétales pour setosa : 1.462\"\n## [1] \"Moyenne des longueurs de pétales pour versicolor : 4.26\"\n## [1] \"Moyenne des longueurs de pétales pour virginica : 5.552\"\n\nDans cet exemple, nous avons défini une fonction calculer_moyenne_petales() qui prend le nom d’une espèce de fleur comme argument. La fonction filtre les données pour cette espèce, calcule la moyenne des longueurs de pétales et la renvoie. Ensuite, nous utilisons une boucle for pour itérer sur les différentes espèces du dataset “iris” et calculer la moyenne des longueurs de pétales pour chaque espèce.\n\n\nExemple 2 : Analyse du dataset mtcars\nLe dataset “mtcars” contient des informations sur différentes voitures. Supposons que nous voulons déterminer la consommation d’essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux. Voici comment nous pouvons le faire en utilisant une fonction :\n\n# Chargement du dataset mtcars\ndata(mtcars)\n\n# Définition de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux\ncalculer_consommation_moyenne &lt;- function(puissance_min) {\n  donnees_filtree &lt;- subset(mtcars, hp &gt; puissance_min)\n  consommation_moyenne &lt;- mean(donnees_filtree$mpg)\n  return(consommation_moyenne)\n}\n\n# Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux\npuissance_min &lt;- 150\nconsommation &lt;- calculer_consommation_moyenne(puissance_min)\nprint(paste(\"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à\", puissance_min, \"chevaux :\", consommation))\n## [1] \"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.4153846153846\"\n\nDans cet exemple, nous avons défini une fonction calculer_consommation_moyenne() qui prend une puissance minimale en argument. La fonction filtre les données pour ne conserver que les voitures avec une puissance supérieure à la valeur donnée, calcule la consommation d’essence moyenne et la renvoie. Ensuite, nous utilisons la fonction print() pour afficher le résultat."
+  },
+  {
+    "objectID": "ia.html",
+    "href": "ia.html",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "",
+    "text": "Les fonctions sont l’un des éléments fondamentaux du langage de programmation R. Elles jouent un rôle clé dans l’organisation et la réutilisation du code, permettant aux programmeurs d’écrire des blocs de code autonomes qui peuvent être appelés et exécutés à plusieurs reprises. Dans cet article, nous explorerons les bases des fonctions dans R, leur syntaxe, leurs paramètres et leurs retours de valeur, ainsi que leur utilisation pratique avec des exemples concrets utilisant les datasets intégrés à R. Les fonctions sont un élément essentiel de R et permettent d’organiser et de réutiliser le code de manière efficace. Elles offrent une grande flexibilité et peuvent être adaptées à différents scénarios d’analyse de données. En comprenant les bases des fonctions, leur syntaxe, leurs paramètres et leurs retours de valeur, vous pourrez tirer pleinement parti de la puissance de R dans vos projets d’analyse de données."
   }
 ]

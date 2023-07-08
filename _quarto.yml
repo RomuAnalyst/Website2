@@ -26,6 +26,8 @@ website:
             href: R et Posit.qmd
           - text: "ggplot2"
             href: test2.qmd
+          - text: "les fonctions"
+            href: ia.qmd  
       - text: Articles
         href: blog.qmd
       - text: Rendu élèves
