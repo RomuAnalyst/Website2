@@ -1,12 +1,10 @@
 ---
 page-layout: full
 title-block-banner: false
-knitr:
-  opts_chunk: 
-    collapse: true
 execute: 
   message: false
   warning: false
+  output: true
 editor_options: 
   chunk_output_type: console
 toc: true

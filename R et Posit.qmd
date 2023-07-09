@@ -8,6 +8,7 @@ categories:
 execute: 
   message: false
   warning: false
+  output: true
 reference-location: margin
 editor_options: 
   chunk_output_type: console

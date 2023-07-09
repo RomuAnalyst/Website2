@@ -1,12 +1,15 @@
 ---
 title: "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions"
-format: html
-knitr:
-  opts_chunk: 
-    collapse: true
+execute: 
+  message: false
+  warning: false
+  output: true
+editor_options: 
+  chunk_output_type: console
 page-layout: full
 toc: true
 toc-title: Tables des matières
+  
 ---
 
 ---
@@ -48,6 +51,7 @@ Dans cet exemple, nous utilisons la fonction `mean()` pour calculer la moyenne d
 Les fonctions peuvent accepter des paramètres, également appelés arguments, qui sont des valeurs fournies à la fonction lors de son appel. Les paramètres permettent de personnaliser le comportement d'une fonction en lui fournissant des données spécifiques à traiter. Par exemple, la fonction `mean()` accepte un paramètre `na.rm` qui spécifie si les valeurs manquantes doivent être ignorées lors du calcul de la moyenne. Voici un exemple d'utilisation de ce paramètre :
 
 ```{r}
+#| output: true
 valeurs <- c(5, 10, NA, 20)
 moyenne <- mean(valeurs, na.rm = TRUE)
 print(moyenne)

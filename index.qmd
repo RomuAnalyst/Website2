@@ -43,7 +43,7 @@ output-directory : docs
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
 <p class="card-text">Cours d'introduction à {{< fa brands r-project >}} et Posit (ex-Rstudio)</p>
-<div style="margin-top: auto;"><a href="ia.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+<div style="margin-top: auto;"><a href="test2.qmd" class="card-link third-color-link heading-font">Cours</a></div>
 </div>
 </div>
 :::

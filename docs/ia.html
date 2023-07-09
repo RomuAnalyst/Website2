@@ -249,8 +249,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction mean() pour calculer la moyenne</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>valeurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(valeurs)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(moyenne)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12.5</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(moyenne)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.5</code></pre>
+</div>
 </div>
 <p>Dans cet exemple, nous utilisons la fonction <code>mean()</code> pour calculer la moyenne des valeurs stockées dans le vecteur <code>valeurs</code>. Le résultat est stocké dans la variable <code>moyenne</code> et ensuite affiché à l’aide de la fonction <code>print()</code>.</p>
 </section>
@@ -258,10 +260,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="paramètres-des-fonctions">Paramètres des fonctions</h2>
 <p>Les fonctions peuvent accepter des paramètres, également appelés arguments, qui sont des valeurs fournies à la fonction lors de son appel. Les paramètres permettent de personnaliser le comportement d’une fonction en lui fournissant des données spécifiques à traiter. Par exemple, la fonction <code>mean()</code> accepte un paramètre <code>na.rm</code> qui spécifie si les valeurs manquantes doivent être ignorées lors du calcul de la moyenne. Voici un exemple d’utilisation de ce paramètre :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>valeurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">20</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(valeurs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(moyenne)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 11.66667</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>valeurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">20</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(valeurs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(moyenne)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.66667</code></pre>
+</div>
 </div>
 <p>Dans cet exemple, la valeur <code>NA</code> représente une valeur manquante. En spécifiant <code>na.rm = TRUE</code>, nous demandons à la fonction <code>mean()</code> d’ignorer les valeurs manquantes lors du calcul de la moyenne.</p>
 </section>
@@ -269,17 +273,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="retour-de-valeurs-des-fonctions">Retour de valeurs des fonctions</h2>
 <p>Les fonctions peuvent également retourner des valeurs qui peuvent être utilisées plus tard dans le code. Pour cela, nous utilisons le mot-clé <code>return</code> suivi de la valeur que nous souhaitons renvoyer. Voici un exemple :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour calculer le carré d'un nombre</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>carre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  resultat <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction carre()</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">carre</span>(nombre)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 25</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour calculer le carré d'un nombre</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>carre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  resultat <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction carre()</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">carre</span>(nombre)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25</code></pre>
+</div>
 </div>
 <p>Dans cet exemple, nous avons défini une fonction <code>carre()</code> qui prend un argument <code>x</code> et calcule le carré de ce nombre. La valeur carrée est stockée dans la variable <code>resultat</code>, puis renvoyée à l’aide de <code>return()</code>. Lorsque nous appelons la fonction <code>carre()</code> avec le nombre <code>5</code>, le résultat est stocké dans la variable <code>res</code> et ensuite affiché à l’aide de <code>print()</code>.</p>
 </section>
@@ -290,25 +296,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="exemple-1-analyse-du-dataset-iris">Exemple 1 : Analyse du dataset iris</h3>
 <p>Le dataset “iris” contient des informations sur les mesures des sépales et des pétales de différentes espèces de fleurs. Supposons que nous voulons calculer la moyenne des longueurs des pétales pour chaque espèce de fleur. Voici comment nous pouvons le faire en utilisant une fonction :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement du dataset iris</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la fonction pour calculer la moyenne des longueurs de pétales par espèce</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>calculer_moyenne_petales <span class="ot">&lt;-</span> <span class="cf">function</span>(espece) {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  donnees_espece <span class="ot">&lt;-</span> <span class="fu">subset</span>(iris, Species <span class="sc">==</span> espece)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees_espece<span class="sc">$</span>Petal.Length)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(moyenne)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction pour calculer la moyenne des longueurs de pétales pour chaque espèce</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(iris<span class="sc">$</span>Species)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (espece <span class="cf">in</span> especes) {</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  moyenne <span class="ot">&lt;-</span> <span class="fu">calculer_moyenne_petales</span>(espece)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Moyenne des longueurs de pétales pour"</span>, espece, <span class="st">":"</span>, moyenne))</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Moyenne des longueurs de pétales pour setosa : 1.462"</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Moyenne des longueurs de pétales pour versicolor : 4.26"</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Moyenne des longueurs de pétales pour virginica : 5.552"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement du dataset iris</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la fonction pour calculer la moyenne des longueurs de pétales par espèce</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>calculer_moyenne_petales <span class="ot">&lt;-</span> <span class="cf">function</span>(espece) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  donnees_espece <span class="ot">&lt;-</span> <span class="fu">subset</span>(iris, Species <span class="sc">==</span> espece)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees_espece<span class="sc">$</span>Petal.Length)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(moyenne)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction pour calculer la moyenne des longueurs de pétales pour chaque espèce</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (espece <span class="cf">in</span> especes) {</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  moyenne <span class="ot">&lt;-</span> <span class="fu">calculer_moyenne_petales</span>(espece)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Moyenne des longueurs de pétales pour"</span>, espece, <span class="st">":"</span>, moyenne))</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Moyenne des longueurs de pétales pour setosa : 1.462"
+[1] "Moyenne des longueurs de pétales pour versicolor : 4.26"
+[1] "Moyenne des longueurs de pétales pour virginica : 5.552"</code></pre>
+</div>
 </div>
 <p>Dans cet exemple, nous avons défini une fonction <code>calculer_moyenne_petales()</code> qui prend le nom d’une espèce de fleur comme argument. La fonction filtre les données pour cette espèce, calcule la moyenne des longueurs de pétales et la renvoie. Ensuite, nous utilisons une boucle <code>for</code> pour itérer sur les différentes espèces du dataset “iris” et calculer la moyenne des longueurs de pétales pour chaque espèce.</p>
 </section>
@@ -316,21 +324,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="exemple-2-analyse-du-dataset-mtcars">Exemple 2 : Analyse du dataset mtcars</h3>
 <p>Le dataset “mtcars” contient des informations sur différentes voitures. Supposons que nous voulons déterminer la consommation d’essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux. Voici comment nous pouvons le faire en utilisant une fonction :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement du dataset mtcars</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>calculer_consommation_moyenne <span class="ot">&lt;-</span> <span class="cf">function</span>(puissance_min) {</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  donnees_filtree <span class="ot">&lt;-</span> <span class="fu">subset</span>(mtcars, hp <span class="sc">&gt;</span> puissance_min)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  consommation_moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees_filtree<span class="sc">$</span>mpg)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(consommation_moyenne)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>puissance_min <span class="ot">&lt;-</span> <span class="dv">150</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>consommation <span class="ot">&lt;-</span> <span class="fu">calculer_consommation_moyenne</span>(puissance_min)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à"</span>, puissance_min, <span class="st">"chevaux :"</span>, consommation))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.4153846153846"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement du dataset mtcars</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>calculer_consommation_moyenne <span class="ot">&lt;-</span> <span class="cf">function</span>(puissance_min) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  donnees_filtree <span class="ot">&lt;-</span> <span class="fu">subset</span>(mtcars, hp <span class="sc">&gt;</span> puissance_min)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  consommation_moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees_filtree<span class="sc">$</span>mpg)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(consommation_moyenne)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>puissance_min <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>consommation <span class="ot">&lt;-</span> <span class="fu">calculer_consommation_moyenne</span>(puissance_min)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à"</span>, puissance_min, <span class="st">"chevaux :"</span>, consommation))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.4153846153846"</code></pre>
+</div>
 </div>
 <p>Dans cet exemple, nous avons défini une fonction <code>calculer_consommation_moyenne()</code> qui prend une puissance minimale en argument. La fonction filtre les données pour ne conserver que les voitures avec une puissance supérieure à la valeur donnée, calcule la consommation d’essence moyenne et la renvoie. Ensuite, nous utilisons la fonction <code>print()</code> pour afficher le résultat.</p>
 <hr>
