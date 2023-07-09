@@ -20,13 +20,11 @@ about:
       href: "mailto:titi.minet971@gmail.com"
 ---
 
-### Eléments récents de mon parcours
-
 ---------------------------------------------------
 
 :::{#hero-heading}
 
-`Romuanalyst` aime apprendre et faire profiter de son savoir. Quand il ne travaille pas sur ses activitées professionnelles ou personnelles, son hobby est le basket {{< fa solid basketball >}}.
+`Romuanalyst` manifeste un intérêt marqué pour l'apprentissage et le partage de ses connaissances. En dehors de ses engagements professionnels et personnels, il consacre son temps libre au basket{{< fa solid basketball >}}, un loisir qui lui tient à cœur.
 
 ## Derniers diplômes :
 
@@ -49,6 +47,5 @@ about:
 **Intervenant sur les cours de programmation R** <br> _IUT Paris Rives-de-Seine | depuis septembre 2022_
 
 :::
-
 ---------------------------------------------------
 Pour des informations plus complètes, vous pouvez me contacter en utilisant les liens ci dessus.
