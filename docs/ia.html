@@ -203,6 +203,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exemple-1-analyse-du-dataset-iris" id="toc-exemple-1-analyse-du-dataset-iris" class="nav-link" data-scroll-target="#exemple-1-analyse-du-dataset-iris">Exemple 1 : Analyse du dataset iris</a></li>
   <li><a href="#exemple-2-analyse-du-dataset-mtcars" id="toc-exemple-2-analyse-du-dataset-mtcars" class="nav-link" data-scroll-target="#exemple-2-analyse-du-dataset-mtcars">Exemple 2 : Analyse du dataset mtcars</a></li>
   </ul></li>
+  <li><a href="#arguments-par-défaut" id="toc-arguments-par-défaut" class="nav-link" data-scroll-target="#arguments-par-défaut">Arguments par défaut</a></li>
+  <li><a href="#fonctions-anonymes-lambda" id="toc-fonctions-anonymes-lambda" class="nav-link" data-scroll-target="#fonctions-anonymes-lambda">Fonctions anonymes (lambda)</a></li>
+  <li><a href="#portée-des-variables" id="toc-portée-des-variables" class="nav-link" data-scroll-target="#portée-des-variables">Portée des variables</a></li>
+  <li><a href="#fonctions-récursives" id="toc-fonctions-récursives" class="nav-link" data-scroll-target="#fonctions-récursives">Fonctions récursives</a></li>
   </ul>
 </nav>
     </div>
@@ -310,12 +314,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(iris<span class="sc">$</span>Species)</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (espece <span class="cf">in</span> especes) {</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  moyenne <span class="ot">&lt;-</span> <span class="fu">calculer_moyenne_petales</span>(espece)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Moyenne des longueurs de pétales pour"</span>, espece, <span class="st">":"</span>, moyenne))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Moyenne des longueurs de pétales pour"</span>, espece, <span class="st">":"</span>, <span class="fu">round</span>(moyenne,<span class="dv">2</span>)))</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Moyenne des longueurs de pétales pour setosa : 1.462"
+<pre><code>[1] "Moyenne des longueurs de pétales pour setosa : 1.46"
 [1] "Moyenne des longueurs de pétales pour versicolor : 4.26"
-[1] "Moyenne des longueurs de pétales pour virginica : 5.552"</code></pre>
+[1] "Moyenne des longueurs de pétales pour virginica : 5.55"</code></pre>
 </div>
 </div>
 <p>Dans cet exemple, nous avons défini une fonction <code>calculer_moyenne_petales()</code> qui prend le nom d’une espèce de fleur comme argument. La fonction filtre les données pour cette espèce, calcule la moyenne des longueurs de pétales et la renvoie. Ensuite, nous utilisons une boucle <code>for</code> pour itérer sur les différentes espèces du dataset “iris” et calculer la moyenne des longueurs de pétales pour chaque espèce.</p>
@@ -337,16 +341,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>puissance_min <span class="ot">&lt;-</span> <span class="dv">150</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>consommation <span class="ot">&lt;-</span> <span class="fu">calculer_consommation_moyenne</span>(puissance_min)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à"</span>, puissance_min, <span class="st">"chevaux :"</span>, consommation))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à"</span>, puissance_min, <span class="st">"chevaux :"</span>, <span class="fu">round</span>(consommation,<span class="dv">2</span>)))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.4153846153846"</code></pre>
+<pre><code>[1] "Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.42"</code></pre>
 </div>
 </div>
 <p>Dans cet exemple, nous avons défini une fonction <code>calculer_consommation_moyenne()</code> qui prend une puissance minimale en argument. La fonction filtre les données pour ne conserver que les voitures avec une puissance supérieure à la valeur donnée, calcule la consommation d’essence moyenne et la renvoie. Ensuite, nous utilisons la fonction <code>print()</code> pour afficher le résultat.</p>
+</section>
+</section>
+<section id="arguments-par-défaut" class="level2">
+<h2 class="anchored" data-anchor-id="arguments-par-défaut">Arguments par défaut</h2>
+<p>Les fonctions en R peuvent avoir des arguments par défaut, ce qui signifie que si vous ne fournissez pas de valeur pour un argument donné lors de l’appel de la fonction, elle utilisera sa valeur par défaut prédéfinie. Voici un exemple :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la fonction avec un argument par défaut</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dire_bonjour <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">nom =</span> <span class="st">"Anonyme"</span>) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Bonjour"</span>, nom, <span class="st">"!"</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Appels de la fonction avec et sans spécification de l'argument</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dire_bonjour</span>()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dire_bonjour</span>(<span class="st">"Alice"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans cet exemple, la fonction dire_bonjour() est définie avec un argument nom qui a une valeur par défaut de “Anonyme”. Lorsque nous appelons la fonction sans spécifier d’argument, elle utilise la valeur par défaut et affiche “Bonjour Anonyme !”. Lorsque nous l’appelons avec l’argument “Alice”, la fonction utilise cette valeur spécifique et affiche “Bonjour Alice !”.</p>
+</section>
+<section id="fonctions-anonymes-lambda" class="level2">
+<h2 class="anchored" data-anchor-id="fonctions-anonymes-lambda">Fonctions anonymes (lambda)</h2>
+<p>En plus des fonctions nommées, R prend également en charge les fonctions anonymes, également appelées fonctions lambda. Les fonctions anonymes sont des fonctions sans nom qui peuvent être utilisées de manière concise dans certaines situations. Voici un exemple d’utilisation d’une fonction anonyme avec la fonction sapply() :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation d'une fonction anonyme avec sapply()</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>valeurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">sapply</span>(valeurs, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultats)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+</div>
+<p>Dans cet exemple, nous utilisons la fonction sapply() pour appliquer une fonction anonyme à chaque élément du vecteur valeurs. La fonction anonyme calcule le carré de chaque valeur, et sapply() renvoie un vecteur contenant les carrés correspondants.</p>
+</section>
+<section id="portée-des-variables" class="level2">
+<h2 class="anchored" data-anchor-id="portée-des-variables">Portée des variables</h2>
+<p>Lorsque vous travaillez avec des fonctions en R, il est important de comprendre la portée des variables. Les variables définies à l’intérieur d’une fonction sont généralement locales à cette fonction, ce qui signifie qu’elles ne sont pas accessibles en dehors de la fonction. Cependant, vous pouvez également accéder aux variables définies à l’extérieur d’une fonction à l’intérieur de celle-ci. Voici un exemple :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable globale</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>nom <span class="ot">&lt;-</span> <span class="st">"Alice"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction utilisant une variable globale et une variable locale</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>dire_bonjour <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Variable locale</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Bonjour"</span>, nom, <span class="st">"! Tu as"</span>, age, <span class="st">"ans."</span>))</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Appel de la fonction</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dire_bonjour</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans cet exemple, nous avons une variable globale nom définie en dehors de la fonction dire_bonjour(), et une variable locale age définie à l’intérieur de la fonction. La fonction utilise à la fois la variable globale nom et la variable locale age pour afficher un message personnalisé.</p>
+</section>
+<section id="fonctions-récursives" class="level2">
+<h2 class="anchored" data-anchor-id="fonctions-récursives">Fonctions récursives</h2>
+<p>Les fonctions récursives sont des fonctions qui s’appellent elles-mêmes à l’intérieur de leur corps. Elles sont utiles lorsque vous avez besoin de résoudre des problèmes qui peuvent être décomposés en problèmes plus petits du même type. Voici un exemple de fonction récursive pour calculer le factoriel d’un nombre :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction récursive pour calculer le factoriel</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>calculer_factoriel <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> n <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">1</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n <span class="sc">*</span> <span class="fu">calculer_factoriel</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Appel de la fonction pour calculer le factoriel de 5</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">calculer_factoriel</span>(<span class="dv">5</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+</div>
+<p>Dans cet exemple, la fonction calculer_factoriel() vérifie si le nombre n est égal à 0 ou 1. Si c’est le cas, elle renvoie 1. Sinon, elle appelle récursivement la fonction elle-même avec n - 1 et multiplie le résultat par n.&nbsp;Ainsi, elle calcule le factoriel du nombre donné.</p>
+<p>Les fonctions en R offrent une flexibilité et une puissance considérables pour organiser, réutiliser et automatiser le code. En comprenant les différents aspects des fonctions, vous pouvez créer des codes plus modulaires et plus efficaces.</p>
 <hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

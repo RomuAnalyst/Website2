@@ -101,7 +101,7 @@ calculer_moyenne_petales <- function(espece) {
 especes <- unique(iris$Species)
 for (espece in especes) {
   moyenne <- calculer_moyenne_petales(espece)
-  print(paste("Moyenne des longueurs de pétales pour", espece, ":", moyenne))
+  print(paste("Moyenne des longueurs de pétales pour", espece, ":", round(moyenne,2)))
 }
 ```
 
@@ -125,9 +125,83 @@ calculer_consommation_moyenne <- function(puissance_min) {
 # Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux
 puissance_min <- 150
 consommation <- calculer_consommation_moyenne(puissance_min)
-print(paste("Consommation d'essence moyenne pour les voitures avec une puissance supérieure à", puissance_min, "chevaux :", consommation))
+print(paste("Consommation d'essence moyenne pour les voitures avec une puissance supérieure à", puissance_min, "chevaux :", round(consommation,2)))
 ```
 
 Dans cet exemple, nous avons défini une fonction `calculer_consommation_moyenne()` qui prend une puissance minimale en argument. La fonction filtre les données pour ne conserver que les voitures avec une puissance supérieure à la valeur donnée, calcule la consommation d'essence moyenne et la renvoie. Ensuite, nous utilisons la fonction `print()` pour afficher le résultat.
+
+## Arguments par défaut
+Les fonctions en R peuvent avoir des arguments par défaut, ce qui signifie que si vous ne fournissez pas de valeur pour un argument donné lors de l'appel de la fonction, elle utilisera sa valeur par défaut prédéfinie. Voici un exemple :
+
+
+```{r}
+
+# Définition de la fonction avec un argument par défaut
+dire_bonjour <- function(nom = "Anonyme") {
+  message(paste("Bonjour", nom, "!"))
+}
+
+# Appels de la fonction avec et sans spécification de l'argument
+dire_bonjour()
+dire_bonjour("Alice")
+
+```
+Dans cet exemple, la fonction dire_bonjour() est définie avec un argument nom qui a une valeur par défaut de "Anonyme". Lorsque nous appelons la fonction sans spécifier d'argument, elle utilise la valeur par défaut et affiche "Bonjour Anonyme !". Lorsque nous l'appelons avec l'argument "Alice", la fonction utilise cette valeur spécifique et affiche "Bonjour Alice !".
+
+## Fonctions anonymes (lambda)
+
+En plus des fonctions nommées, R prend également en charge les fonctions anonymes, également appelées fonctions lambda. Les fonctions anonymes sont des fonctions sans nom qui peuvent être utilisées de manière concise dans certaines situations. Voici un exemple d'utilisation d'une fonction anonyme avec la fonction sapply() :
+
+
+```{r}
+# Utilisation d'une fonction anonyme avec sapply()
+valeurs <- c(1, 2, 3, 4, 5)
+resultats <- sapply(valeurs, function(x) x^2)
+print(resultats)
+
+```
+
+Dans cet exemple, nous utilisons la fonction sapply() pour appliquer une fonction anonyme à chaque élément du vecteur valeurs. La fonction anonyme calcule le carré de chaque valeur, et sapply() renvoie un vecteur contenant les carrés correspondants.
+
+## Portée des variables
+Lorsque vous travaillez avec des fonctions en R, il est important de comprendre la portée des variables. Les variables définies à l'intérieur d'une fonction sont généralement locales à cette fonction, ce qui signifie qu'elles ne sont pas accessibles en dehors de la fonction. Cependant, vous pouvez également accéder aux variables définies à l'extérieur d'une fonction à l'intérieur de celle-ci. Voici un exemple :
+
+```{r}
+# Variable globale
+nom <- "Alice"
+
+# Fonction utilisant une variable globale et une variable locale
+dire_bonjour <- function() {
+  # Variable locale
+  age <- 30
+  message(paste("Bonjour", nom, "! Tu as", age, "ans."))
+}
+
+# Appel de la fonction
+dire_bonjour()
+```
+Dans cet exemple, nous avons une variable globale nom définie en dehors de la fonction dire_bonjour(), et une variable locale age définie à l'intérieur de la fonction. La fonction utilise à la fois la variable globale nom et la variable locale age pour afficher un message personnalisé.
+
+## Fonctions récursives
+Les fonctions récursives sont des fonctions qui s'appellent elles-mêmes à l'intérieur de leur corps. Elles sont utiles lorsque vous avez besoin de résoudre des problèmes qui peuvent être décomposés en problèmes plus petits du même type. Voici un exemple de fonction récursive pour calculer le factoriel d'un nombre :
+
+
+```{r}
+# Fonction récursive pour calculer le factoriel
+calculer_factoriel <- function(n) {
+  if (n == 0 || n == 1) {
+    return(1)
+  } else {
+    return(n * calculer_factoriel(n - 1))
+  }
+}
+
+# Appel de la fonction pour calculer le factoriel de 5
+resultat <- calculer_factoriel(5)
+print(resultat)
+```
+Dans cet exemple, la fonction calculer_factoriel() vérifie si le nombre n est égal à 0 ou 1. Si c'est le cas, elle renvoie 1. Sinon, elle appelle récursivement la fonction elle-même avec n - 1 et multiplie le résultat par n. Ainsi, elle calcule le factoriel du nombre donné.
+
+Les fonctions en R offrent une flexibilité et une puissance considérables pour organiser, réutiliser et automatiser le code. En comprenant les différents aspects des fonctions,  vous pouvez créer des codes plus modulaires et plus efficaces.
 
 ---

@@ -27,7 +27,9 @@ website:
           - text: "ggplot2"
             href: test2.qmd
           - text: "les fonctions"
-            href: ia.qmd  
+            href: ia.qmd
+          - text: "les boucles"
+            href: ia2.qmd  
       - text: Articles
         href: blog.qmd
       - text: Rendu élèves
