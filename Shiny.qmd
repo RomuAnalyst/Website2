@@ -1,0 +1,156 @@
+---
+title: "Shiny : Création d'applications web interactives en R"
+execute: 
+  message: false
+  warning: false
+  output: true
+editor_options: 
+  chunk_output_type: console
+page-layout: full
+toc: true
+toc-title: Tables des matières
+  
+---
+
+## Applications Web et tableaux de bord
+
+* **R Shiny** : librairie gratuite développée par R Studio, permettant le développement d'applications Web avec R.  
+
+* **shinydashboard** : développement aisé de tableaux de bord Web.
+
+* Structure basée sur Admin LTE ([exemple](https://adminlte.io/themes/AdminLTE/index2.html)).
+
+* **Fonctionnement général** :
+    + créer un répertoire dédié à l'application,
+    + dans ce répertoire, créer un fichier **app.R** (toujours ce nom) dans lequel seront chargées les librairies *shiny* et *shinydashboard*,
+    + le format *shiny* est reconnu par R Studio, qui propose des boutons dédiés,
+    + une fois le fichier **app.R** sauvegardé, le compiler avec le bouton *Run App* ou *Reload App*.
+
+## Bases de programmation
+
+Le squelette du fichier *app.R* doit contenir les lignes suivantes :
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui = 
+server = function(input, output) {}
+shinyApp(ui = ui, server = server)
+
+```
+
+avec 
+
+* **ui** (*user interface*) : contient tous les éléments visibles par l'utilisateur (inputs = entrées et ouputs = sorties),   
+
+* **server** (*serveur*) : contient tous les éléments de calcul des *sorties* à partir des *entrées* renseignées par l'utilisateur.
+
+* **Remarque** : possibilité de faire 3 fichiers *app.R*, *ui.R* et *server.R*.
+
+## Tableaux de bord
+
+Page (*Page*) de tableau de bord avec *shinydashboard* composée
+
+* d'un bandeau (*Header*),
+* d'une barre de menu verticale (*Sidebar*),
+* d'un corps principal (*Body*), qui contient le rendu souhaité.
+```{r, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+
+ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(),
+    title = "Titre dans le navigateur",
+    skin = "yellow"
+  )
+```
+
+# Structure d'une application Shiny
+
+Une application Shiny est composée de deux parties principales : le fichier `ui.R` (pour l'interface utilisateur) et le fichier `server.R` (pour le serveur). L'interface utilisateur définit la structure et l'apparence de l'application, tandis que le serveur gère les calculs et les interactions avec les utilisateurs.
+
+Voici un exemple de structure d'une application Shiny :
+
+```{r ui1, eval = FALSE}
+# Fichier ui.R
+library(shiny)
+
+ui <- fluidPage(
+  # Définition de l'interface utilisateur
+  # Composants de l'application (graphiques, boutons, etc.)
+)
+
+```
+
+```{r server1, eval = FALSE}
+# Fichier server.R
+server <- function(input, output) {
+  # Code du serveur
+  # Calculs, manipulations de données, interactions avec l'utilisateur
+}
+
+# Lancement de l'application
+shinyApp(ui = ui, server = server)
+```
+
+Dans le fichier `ui.R`, vous définissez l'interface utilisateur en utilisant des fonctions Shiny telles que `fluidPage()`, et vous placez les composants de l'application à l'intérieur. Le fichier `server.R` contient le code du serveur, où vous effectuez des calculs, manipulez les données et gérez les interactions avec les utilisateurs. Enfin, la fonction `shinyApp()` est utilisée pour lancer l'application Shiny en spécifiant les fichiers `ui` et `server`.
+
+# Composants de l'interface utilisateur
+
+L'interface utilisateur Shiny est basée sur des composants interactifs tels que des graphiques, des boutons, des listes déroulantes, des champs de saisie, etc. Vous pouvez utiliser une variété de fonctions Shiny pour créer ces composants et les placer dans la structure de l'interface utilisateur. Voici quelques exemples :
+
+```{r ui2, eval = FALSE}
+# Exemple de composants de l'interface utilisateur
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("Mon application Shiny"),
+
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("variable", "Variable :", choices = c("A", "B", "C")),
+      sliderInput("n", "Nombre :", min = 1, max = 10, value = 5)
+    ),
+
+    mainPanel(
+      plotOutput("graphique")
+    )
+  )
+)
+```
+
+# Interactions et réactivité
+
+L'une des fonctionnalités les plus puissantes de Shiny est la réactivité, qui permet à l'application de répondre en temps réel aux actions de l'utilisateur. Par exemple, vous pouvez modifier un graphique lorsque l'utilisateur sélectionne une option dans une liste déroulante ou ajuste un curseur. Voici un exemple :
+
+```{r server2, eval = FALSE}
+# Exemple d'interaction et de réactivité
+library(shiny)
+
+server <- function(input, output) {
+  output$graphique <- renderPlot({
+    # Code pour générer un graphique basé sur les entrées de l'utilisateur
+    variable <- input$variable
+    n <- input$n
+    # ...
+    # Génération du graphique en utilisant les valeurs sélectionnées
+    # ...
+  })
+}
+```
+
+# Personnalisation avancée
+
+Shiny offre une grande flexibilité pour personnaliser l'apparence et le comportement des applications. Vous pouvez utiliser des fonctions supplémentaires pour ajuster les styles, les mises en page, les thèmes, les effets de transition, etc. Par exemple, la fonction `theme()` permet de personnaliser le thème global de l'application, et la fonction `conditionalPanel()` permet de modifier dynamiquement l'affichage des composants en fonction de certaines conditions.
+
+# Déploiement des applications Shiny
+
+Une fois que vous avez créé votre application Shiny, vous pouvez la déployer pour qu'elle soit accessible aux utilisateurs. RStudio propose une plateforme en ligne appelée "shinyapps.io" qui permet de déployer facilement des applications Shiny sur le web. De plus, vous pouvez également déployer vos applications sur des serveurs Shiny privés ou les intégrer à d'autres environnements web.
+
+---
+
+Shiny est un outil puissant pour créer des applications web interactives en R. Avec sa structure simple, ses composants interactifs, sa réactivité et sa personnalisation avancée, vous pouvez créer des applications web dynamiques pour partager et présenter vos analyses de données et vos modèles. Utilisez les exemples fournis ici comme point de départ et explorez davantage Shiny pour créer des applications web riches et interactives en utilisant le langage R.
+
+J'espère que cet article vous a fourni une introduction claire à Shiny. Continuez à explorer et à expérimenter pour créer vos propres applications web interactives avec R et Shiny !

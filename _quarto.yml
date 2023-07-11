@@ -29,7 +29,9 @@ website:
           - text: "les fonctions"
             href: ia.qmd
           - text: "les boucles"
-            href: ia2.qmd  
+            href: ia2.qmd
+          - text: "Shiny"
+            href: Shiny.qmd 
       - text: Articles
         href: blog.qmd
       - text: Rendu élèves

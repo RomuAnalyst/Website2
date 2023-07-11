@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RomuAnalyst - Les boucles dans R : Comprendre et utiliser la puissance des boucles</title>
+<title>RomuAnalyst - Shiny : Création d’applications web interactives en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="assets/ek-styles.css">
-<meta property="og:title" content="RomuAnalyst - Les boucles dans R : Comprendre et utiliser la puissance des boucles">
+<meta property="og:title" content="RomuAnalyst - Shiny : Création d’applications web interactives en R">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://romuanalyst.github.io/RomuAnalyst_website/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
@@ -202,10 +202,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tables des matières</h2>
    
   <ul>
-  <li><a href="#boucle-for" id="toc-boucle-for" class="nav-link active" data-scroll-target="#boucle-for">Boucle “for”</a></li>
-  <li><a href="#boucle-while" id="toc-boucle-while" class="nav-link" data-scroll-target="#boucle-while">Boucle “while”</a></li>
-  <li><a href="#contrôle-de-boucle" id="toc-contrôle-de-boucle" class="nav-link" data-scroll-target="#contrôle-de-boucle">Contrôle de boucle</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#applications-web-et-tableaux-de-bord" id="toc-applications-web-et-tableaux-de-bord" class="nav-link active" data-scroll-target="#applications-web-et-tableaux-de-bord">Applications Web et tableaux de bord</a></li>
+  <li><a href="#bases-de-programmation" id="toc-bases-de-programmation" class="nav-link" data-scroll-target="#bases-de-programmation">Bases de programmation</a></li>
+  <li><a href="#tableaux-de-bord" id="toc-tableaux-de-bord" class="nav-link" data-scroll-target="#tableaux-de-bord">Tableaux de bord</a></li>
+  <li><a href="#structure-dune-application-shiny" id="toc-structure-dune-application-shiny" class="nav-link" data-scroll-target="#structure-dune-application-shiny">Structure d’une application Shiny</a></li>
+  <li><a href="#composants-de-linterface-utilisateur" id="toc-composants-de-linterface-utilisateur" class="nav-link" data-scroll-target="#composants-de-linterface-utilisateur">Composants de l’interface utilisateur</a></li>
+  <li><a href="#interactions-et-réactivité" id="toc-interactions-et-réactivité" class="nav-link" data-scroll-target="#interactions-et-réactivité">Interactions et réactivité</a></li>
+  <li><a href="#personnalisation-avancée" id="toc-personnalisation-avancée" class="nav-link" data-scroll-target="#personnalisation-avancée">Personnalisation avancée</a></li>
+  <li><a href="#déploiement-des-applications-shiny" id="toc-déploiement-des-applications-shiny" class="nav-link" data-scroll-target="#déploiement-des-applications-shiny">Déploiement des applications Shiny</a></li>
   </ul>
 </nav>
     </div>
@@ -214,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les boucles dans R : Comprendre et utiliser la puissance des boucles</h1>
+<h1 class="title">Shiny : Création d’applications web interactives en R</h1>
 </div>
 
 
@@ -229,80 +233,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Il existe principalement deux types de boucles en R : la boucle “for” et la boucle “while”. Explorons-les plus en détail.</p>
-<section id="boucle-for" class="level2">
-<h2 class="anchored" data-anchor-id="boucle-for">Boucle “for”</h2>
-<p>La boucle “for” est utilisée lorsque vous connaissez à l’avance le nombre de répétitions que vous souhaitez effectuer. La syntaxe générale de la boucle “for” en R est la suivante :</p>
-<pre><code>for (variable in sequence) {
-  # Instructions à exécuter
-}</code></pre>
-<p>Explorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “for”. Voici comment nous pouvons le faire en R :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5</code></pre>
-</div>
-</div>
-<p>Dans cette boucle, nous utilisons la variable “i” pour parcourir la séquence de nombres de 1 à 5 à l’aide de l’expression “1:5”. À chaque itération de la boucle, la valeur de “i” est mise à jour pour correspondre au nombre actuel de la séquence. À l’intérieur du bloc de la boucle, nous utilisons la fonction “print()” pour afficher la valeur de “i”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.</p>
-<p>Vous pouvez également utiliser la fonction “seq()” pour créer une séquence personnalisée à utiliser dans une boucle “for”. Par exemple, si vous souhaitez afficher les nombres de 0 à 10 avec un pas de 2, vous pouvez utiliser la syntaxe suivante :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0
-[1] 2
-[1] 4
-[1] 6
-[1] 8
-[1] 10</code></pre>
-</div>
-</div>
-<p>Dans cet exemple, la fonction “seq(0, 10, 2)” génère une séquence de nombres commençant par 0, se terminant par 10, et avec un pas de 2. Les nombres 0, 2, 4, 6, 8 et 10 seront affichés à l’écran.</p>
-</section>
-<section id="boucle-while" class="level2">
-<h2 class="anchored" data-anchor-id="boucle-while">Boucle “while”</h2>
-<p>La boucle “while” est utilisée lorsque vous ne connaissez pas à l’avance le nombre de répétitions que vous souhaitez effectuer. La boucle continuera à s’exécuter tant que la condition spécifiée est vraie. La syntaxe générale de la boucle “while” en R est la suivante :</p>
-<pre><code>while (condition) {
-  # Instructions à exécuter
-}</code></pre>
-<p>Explorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “while”. Voici comment nous pouvons le faire en R :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5</code></pre>
-</div>
-</div>
-<p>Dans cette boucle, nous utilisons une variable “i” pour garder une trace du nombre actuel que nous souhaitons afficher. La boucle continue à s’exécuter tant que “i” est inférieur ou égal à 5. À chaque itération, nous affichons la valeur de “i” à l’aide de la fonction “print()”, puis nous augmentons la valeur de “i” de 1 à l’aide de l’expression “i &lt;- i + 1”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.</p>
-<p>Il est important de s’assurer que la condition dans une boucle “while” finira par devenir fausse à un moment donné, sinon la boucle s’exécutera indéfiniment, entraînant une boucle infinie.</p>
-</section>
-<section id="contrôle-de-boucle" class="level2">
-<h2 class="anchored" data-anchor-id="contrôle-de-boucle">Contrôle de boucle</h2>
-<p>Dans les boucles en R, vous pouvez utiliser des instructions spéciales pour contrôler le flux d’exécution à l’intérieur de la boucle. Voici quelques-unes des instructions couramment utilisées :</p>
+<section id="applications-web-et-tableaux-de-bord" class="level2">
+<h2 class="anchored" data-anchor-id="applications-web-et-tableaux-de-bord">Applications Web et tableaux de bord</h2>
 <ul>
-<li>L’instruction “break” est utilisée pour arrêter immédiatement l’exécution de la boucle et sortir de celle-ci.</li>
-<li>L’instruction “next” est utilisée pour passer à l’itération suivante de la boucle, en ignorant les instructions restantes dans le bloc de la boucle pour cette itération spécifique.</li>
-<li>L’instruction “return” est utilisée pour renvoyer une valeur et sortir de la fonction si la boucle est utilisée à l’intérieur d’une fonction.</li>
+<li><p><strong>R Shiny</strong> : librairie gratuite développée par R Studio, permettant le développement d’applications Web avec R.</p></li>
+<li><p><strong>shinydashboard</strong> : développement aisé de tableaux de bord Web.</p></li>
+<li><p>Structure basée sur Admin LTE (<a href="https://adminlte.io/themes/AdminLTE/index2.html">exemple</a>).</p></li>
+<li><p><strong>Fonctionnement général</strong> :</p>
+<ul>
+<li>créer un répertoire dédié à l’application,</li>
+<li>dans ce répertoire, créer un fichier <strong>app.R</strong> (toujours ce nom) dans lequel seront chargées les librairies <em>shiny</em> et <em>shinydashboard</em>,</li>
+<li>le format <em>shiny</em> est reconnu par R Studio, qui propose des boutons dédiés,</li>
+<li>une fois le fichier <strong>app.R</strong> sauvegardé, le compiler avec le bouton <em>Run App</em> ou <em>Reload App</em>.</li>
+</ul></li>
 </ul>
-<p>Ces instructions vous permettent d’ajuster le comportement de votre boucle en fonction de conditions ou de critères spécifiques.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Les boucles sont des outils puissants en langage R qui permettent de répéter un bloc de code plusieurs fois. Les boucles “for” sont utilisées lorsque vous connaissez le nombre de répétitions à l’avance, tandis que les boucles “while” sont utilisées lorsque vous ne le connaissez pas à l’avance. Assurez-vous de bien contrôler vos boucles en utilisant les instructions “break”, “next” et “return” si nécessaire. Les boucles sont essentielles pour automatiser des tâches répétitives et rendre votre code plus efficace.</p>
+<section id="bases-de-programmation" class="level2">
+<h2 class="anchored" data-anchor-id="bases-de-programmation">Bases de programmation</h2>
+<p>Le squelette du fichier <em>app.R</em> doit contenir les lignes suivantes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">=</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>server <span class="ot">=</span> <span class="cf">function</span>(input, output) {}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>avec</p>
+<ul>
+<li><p><strong>ui</strong> (<em>user interface</em>) : contient tous les éléments visibles par l’utilisateur (inputs = entrées et ouputs = sorties),</p></li>
+<li><p><strong>server</strong> (<em>serveur</em>) : contient tous les éléments de calcul des <em>sorties</em> à partir des <em>entrées</em> renseignées par l’utilisateur.</p></li>
+<li><p><strong>Remarque</strong> : possibilité de faire 3 fichiers <em>app.R</em>, <em>ui.R</em> et <em>server.R</em>.</p></li>
+</ul>
+</section>
+<section id="tableaux-de-bord" class="level2">
+<h2 class="anchored" data-anchor-id="tableaux-de-bord">Tableaux de bord</h2>
+<p>Page (<em>Page</em>) de tableau de bord avec <em>shinydashboard</em> composée</p>
+<ul>
+<li>d’un bandeau (<em>Header</em>),</li>
+<li>d’une barre de menu verticale (<em>Sidebar</em>),</li>
+<li>d’un corps principal (<em>Body</em>), qui contient le rendu souhaité.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">=</span> <span class="fu">dashboardPage</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dashboardHeader</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dashboardSidebar</span>(),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dashboardBody</span>(),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Titre dans le navigateur"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">skin =</span> <span class="st">"yellow"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="structure-dune-application-shiny" class="level1">
+<h1>Structure d’une application Shiny</h1>
+<p>Une application Shiny est composée de deux parties principales : le fichier <code>ui.R</code> (pour l’interface utilisateur) et le fichier <code>server.R</code> (pour le serveur). L’interface utilisateur définit la structure et l’apparence de l’application, tandis que le serveur gère les calculs et les interactions avec les utilisateurs.</p>
+<p>Voici un exemple de structure d’une application Shiny :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fichier ui.R</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Définition de l'interface utilisateur</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Composants de l'application (graphiques, boutons, etc.)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fichier server.R</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Code du serveur</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculs, manipulations de données, interactions avec l'utilisateur</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lancement de l'application</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans le fichier <code>ui.R</code>, vous définissez l’interface utilisateur en utilisant des fonctions Shiny telles que <code>fluidPage()</code>, et vous placez les composants de l’application à l’intérieur. Le fichier <code>server.R</code> contient le code du serveur, où vous effectuez des calculs, manipulez les données et gérez les interactions avec les utilisateurs. Enfin, la fonction <code>shinyApp()</code> est utilisée pour lancer l’application Shiny en spécifiant les fichiers <code>ui</code> et <code>server</code>.</p>
+</section>
+<section id="composants-de-linterface-utilisateur" class="level1">
+<h1>Composants de l’interface utilisateur</h1>
+<p>L’interface utilisateur Shiny est basée sur des composants interactifs tels que des graphiques, des boutons, des listes déroulantes, des champs de saisie, etc. Vous pouvez utiliser une variété de fonctions Shiny pour créer ces composants et les placer dans la structure de l’interface utilisateur. Voici quelques exemples :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de composants de l'interface utilisateur</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Mon application Shiny"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"variable"</span>, <span class="st">"Variable :"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>)),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="st">"n"</span>, <span class="st">"Nombre :"</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="dv">5</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"graphique"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interactions-et-réactivité" class="level1">
+<h1>Interactions et réactivité</h1>
+<p>L’une des fonctionnalités les plus puissantes de Shiny est la réactivité, qui permet à l’application de répondre en temps réel aux actions de l’utilisateur. Par exemple, vous pouvez modifier un graphique lorsque l’utilisateur sélectionne une option dans une liste déroulante ou ajuste un curseur. Voici un exemple :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'interaction et de réactivité</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>graphique <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code pour générer un graphique basé sur les entrées de l'utilisateur</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    variable <span class="ot">&lt;-</span> input<span class="sc">$</span>variable</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> input<span class="sc">$</span>n</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Génération du graphique en utilisant les valeurs sélectionnées</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="personnalisation-avancée" class="level1">
+<h1>Personnalisation avancée</h1>
+<p>Shiny offre une grande flexibilité pour personnaliser l’apparence et le comportement des applications. Vous pouvez utiliser des fonctions supplémentaires pour ajuster les styles, les mises en page, les thèmes, les effets de transition, etc. Par exemple, la fonction <code>theme()</code> permet de personnaliser le thème global de l’application, et la fonction <code>conditionalPanel()</code> permet de modifier dynamiquement l’affichage des composants en fonction de certaines conditions.</p>
+</section>
+<section id="déploiement-des-applications-shiny" class="level1">
+<h1>Déploiement des applications Shiny</h1>
+<p>Une fois que vous avez créé votre application Shiny, vous pouvez la déployer pour qu’elle soit accessible aux utilisateurs. RStudio propose une plateforme en ligne appelée “shinyapps.io” qui permet de déployer facilement des applications Shiny sur le web. De plus, vous pouvez également déployer vos applications sur des serveurs Shiny privés ou les intégrer à d’autres environnements web.</p>
+<hr>
+<p>Shiny est un outil puissant pour créer des applications web interactives en R. Avec sa structure simple, ses composants interactifs, sa réactivité et sa personnalisation avancée, vous pouvez créer des applications web dynamiques pour partager et présenter vos analyses de données et vos modèles. Utilisez les exemples fournis ici comme point de départ et explorez davantage Shiny pour créer des applications web riches et interactives en utilisant le langage R.</p>
+<p>J’espère que cet article vous a fourni une introduction claire à Shiny. Continuez à explorer et à expérimenter pour créer vos propres applications web interactives avec R et Shiny !</p>
 
 
 </section>

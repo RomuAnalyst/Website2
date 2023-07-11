@@ -243,5 +243,341 @@
     "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
     "section": "Conclusion",
     "text": "Conclusion\nLes boucles sont des outils puissants en langage R qui permettent de répéter un bloc de code plusieurs fois. Les boucles “for” sont utilisées lorsque vous connaissez le nombre de répétitions à l’avance, tandis que les boucles “while” sont utilisées lorsque vous ne le connaissez pas à l’avance. Assurez-vous de bien contrôler vos boucles en utilisant les instructions “break”, “next” et “return” si nécessaire. Les boucles sont essentielles pour automatiser des tâches répétitives et rendre votre code plus efficace."
+  },
+  {
+    "objectID": "Shiny.html",
+    "href": "Shiny.html",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "",
+    "text": "R Shiny : librairie gratuite développée par R Studio, permettant le développement d’applications Web avec R.\nshinydashboard : développement aisé de tableaux de bord Web.\nStructure basée sur Admin LTE (exemple).\nFonctionnement général :\n\ncréer un répertoire dédié à l’application,\ndans ce répertoire, créer un fichier app.R (toujours ce nom) dans lequel seront chargées les librairies shiny et shinydashboard,\nle format shiny est reconnu par R Studio, qui propose des boutons dédiés,\nune fois le fichier app.R sauvegardé, le compiler avec le bouton Run App ou Reload App."
+  },
+  {
+    "objectID": "Shiny.html#applications-web-et-tableaux-de-bord",
+    "href": "Shiny.html#applications-web-et-tableaux-de-bord",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "",
+    "text": "R Shiny : librairie gratuite développée par R Studio, permettant le développement d’applications Web avec R.\nshinydashboard : développement aisé de tableaux de bord Web.\nStructure basée sur Admin LTE (exemple).\nFonctionnement général :\n\ncréer un répertoire dédié à l’application,\ndans ce répertoire, créer un fichier app.R (toujours ce nom) dans lequel seront chargées les librairies shiny et shinydashboard,\nle format shiny est reconnu par R Studio, qui propose des boutons dédiés,\nune fois le fichier app.R sauvegardé, le compiler avec le bouton Run App ou Reload App."
+  },
+  {
+    "objectID": "Shiny.html#bases-de-programmation",
+    "href": "Shiny.html#bases-de-programmation",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "Bases de programmation",
+    "text": "Bases de programmation\nLe squelette du fichier app.R doit contenir les lignes suivantes :\n\nlibrary(shiny)\n\nui = \nserver = function(input, output) {}\nshinyApp(ui = ui, server = server)\n\navec\n\nui (user interface) : contient tous les éléments visibles par l’utilisateur (inputs = entrées et ouputs = sorties),\nserver (serveur) : contient tous les éléments de calcul des sorties à partir des entrées renseignées par l’utilisateur.\nRemarque : possibilité de faire 3 fichiers app.R, ui.R et server.R."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-de-bord",
+    "href": "Shiny.html#tableaux-de-bord",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "Tableaux de bord",
+    "text": "Tableaux de bord\nPage (Page) de tableau de bord avec shinydashboard composée\n\nd’un bandeau (Header),\nd’une barre de menu verticale (Sidebar),\nd’un corps principal (Body), qui contient le rendu souhaité.\n\n\nlibrary(shiny)\nlibrary(shinydashboard)\n\nui = dashboardPage(\n    dashboardHeader(),\n    dashboardSidebar(),\n    dashboardBody(),\n    title = \"Titre dans le navigateur\",\n    skin = \"yellow\"\n  )"
+  },
+  {
+    "objectID": "Shiny.html#titre",
+    "href": "Shiny.html#titre",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Titre",
+    "text": "Titre\nTitre affiché sur la gauche du bandeau :\n\ndashboardHeader(\n      title = \"Ventes immobilières au Texas\",\n      titleWidth = 300\n    )\n\noù titlewidth règle la taille du texte."
+  },
+  {
+    "objectID": "Shiny.html#construction-de-lapplication",
+    "href": "Shiny.html#construction-de-lapplication",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Construction de l’application",
+    "text": "Construction de l’application\n\nQuelques fonctions utiles pour l’affichage (ui)\n\ntextOutput()\ntableOutput()\nplotOutput()\nimageOutput()\n\nQuelques fonctions utiles pour les calculs (server) : pour retourner différents types d’objets (graphiques, tableaux,textes, etc…).\n\nrenderText()\nrenderTable()\nrenderPlot()\nrenderImage()\n\nRemarque : les fonctions de types render necessitent parenthèses et accolades (renderText({}))"
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output",
+    "text": "Exemple : création d’une page dynamique avec 1 output\nInsertion d’un curseur dans la barre de menu :\n\ndashboardSidebar(\n  # Input : nombre de classes ----\n  sliderInput(\"bins\",\n              label = \"Nombre de classes :\",\n              min = 1,\n              max = 50,\n              value = 30)\n    )\n\noù bins définit le nom de la valeur d’entrée indiquée par le curseur."
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-2",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output (2)",
+    "text": "Exemple : création d’une page dynamique avec 1 output (2)\nRendu d’un histogramme dans le corps principal :\n\ndashboardBody(\n        # Output: histogramme ----\n        plotOutput(\"distPlot\")\n    )\n\noù distPlot définit le nom de la sortie à afficher, qui sera calculée dans la fonction server."
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-3",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output (3)",
+    "text": "Exemple : création d’une page dynamique avec 1 output (3)\n\nCharger la librairie ggplot2 au début du fichier app.R.\nCalcul de la sortie nommée displot dans le server :\n\n\nserver = function(input, output) {\n  output$distPlot = renderPlot({\n    ggplot(txhousing, aes(sales))+\n      geom_histogram(aes(y=..density..),\n                     bins=input$bins,\n                     colour = \"white\",\n                     fill = \"steelblue\"\n      )+\n      labs(x = \"Nombre de ventes\", \n           y = \"Densite\", \n           title = \"Histogramme du nombre de ventes\"\n      )+\n      theme_light()\n  })\n}"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-1-avec-shiny-shinydashboard-et-ggplot2",
+    "href": "Shiny.html#tp-exercice-1-avec-shiny-shinydashboard-et-ggplot2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 1 avec shiny, shinydashboard et ggplot2",
+    "text": "TP : Exercice 1 avec shiny, shinydashboard et ggplot2\n\nCréer un répertoire pour une application web concernant les Iris de Fisher\nCréer un fichier app.R dans ce répertoire avec les informations suivantes :\n\nui : titre, couleur, barre de menu avec une barre dynamique permettant de choisir le nombre de classes dans un histogramme, corps principal rendant l’output calculé dans server,\n\nserver : calcul et rendu avec ggplot2 de l’histogramme en densité de la longueur de Sépale, avec des bordures blanches et une couleur de remplissage bleue claire (indication : options color= et fill= dans la fonction geom_histogram())"
+  },
+  {
+    "objectID": "Shiny.html#a-faire",
+    "href": "Shiny.html#a-faire",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "A faire",
+    "text": "A faire\n\nDans le fichier app.R de l’application sur les ventes immobilières au Texas, effacer l’exemple simple.\nFaire de même dans le fichier app.R sur les Iris de Fisher."
+  },
+  {
+    "objectID": "Shiny.html#boîtes",
+    "href": "Shiny.html#boîtes",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîtes",
+    "text": "Boîtes\n\nshinydashboard : gestion des éléments du corps principal sous forme de boîtes.\n\nbox() : boîte générique, permettant notamment l’inclusion de graphiques.\ninfoBox() : boîte d’information courte, de type texte ou valeur numérique.\nvalueBox() : boîte d’information courte, de type valeur numérique.\ntabBox() : boîte tableau, avec possibilité de rendu de plusieurs panneaux (panels).\n\n\n\ndashboardBody(\n  box(),\n  infoBox(),\n  valueBox(),\n  tabBox()\n)\n\n\nGestion de l’aspect des boîtes via des options."
+  },
+  {
+    "objectID": "Shiny.html#boîte-générique",
+    "href": "Shiny.html#boîte-générique",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte générique",
+    "text": "Boîte générique\n\nExemple : affichage de l’évolution du volume des ventes immobilières au Texas entre 2000 et 2015.\nAjouter la boîte suivante dans le corps principal :\n\n\nbox(\n  title = \"Evolution du volume des ventes\",\n  footer = \"en US$\",\n  status = \"info\",\n  solidHeader = TRUE,\n  width = 8,\n  plotOutput(\"evolution\")\n  )\n\n\noù\n\ntitle donne un titre à la boîte,\nfooter met un texte en pied de page,\nstatus définit la couleur de la boîte (voir ?validStatuses),\nsolidHeader indique si le titre a une couleur de fond,\nwidth règle la taille de la boîte (de 1 à 12)."
+  },
+  {
+    "objectID": "Shiny.html#boîte-générique-2",
+    "href": "Shiny.html#boîte-générique-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte générique (2)",
+    "text": "Boîte générique (2)\n\nCalcul de l’évolution globale, à inclure au début du fichier, avant les définitions de ui et server :\n\n\nlibrary(dplyr)\nevol_globale = txhousing %&gt;%\n  group_by(year) %&gt;%\n  summarise(volume = sum(volume, na.rm = T))\n\n\nCalcul de la sortie evolution dans la fonction server :\n\n\nserver = function(input, output) {\n    output$evolution = renderPlot({\n      ggplot(evol_globale, aes(year, volume)) +\n        geom_line() +\n        theme_minimal() +\n        labs(x = \"Annee\", y = \"Volume des ventes\")\n    })\n  }"
+  },
+  {
+    "objectID": "Shiny.html#boîte-information",
+    "href": "Shiny.html#boîte-information",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte information",
+    "text": "Boîte information\n\nExemple : information sur la progression du volume des ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\ninfoBox(\n  title = \"Progression\",\n  value = textOutput(\"progression\"),\n  subtitle = \"Entre 2000 et 2015\",\n  icon = icon(\"line-chart\"),\n  fill = TRUE,\n  color = \"light-blue\",\n  width = 4\n      )\n\n\noù\n\nvalue indique la valeur à afficher, ici un élément calculé,\nsubtitle ajoute un sous-titre à la boîte,\nicon définit l’icône à afficher à gauche de la boîte,\nfill indique si le texte remplit la boîte,\ncolor définit la couleur de la boîte."
+  },
+  {
+    "objectID": "Shiny.html#boîte-information-2",
+    "href": "Shiny.html#boîte-information-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte information (2)",
+    "text": "Boîte information (2)\nCalcul de la sortie progression : ajouter la ligne de commande suivante dans la fonction server\n\noutput$progression = renderText({\n  paste(round(\n    tail(evol_globale$volume, 1) / \n      head(evol_globale$volume, 1) * \n      100\n  ),\n  \"%\")\n})"
+  },
+  {
+    "objectID": "Shiny.html#boîte-valeur",
+    "href": "Shiny.html#boîte-valeur",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte valeur",
+    "text": "Boîte valeur\n\nExemple : affichage du volume total des ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\nvalueBox(\n        value = textOutput(\"volume\"),\n        subtitle = \"Volume totale des ventes (en milliards)\",\n        icon = icon(\"usd\"),\n        color = \"green\",\n        width = 4\n      )\n\n\noù value est une valeur calculée."
+  },
+  {
+    "objectID": "Shiny.html#boîte-valeur-2",
+    "href": "Shiny.html#boîte-valeur-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte valeur (2)",
+    "text": "Boîte valeur (2)\nCalcul de la sortie volume : ajouter la ligne de commande suivante dans la fonction server\n\noutput$volume = renderText({\n      round(\n        sum(evol_globale$volume, na.rm = T) / 1e+9, 1\n        )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau",
+    "href": "Shiny.html#boîte-tableau",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau",
+    "text": "Boîte tableau\n\nExemple : affichage d’un tableau résumant les informations sur le prix médian et le nombre de ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\ntabBox(title = \"Informations\",\n        width = 4,\n        tabPanel(title = \"Prix médian\", \n          tableOutput(\"info_prix\")\n          ),\n        tabPanel(title = \"Nombre\",\n          tableOutput(\"info_nombre\")\n          )\n      )\n\n\noù tabPanel() définit un panneau, dans lequel la sortie est affichée, généralement calculée dans server sous forme de data.frame."
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau-2",
+    "href": "Shiny.html#boîte-tableau-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau (2)",
+    "text": "Boîte tableau (2)\nCalcul de la sortie info_prix : ajouter la ligne de commande suivante dans la fonction server\n\noutput$info_prix = renderTable({\n      data.frame(\n        Statistique = c(\"Minimum\", \"Médiane\", \"Maximum\"),\n        Valeur = c(\n          min(txhousing$median, na.rm = T),\n          median(txhousing$median, na.rm = T),\n          max(txhousing$median, na.rm = T)\n        )\n      )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau-3",
+    "href": "Shiny.html#boîte-tableau-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau (3)",
+    "text": "Boîte tableau (3)\nCalcul de la sortie info_nombre : ajouter la ligne de commande suivante dans la fonction server\n\noutput$info_nombre = renderTable({\n      data.frame(\n        Statistique = c(\"Minimum\", \"Médiane\", \"Maximum\"),\n        Valeur = c(\n          min(txhousing$sales, na.rm = T),\n          median(txhousing$sales, na.rm = T),\n          max(txhousing$sales, na.rm = T)\n        )\n      )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-2-avec-shiny-shinydashboard-dplyr-et-ggplot2",
+    "href": "Shiny.html#tp-exercice-2-avec-shiny-shinydashboard-dplyr-et-ggplot2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 2 avec shiny, shinydashboard, dplyr et ggplot2",
+    "text": "TP : Exercice 2 avec shiny, shinydashboard, dplyr et ggplot2\n\nReprendre l’application sur les Iris de Fisher.\nCréer une page affichant les informations suivantes :\n\nune boîte donnant les informations sur les données (nombre d’observations, nombre d’iris de chaque espèce, et toute information utile),\nune boîte donnant les informations sur les variables,\nune boîte affichant le diagramme circulaire de la distribution des espèces (voir les TPs sur la visualisation de données),\nune boîte affichant un tableau résumant les données par espèce, avec un panneau par variable.\n\nVoir ici pour une liste d’icônes.\nRappel : charger les librairies et effectuer le calcul de tout élément utile à la fonction server en début de code dans le fichier app.R."
+  },
+  {
+    "objectID": "Shiny.html#menus",
+    "href": "Shiny.html#menus",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus",
+    "text": "Menus\n\nPossibilité d’avoir plusieurs pages de tableau de bord, cliquables à partir du menu à gauche.\nSquelette de dashboardSidebar :\n\n\ndashboardSidebar(\n  sidebarMenu(\n    menuItem(\"titre\", \n             tabName = \"nom\", \n             icon = icon(\"dashboard\")\n             )\n  )\n)\n\n\noù\n\ntitre = nom apparaissant dans le menu, et icon l’icône associée,\nnom = nom donné à la page permettant d’associer le lien du menu à la page correspondante dans le corps principal."
+  },
+  {
+    "objectID": "Shiny.html#menus-2",
+    "href": "Shiny.html#menus-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (2)",
+    "text": "Menus (2)\n\nCréation d’une page par élément du menu dans le corps principal :\n\n\ndashboardBody(\n  tabItems(\n        tabItem(\n          \"nom\",\n          ...\n        )\n  )\n)\n\n\noù nom permet de faire le lien entre la page et l’élément du menu correspondant."
+  },
+  {
+    "objectID": "Shiny.html#menus-3",
+    "href": "Shiny.html#menus-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (3)",
+    "text": "Menus (3)\n\nExemple : ajout de deux liens dans le menu\n\n\ndashboardSidebar(\n      sidebarMenu(\n        menuItem(\"Vue globale\", tabName = \"vue\", \n                 icon = icon(\"dashboard\")\n                 ),\n        menuItem(\"Données\", \n                 icon = icon(\"database\"), \n                 href = \"https://www.recenter.tamu.edu/\"\n                 ),\n        menuItem(\"Liste des icônes\", \n                 icon = icon(\"font-awesome\"), \n                 href = \"http://fontawesome.io/icons/\"\n                 )\n      )\n    )"
+  },
+  {
+    "objectID": "Shiny.html#menus-4",
+    "href": "Shiny.html#menus-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (4)",
+    "text": "Menus (4)\n\nExemple : relier le lien de menu nommé vue à la page créée précédemment :\n\n\ndashboardBody(\n      tabItems(\n        tabItem(\n          \"vue\",\n          \"coller ici les boîtes\"\n        )\n        )\n      )"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-3-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-3-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 3 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 3 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nCréer un menu avec deux éléments :\n\nun élément de résumé global,\nun élément concernant la description des variables.\n\nIntégrer la page calculée précédemment dans l’élément de résumé global.\nCréer une page pour l’élément de description de la variable Sepal.Length contenant\n\nl’histogramme en densité,\nles histogrammes en densité (sur le même graphique), un par espèce d’iris,\nla distribution par espèce sous forme de boîtes à moustaches, avec les moyennes et les barres d’erreur, classées par ordre croissant de la moyenne.\n\nIndication : pour les différents graphiques, reprendre les codes des TPs sur la visualisation de données."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur",
+    "href": "Shiny.html#interaction-avec-lutilisateur",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur",
+    "text": "Interaction avec l’utilisateur\n\nPossibilité d’ajouter des boîtes, ou d’inclure dans une boîte, un choix (control widget) rentré par l’utilisateur.\nChoix géré dans l’application sous forme d’input.\nSous forme de curseur, de choix dans une liste, de rentrée d’un chiffre, etc…\nPour une liste des choix les plus communs, voir ici.\nChoix gérés par la fonction selectInput(), à intégrer dans l’ui à la place voulue (dans le menu, dans le corps principal, dans une boîte, etc…)."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-2",
+    "href": "Shiny.html#interaction-avec-lutilisateur-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (2)",
+    "text": "Interaction avec l’utilisateur (2)\n\nExemple : ajouter une boîte contenant un choix déroulant des villes dans le corps principal, sous la première boîte\n\n\nbox(\n  width = 4,\n  selectInput(\"ville\", \n              \"Ville choisie\", \n              choices = c(\n                \"Toutes les villes\", \n                unique(txhousing$city)\n                )\n              )\n          )\n\n\noù :\n\nville est le nom de l’input, qui sera repris dans la fonction server,\nVille choisie est le nom associé à la boîte."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-3",
+    "href": "Shiny.html#interaction-avec-lutilisateur-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (3)",
+    "text": "Interaction avec l’utilisateur (3)\n\nExemple : changer le calcul de la sortie evolution dans la fonction server\n\n\noutput$evolution = renderPlot({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      ggplot(evol, aes(year, volume)) +\n        geom_line() +\n        theme_minimal() +\n        labs(x = \"\", y = \"Volume des ventes\")\n    })"
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-4",
+    "href": "Shiny.html#interaction-avec-lutilisateur-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (4)",
+    "text": "Interaction avec l’utilisateur (4)\n\nExemple : changer le calcul de la sortie progression dans la fonction server\n\n\noutput$progression = renderText({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      paste(round(tail(evol$volume, 1) / \n                    head(evol$volume, 1) * 100),\n            \"%\")\n    })"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-4-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-4-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 4 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 4 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nSur la page “description”, ajouter :\n\nune boîte avec un curseur permettant de choisir le nombre de classes dans les deux histogrammes,\nune boîte permettant de choisir la variable à décrire parmi les 4 variables de mesures de Sépales et de Pétales, et rendant les mêmes graphiques que pour la variable Sepal.Length seule."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-5",
+    "href": "Shiny.html#interaction-avec-lutilisateur-5",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (5)",
+    "text": "Interaction avec l’utilisateur (5)\n\nVariable reactive() : une fois l’input choisi, permet le calcul une seule fois d’un même élément pour plusieurs output.\nExemple : ajouter la variable reactive() suivante dans la fonction server\n\n\ndonnees = reactive({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      evol\n    })"
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-6",
+    "href": "Shiny.html#interaction-avec-lutilisateur-6",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (6)",
+    "text": "Interaction avec l’utilisateur (6)\n\nExemple (suite) : dans le calcul des output, changer evol par donnees()\n\n\noutput$evolution = renderPlot({\n  ggplot(donnees(), aes(year, volume)) +\n    geom_line() +\n    theme_minimal() +\n    labs(x = \"\", y = \"Volume des ventes\")\n})\n    \noutput$progression = renderText({\n  evol = donnees()\n  paste(round(\n    tail(evol$volume, 1) /\n      head(evol$volume, 1) * 100\n      ), \n    \"%\")\n})"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-5-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-5-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 5 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 5 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nCréer une variable reactive() permettant de fixer la variable choisie sur la page “description” pour les 3 graphiques représentés.\nIndication : afin de gérer les noms de variables à la fois avec ggplot et dplyr, utiliser la fonction aes_string() dans ggplot (voir l’aide)."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée",
+    "href": "Shiny.html#tableaux-présentation-améliorée",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée",
+    "text": "Tableaux : présentation améliorée\n\nLibrairie DT :\n\ngénération de tableaux paramétrables,\nmeilleure gestion des grandes tables de données,\nprésentations plus intéressantes (et interactives).\n\nGénération du tableau avec la fonction datatable() :\n\n\ndatatable(tableau)\n\noù tableau est le tableau à afficher, de type data.frame.\n\nRendu de la sortie (output) avec la fonction renderDataTable({})\n\n\nrenderDataTable({\n    datatable(tableau)\n  })\n\n\nDocumentation consultable sur https://rstudio.github.io/DT/."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-2",
+    "href": "Shiny.html#tableaux-présentation-améliorée-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (2)",
+    "text": "Tableaux : présentation améliorée (2)\n\nExemple : ajouter la table de données dans le menu (dashboardSidebar()), associé à la page donnees\n\n\nmenuItem(\"Tableau\", tabName = \"donnees\",\n        icon = icon(\"table\")\n      )\n\n\nDéfinir la page “donnees” (dans dashboardBody())\n\n\ntabItem(\n        \"donnees\",\n        dataTableOutput(\"tableau\")\n      )\n\n\nDans la fonction server(), calculer la sortie tableau\n\n\noutput$tableau &lt;- renderDataTable({\n    datatable(txhousing)\n  })"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-3",
+    "href": "Shiny.html#tableaux-présentation-améliorée-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (3)",
+    "text": "Tableaux : présentation améliorée (3)\nQuelques options utiles de la fonction datatable() :\n\nrownames = FALSE : supprime les noms des lignes,\ncolnames = c(‘nouveau nom’ = ‘nom d’origine’, …) : change les noms des variables d’origine indiquées dans le tableau en de nouveaux noms,\ncaption = ‘titre’ : ajoute un titre au tableau,\nfilter = xxx : ajoute un filtre sur les colonnes, où\n\nxxx = ‘none’ =&gt; pas de filtre,\nxxx = ‘top’ =&gt; filtre positionné en haut du tableau,\nxxx = ‘bottom’ =&gt; filtre positionné en bas du tableau."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-4",
+    "href": "Shiny.html#tableaux-présentation-améliorée-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (4)",
+    "text": "Tableaux : présentation améliorée (4)\n\nExemple : supprimer les noms des lignes, ajouter un titre, changer les noms de 3 variables, ajouter un filtre dans la sortie tableau\n\n\noutput$tableau &lt;- renderDataTable({\n  datatable(txhousing,\n            rownames = FALSE, \n            colnames = c('Ville' = 'city', \n                         'Année' = 'year', \n                         'Mois' = 'month'),\n            caption = \"Données concernant \n            les ventes immobilières au Texas\n            - 2000-2015\",\n            filter = 'top')\n  })"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-5",
+    "href": "Shiny.html#tableaux-présentation-améliorée-5",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (5)",
+    "text": "Tableaux : présentation améliorée (5)\n\nPossibilité de formater une ou plusieurs colonnes :\n\nformatStyle() : fromatage du style (couleur de fond, couleur du texte, police, etc…),\nformatCurrency() : formatage monétaire,\nformatDate() : formatage de la date.\n\nPossibilité de colorer suivant les valeurs dans une colonne avec styleColorBar()."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-6",
+    "href": "Shiny.html#tableaux-présentation-améliorée-6",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (6)",
+    "text": "Tableaux : présentation améliorée (6)\n\nExemple : formater le tableau issu de la fonction datatable() :\n\n\nlibrary(lubridate)\ndatatable(txhousing %&gt;%\n            mutate(date = date_decimal(date))\n) %&gt;%\n  formatCurrency(c(\"volume\", \"median\")) %&gt;%\n  formatDate(\"date\", \"toLocaleDateString\") %&gt;%\n  formatStyle('city',\n              color = 'white',\n              backgroundColor = 'slategrey',\n              fontWeight = 'bold') %&gt;%\n  formatStyle('median',\n              background = styleColorBar(\n                range(txhousing$median, na.rm = TRUE),\n                'lightblue')\n  )"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-7",
+    "href": "Shiny.html#tableaux-présentation-améliorée-7",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (7)",
+    "text": "Tableaux : présentation améliorée (7)\n\nQuelques extensions de la fonction datatable() :\n\nextensions = ‘Button’ : affiche un bouton permettant de télécharger le tableau de données,\nextensions = ‘FixedColumns’ : fixe des colonnes, et permet le scrolling lorsque toutes les colonnes ne sont pas visibles.\n\nOptions pour les extensions, sous la forme options = list() :\n\ndom =  : définit dans quel ordre apparaissent les éléments additionnels (boutons ou scrolling),\nbuttons = c(‘copy’, ‘csv’, ‘excel’, ‘pdf’, ‘print’) : boutons proposés pour le format du fichier téléchargé,\nscrollX = TRUE : permet le scrolling sur les colonnes,\nfixedColumns = list(leftColumns = a, rightColumns = b) : nombre de colonnes fixes à gauche (=a), et à droite (=b) lorsque l’on scroll.\n\nUne liste des extensions possibles est consultable sur cette page."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-8",
+    "href": "Shiny.html#tableaux-présentation-améliorée-8",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (8)",
+    "text": "Tableaux : présentation améliorée (8)\n\nExemple : ajouter une barre de scrolling sur le tableau\n\n\ndatatable(\n  txhousing,\n  rownames = FALSE,\n  extensions = 'FixedColumns',\n  options = list(\n    dom = 't',\n    scrollX = TRUE,\n    fixedColumns = list(leftColumns = 1, rightColumns = 1)\n  )\n)"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-6-avec-shiny-shinydashboard-dplyr-ggplot2-scales-forcats-et-dt",
+    "href": "Shiny.html#tp-exercice-6-avec-shiny-shinydashboard-dplyr-ggplot2-scales-forcats-et-dt",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 6 avec shiny, shinydashboard, dplyr, ggplot2, scales, forcats et DT",
+    "text": "TP : Exercice 6 avec shiny, shinydashboard, dplyr, ggplot2, scales, forcats et DT\n\nReprendre l’application sur les Iris de Fisher.\nAvec la librairie DT, améliorer le tableau résumant les variables sur la page “résumé global” :\n\nChanger les noms des variables afin d’obtenir un tableau plus lisible,\nchanger la couleur de fond, la fonte et la couleur de texte de la colonne concernant les espèces."
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet",
+    "text": "Cartes choroplèthes avec leaflet\n\nGénération de cartes avec leaflet.\nDans la fonction ui() et dashboarBody(), la commande de rendu est\n\n\nleafletOutput(\"nom\")\n\noù nom est le nom de l’output souhaité.\n\nDans la fonction server(), la commande de calcul est\n\n\nlibrary(leaflet)\nnom$output = renderLeaflet({\n  leaflet() %&gt;%\n    addTiles() %&gt;%\n    addPolygons()\n})"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-2",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (2)",
+    "text": "Cartes choroplèthes avec leaflet (2)\n\nExemple : Calcul de la carte couleurs fonction de la somme des volumes des ventes, en amont des fonctions ui() et server().\nCalcul des éléments et de la palette de couleurs :\n\n\nresume = txhousing %&gt;%\n  group_by(city) %&gt;%\n  summarise(volume = sum(volume, na.rm = TRUE))\n\ntxgeo = geojson_read(\"texas-city.geojson\", what = \"sp\")\ntxgeo = subset(txgeo, sub(\", TX\", \"\", name) %in% \n                unique(txhousing$city))\n\ntxgeo@data$city = sub(\", TX\", \"\", txgeo@data$name)\ntxgeo@data = txgeo@data %&gt;% \n  left_join(resume, all.x = TRUE)\n\npal = colorNumeric(\"viridis\", NULL)"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-3",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (3)",
+    "text": "Cartes choroplèthes avec leaflet (3)\n\nCalcul de la carte (toujours en amont des fonctions ui() et server()) :\n\n\nmap = leaflet(txgeo) %&gt;%\n  addTiles() %&gt;%\n  addPolygons(fillColor = ~pal(volume), \n              fillOpacity = .5, \n              color = \"red\", weight = 1,\n              label = ~paste0(\n                city, \": \", \n                formatC(volume, big.mark = \",\")\n                )\n              ) %&gt;%\n  addLegend(pal = pal, values = ~volume, opacity = 1.0,\n            labFormat = labelFormat(\n              transform = function(x) round(x)\n              )\n            )"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-3-1",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-3-1",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (3)",
+    "text": "Cartes choroplèthes avec leaflet (3)\n\nAjout de la carte dans un menu dans dashboardSidebar(),\n\n\nmenuItem(\"Carte\", tabName = \"carte\",\n        icon = icon(\"map\")\n      )\n\n\nAjout de la carte sur une page dans dashboardBody(),\n\n\ntabItem(\n        \"carte\",\n        leafletOutput(\"carte\")\n      )\n\n\net calcul dans server().\n\n\noutput$carte = renderLeaflet({\n  map\n})"
   }
 ]
