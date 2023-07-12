@@ -50,7 +50,7 @@ website:
   twitter-card: 
     title: "RomuAnalyst"
     description: Mon site sur mes projets
-    image: img/tree.png
+    image: img/favicon.png
     image-alt: |
       L'arbre centralise ou donne accès à de multitude de résultats.
     image-width: 500
