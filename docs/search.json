@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "RomuAnalyst",
     "section": "",
-    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nDescription\n\n\n\n\n\n\n12/07/23\n\n\nScrapping et base Excel\n\n\nCet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R. \n\n\n\n\n25/10/22\n\n\nShinylive Extension\n\n\nWith Shinylive, you can embed Shiny for Python applications into Quarto documents and run the entire application (including the Python runtime) inside the user’s web browser. \n\n\n\n\n\nAucun article correspondant"
+    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nDescription\n\n\n\n\n\n\n12/07/23\n\n\nScraping et base Excel\n\n\nCet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R. \n\n\n\n\n25/10/22\n\n\nShinylive Extension\n\n\nWith Shinylive, you can embed Shiny for Python applications into Quarto documents and run the entire application (including the Python runtime) inside the user’s web browser. \n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "R et Posit.html",
@@ -583,28 +583,28 @@
   {
     "objectID": "posts/2022-02-15-feature-tables/index.html",
     "href": "posts/2022-02-15-feature-tables/index.html",
-    "title": "Scrapping et base Excel",
+    "title": "Scraping et base Excel",
     "section": "",
     "text": "Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données\nQuarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:\nThis post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see Tables."
   },
   {
     "objectID": "posts/2022-02-15-feature-tables/index.html#markdown-tables",
     "href": "posts/2022-02-15-feature-tables/index.html#markdown-tables",
-    "title": "Scrapping et base Excel",
+    "title": "Scraping et base Excel",
     "section": "Markdown Tables",
     "text": "Markdown Tables\nThe most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:\n| Default | Left | Right | Center |\n|---------|:-----|------:|:------:|\n| 12      | 12   |    12 |   12   |\n| 123     | 123  |   123 |  123   |\n| 1       | 1    |     1 |   1    |\n\n: Demonstration of pipe table sytnax\nHere is the table rendered to HTML:\n\nDemonstration of pipe table syntax\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nCaption Location\nBy default, table captions are positioned above tables. You can modify this behavior using the tbl-cap-location option. For example:\n---\ntbl-cap-location: top\n---"
   },
   {
     "objectID": "posts/2022-02-15-feature-tables/index.html#explicit-column-widths",
     "href": "posts/2022-02-15-feature-tables/index.html#explicit-column-widths",
-    "title": "Scrapping et base Excel",
+    "title": "Scraping et base Excel",
     "section": "Explicit Column Widths",
     "text": "Explicit Column Widths\nBeyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the tbl-colwidths attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:\n| fruit  | price  |\n|--------|--------:\n| apple  | 2.05   |\n| pear   | 1.37   |\n| orange | 3.09   |\n\n: Fruit prices {tbl-colwidths=\"[75,25]\"}\nNote that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other format specific options.\nValid values for the caption location include:\n\n\n\nValue\nDescription\n\n\n\n\ntop\nPosition the caption above the table.\n\n\nbottom\nPosition the caption below the table.\n\n\nmargin\nPosition the caption in the margin."
   },
   {
     "objectID": "posts/2022-02-15-feature-tables/index.html#computations",
     "href": "posts/2022-02-15-feature-tables/index.html#computations",
-    "title": "Scrapping et base Excel",
+    "title": "Scraping et base Excel",
     "section": "Computations",
     "text": "Computations\nAll of the options described above work for tables produced by executable code cells. For example, here we apply the tbl-cap, tbl-colwidths and tbl-caption-location options to a code cell:\n```{r}\n#| tbl-cap: \"Cars\"\n#| tbl-colwidths: [60,40]\n#| tbl-cap-location: margin\n\nlibrary(knitr)\nkable(head(cars))\n```\nIn addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail."
   },

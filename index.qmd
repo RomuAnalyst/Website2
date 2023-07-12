@@ -22,8 +22,6 @@ knitr:
 execute: 
   echo: false
 page-layout: full
-include-in-header: 
-  - _includes/fontawesome-2up.html
 listing:
   id: sample-listings
   contents: posts
