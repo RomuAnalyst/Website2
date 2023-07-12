@@ -1,0 +1,113 @@
+---
+title: Scraping et base Excel
+subtitle: Collecte de données web et création de fichiers excel
+description: |
+  Cet article traite de l'extraction de données à partir d'un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours [**les boucles dans R**](/ia2.qmd).
+categories:
+  - R
+  - Web
+  - Tables
+author: Romuanalyst
+date: "07/12/2023"
+image: data in the cloud.png
+image-alt: "Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."
+lang: fr
+page-layout: full
+---
+
+--------------------------------
+
+  Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d'extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web.
+  Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données
+  
+:::{.callout-important}
+## Important
+
+La légalité du scraping dépend de plusieurs facteurs, notamment les lois du pays dans lequel vous vous trouvez et les conditions d'utilisation du site web que vous souhaitez scraper. Dans de nombreux cas, le scraping peut être considéré comme une violation des conditions d'utilisation d'un site, ce qui pourrait entraîner des problèmes légaux.<br>
+Certains sites autorisent le scraping dans leurs conditions d'utilisation tant que cela n'engendre pas de surcharge du serveur ni de violations de la propriété intellectuelle. D'autres sites interdisent explicitement le scraping.<br>
+Il est important de revoir attentivement les conditions d'utilisation du site web ciblé et de consulter les lois en vigueur dans votre pays avant de vous engager dans le scraping. Il est recommandé de demander la permission du propriétaire du site web ou d'utiliser des sources de données publiques et librement accessibles pour éviter d'éventuels problèmes légaux.
+:::
+
+
+Quarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:
+
+-   Specifying column alignment and widths.
+-   Providing captions, subcaptions, and cross-references.
+-   Generating tables dynamically from executable code cells.
+
+This post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see [Tables](/docs/authoring/tables.qmd).
+
+## Markdown Tables
+
+The most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:
+
+``` markdown
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: Demonstration of pipe table sytnax
+```
+
+Here is the table rendered to HTML:
+
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: Demonstration of pipe table syntax
+
+#### Caption Location
+
+By default, table captions are positioned above tables. You can modify this behavior using the `tbl-cap-location` option. For example:
+
+``` yaml
+---
+tbl-cap-location: top
+---
+```
+
+## Explicit Column Widths
+
+Beyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the `tbl-colwidths` attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:
+
+``` markdown
+| fruit  | price  |
+|--------|--------:
+| apple  | 2.05   |
+| pear   | 1.37   |
+| orange | 3.09   |
+
+: Fruit prices {tbl-colwidths="[75,25]"}
+```
+
+Note that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other `format` specific options.
+
+Valid values for the caption location include:
+
+| Value    | Description                           |
+|----------|---------------------------------------|
+| `top`    | Position the caption above the table. |
+| `bottom` | Position the caption below the table. |
+| `margin` | Position the caption in the margin.   |
+
+## Computations
+
+All of the options described above work for tables produced by executable code cells. For example, here we apply the `tbl-cap`, `tbl-colwidths` and `tbl-caption-location` options to a code cell:
+
+``` {{r}}
+#| tbl-cap: "Cars"
+#| tbl-colwidths: [60,40]
+#| tbl-cap-location: margin
+
+library(knitr)
+kable(head(cars))
+```
+
+In addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the [documentation](/docs/authoring/tables.qmd). for more detail.
+
+-----------------------------------

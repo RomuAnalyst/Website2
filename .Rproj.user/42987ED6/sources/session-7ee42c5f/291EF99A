@@ -1,27 +1,25 @@
 {
-    "id": "05FA540B",
-    "path": "~/Documents/GitHub/Website2/index.qmd",
-    "project_path": "index.qmd",
+    "id": "291EF99A",
+    "path": "~/Documents/GitHub/Website2/posts/2022-02-15-feature-tables/scrap.qmd",
+    "project_path": "posts/2022-02-15-feature-tables/scrap.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1689204936877.0,
+    "created": 1689205975669.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 3,
     "properties": {
         "rmdVisualMode": "false",
         "source_window_id": "",
-        "Source": "Source",
-        "cursorPosition": "10,18",
-        "scrollLine": "0"
+        "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1689184196,
+    "lastKnownWriteTime": 1689204756,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1689184196,
+    "last_content_update": 1689204756,
     "read_only": false,
     "read_only_alternatives": []
 }
