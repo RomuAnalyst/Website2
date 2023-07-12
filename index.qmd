@@ -16,7 +16,6 @@ about:
     - icon: envelope
       text: Email
       href: "mailto:titi.minet971@gmail.com"
-      
 knitr:
   opts_chunk: 
     collapse: true

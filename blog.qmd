@@ -15,8 +15,6 @@ knitr:
     collapse: true
 execute: 
   echo: false
-include-in-header: 
-  - _includes/fontawesome-2up.html
 ---
 
 :::: {.grid}

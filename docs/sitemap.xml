@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/index.html</loc>
-    <lastmod>2023-07-11T21:19:53.547Z</lastmod>
+    <lastmod>2023-07-12T17:28:27.002Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/R et Posit.html</loc>
@@ -10,15 +10,15 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/blog.html</loc>
-    <lastmod>2023-07-11T20:58:54.368Z</lastmod>
+    <lastmod>2023-07-12T14:20:36.219Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/test2.html</loc>
-    <lastmod>2023-07-11T20:58:13.713Z</lastmod>
+    <lastmod>2023-07-12T13:35:35.455Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/About.html</loc>
-    <lastmod>2023-07-11T20:59:04.483Z</lastmod>
+    <lastmod>2023-07-12T13:35:46.570Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia.html</loc>
@@ -26,10 +26,42 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia2.html</loc>
-    <lastmod>2023-07-11T20:58:43.479Z</lastmod>
+    <lastmod>2023-07-12T14:24:54.761Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/Shiny.html</loc>
-    <lastmod>2023-07-10T22:29:31.674Z</lastmod>
+    <lastmod>2023-07-12T14:36:58.550Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/index.html</loc>
+    <lastmod>2023-07-12T14:20:35.340Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/index.html</loc>
+    <lastmod>2023-07-12T13:35:19.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/index.html</loc>
+    <lastmod>2023-07-12T13:35:19.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/index.html</loc>
+    <lastmod>2023-07-12T13:35:20.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/index.html</loc>
+    <lastmod>2023-07-12T13:35:20.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</loc>
+    <lastmod>2023-07-12T13:35:21.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/projects/index.html</loc>
+    <lastmod>2023-07-12T12:52:30.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/cv/index.html</loc>
+    <lastmod>2023-07-12T12:52:30.365Z</lastmod>
   </url>
 </urlset>
