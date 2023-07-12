@@ -12,6 +12,7 @@ date: "07/12/2023"
 image: data in the cloud.png
 image-alt: "Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."
 lang: fr
+page-layout: full
 ---
 
 --------------------------------
