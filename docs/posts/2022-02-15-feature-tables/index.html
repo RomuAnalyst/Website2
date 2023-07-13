@@ -99,12 +99,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #EDF3F9;
-      }
-</style>
 
 
 <link rel="stylesheet" href="../../assets/ek-styles.css">
@@ -123,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:image:alt" content="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="false"></div>
+            <div id="quarto-search" class="" title="Recherche"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -204,57 +198,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Scraping et base Excel</h1>
-            <p class="subtitle lead">Collecte de données web et création de fichiers excel</p>
-                  <div>
-        <div class="description">
-          <p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours <a href="../../ia2.html"><strong>les boucles dans R</strong></a>.</p>
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">Web</div>
-                <div class="quarto-category">Tables</div>
-              </div>
-                  </div>
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Scraping et base Excel</h1>
+<p class="subtitle lead">Collecte de données web et création de fichiers excel</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Web</div>
+    <div class="quarto-category">Tables</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours <a href="../../ia2.html"><strong>les boucles dans R</strong></a>.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Romuanalyst </p>
+          </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">12 juillet 2023</p>
+    </div>
+  </div>
   
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Auteur·rice</div>
-      <div class="quarto-title-meta-contents">
-               <p>Romuanalyst </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Date de publication</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">12 juillet 2023</p>
-      </div>
-    </div>
     
-      
-    </div>
-    
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-  
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
-
-
+</header>
 
 <hr>
 <p>Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données</p>
@@ -742,8 +731,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="quarto-dev/quarto-web" data-repo-id="MDEwOlJlcG9zaXRvcnkzNDc2MzMzNTg=" data-category="Blog" data-category-id="DIC_kwDOFLh2zs4CBQQq" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

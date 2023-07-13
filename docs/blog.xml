@@ -24,7 +24,6 @@
 
 
 
-
 <hr>
 <p>Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données</p>
 <div class="callout callout-style-default callout-important callout-titled">
