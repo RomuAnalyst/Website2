@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-image','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-image','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -251,6 +251,9 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="no-anchor card-title listing-title">
 Scraping et base Excel
 </h5>
+<div class="card-subtitle listing-subtitle">
+Collecte de données web et création de fichiers excel
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -281,6 +284,9 @@ Tables
 <h5 class="no-anchor card-title listing-title">
 Shinylive Extension
 </h5>
+<div class="card-subtitle listing-subtitle">
+Embed Shinylive applications in Quarto documents
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
 Extensions
@@ -308,6 +314,9 @@ Features
 <h5 class="no-anchor card-title listing-title">
 Quarto Extensions
 </h5>
+<div class="card-subtitle listing-subtitle">
+Extend Quarto with new capabilities
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
 Extensions
@@ -335,6 +344,9 @@ Features
 <h5 class="no-anchor card-title listing-title">
 Quarto at rstudio::conf(2022)
 </h5>
+<div class="card-subtitle listing-subtitle">
+Quarto-related workshops and talks at rstudio::conf(2022)
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('conf'); return false;">
 conf
@@ -365,6 +377,9 @@ talk
 <h5 class="no-anchor card-title listing-title">
 Positioning Content in the Margin
 </h5>
+<div class="card-subtitle listing-subtitle">
+Create ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
 Features
@@ -392,6 +407,9 @@ Layout
 <h5 class="no-anchor card-title listing-title">
 Using Callouts
 </h5>
+<div class="card-subtitle listing-subtitle">
+Use callouts to draw attention to important complementary content without interupting the document flow
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
 Features
