@@ -13,7 +13,7 @@ website:
   site-url: https://romuanalyst.github.io/RomuAnalyst_website
   description: Website, portfolio, aide à l'apprentissage...
   repo-url: https://github.com/.............
-  image: images/logo.png
+  image: img/logo.png
   page-navigation: true
   reader-mode: true
   navbar:
@@ -46,7 +46,7 @@ website:
       #  href: https://github.com/EllaKaye
       #- icon: twitter
       #  href: https://twitter.com/ellamkaye
-  favicon: images/favicon.png
+  favicon: img/favicon.png
   twitter-card: 
     title: "RomuAnalyst"
     description: Mon site sur mes projets

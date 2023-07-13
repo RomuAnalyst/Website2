@@ -30,7 +30,7 @@ listing:
   type: table
   sort-ui: false
   filter-ui: false
-  fields: [date, title, description]
+  fields: [date, title, subtitle]
   date-format: "DD/MM/YY"
 output-directory : docs
 ---
