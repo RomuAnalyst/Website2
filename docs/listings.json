@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/2022-02-15-feature-tables/index.html",
+      "/posts/scrap.html",
       "/posts/2022-10-25-shinylive-extension/index.html",
       "/posts/2022-07-25-feature-extensions/index.html",
       "/posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
@@ -14,6 +15,7 @@
     "listing": "/blog.html",
     "items": [
       "/posts/2022-02-15-feature-tables/index.html",
+      "/posts/scrap.html",
       "/posts/2022-10-25-shinylive-extension/index.html",
       "/posts/2022-07-25-feature-extensions/index.html",
       "/posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
