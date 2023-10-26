@@ -1,0 +1,32 @@
+---
+title: "**<u>ggplot2</u>**"
+subtitle: Essentiel pour la visualisation de données 
+categories:
+  - visualisation de données
+  - tidyverse
+image: ggplot2.png
+lang: fr
+page-layout: full
+---
+
+----------------------
+
+::: {.grid}
+::: {.g-col-2}
+<div style="margin-top: auto;"><a href="rvest.qmd">![](ggplot2.png)</a></div>
+:::
+::: {.g-col-10}
+<div style="margin-top: auto;"><p class="card-text">peut aussi trouver énormément d'informations sur le web : par exemple en cherchant à l'aide d'un moteur de recherche un problème lié à une tâche **R** on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site [Cross Validated](https://stats.stackexchange.com/)).
+
+Le but de cette introduction tutorielle est de vous apprendre l'utilisation élémentaire de **R**. Bien que les objets et commandes de bases y soient introduits, cette introduction n'est pas une référence complète au langage **R** (loin de là!), vous serez donc amenés à utiliser l'aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d'apprendre un langage est d'écrire et débugger beaucoup de lignes de code!</p>
+</div>
+:::
+:::
+
+
+
+
+```r
+library(tidyverse)
+library(rvest)
+```

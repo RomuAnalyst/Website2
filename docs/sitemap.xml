@@ -1,75 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/index.html</loc>
+    <lastmod>2023-06-05T23:47:04.186Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/posts/2022-06-22-hello_quarto/index.html</loc>
+    <lastmod>2023-06-05T23:47:04.713Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/index.html</loc>
+    <lastmod>2023-06-05T23:47:05.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2022-08-05-creating-your-personal-website-using-quarto/index.html</loc>
+    <lastmod>2023-06-05T23:47:06.376Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2022-10-24-quarto-blogs/index.html</loc>
+    <lastmod>2023-06-05T23:47:07.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2021-11-15-ide-tips-tricks/index.html</loc>
+    <lastmod>2023-06-05T23:47:07.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2022-10-10-customizing-quarto-websites/index.html</loc>
+    <lastmod>2023-06-05T23:47:08.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2023-04-14-functions-forloops/index.html</loc>
+    <lastmod>2023-06-05T23:47:08.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2023-01-20-eds430-intro-to-shiny/index.html</loc>
+    <lastmod>2023-06-05T23:47:09.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2021-10-11-teach-me-how-to-google/index.html</loc>
+    <lastmod>2023-06-05T23:47:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2019-05-15-intro-to-the-tidyverse/index.html</loc>
+    <lastmod>2023-06-05T23:47:10.025Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2023-05-23-js-in-r/index.html</loc>
+    <lastmod>2023-06-05T23:47:10.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2022-04-18-intro-to-cloud-computing/index.html</loc>
+    <lastmod>2023-06-05T23:47:10.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops/2023-03-16-ggplot2/index.html</loc>
+    <lastmod>2023-06-05T23:47:11.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/talks_workshops.html</loc>
+    <lastmod>2023-06-05T23:47:12.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/index.html</loc>
+    <lastmod>2023-06-05T23:47:12.793Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/about.html</loc>
+    <lastmod>2023-06-20T05:27:52.521Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/posts.html</loc>
+    <lastmod>2023-06-05T23:47:14.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/resources.html</loc>
+    <lastmod>2023-06-05T23:47:14.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://samanthacsik.github.io/test.html</loc>
+    <lastmod>2023-06-14T05:29:23.403Z</lastmod>
+  </url>
+  <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/index.html</loc>
-    <lastmod>2023-07-13T14:53:44.231Z</lastmod>
+    <lastmod>2023-07-14T00:28:33.386Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts.html</loc>
+    <lastmod>2023-07-13T23:37:51.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/index.html</loc>
+    <lastmod>2023-07-13T22:56:13.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/index.html</loc>
+    <lastmod>2023-07-13T22:47:26.130Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/R et Posit.html</loc>
-    <lastmod>2023-07-11T20:58:00.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/blog.html</loc>
-    <lastmod>2023-07-13T10:41:56.807Z</lastmod>
+    <lastmod>2023-07-13T22:49:43.435Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/test2.html</loc>
-    <lastmod>2023-07-12T23:48:30.200Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/About.html</loc>
-    <lastmod>2023-07-12T23:34:01.096Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia.html</loc>
-    <lastmod>2023-07-11T20:58:33.303Z</lastmod>
+    <lastmod>2023-07-13T22:49:46.839Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia2.html</loc>
-    <lastmod>2023-07-12T14:24:54.761Z</lastmod>
+    <lastmod>2023-07-13T22:49:49.799Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/Shiny.html</loc>
-    <lastmod>2023-07-12T14:36:58.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/index.html</loc>
-    <lastmod>2023-07-13T10:41:16.299Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/index.html</loc>
-    <lastmod>2023-07-12T13:35:19.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/index.html</loc>
-    <lastmod>2023-07-13T00:00:07.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/index.html</loc>
-    <lastmod>2023-07-12T13:35:20.232Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/index.html</loc>
-    <lastmod>2023-07-12T13:35:20.523Z</lastmod>
-  </url>
-  <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</loc>
-    <lastmod>2023-07-12T13:35:21.067Z</lastmod>
+    <lastmod>2023-07-13T23:22:03.355Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/projects/index.html</loc>
-    <lastmod>2023-07-12T12:52:30.117Z</lastmod>
+    <lastmod>2023-07-13T22:49:54.803Z</lastmod>
   </url>
   <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/cv/index.html</loc>
-    <lastmod>2023-07-12T12:52:30.365Z</lastmod>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia.html</loc>
+    <lastmod>2023-07-13T22:50:01.107Z</lastmod>
   </url>
   <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/scrap.html</loc>
-    <lastmod>2023-07-12T23:59:55.907Z</lastmod>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/index.html</loc>
+    <lastmod>2023-07-13T23:08:42.991Z</lastmod>
   </url>
   <url>
-    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/scrap.html</loc>
-    <lastmod>2023-07-13T10:31:23.716Z</lastmod>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/index.html</loc>
+    <lastmod>2023-07-13T23:08:25.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/index.html</loc>
+    <lastmod>2023-07-13T23:37:54.415Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/index.html</loc>
+    <lastmod>2023-07-13T23:08:27.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/index.html</loc>
+    <lastmod>2023-07-13T23:08:28.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</loc>
+    <lastmod>2023-07-13T23:08:36.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/about.html</loc>
+    <lastmod>2023-07-13T23:47:17.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/About.html</loc>
+    <lastmod>2023-07-14T00:21:35.263Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/About.html</loc>
+    <lastmod>2023-07-14T00:52:40.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/about.html</loc>
+    <lastmod>2023-07-14T01:25:32.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/presentation.html</loc>
+    <lastmod>2023-10-22T20:41:29.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/index.html</loc>
+    <lastmod>2023-10-23T20:43:59.124Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/R et Posit.html</loc>
+    <lastmod>2023-10-22T20:16:25.020Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/test2.html</loc>
+    <lastmod>2023-08-26T15:21:40.396Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/ia.html</loc>
+    <lastmod>2023-07-16T20:16:14.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/ia2.html</loc>
+    <lastmod>2023-07-16T20:16:25.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/Shiny.html</loc>
+    <lastmod>2023-07-16T20:18:30.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/posts.html</loc>
+    <lastmod>2023-10-23T20:40:11.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages.html</loc>
+    <lastmod>2023-10-23T20:28:08.283Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/posts/2022-02-15-feature-tables/index.html</loc>
+    <lastmod>2023-07-16T20:17:29.795Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</loc>
+    <lastmod>2023-07-16T20:17:12.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</loc>
+    <lastmod>2023-07-16T20:17:02.208Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</loc>
+    <lastmod>2023-07-16T20:16:56.185Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</loc>
+    <lastmod>2023-08-27T13:04:03.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/TP1.html</loc>
+    <lastmod>2023-10-22T18:53:52.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/IUT/TP du 14 novembre 2022/index.html</loc>
+    <lastmod>2023-10-22T18:53:52.058Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/Introduction à R.html</loc>
+    <lastmod>2023-10-22T20:20:19.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/posts/Article/Article suivant.html</loc>
+    <lastmod>2023-10-23T20:04:38.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/rvest/rvest2.html</loc>
+    <lastmod>2023-10-23T20:28:07.793Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/Introduction_R.html</loc>
+    <lastmod>2023-10-23T23:31:12.428Z</lastmod>
   </url>
 </urlset>

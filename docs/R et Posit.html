@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./images/favicon.png" rel="icon" type="image/png">
+<link href="./img/tree.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -78,6 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,7 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
     "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer"
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -104,10 +106,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="assets/ek-styles.css">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/images/logo.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/Website/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="1600">
+<meta name="twitter:image-width" content="1600">
 </head>
 
 <body class="nav-fixed">
@@ -121,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <img src="./img/tree.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
+    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst <i class="fa-solid fa-person-walking" aria-label="person-walking"></i><span class="icon-line"></span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -130,14 +134,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text"><i class="fa-solid fa-house-user" aria-label="house-user"></i></span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">R</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Cours</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
     <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
- <span class="dropdown-text"><i class="fa-brands fa-r-project"></i> et Posit</span></a>
+ <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Introduction à R.qmd" rel="" target="">
+ <span class="dropdown-text">introduction à <i class="fa-brands fa-r-project" aria-label="r-project"></i></span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./test2.html" rel="" target="">
@@ -158,23 +170,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
+    <a class="nav-link" href="./posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
- <span class="menu-text">Rendu élèves</span></a>
+    <a class="nav-link" href="./packages.html" rel="" target="">
+ <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./packages.qmd" rel="" target="">
- <span class="menu-text">packages</span></a>
+    <a class="nav-link" href="./TP1.html" rel="" target="">
+ <span class="menu-text">Divers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community.qmd" rel="" target="">
- <span class="menu-text">community</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./About.html" rel="" target="">
+    <a class="nav-link" href="./presentation.html" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -201,11 +209,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#r-et-son-environnement" id="toc-r-et-son-environnement" class="nav-link active" data-scroll-target="#r-et-son-environnement">R et son environnement</a>
   <ul class="collapse">
-  <li><a href="#quest-ce-que-fa-brands-r-project" id="toc-quest-ce-que-fa-brands-r-project" class="nav-link" data-scroll-target="#quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project"></i> ?</a></li>
+  <li><a href="#quest-ce-que-fa-brands-r-project" id="toc-quest-ce-que-fa-brands-r-project" class="nav-link" data-scroll-target="#quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project" aria-label="r-project"></i> ?</a></li>
   <li><a href="#prise-en-main-de-rstudio" id="toc-prise-en-main-de-rstudio" class="nav-link" data-scroll-target="#prise-en-main-de-rstudio">Prise en main de <strong>Rstudio</strong></a></li>
   <li><a href="#laide-en-ligne" id="toc-laide-en-ligne" class="nav-link" data-scroll-target="#laide-en-ligne">L’aide en ligne</a></li>
   <li><a href="#utilisation-de-rrstudio" id="toc-utilisation-de-rrstudio" class="nav-link" data-scroll-target="#utilisation-de-rrstudio">Utilisation de R/Rstudio</a></li>
   <li><a href="#les-packages" id="toc-les-packages" class="nav-link" data-scroll-target="#les-packages">Les packages</a></li>
+  <li><a href="#références" id="toc-références" class="nav-link" data-scroll-target="#références">Références</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -218,9 +227,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="r-et-son-environnement" class="level1 page-columns page-full">
 <h1>R et son environnement</h1>
 <section id="quest-ce-que-fa-brands-r-project" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project"></i> ?</h2>
+<h2 class="anchored" data-anchor-id="quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project" aria-label="r-project"></i> ?</h2>
 <p>Le logiciel <strong>R</strong> est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) <strong>R</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
-<p><strong>R</strong> est un <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&amp;idCourse=2368">langage interprété</a> (comme <code>Python</code><i class="fa-brands fa-python"></i>) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :</p>
+<p><strong>R</strong> est un <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&amp;idCourse=2368">langage interprété</a> (comme <code>Python</code><i class="fa-brands fa-python" aria-label="python"></i>) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :</p>
 
 <div class="no-row-height column-margin column-container"><div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello world!'</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -292,7 +301,7 @@ Important
 </div>
 </div>
 </section>
-<section id="les-packages" class="level2 page-columns page-full">
+<section id="les-packages" class="level2">
 <h2 class="anchored" data-anchor-id="les-packages">Les packages</h2>
 <p>Les deux grands avantages de <strong>R</strong> est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.</p>
 <p>Toute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou <em>packages</em> ou <em>library</em>) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du <strong>CRAN</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
@@ -314,7 +323,11 @@ Astuce
 <p><em>Le <code>#</code> sert à commenter les instructions. Le texte/code situé après <code>#</code> (sur la même ligne) ne sera pas éxécuté, ce sera juste un commentaire.</em></p>
 </div>
 </div>
-<div class="page-columns page-full"><p>Asides allow you to place content objet from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). </p><div class="no-row-height column-margin column-container"><span class="">This is a span that has the class <code>objet</code> which places it in the margin without a footnote number.</span></div></div>
+</section>
+<section id="références" class="level2">
+<h2 class="anchored" data-anchor-id="références">Références</h2>
+<p>Une référence complète est l’introduction officielle sur le site du CRAN :</p>
+<p><a href="https://cran.r-project.org/doc/manuals/R-intro.html" class="uri">https://cran.r-project.org/doc/manuals/R-intro.html</a></p>
 
 
 </section>
@@ -669,7 +682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/romuanalyst\.github\.io\/RomuAnalyst_website");
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/romuanalyst.github.io/Website/**");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }

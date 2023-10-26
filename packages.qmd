@@ -1,0 +1,33 @@
+---
+title: "Les packages"
+page-layout: full
+listing:
+  contents: packages/**/*.qmd
+  type: table
+  categories: true
+  sort-ui: false
+  filter-ui: true
+  fields: [image, title, subtitle, categories]
+  feed: true
+title-block-banner: false
+knitr:
+  opts_chunk: 
+    collapse: true
+execute: 
+  echo: false
+---
+
+:::: {.grid}
+
+::: {.g-col-12}
+
+Installation et chargement du package :
+```r
+install.packages("nom_du_package")     # installation package
+library(nom_du_package)                       # chargement package
+```
+:::
+
+::::
+
+-----------

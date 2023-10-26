@@ -1,0 +1,21 @@
+---
+title: "Les posts"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  image-align: right
+  max-description-length: 175
+  date-format: medium
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title,image, subtitle, categories]
+page-layout: full
+title-block-banner: false
+---
+
+Vous trouverez ici une collection d'articles informatifs et intéressants axés sur l'analyse de données, la programmation et l'utilisation de {{< fa brands r-project >}}. Que vous soyez un débutant cherchant à apprendre les bases de {{< fa brands r-project >}} ou un utilisateur expérimenté cherchant à approfondir vos connaissances et à découvrir de nouvelles techniques, cette partie est conçu pour vous. Les articles couvrent une large gamme de sujets, allant de l'analyse exploratoire des données à la visualisation des résultats, en passant par les meilleures pratiques pour le nettoyage et la préparation des données. Bonne lecture!
+
+---------
+<br>

@@ -1,0 +1,970 @@
+---
+author: "Romuald / IUT Paris 5"
+date: "01/01/2023"
+execute: 
+  message: false
+  warning: false
+  output: true
+reference-location: margin
+editor_options: 
+  chunk_output_type: console
+page-layout: full
+include-in-header: 
+  - _includes/fontawesome-2up.html
+toc: true
+toc-title: Table des matières
+---
+## Introduction à {{< fa brands r-project >}}
+
+
+
+Dans ce cours d'introduction à R, nous aborderons les principes fondamentaux du langage de programmation R ainsi que ses applications dans l'analyse de données.  
+Le cours précédent a débuté par une présentation de l'environnement de développement RStudio. Ici, nous examinerons les concepts clés de la programmation en R, tels que les variables, les fonctions, les boucles et les conditions. Nous acquerrons également des compétences dans la manipulation des structures de données courantes telles que les vecteurs, les matrices et les data frames. De plus, nous traiterons des sujets tels que l'importation et l'exportation de données, ainsi que le nettoyage et la transformation des jeux de données.  
+Ce cours d'introduction fournit les bases nécessaires pour débuter la programmation en R.  
+
+Les cours à venir se concentreront sur une introduction aux techniques de visualisation de données à l'aide de graphiques de base, ainsi que sur l'utilisation de packages populaires tels que ggplot2.
+
+
+
+# Bases du langage
+
+## Commandes : créer, lister et effacer les objets en mémoire
+
+Il y a deux types de commandes en `R`: les expressions et les affectations.
+
+**Expression**
+
+```{r}
+print('Hello world!')
+```
+
+```{r}
+5
+```
+
+```{r}
+pi
+```
+
+**Affectations et expressions**
+
+Un objet peut être créé avec l'opérateur **assigner** qui s'écrit `<-`
+
+```{r}
+x<-1+2
+```
+
+```{r}
+x
+```
+
+ou de manière équivalente avec `=`
+
+```{r}
+x=1+3
+x
+```
+
+Si l'objet existe déjà, sa valeur précédente est effacée :
+
+```{r}
+x=10+2
+x
+```
+
+```{r}
+y=4
+x+y
+```
+
+A l'aide de `;` on peut taper deux commandes sur la même ligne avant leur exécution:
+
+```{r}
+b=3; x+y-3
+```
+
+La fonction `ls()` permet d'afficher une liste simple des objets en mémoire, c'est-à-dire que seuls les noms des objets sont affichées.
+
+```{r}
+name <- "Carmen"
+n1 <- 10
+n2 <- 100
+m <- 0.5
+ls()
+```
+
+# Eléments de langage : modes, longueurs et classes de données
+
+Nous allons voir ici les différentes structures de données utilisées dans **R**, ainsi que les moyens de les créer et de les manipuler.
+
+## Les objets
+
+Dans **R**, tout est un objet. **R** manipule donc des objets qui sont caractérisés par leur nom, leur contenu mais aussi par des attributs qui vont spécifier le type de données représenté par un objet. Les objets ont tous deux attributs intrinsèques : le **mode** et la **longueur**.
+
+1.  le mode spécifie ce qu'un objet peut contenir. Il s'obtient à l'aide de la fonction `mode`. Les modes principaux sont:
+
+-   `numeric` : nombres réels
+-   `character`: chaînes de caractères
+-   `logical` : valeurs logiques vrai/faux ( **TRUE** / **FALSE** ou **T** / **F** sur **R**)
+-   `list`: liste, collection d'objets
+-   `function`: fonction
+
+Les objets de mode `numeric`, `character` et `logical`, sont des objets *simples* qui peuvent contenir des données d'un seul type. Au contraire, les objets de mode `list` sont des objets spéciaux qui peuvent contenir des objets de types différents.
+
+2.  la longueur est le nombre d'éléments de l'objet. Elle s'obtient à l'aide de la fonction `length`. Un objet de mode **character** doit contenir plusieurs chaînes de caractères pour que sa longueur soit supérieure à 1. Un objet peut être de longueur 0 et doit alors être interprété comme un contenant qui existe mais qui est vide.
+
+```{r}
+x <- 10
+mode(x)
+length(x)
+```
+
+```{r}
+x1 <- c("test")
+mode(x1)
+length(x1)
+nchar(x1)
+mode(nchar)
+
+x2 <- c("test1", "test2") # La fonction de concatenation c() permet de créer des vecteurs
+length(x2)
+nchar(x2)
+
+t <- TRUE
+mode(t)
+length(t)
+mode(mode)
+```
+
+```{r}
+age <- c(33,28,33)
+mode(age)
+length(age)
+
+noms <- c('Daniel', 'Jeanne', 'Romain')
+mode(noms)
+length(noms)
+
+ma.liste <- list(Noms=noms, Age=age)
+ma.liste
+mode(ma.liste)
+length(ma.liste)
+length(ma.liste$Noms)
+mode(ma.liste$Noms)
+mode(ma.liste$Age)
+```
+
+## Les objets spéciaux
+
+**NULL**
+
+L'objet spécial **NULL** représente "rien" ou le vide. Son mode est **NULL**, sa longueur 0.
+
+```{r}
+mode(NULL)
+length(NULL)
+```
+
+Dans les applications statistiques, il est souvent utile de pouvoir représenter des données manquantes.
+
+**NA**
+
+Dans **R**, l'objet spécial **NA** remplit ce rôle. NA signifiant : Not Allowed (valeur non allouée). Par défaut, le mode de **NA** est **logical** cependant `NA` n'est ni `TRUE` ni `FALSE`. Toute opération impliquant une donnée **NA** a comme résultat **NA** mais certaines fonctions (`sum`, `mean`,...) ont un argument **na.rm** qui, lorsque **TRUE**, élimine les données manquantes. La valeur **NA** n'est égale à aucune autre, pas même à elle même.
+
+```{r}
+NA==NA
+```
+
+Par conséquent, pour tester si les éléments d'un objet sont **NA** ou non, il faut utiliser la fonction **is.na**.
+
+```{r}
+is.na(NA)
+is.na(mean(c(1,4,NA)))
+mean(c(1,4,NA),na.rm=T)
+```
+
+Il existe différents types d'objets qui sont détaillés dans les sections suivantes. Les fonctions `is.<type>()` permettent de tester si l'objet en paramètre est du type demandé.
+
+## Type **vector**
+
+En **R** l'unité de base dans les calculs est le *vecteur* c'est-à-dire que tout est **vector** de base (au minimum). Il n'existe pas de type **scalaire**. Un scalaire est simplement un vecteur de longueur 1.
+
+```{r}
+a<-3
+a
+class(a)
+is.vector(a)
+```
+
+-   Comme évoqué précédemment, la fonction de base la plus utilisée pour créer un vecteur est `c` commme concaténation :
+
+```{r}
+prix <- c(150, 162, 155, 157); prix
+```
+
+Les autres fonctions de base pour créer des vecteurs sont :
+
+-   `numeric` (vecteur de mode `numeric`)
+-   `character` (vecteur de mode `character`)
+-   `logical` (vecteur de mode `logical`)
+
+Attention dans un vecteur simple, tous les éléments doivent avoir le même mode:
+
+```{r}
+x <- c(1,2, 'a', 'b'); x
+mode(x)
+mode(prix)
+```
+
+Il est également possible de donner une étiquette à chacun des éléments d'un vecteur.
+
+```{r}
+v <- c(a=1,b=2,c=5)
+v
+v <- c(1,2,5)
+names(v) <- c("a","b","c")
+v
+```
+
+
+### Indiçage
+
+L'indiçage dans un vecteur se fait avec les crochets \[ \]. On peut extraire un élément d'un vecteur par sa position ou par son étiquette.
+
+```{r}
+v
+v[2]
+v["b"]
+```
+
+```{r}
+prix[1] # Le premier indice est toujours 1
+prix[c(1,3)]
+prix[-c(1,2)] # pour extraire tous les éléments sauf le 1e et le 2e
+```
+
+On peut aussi utiliser un vecteur d'indiçage booléen, les éléments extraits sont bien évidement ceux correspondant aux valeurs `TRUE`. Par exemple pour extraire les prix supérieurs à 156 :
+
+```{r}
+prix > 156 # le vecteur booléen
+prix[prix>156] 
+```
+
+Une alternative est donnée par la fonction `which()`qui rend les indices dont les éléments vérifient une condition logique :
+
+```{r}
+which(prix>155)
+prix[which(prix>156)]
+```
+
+On peut utiliser l'indiçage pour changer un élément:
+
+```{r}
+prix[1] <- 0; prix
+```
+
+Il est possible d'extraire des éléments sur la base des étiquettes :
+
+```{r}
+names(prix)
+names(prix) <- c('model.1', 'model.2', 'model.3', 'model.4')
+prix
+prix['model.3']
+```
+
+En résumé, il existe quatre façons d'indicer un vecteur (matrice ou data frame) dans **R** :
+
+-   avec un vecteur d'entiers positifs. Les éléments se trouvant aux positions correspondant aux entiers sont extraits du vecteur dans l'ordre :
+
+```{r}
+v <- c(8,7,-9,2,-1)
+names(v) <- c("a","b","c","d","e")
+v
+v[c(1,3)]
+```
+
+-   avec un vecteur d'entiers négatifs. Les éléments se trouvant aux positions correspondant aux entiers sont alors éliminés du vecteur :
+
+```{r}
+v[-c(1,3)]
+```
+
+-   avec un vecteur booléen. Le vecteur d'indiçage doit alors être de même longueur que le vecteur indicé. Seuls les éléments correspondant à une valeur **TRUE** sont extraits du vecteur :
+
+```{r}
+v>0
+v[v>0]
+```
+
+-   avec un vecteur de chaîne de caractères (utile pour extraire les éléments d'un vecteur à condition que ceux-ci soient nommés) :
+
+```{r}
+v[c("a","c")]
+```
+
+
+
+### Créer des vecteurs de type `numeric`
+
+Pour créer des vecteurs de type `numeric`, d'autres commandes peuvent être utiles :
+
+**fonction `:`**
+
+-   `:` pour des suites d'entiers consécutifs
+
+Pour générer le vecteur des $n$ premiers entiers on utilise la syntaxe `1:n`
+
+```{r}
+1:10
+2:6
+```
+
+**fonction `seq`**
+
+-   `seq` pour des suites (plus générales) d'éléments
+
+```{r}
+seq(1:5)
+```
+
+```{r}
+seq(1,5,by=.5)
+```
+
+```{r}
+seq(5,1,by=-.5)
+```
+
+```{r}
+seq(1,5,length=6)
+```
+
+**fonction `rep`**
+
+-   `rep` pour des éléments répétés
+
+```{r}
+rep(1:5,times=3)
+```
+
+```{r}
+rep(1:5,each=2)
+```
+
+```{r}
+rep(1:5,each=2,times=3)
+```
+
+## Type **matrix** et **array**
+
+Les matrices ne sont rien d'autre que des vecteurs dotés d'un attribut dimension de longueur 2 contenant les dimensions de la matrice. Tous les éléments d'une matrice ont donc le même mode. La fonction de base pour créer des matrices est `matrix`.
+
+```{r}
+matrix(0,nrow=2,ncol=5)
+```
+
+```{r}
+matrix(1:10,2,5)
+```
+
+La fonction `matrix` remplit naturellement la matrice par colonnes. L'argument `byrow` permet d'inverser l'ordre de remplissage.
+
+```{r}
+m <- matrix(1:10,2,5,byrow=TRUE)
+m
+```
+
+L'instruction `dim` donne les dimensions de la matrice : nombre de lignes et nombres de colonnes.
+
+```{r}
+dim(m)
+```
+
+On utilise les `[,]` pour accéder aux éléments de la matrice, avec tout ce qui est pour les lignes avant la virgule, et pour les colonnes, après. On peut aussi ne donner que la position de l'élément dans le vecteur sous-jacent. Lorsqu'une dimension est omise dans les crochets, tous les éléments de cette dimension sont extraits.
+
+```{r}
+m[1,2] # element de la 1e ligne et 2e colonne
+m[3]   # 3e element
+m[1,]  # 1ere ligne
+m[,2]  # 2e colonne
+m[,-2] # pour extraire toutes les colonnes sauf la 2e
+```
+
+Des fonctions permettent de fusionner des matrices ayant au moins une dimension identique :
+
+-   `rbind` : fusionne verticalement des matrices ayant le même nombre de colonnes
+
+```{r}
+rbind(m,m)
+```
+
+-   `cbind` : fusionne horizontalement des matrices ayant le même nombre de lignes.
+
+```{r}
+cbind(m,m)
+```
+
+La généralisation d'une matrice à plus de deux dimensions est un tableau **array**. La fonction de base pour créer des tableaux est `array`.
+
+```{r}
+array(1:24,dim=c(3,4,2))
+```
+
+# Opérateurs et fonctions
+
+## Opérations sur vecteurs et matrices numériques
+
+Les opérations sur les vecteurs sont effectuées élément par élément :
+
+```{r}
+v <- c(3,4,1,6)
+v + 2
+v * 2
+v * v
+v/2
+v/v
+v + v^2
+sqrt(m)
+m * m
+```
+
+```{r}
+x<- c(1,2,3)
+y <- c(4,5,6)
+x + y
+x*y
+```
+
+Si les vecteurs impliqués dans une expression arithmétique ne sont pas de la même longueur, les plus courts sont récyclés de façon à correspondre au plus long vecteur.
+
+```{r}
+1:10 + 2
+```
+
+Si la longueur du plus long vecteur est un multiple de celle du (ou des) autres vecteurs, ces derniers sont recyclés un nombre entier de fois. Sinon, le plus court vecteur est recyclé un nombre fractionnaire de fois mais comme ce résultat est rarement souhaité, un avertissement est affiché.
+
+```{r}
+1:10 + 1:5 + c(2,4)
+1:10 + rep(1:5,2) + rep(c(2,4),5)
+1:10 + c(2, 4, 6)
+m + v
+```
+
+## Quelques fonctions utiles
+
+Le langage **R** compte un très grand nombre de fonctions internes permettant de :
+
+-   extraire des éléments de vecteurs :
+
+```{r}
+head(1:10)
+head(1:10,3)
+tail(1:10,3)
+unique(c(2,4,2,5,9,5,1))
+```
+
+-   ordonner des vecteurs :
+
+```{r}
+sort(c(4,-1,2,6))
+rank(c(4,-1,2,6))
+order(c(4,-1,2,6))
+rev(c(4,-1,2,6))
+```
+
+-   rechercher des éléments dans un vecteur :
+
+```{r}
+x <- c(4,-1,2,-3,6)
+which(x>0)
+which.min(x)
+which.max(x)
+match(2,x)
+-1:2 %in% x
+```
+
+-   arrondir les éléments d'un vecteur :
+
+```{r}
+x <- 10*runif(10) # Permet de générer un vecteur aléatoire suivant une loi uniforme
+x
+round(x)
+round(x,3)
+floor(x)
+ceiling(x)
+trunc(x)
+```
+
+-   faire des opérations sur les matrices :
+
+```{r}
+x <- matrix(1:4,nrow=2,ncol=2)
+x
+nrow(x)
+ncol(x)
+rowSums(x)
+rowMeans(x)
+t(x)
+diag(x)
+x %*% x # Attention : produit matriciel !
+```
+
+## Type **factor**
+
+Puisque **R** est un langage orienté statistique, il dispose d'un type particulier permettant de coder des variables qualitatives, le type **factor**. Un facteur est un vecteur utilisé pour contenir une variable qualitative autrement dit c'est un vecteur avec une liste prédéfinie de valeurs que l'on appelle modalités, catégories ou niveaux (**levels** en **R**).
+
+```{r}
+ville <- c('paris', 'lyon', 'lyon', 'paris', 'nantes')
+fact.ville <- as.factor(ville); fact.ville
+class(fact.ville)
+levels(fact.ville)
+```
+
+Un facteur a le mode `numeric` : en effet ses éléments sont stockés comme les entiers énumérant les différentes modalités :
+
+```{r}
+mode(fact.ville)
+as.numeric(fact.ville)
+```
+
+Comme nous pouvons le voir en transformant la variable en **numeric**, chaque modalité est codée numériquement (en valeur entière de 1 à $n$, $n$ désignant le nombre total de niveaux) et garde la liste des niveaux en plus.
+
+## Type **list**
+
+La liste est le mode de stockage le plus général de **R**, permettant de mettre ensemble des éléments de différents types et mode, y compris `list`. Cela permet donc d'emboîter des listes. La fonction de base pour créer des listes est `list()`.
+
+```{r}
+l <- list(1:5,month.abb,pi)
+l
+```
+
+La liste demeure un vecteur. On peut donc l'indicer avec \[ \]. Cependant, cela retourne une liste contenant le ou les éléments indicés. C'est rarement ce que l'on souhaite. Pour indicer un élément d'une liste et n'obtenir que cet élément, il faut utiliser \[\[ \]\]. On ne peut alors extraire qu'un seul élément à la fois.
+
+```{r}
+l[1]
+l[[1]]
+l[[1]][1]
+```
+
+Si les éléments d'une liste sont nommés par des étiquettes, on peut alors utiliser l'opérateur \$ à la place de \[\[ \]\].
+
+```{r}
+l <- list(x=1:5,mois=month.abb,pi=pi)
+l$x
+```
+
+La fonction \texttt{unlist()} convertit une liste en vecteur simple.
+
+```{r}
+unlist(l)
+```
+
+-   chercher des éléments d'une liste :
+
+```{r}
+l = list(a = "chaîne", 
+  b = 12, 
+  c = 1:10, 
+  d = month.abb, 
+  e = list(x = 1:10, y = log(1:10)))
+Find(is.vector, l)
+Find(is.vector, l, right=TRUE)
+Position(is.vector, l)
+Filter(is.vector, l)
+```
+
+## Type **data.frame**
+
+La *classe* d'un objet spécifie son comportement et donc sa façon d'interagir avec les opérations et les fonctions. L'exemple probablement le plus important est le *data frame*: une liste spéciale dont les éléments ont tous la même longueur. En effet, même si les vecteurs, matrices et listes sont les types d'objet les plus fréquement utilisés sous **R**, un grand nombre de procédures statistiques reposent sur les **data.frame** pour le stockage des données. Bien que visuellement similaire à une matrice (représentation sous la forme d'un tableau à deux dimensions dont les colonnes sont ses éléments), un **data.frame** est plus général puisque les colonnes peuvent être de modes différents. Typiquement, dans un data frame les colonnes représentent les **variables** et les ligne les **observations**.
+
+La commande de base pour créer un **data.frame** est **data.frame()** ou **as.data.frame()** pour convertir un autre type d'objets en data frame. L'élément distinctif entre un data frame et une liste générale, c'est que tous les éléments du premier doivent être de même longueur et que, par conséquent, **R** les dispose en colonnes.La classe d'un data frame est différente de celle des listes génériques et les data frame ont un système d'indiçage qui n'existe pas pour les autres listes.
+
+```{r}
+id <- c('id.453', 'id.452', 'id.455', 'id.459', 'id.458', 'id.456', 'id.450', 'id.451')
+age <- c(19, 45, 67, 53, 17, 30, 27, 35)
+fumeur <- c(TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE)
+sex <- c('f', 'f', 'h', 'h', 'f', 'h', 'f', 'f')
+ma.bd <- data.frame(Id=id, Age=age, Fumeur=fumeur, Sex=sex); ma.bd
+dim(ma.bd); nrow(ma.bd); ncol(ma.bd)
+names(ma.bd)
+```
+
+Un data frame étant une liste, on pourra extraire une colonne à l'aide de l'opérateur `$` précédé par le nom du data frame et suivi par le nom de la colonne (ou variable), ou utiliser l'opérateur `[]`
+
+```{r}
+ma.bd$Sex # une colonne de caractères est transformée automatiquement en facteur
+ma.bd[,2]
+ma.bd$Age[ma.bd$Fumeur==FALSE]
+```
+
+Les colonnes sont directement accessibles dans l'espace de travail (sans devoir taper le nom du data frame et le `$`) après avoir **attaché** le data frame. En effet, on peut travailler directement avec les colonnes d'un data frame en travailler sur leur noms à l'aide de la fonction `attach`(cela les rend visibles dans l'espace de travail). Il est possible d'annuler cela avec `detach`.
+
+```{r}
+attach(ma.bd)
+Age
+detach(ma.bd)
+```
+
+Pour afficher seulement les six premières lignes:
+
+```{r}
+head(ma.bd)
+```
+
+Pour afficher seulement les six dernières lignes:
+
+```{r}
+tail(ma.bd)
+```
+
+Les jeux de données contenus dans **R** sont (presque) toujours des data.frame.
+
+```{r}
+data(mtcars)
+str(mtcars)
+```
+
+Vous pouvez utiliser la fonction `View(mtcars)` pour visualiser votre jeu de données.
+
+```{r}
+mtcars[1,]
+```
+
+```{r}
+mtcars$mpg
+mtcars[,"mpg"]
+```
+
+```{r}
+mtcars["Mazda RX4",]
+```
+
+## Petit retour sur le type **factor** sur le jeu de données **iris**
+
+```{r}
+data(iris)
+str(iris)
+levels(iris$Species)
+iris$Species[1:5]
+as.numeric(iris$Species[1:5])
+as.character(iris$Species[1:5])
+```
+
+Le plus souvent on travaille sur des jeux de données que l'on importe c'est-à-dire qui ne sont pas directement disponibles dans **R**.
+
+# Importation et exportation des données
+
+L'importation des données est l'étape fondamentale de l'analyse de données. Pour charger dans l'espace de travail (c'est à dire dans la mémoire) les données stockées dans un fichier (de type: texte, .csv, excel, ...) on utilise la fonction `read.table()` ayant de nombreux arguments! Cette dernière nous renvoie un data frame. Elle est le moyen principal pour lire des fichiers de données à l'aide de **R**.
+
+Mais avant toute chose il faut connaitre le répertoire de travail ! En effet, si les données sont stockées (ou doivent être sauvegardées) localement, il est nécessaire de connaître (et de pouvoir modifier) le répertoire de travail:
+
+```{r}
+getwd() # essayer sur sa machine!
+setwd('~/Documents') # pour se déplacer dans le répertoire Documents
+```
+
+On rappelle que dans les machines Linux et OS, `~/` est un raccourci pour `/Users/nom_utilisateur`. Pour les machines Windows, la syntaxe des adresses est légèrement différente. Par exemple on utilise `\` à la place de `/` .
+
+Revenons à notre fonction `read.table()`. Ses trois arguments les plus importants sont:
+
+-   `file`: nom (et adresse) du fichier, entre "guillemets".
+
+-   `header`: les variables sont nommées par défaut **V1,...**. La commande `header` (**FALSE** ou **TRUE**) indique si le fichier contient les noms des variables sur la première ligne et permet donc ainsi d'attribuer des noms aux variables.
+
+-   `sep`: le séparateur de champ est le caractère séparant les colonnes . Il doit être défini suivant le fichier (`sep=$\backslash$t` pour la tabulation par exemple).
+
+-   Fichier txt :
+
+```{r}
+my_data_txt <- read.table(file="Fichiers/iris.txt",
+                          header=TRUE, # la première ligne contient le nom des variables
+                          sep='\t' # les variables sont separées par des tabulations
+                          )
+str(my_data_txt)
+```
+
+-   Fichier csv :
+
+```{r}
+my_data_csv <- read.table(file="Fichiers/iris.csv",
+                          header=TRUE, # la première ligne contient le nom des variables
+                          sep=',' # les variables sont separées par des virgules
+                          )
+str(my_data_csv)
+```
+
+Il existe (beaucoup) d'autres options dont les détails peuvent être trouvés dans l'aide.
+
+-   Fichier chargé à partir d'internet :
+
+```{r}
+#url<- 'http://w3.mi.parisdescartes.fr/~vperduca/programmation/data/Iris.txt'
+#my_data_net <- read.table(url, 
+                 #header=TRUE, # la première ligne contient le nom des variables
+                 #sep=';') # les variables sont separées par des ;
+#str(my_data_net)
+```
+
+-   Fichier Rdata :
+
+Pour les données stockées dans le format `.Rda` ou `.Rdata`, l'importation se fait avec `load()` avec l'argument `file=` nom fichier. Si on veut charger des données directement à partir d'un url, ne pas oublier d'utiliser la fonction `url()` (cela n'était pas nécessaire dans `read.table()`):
+
+```{r}
+my_data_Rdata=load(file="Fichiers/starwars.Rdata") 
+str(my_data_Rdata)
+```
+
+L'exportation des données peut se faire dans un format de type texte (ou .csv, excel...) à l'aide de `write.file()` ou dans le format `.rda` ou `.Rdata` à l'aide de `save()`. Dans les deux cas, les deux principaux arguments sont `x=` données à sauvegarder et `file=` le nom du fichier (entre guillemets).
+
+# Document `R markdown`
+
+Un document `R markdown` (généralement enregistré avec l'extension `.rmd` ou `.Rmd`) permet d'une part d'utiliser la syntaxe [`markdown`](https://daringfireball.net/projects/markdown/) pour écrire du texte, mais aussi d'inclure des commandes `R` directement dans le document. Ainsi, un seul document contient le code et le commentaire, ce qui est un atout non négligeable pour des rapports ou présentations devant être mis à jour ou refaits régulièrement.
+
+Il est possible d'inclure les commandes `R` soit dans un bloc de code, appelé *chunk* dans **R Studio**, ou en ligne, appelé *inline chunk*.
+
+Pour créer un document `R markdown` dans **R Studio**, vous pouvez cliquer sur l'icône avec un plus, puis sur *R markdown...*. Vous devez voir apparaître une interface vous demandant de choisir entre un document, une présentation, une application *Shiny* ou de choisir un *template* prédéfini. Nous allons rester sur le *document* pour le moment. De plus, vous pouvez indiquer le titre et l'auteur, ainsi que choisir le format de sortie ( **HTML** , **PDF** ou **Word** ). Nous allons garder HTML pour le moment.
+
+## En-tête
+
+Lors de la création d'un nouveau document `R markdown`, vous devez voir apparaître en début de document une partie d'en-tête, comme ci-dessous, au format `YAML`.
+
+```         
+---
+title: "Titre"
+author: "Romu"
+date: "23/01/2023"
+output: html_document
+---
+```
+
+Dans cet en-tête, nous pouvons donc définir le titre, éventuellement un sous-titre (avec `subtitle:`), le ou les auteurs, la date et des options de sortie. Pour le moment, nous allons garder la sortie au format HTML. Pour passer au format `PDF`, il faut écrire `pdf_document` dans `output` (ainsi qu'avoir $\LaTeX$ installé sur sa machine - ce qui n'est pas le cas à l'IUT). Pour créer un document de type Word, il faut choisir `word_document` pour `output`.
+
+Il y a d'autres possibilités de sortie, ainsi que la possibilité d'ajouter d'autres paramètres de sortie, que nous ne verrons pas ici.
+
+### *Chunk*
+
+Un *chunk* sera donc un bloc de commande `R` (ou autre langage possible) qui sera exécuté par **R Studio**. Pour cela, il faut indiquer sur la première ligne le langage utilisé. Pour `R`, voici donc un exemple simple
+
+```{=html}
+<pre><code>&#96;&#96;&#96;{r}
+# code R
+summary(mtcars)
+&#96;&#96;&#96;</code></pre>
+```
+Dans le document sera donc intégré à la fois le code, ainsi que le résultat de son exécution. L'exemple donnera donc
+
+```{r}
+# code R
+summary(mtcars)
+```
+
+Il est possible de nommer le *chunk* en lui donnant un label (sans espace, sans accent) après `r` dans les `{}`. Ceci est intéressant surtout dans l'étape de développement, car si une erreur arrive lors de l'exécution, il sera plus facile de retrouver dans quel *chunk* est l'erreur (indiqué lors de l'affichage de l'erreur).
+
+De plus, il est possible de mettre des options dans le *chunk*, toujours dans les `{}`, après une `","`. Voici quelques options classiques et utiles (avec leur valeur par défaut indiquée, si elle existe) :
+
+-   `include = TRUE` : si `FALSE`, le code est exécuté mais il n'est pas inclus dans le document (ni le code, ni son résultat)
+-   `echo = TRUE` : si `FALSE`, le code n'est pas affiché mais bien exécuté
+-   `eval = TRUE` : si `FALSE`, le code est affiché mais n'est pas exécuté
+-   `results = 'markup'` : permet de définir comment le résultat est affiché (intéressant pour les tableaux, cf plus loin)
+-   `fig.cap` : titre du graphique produit
+
+Il est possible de mettre plusieurs options, toutes séparées par des `","`.
+
+### Quelques exemples
+
+Dans la suite, voici quelques exemples de *chunks* avec options. Regardez le source pour mieux comprendre le fonctionnement.
+
+Tout d'abord, on importe les données `iris.txt`, mais ce genre de code n'est souvent pas à inclure, dans le sens où l'on ne veut ni l'afficher, ni voir de résultat.
+
+```{r import, include = FALSE}
+library(readr)
+Iris<- read.table(file="Fichiers/iris.txt",
+                          header=TRUE, # la première ligne contient le nom des variables
+                          sep='\t' # les variables sont separées par des tabulations
+                          )
+```
+
+Ensuite, la librairie `knitr` contient une fonction `kable()` permettant d'afficher un `data.frame` au format `markdown`. Cela permet d'avoir un résultat plus lisible qu'une sortie de console `R` classique.
+
+```{r head}
+knitr::kable(head(Iris))
+```
+
+Enfin, on peut vouloir faire un graphique, ce qui pourrait donner ce qui suit. Pour ce genre de présentation, nous pouvons décider de ne pas afficher le code permettant de les obtenir.
+
+```{r graph, fig.cap = "Répartition de la longeur du sépale en fonction du type d'iris", echo = FALSE}
+par(mar = c(4, 4, 2, 0) + .1, font.lab = 3)
+couleurs = c("orange", "seagreen", "steelblue")
+boxplot(Sepal.Length ~ Species, data = iris,
+        col = couleurs,
+        main = "Influence de l'espèce sur le sépale",
+        ylab = "Longueur du sépale (en cm)",
+        xlab = "Type d'iris")
+```
+
+## *Inline chunk*
+
+On peut faire des *chunks* en ligne en encadrant le code avec des `` ` `` et en commencant le code par un `r`. Par exemple, on peut dire que dans le jeu de données `Iris` sont présentés `r nrow(Iris)` individus et `r ncol(Iris)` variables.
+
+## Paramètres globaux des *chunks*
+
+Il est possible de déterminer des paramètres globaux pour tous les blocs *chunks* du document (sauf paramètres locaux précisés). Ceci doit se faire comme suit, avec la fonction `set()` de l'objet `opts_chunk` de la librairie `knitr`. Il est par exemple possible de définir `echo=FALSE` pour n'avoir aucun code apparaissant dans le document.
+
+```         
+knitr::opts_chunk$set(...)
+```
+
+Dans votre document, penser à nommer chaque chunk différement. Et n'hésiter pas à commenter le document pour le rendre plus conforme à ce qu'on pourrait vouloir produire comme document.
+
+Vous trouverez sur le site [rmarkdown](https://daringfireball.net/projects/markdown/) beaucoup d'informations et de compléments sur cette librairie. Beaucoup sont résumées dans ce [document](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+
+
+# Concepts avancés
+
+Les boucles doivent être utilisées avec parcimonie en **R** car elles sont généralement inefficaces et lentes à éxécuter. Dans la majeure partie des cas, il est possible de vectoriser les calculs pour éviter les boucles explicites. Il est également possible de créer ses propres fonctions. La meilleur façon de procéder étant d'utiliser les fonctions `apply, sapply, tapply, mapply, lapply` pour programmer de manière plus efficace.
+
+## Schémas de programmation
+
+### Choix (impliquant des conditions)
+
+-   `if (condition) branche.vraie else branche.fausse` : si `condition` est vraie, `branche.vraie` est exécutée, sinon ce sera `branche.fausse`
+
+```{r}
+x <- -2
+if (x<0){
+  cat("x est négatif")
+} else {
+  cat("x est positif")
+}
+```
+
+-   `while (condition) expression` : exécute `expression` tant que `condition` est vraie
+
+```{r}
+x <- 10
+while (x>0){
+  x <- x-1
+}
+x
+```
+
+### Itération ou boucle
+
+-   `for (variable in suite) expression` : exécute `expression` successivement pour chaque valeur de `variable` contenue dans `suite`
+
+```{r}
+x <- 0
+for (i in (1:10)){
+  x <- x+1
+}
+x
+```
+
+## Fonctions définies par l'usager
+
+On définit une nouvelle fonction avec la syntaxe suivante : `fun <- function(arguments) expression` où
+
+-   `fun` est le nom de la fonction
+
+-   `arguments` est la liste des arguments, séparés par des virgules
+
+-   `expression` constitue le corps de la fonction, soit une expression ou un groupe d'expressions réunies par des accolades.
+
+La plupart des fonctions sont écrites dans le but de retourner un résultat. Ici, une fonction retourne tout simplement le résultat de la dernière expression du corps de la fonction. On peut utiliser la fonction `return()` pour retourner un résultat qui n'est pas à la dernière ligne de la fonction.
+
+**Exemple:**
+
+```{r}
+ma.fonction <- function(x,y=10){ # la valeur par défaut de y est 10
+  z=x-y
+  return(z)
+}
+ma.fonction(2)
+ma.fonction(2,4)
+ma.fonction(y=1, x=4)
+```
+
+Toute variable définie dans une fonction est *locale* et n'apparaît pas dans l'espace de travail: essayer d'exécuter
+
+```{r,eval=FALSE}
+z
+```
+
+```{r}
+Moyenne <- function(x){
+  if (mode(x)=="numeric"){
+    M <- mean(x)
+    return(M)
+  } else {
+    cat("x n'est pas numérique")
+  }
+}
+Moyenne(c(1,3,5))
+Moyenne(c("a","b","c"))
+```
+
+## Fonction `apply()`
+
+La fonction `apply()` sert à appliquer une fonction quelconque sur une partie d'une matrice, ou plus généralement, d'un tableau. La syntaxe de la fonction est la suivante `apply(X, MARGIN, FUN, ...)` où
+
+-   `X` est une matrice ou un tableau
+
+-   `MARGIN` est un vecteur d'entiers contenant la (ou les) dimensions de la matrice ou tableau sur lesquelles la fonction doit s'appliquer
+
+-   `FUN` est la fonction à appliquer.
+
+Lorsque `X` est une matrice, `apply` sert principalement à calculer des sommaires par ligne (dimension 1) ou par colonne (dimension 2).
+
+```{r}
+x <- matrix(sample(1:100, 20, rep = TRUE), 5, 4)
+x
+apply(x,1,var)
+apply(x,2,min)
+```
+
+## Fonctions `lapply()` et `sapply()`
+
+Les fonctions `lapply(`) et `sapply()` sont similaires à la fonction `apply()` puisqu'elles permettent d'appliquer une fonction aux éléments d'une structure (vecteur ou liste). Leur syntaxe est similaire `lapply(X,FUN,...), sapply(X,FUNC,...)`.
+
+La fonction `lapply()` applique une fonction `FUN` à tous les éléments d'un vecteur ou d'une liste `X` et retourne le résultat sous la forme d'une liste. La fonction `sapply()` est similaire, sauf que le résultat est retourné sous forme de vecteur, si possible. Le résultat est donc simplifié par rapport à celui de `lapply()`.
+
+```{r}
+x <- lapply(5:8, sample, x = 1:10)
+x
+lapply(x,mean)
+sapply(x,mean)
+```
+
+Si le résultat de chaque application de la fonction est un vecteur et que les vecteurs sont tous de la même longueur, alors `sapply` retourne une matrice, remplie comme toujours par colonne :
+
+```{r}
+x <- lapply(rep(5, 3), sample, x = 1:10)
+x
+sapply(x,sort)
+```
+
+## Fonction particulière
+
+On a souvent besoin d'utiliser une fonction spécifique dans les fonctions comme `lapply()` ou `sapply()`. On peut par exemple la définir au préalable et l'utiliser comme une autre.
+
+```{r}
+l = list(a = "chaîne", 
+  b = 12, 
+  c = 1:10, 
+  d = head(mtcars), 
+  e = list(x = 1:10, y = log(1:10)))
+
+infoElement <- function(e) {
+    return(c(classe = class(e), longueur = length(e)))
+}
+
+sapply(l, infoElement)
+```
+
+Il est également possible de déclarer directement la fonction dans les fonctions `lapply()` et `sapply()`. On parle alors de **fonction anonyme**.
+
+```{r}
+sapply(l, function(e) {
+  return(c(classe = class(e), longueur = length(e)))
+})
+```

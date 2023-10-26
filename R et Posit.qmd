@@ -1,10 +1,6 @@
 ---
 author: "Romu"
 date: "01/01/2023"
-categories:
-  - news
-  - code
-  - analysis
 execute: 
   message: false
   warning: false
@@ -119,4 +115,8 @@ require(dplyr) # fonction équivalente
 *Le `#` sert à commenter les instructions. Le texte/code situé après `#` (sur la même ligne) ne sera pas éxécuté, ce sera juste un commentaire.*
 :::
 
-Asides allow you to place content objet from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). [This is a span that has the class `objet` which places it in the margin without a footnote number.]{.aside}
+## Références
+
+Une référence complète est l'introduction officielle sur le site du CRAN :
+
+<https://cran.r-project.org/doc/manuals/R-intro.html>

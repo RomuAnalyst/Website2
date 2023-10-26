@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>RomuAnalyst</title>
+<link>https://romuanalyst.github.io/Website/packages.html</link>
+<atom:link href="https://romuanalyst.github.io/Website/packages.xml" rel="self" type="application/rss+xml"/>
+<description>Website, portfolio, aide à l&#39;apprentissage...</description>
+<image>
+<url>https://romuanalyst.github.io/Website/img/logo.png</url>
+<title>RomuAnalyst</title>
+<link>https://romuanalyst.github.io/Website/packages.html</link>
+</image>
+<generator>quarto-1.3.433</generator>
+<lastBuildDate>Mon, 23 Oct 2023 20:28:08 GMT</lastBuildDate>
+<item>
+  <title>dplyr</title>
+  <link>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="rvest.qmd"><img src="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package “dplyr” est un package populaire en R qui fournit une grammaire de manipulation de données cohérente et facile à utiliser. Il simplifie le processus de manipulation, de transformation et de filtrage des données, en offrant des fonctions puissantes et intuitives. Le package “dplyr” est largement utilisé dans l’analyse de données avec R en raison de sa syntaxe concise et de sa puissance de manipulation de données. Il offre une approche cohérente et intuitive pour effectuer des opérations courantes sur les données.
+</p>
+</div>
+</div>
+</div>
+<p><br> Vous trouverez ci dessous, certaines des principales fonctionnalités du package “dplyr”, illustrées par des exemples. Nous utiliserons, le célèbre dataset “iris” inclus dans R :</p>
+<p><br> 1. <strong>Sélection de colonnes</strong> : “dplyr” propose la fonction <code>select()</code> qui permet de sélectionner les colonnes d’un dataframe en fonction de leur nom. Vous pouvez utiliser des opérations de sélection pour spécifier les colonnes à conserver ou à exclure. Par exemple, pour sélectionner uniquement les colonnes “Species” et “Sepal.Length” du dataset iris, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb1-2">iris_selection <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(iris, Species, Sepal.Length)</span></code></pre></div>
+<p><br> 2. <strong>Filtrage des lignes</strong> : La fonction <code>filter()</code> de “dplyr” permet de filtrer les lignes d’un dataframe en fonction de certaines conditions. Vous pouvez utiliser des opérateurs de comparaison (par exemple, “==”, “&lt;”, “&gt;”) et des opérateurs logiques (par exemple, “&amp;”, “|”) pour spécifier les conditions de filtrage. Par exemple, pour filtrer les lignes où la valeur de la colonne “Sepal.Width” est supérieure à 3, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">iris_filtre <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(iris, Sepal.Width <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span></code></pre></div>
+<p><br> 3. <strong>Ajout de nouvelles colonnes</strong> : “dplyr” permet d’ajouter de nouvelles colonnes à un dataframe à l’aide de la fonction <code>mutate()</code>. Vous pouvez effectuer des calculs ou appliquer des transformations sur les colonnes existantes pour créer de nouvelles colonnes. Par exemple, pour créer une nouvelle colonne “Petal.Ratio” qui représente le ratio de longueur du pétale par rapport à la largeur du pétale, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">iris_nouvelle_colonne <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(iris, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Petal.Ratio =</span> Petal.Length <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Petal.Width)</span></code></pre></div>
+<p><br> 4. <strong>Chaînage des opérations</strong> : L’un des points forts de “dplyr” est la possibilité de chaîner plusieurs opérations ensemble de manière fluide à l’aide de l’opérateur <code>%&gt;%</code>. Cela permet d’écrire un code lisible et concis en enchaînant les fonctions “dplyr” les unes après les autres. Par exemple, pour sélectionner les colonnes “Species” et “Petal.Width”, puis filtrage des lignes où la valeur de “Petal.Width” est supérieure à 1.5, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">resultat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> iris <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Species, Petal.Width) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Petal.Width <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>)</span></code></pre></div>
+<p><br> 5. <strong>Jointure de tables</strong> : “dplyr” permet de réaliser des jointures entre des tables à l’aide de la fonction <code>join()</code>. Vous pouvez combiner les lignes de plusieurs tables en fonction de clés de jointure communes. “dplyr” prend en charge différents types de jointures tels que la jointure interne, la jointure externe, la jointure gauche et la jointure droite. Par exemple, pour effectuer une jointure dataset iris avec le dataset SpeciesInfo en utilisant la colonne “Species” comme clé de jointure, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">iris_jointure <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(iris, SpeciesInfo, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Species"</span>)</span></code></pre></div>
+<p><br> 6. <strong>Agrégation des données</strong> : “dplyr” fournit des fonctions d’agrégation telles que <code>summarize()</code> et <code>group_by()</code> pour effectuer des opérations d’agrégation sur les données. Vous pouvez regrouper les lignes en fonction d’une ou plusieurs variables, puis calculer des statistiques agrégées (par exemple, la somme, la moyenne, le maximum) sur les groupes. Par exemple, pour calculer la moyenne de la colonne “Petal.Length” pour chaque espèce, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">iris_agreges <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> iris <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Species) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">moyenne_Petal.Length =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Petal.Length))</span></code></pre></div>
+
+
+
+ ]]></description>
+  <category>manipulation de données</category>
+  <category>tidyverse</category>
+  <guid>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</guid>
+  <pubDate>Mon, 23 Oct 2023 20:28:08 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>ggplot2</title>
+  <link>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="rvest.qmd"><img src="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+</p><p>peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
+Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!
+<p></p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rvest)</span></code></pre></div>
+
+
+
+ ]]></description>
+  <category>visualisation de données</category>
+  <category>tidyverse</category>
+  <guid>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</guid>
+  <pubDate>Mon, 23 Oct 2023 20:28:08 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>leaflet</title>
+  <link>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/leaflet/leaflet.html"><img src="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package <strong>leaflet</strong> en R est une bibliothèque interactive de cartographie qui permet de créer des <code>cartes interactives</code> et de les intégrer dans des applications web ou des rapports RMarkdown. <strong>Leaflet</strong> est basé sur la bibliothèque JavaScript Leaflet.js, ce qui en fait une solution puissante pour la visualisation de données géospatiales.
+</p>
+</div>
+</div>
+</div>
+<p>Les cartes créées avec “leaflet” sont interactives par défaut. Vous pouvez zoomer, faire glisser, et cliquer sur les marqueurs pour afficher des informations supplémentaires. Vous pouvez également personnaliser l’interaction en ajoutant des couches de contrôle. De plus, vous pouvez ajouter une couche de contrôle pour basculer entre différentes vues de carte, activer/désactiver les couches et ajouter des légendes.</p>
+<p>Dans l’exemple ci dessous nous avons ajouté un popup qui donne des informations sur le lieu indiqué, l’IUT Paris Rives de Seine (lien vers le site internet et l’adresse)</p>
+<div class="grid">
+<div class="g-col-6">
+
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(leaflet))) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"leaflet"</span>)</span>
+<span id="cb1-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(htmlwidgets))) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"htmlwidgets"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(leaflet)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(htmlwidgets)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">adresse_iut <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb2-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;b&gt;&lt;a href='https://iutparis-seine.u-paris.fr/'&gt;IUT Paris Rives de Seine&lt;/a&gt;&lt;/b&gt;"</span>,</span>
+<span id="cb2-6">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"143 Av. de Versailles"</span>,</span>
+<span id="cb2-7">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"75016 Paris"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;br/&gt;"</span></span>
+<span id="cb2-8">)</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">carte <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">leaflet</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb2-11">          <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addTiles</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-12">          <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addPopups</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.267872726605464</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">48.84218567506416</span>, adresse_iut,</span>
+<span id="cb2-13">            <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">popupOptions</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">closeButton =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb2-14">  )</span>
+<span id="cb2-15"></span>
+<span id="cb2-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">saveWidget</span>(carte, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"iut_leaflet.html"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>visualisation de données</category>
+  <category>cartographie</category>
+  <guid>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</guid>
+  <pubDate>Mon, 23 Oct 2023 20:28:08 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" medium="image" type="image/png" height="72" width="144"/>
+</item>
+<item>
+  <title>rvest</title>
+  <link>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<p>peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
+<p>Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!</p>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-8">
+<div class="card-body d-flex flex-column">
+<div style="margin-top: auto;">
+<p class="card-text">
+</p><p>peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
+Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rvest)</span></code></pre></div>
+
+
+
+ ]]></description>
+  <category>web</category>
+  <category>table</category>
+  <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</guid>
+  <pubDate>Mon, 23 Oct 2023 20:28:08 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>rvest</title>
+  <link>https://romuanalyst.github.io/Website/packages/rvest/rvest2.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<section id="exploration-de-rvest-extraction-de-données-à-partir-du-web-avec-r" class="level1">
+<h1>Exploration de rvest : Extraction de données à partir du web avec R</h1>
+<p><code>rvest</code> est un package R puissant qui permet l’extraction de données à partir de pages web. Développé par Hadley Wickham, ce package simplifie la tâche d’extraire des informations structurées à partir de sites web. Découvrons certaines de ses fonctionnalités clés et illustrons-les à l’aide d’exemples de code.</p>
+<section id="scraping-de-contenu-html" class="level2">
+<h2 class="anchored" data-anchor-id="scraping-de-contenu-html">1. Scraping de contenu HTML</h2>
+<p>Avec <code>rvest</code>, vous pouvez extraire du contenu HTML à partir de pages web, y compris des données tabulaires, des listes, des images, des liens, etc. Vous pouvez utiliser des sélecteurs CSS ou XPath pour cibler spécifiquement les éléments que vous souhaitez extraire.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rvest)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Extraction d'une table HTML</span></span>
+<span id="cb1-4">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com/table.html"</span></span>
+<span id="cb1-5">table <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_table</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Extraction d'une liste de valeurs</span></span>
+<span id="cb1-9">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com/list.html"</span></span>
+<span id="cb1-10">list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_nodes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".list-item"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>()</span></code></pre></div>
+<ol start="2" type="1">
+<li>Scraping récursif ﻿rvest prend en charge le scraping récursif, ce qui signifie que vous pouvez extraire du contenu à partir de plusieurs pages web en suivant les liens. Cela permet d’extraire des données à partir de sites web avec une structure de navigation hiérarchique. # Extraction de liens et de leur contenu à partir d’une page de navigation</li>
+</ol>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com/navigation.html"</span></span>
+<span id="cb2-2">pages <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_nodes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_attr</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"href"</span>)</span>
+<span id="cb2-5"></span>
+<span id="cb2-6">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(pages, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(page) {</span>
+<span id="cb2-7">  page_url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com"</span>, page)</span>
+<span id="cb2-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(page_url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_nodes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".content"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>()</span>
+<span id="cb2-11">})</span></code></pre></div>
+<ol start="3" type="1">
+<li>Manipulation de contenu En plus de l’extraction de données, ﻿rvest permet également la manipulation de contenu HTML, y compris l’ajout, la suppression ou la modification d’éléments. Cela vous permet de nettoyer ou de structurer les données extraites selon vos besoins. # Suppression d’éléments indésirables</li>
+</ol>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com/page.html"</span></span>
+<span id="cb3-2">page <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(url)</span>
+<span id="cb3-3"></span>
+<span id="cb3-4">page <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_nodes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".unwanted-element"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_remove</span>()</span>
+<span id="cb3-7"></span>
+<span id="cb3-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Modification d'attributs d'éléments</span></span>
+<span id="cb3-9">page <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_nodes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"img"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_attr</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"src"</span>) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"new_image.jpg"</span></span></code></pre></div>
+<ol start="4" type="1">
+<li>Prise en charge des formulaires ﻿rvest permet également d’interagir avec des formulaires sur les pages web, en remplissant les champs et en soumettant les données. Cela permet d’automatiser l’extraction de données à partir de sites web qui nécessitent une interaction utilisateur. # Remplir un formulaire et soumettre les données</li>
+</ol>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.example.com/login.html"</span></span>
+<span id="cb4-2">form <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_form</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-4">  .[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]]</span>
+<span id="cb4-5"></span>
+<span id="cb4-6">form <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_values</span>(form,</span>
+<span id="cb4-7">                   <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">username =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my_username"</span>,</span>
+<span id="cb4-8">                   <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">password =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my_password"</span>)</span>
+<span id="cb4-9"></span>
+<span id="cb4-10">result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">submit_form</span>(form)</span></code></pre></div>
+</section>
+</section>
+<section id="extraction-des-données-de-la-page-après-soumission-du-formulaire" class="level1">
+<h1>Extraction des données de la page après soumission du formulaire</h1>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> result <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">htmt_table</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+<p>﻿rvest propose de nombreuses autres fonctionnalités pour faciliter le scraping et la manipulation de données à partir de pages web. Que ce soit pour collecter des informations, pour effectuer des analyses ou pour alimenter votre pipeline de données, ﻿rvest est un outil précieux à explorer. En conclusion, ﻿rvest est un package essentiel pour extraire et manipuler des données à partir de pages web en utilisant R. Son approche simple mais puissante en fait un choix populaire parmi les analystes de données et les chercheurs qui travaillent avec des données provenant de l’internet. Bon scraping de données!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>web</category>
+  <category>table</category>
+  <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest2.html</guid>
+  <pubDate>Mon, 23 Oct 2023 20:28:08 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,18 @@
+---
+title: "talks & workshops"
+subtitle: "a selection of my favorite talks & workshops and associated materials" 
+listing:
+  contents: talks_workshops
+  feed: true
+  sort: "date desc"
+  type: grid
+  grid-item-border: true
+  grid-item-align: left
+  max-description-length: 175
+  date-format: medium
+  categories: numbered
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---

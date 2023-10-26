@@ -1,0 +1,62 @@
+---
+title: "**<u>dplyr</u>**"
+subtitle: Essentiel pour la manipulation de données 
+categories:
+  - manipulation de données
+  - tidyverse
+image: dplyr.png
+lang: fr
+page-layout: full
+---
+
+::: {.grid}
+::: {.g-col-2}
+<div style="margin-top: auto;"><a href="rvest.qmd">![](dplyr.png)</a></div>
+:::
+::: {.g-col-10}
+<div style="margin-top: auto;"><p class="card-text">Le package "dplyr" est un package populaire en R qui fournit une grammaire de manipulation de données cohérente et facile à utiliser. Il simplifie le processus de manipulation, de transformation et de filtrage des données, en offrant des fonctions puissantes et intuitives.
+Le package "dplyr" est largement utilisé dans l'analyse de données avec R en raison de sa syntaxe concise et de sa puissance de manipulation de données. Il offre une approche cohérente et intuitive pour effectuer des opérations courantes sur les données.</p>
+</div>
+:::
+:::
+<br>
+Vous trouverez ci dessous, certaines des principales fonctionnalités du package "dplyr", illustrées par des exemples. Nous utiliserons, le célèbre dataset "iris" inclus dans R :
+
+<br>
+1. **Sélection de colonnes** : "dplyr" propose la fonction `select()` qui permet de sélectionner les colonnes d'un dataframe en fonction de leur nom. Vous pouvez utiliser des opérations de sélection pour spécifier les colonnes à conserver ou à exclure. Par exemple, pour sélectionner uniquement les colonnes "Species" et "Sepal.Length" du dataset iris, vous pouvez utiliser :
+
+```r
+library(dplyr)
+iris_selection <- select(iris, Species, Sepal.Length)
+```
+<br>
+2. **Filtrage des lignes** : La fonction `filter()` de "dplyr" permet de filtrer les lignes d'un dataframe en fonction de certaines conditions. Vous pouvez utiliser des opérateurs de comparaison (par exemple, "==", "<", ">") et des opérateurs logiques (par exemple, "&", "|") pour spécifier les conditions de filtrage. Par exemple, pour filtrer les lignes où la valeur de la colonne "Sepal.Width" est supérieure à 3, vous pouvez utiliser :
+
+```r
+iris_filtre <- filter(iris, Sepal.Width > 3)
+```
+<br>
+3. **Ajout de nouvelles colonnes** : "dplyr" permet d'ajouter de nouvelles colonnes à un dataframe à l'aide de la fonction `mutate()`. Vous pouvez effectuer des calculs ou appliquer des transformations sur les colonnes existantes pour créer de nouvelles colonnes. Par exemple, pour créer une nouvelle colonne "Petal.Ratio" qui représente le ratio de longueur du pétale par rapport à la largeur du pétale, vous pouvez utiliser :
+
+```R
+iris_nouvelle_colonne <- mutate(iris, Petal.Ratio = Petal.Length / Petal.Width)
+```
+<br>
+4.  **Chaînage des opérations** : L'un des points forts de "dplyr" est la possibilité de chaîner plusieurs opérations ensemble de manière fluide à l'aide de l'opérateur `%>%`. Cela permet d'écrire un code lisible et concis en enchaînant les fonctions "dplyr" les unes après les autres. Par exemple, pour sélectionner les colonnes "Species" et "Petal.Width", puis filtrage des lignes où la valeur de "Petal.Width" est supérieure à 1.5, vous pouvez utiliser :
+
+```R
+resultat <- iris %>% select(Species, Petal.Width) %>% filter(Petal.Width > 1.5)
+```
+<br>
+5. **Jointure de tables** : "dplyr" permet de réaliser des jointures entre des tables à l'aide de la fonction `join()`. Vous pouvez combiner les lignes de plusieurs tables en fonction de clés de jointure communes. "dplyr" prend en charge différents types de jointures tels que la jointure interne, la jointure externe, la jointure gauche et la jointure droite. Par exemple, pour effectuer une jointure dataset iris avec le dataset SpeciesInfo en utilisant la colonne "Species" comme clé de jointure, vous pouvez utiliser :
+
+```R
+iris_jointure <- inner_join(iris, SpeciesInfo, by = "Species")
+```
+<br>
+6. **Agrégation des données** : "dplyr" fournit des fonctions d'agrégation telles que `summarize()` et `group_by()` pour effectuer des opérations d'agrégation sur les données. Vous pouvez regrouper les lignes en fonction d'une ou plusieurs variables, puis calculer des statistiques agrégées (par exemple, la somme, la moyenne, le maximum) sur les groupes. Par exemple, pour calculer la moyenne de la colonne "Petal.Length" pour chaque espèce, vous pouvez utiliser :
+
+```R
+iris_agreges <- iris %>% group_by(Species) %>% summarize(moyenne_Petal.Length = mean(Petal.Length))
+```
+

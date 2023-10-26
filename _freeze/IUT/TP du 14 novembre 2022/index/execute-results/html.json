@@ -1,0 +1,14 @@
+{
+  "hash": "20a7a54656fb2d6e93383250d3847580",
+  "result": {
+    "markdown": "---\ntitle: \"3ème semestre VCOD\"\nauthor: \"Romuald ZAMI\"\ndate: \"14 novembre 2022\"\ncategories:\n  - TP noté\n  \npage-layout: full\nimage: \"image.png\"\n---\n\n  \n  \n***TP programmation statistique -- R***\n\n*Tous les codes utilisés dans les étapes suivantes, doivent être visibles dans votre rendu final. Les questions sont indépendantes, donc ne restez pas bloqué sur une question.*\n\nPour la réalisation du TP, vous aurez besoin des packages suivants :\n\n-   dplyr\n\n-   ggplot2\n\nUne fois les packages installés/chargés, vérifier que vous avez accès au dataset « starwars » (affichez le).\n\n1)  Afficher les personnages qui ont joué dans le film : The Phantom Menace\n2)  Afficher les 10 premières lignes de la table\n3)  Combien y a t'il de personnages dans chaque espèce\n4)  Donner le nom des personnages de l'espèce Droid\n5)  Calculer la taille moyenne et le poids moyen\n6)  Créer une nouvelle table « starwars_reduit » avec les variables : name, height, mass, sex, species, birth_year\n7)  Ci dessous le code à copier pour créér une nouvelle table « genre » :\n\n<!-- -->\n\n\n::: {.cell}\n\n```{.r .cell-code}\ngenre <- data.frame(sex = c(\"male\", \"none\", \"female\", \"hermaphroditic\",\"NA\"), sex_2022 = c(\"Homme\", \"Non prononcé\", \"Femme\", \"Bisexué\",\"\"))\n```\n:::\n\n\nFusionner/joindre les 2 tables « starwars_reduit » et « genre » <!-- -->\n\n8)  Faire une moyenne par espèce de : height, mass, birth_year (utiliser le pipe)\n9)  Faire un nuage de points entre le poids et la taille (avec un titre)\n10) Faire un histogramme par espèce\n11) Ajouter un titre au graphique précedent, ainsi qu'un thème\n12) Représenter chaque espèce sur un graphique\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

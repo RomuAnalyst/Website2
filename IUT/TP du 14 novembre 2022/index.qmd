@@ -1,0 +1,45 @@
+---
+title: "3ème semestre VCOD"
+author: "Romuald ZAMI"
+date: "14 novembre 2022"
+categories:
+  - TP noté
+  
+page-layout: full
+image: "image.png"
+---
+  
+  
+***TP programmation statistique -- R***
+
+*Tous les codes utilisés dans les étapes suivantes, doivent être visibles dans votre rendu final. Les questions sont indépendantes, donc ne restez pas bloqué sur une question.*
+
+Pour la réalisation du TP, vous aurez besoin des packages suivants :
+
+-   dplyr
+
+-   ggplot2
+
+Une fois les packages installés/chargés, vérifier que vous avez accès au dataset « starwars » (affichez le).
+
+1)  Afficher les personnages qui ont joué dans le film : The Phantom Menace
+2)  Afficher les 10 premières lignes de la table
+3)  Combien y a t'il de personnages dans chaque espèce
+4)  Donner le nom des personnages de l'espèce Droid
+5)  Calculer la taille moyenne et le poids moyen
+6)  Créer une nouvelle table « starwars_reduit » avec les variables : name, height, mass, sex, species, birth_year
+7)  Ci dessous le code à copier pour créér une nouvelle table « genre » :
+
+<!-- -->
+
+```{r eval=FALSE}
+genre <- data.frame(sex = c("male", "none", "female", "hermaphroditic","NA"), sex_2022 = c("Homme", "Non prononcé", "Femme", "Bisexué",""))
+```
+
+Fusionner/joindre les 2 tables « starwars_reduit » et « genre » <!-- -->
+
+8)  Faire une moyenne par espèce de : height, mass, birth_year (utiliser le pipe)
+9)  Faire un nuage de points entre le poids et la taille (avec un titre)
+10) Faire un histogramme par espèce
+11) Ajouter un titre au graphique précedent, ainsi qu'un thème
+12) Représenter chaque espèce sur un graphique

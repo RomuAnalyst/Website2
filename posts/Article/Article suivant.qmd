@@ -1,0 +1,167 @@
+---
+title: "Untitled"
+format: html
+runtime: shiny
+page-layout: full
+---
+
+## Quarto
+
+
+```{r}
+library(gt)
+library(gtExtras)
+library(leaflet)
+library(htmlwidgets)
+library(tidyverse)
+```
+
+
+
+Nous allons tenter d'avoir sur une carte les stations qui composent les lignes passant par la station Châtelet
+dans le dataset, la cellule...
+
+
+
+```{r, echo=FALSE}
+library(shiny)
+
+ui <- fluidPage(
+  selectInput("variable", "Sélectionnez une variable :", choices = metro$name),
+  textOutput("selected_variable")
+)
+
+server <- function(input, output) {
+  output$selected_variable <- renderText({
+    paste("Vous avez sélectionné :", input$variable)
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+
+```{r}
+# ...La cellule correspondant aux lignes de la station Châtelet contient des valeurs séparées par des virgules
+# Utilisez strsplit pour diviser les valeurs
+# sep_lignes est maintenant une liste
+# Accédez aux valeurs individuelles avec [[1]], [[2]], etc.
+
+```
+
+
+```{r eval=FALSE}
+attach(metro) #on "attache" le dataset metro aux codes que l'on va écrire. le dataset sera gardé en "mémoire"
+
+sep_lignes <- lines[name == "Châtelet"] %>% strsplit(", ")
+print(sep_lignes[[1]])
+
+detach(metro) # on "détache" le dataset
+```
+
+En d'autres termes :
+```{r}
+lignes_chatelet <- metro$lines[metro$name == "Châtelet"]
+sep_lignes <- strsplit(lignes_chatelet, ", ")
+print(sep_lignes[[1]])
+```
+
+Les stations que nous allons étudier font parties des lignes : `r sep_lignes[[1]]`.
+
+```{r}
+metro1 <- metro %>% mutate(sepa = strsplit(lines,", "))
+sep <- metro1$sepa[[7]]
+sep
+table_filtrée <- metro1[grepl(paste(sep, collapse = "|"), metro1$lines), ]
+
+```
+
+
+```{r}
+
+# Fonction de filtrage pour les valeurs exactes
+filtrer_valeurs_exactes <- function(metro1, lines, sep) {
+  pattern <- paste0("\\b(", paste(sep, collapse = "|"), ")\\b")
+  table_filtrée <- metro1[grepl(pattern, metro1[[lines]]), ]
+  return(table_filtrée)
+}
+
+
+table_filtrée <- filtrer_valeurs_exactes(metro1, "lines", sep)
+
+print(table_filtrée)
+
+
+icon <- makeIcon(iconUrl = "5227997.png")
+leaflet(data = table_filtrée) %>% addTiles() %>%
+  addMarkers(
+    ~ table_filtrée$longitude,
+    ~ table_filtrée$latitude,
+    popup = paste(table_filtrée$name, table_filtrée$location, sep = "<br>"),
+    icon = icon
+  ) %>%  addPopups(2.347324,
+                   48.85835,
+                   "Châtelet",
+                   options = popupOptions(closeButton = FALSE))
+
+```
+
+
+
+```{r}
+metro_modifstr <- head(metro) %>% rename(Station = name, Lignes = lines, Lieux = caption, connect_autre = connect_other, Nombre_de_passagers = passengers, localisation = location)
+metro_modifstr <- replace(metro_modifstr,is.na(metro_modifstr),"")
+tableau <- gt(metro_modifstr) %>%
+  tab_header(title = "Métro parisien",
+             subtitle = 'Six premières lignes du dataset "metro" disponible dans le package {gt}')
+
+my_modified_gt_theme <- function(gt_tbl) {
+  # Grab number of rows of data from gt object
+  n_rows <- nrow(gt_tbl$`_data`)
+  
+  gt_tbl |>
+    tab_options(
+      data_row.padding = px(6),
+      heading.align = 'left',
+      column_labels.background.color = 'dodgerblue4',
+      heading.title.font.size = px(26),
+      heading.subtitle.font.size = px(14),
+      table_body.hlines.width = px(0)
+    ) |>
+    tab_style(
+      style = cell_text(
+        color = 'dodgerblue4',
+        weight = 'bold',
+        font = google_font('Merriweather')
+      ),
+      locations = cells_title(groups = 'title')
+    ) |>
+    tab_style(style = cell_fill(color = 'grey90'),
+              # Use number of rows from data set
+              locations = cells_body(rows = seq(1, n_rows, 2)))
+}
+
+tableau |>
+  my_modified_gt_theme()
+
+df_tab <- gt_theme_pff(tableau)
+
+re <- metro %>% filter(lines == "1") %>% head
+gt(re)
+
+
+re2 <- df_tab %>% 
+  tab_header(
+    title = add_text_img(
+      "Métro parisien",
+      url = "https://cdn-icons-png.flaticon.com/512/50/50844.png"
+      ),
+    subtitle = 'Six premières lignes du dataset "metro" disponible dans le package {gt}'
+  )
+
+re2 |> 
+  my_modified_gt_theme()
+
+re2
+```

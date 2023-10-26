@@ -1,0 +1,49 @@
+---
+title: "Data Viz with {ggplot2}"
+description: |
+  a live-coding workshop on making data visualizations with {ggplot2}
+author:
+  - name: Samantha Csik
+    url: https://samanthacsik.github.io/
+    orcid: 0000-0002-5300-3075
+    affiliation: R-Ladies Santa Barbara
+    affiliation-url: https://www.meetup.com/rladies-santa-barbara/
+  - name: An Bui
+    url: https://an-bui.com/
+    orcid_id: 0000-0002-9548-7776
+    affiliation: R-Ladies Santa Barbara
+    affiliation-url: https://www.meetup.com/rladies-santa-barbara/
+  - name: Juliette Verstaen
+    url: https://www.julietteverstaen.com/
+    orcid: 0000-0002-9548-7776
+    affiliation: R-Ladies Santa Barbara
+    affiliation-url: https://www.meetup.com/rladies-santa-barbara/
+date: 2021-03-03
+slug: csiketal2020dataViz
+categories: [R-Ladies]
+image: ggplot2.png
+draft: true
+---
+
+```{r}
+#| echo: false
+knitr::include_graphics("plots.png")
+```
+
+<br>
+
+<div class="container">
+<div class="center">
+<button type="button" class="button-styling" onclick=window.location.href='https://docs.google.com/presentation/d/1sU2H89F5e409WpYilRqYAqu7DdXSAivccEa4y44xZ7c/edit?usp=sharing'>{{< fa tv title="A television screen" >}} slides</button>
+<button type="button" class="button-styling" onclick=window.location.href='https://github.com/j-verstaen/RLadiesSB-Data-Viz-Pt1'>{{< fa code title="A symbol for code, </>" >}} source code</button> 
+<!-- <button type="button" class="button-styling" onclick=window.location.href='https://www.meetup.com/rladies-santa-barbara/events/272478115/'>`r fontawesome::fa("meetup", fill = "#64605f", a11y = "sem")` meetup events</button>  -->
+</div>
+</div>
+
+# Overview
+
+This live-coding workshop was given to [R-Ladies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/events/272478115/) via Zoom.
+
+# Abstract 
+
+In this code-along workshop, we review `ggplot2` basics and exploring different ways to make customizing plots fun and easy.

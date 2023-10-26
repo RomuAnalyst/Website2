@@ -1,0 +1,24 @@
+---
+title: ""
+listing:
+  contents: IUT
+  sort: "date desc"
+  type: grid
+  image-align: right
+  max-description-length: 175
+  date-format: medium
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title,image, subtitle, categories]
+page-layout: full
+title-block-banner: false
+---
+
+
+
+## Interventions IUT
+  
+  
+
+Aperçu succinct des cours et des travaux pratiques dispensés aux étudiants.  

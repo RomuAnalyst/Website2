@@ -10,7 +10,7 @@ execute:
 
 website:
   title: "RomuAnalyst"
-  site-url: https://romuanalyst.github.io/RomuAnalyst_website
+  site-url: https://romuanalyst.github.io/Website
   description: Website, portfolio, aide à l'apprentissage...
   repo-url: https://github.com/.............
   image: img/logo.png
@@ -18,12 +18,16 @@ website:
   reader-mode: true
   navbar:
     logo: img/tree.png
-    title: "<span class='icon-line'></span>RomuAnalyst👨🏾‍💻<span class='icon-line'></span>"
+    title: "<span class='icon-line'></span>RomuAnalyst {{< fa solid person-walking >}}<span class='icon-line'></span>"
     right:
-      - text: R
+      - text: "{{< fa solid house-user >}}"
+        href: index.qmd
+      - text: Cours
         menu: 
           - text: "{{< fa brands r-project >}} et Posit"
             href: R et Posit.qmd
+          - text: "Introduction à {{< fa brands r-project >}}"
+            href: Introduction_R.qmd
           - text: "ggplot2"
             href: test2.qmd
           - text: "les fonctions"
@@ -33,20 +37,18 @@ website:
           - text: "Shiny"
             href: Shiny.qmd 
       - text: Articles
-        href: blog.qmd
-      - text: Rendu élèves
-        href: blog.qmd
-      - text: packages
+        href: posts.qmd
+      - text: Packages
         href: packages.qmd
-      - text: community
-        href: community.qmd
+      - text: Divers
+        href: TP1.qmd
       - text: Bio
-        href: About.qmd
+        href: presentation.qmd
       #- icon: github
       #  href: https://github.com/EllaKaye
       #- icon: twitter
       #  href: https://twitter.com/ellamkaye
-  favicon: img/favicon.png
+  favicon: img/tree.png
   twitter-card: 
     title: "RomuAnalyst"
     description: Mon site sur mes projets
@@ -80,6 +82,6 @@ format:
     smooth-scroll: true
     link-external-icon: false
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/romuanalyst.github.io/Website2/**'
+    link-external-filter: '^(?:http:|https:)\/\/romuanalyst.github.io/Website/**'
 editor: source
 

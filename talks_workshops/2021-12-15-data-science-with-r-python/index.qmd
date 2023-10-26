@@ -1,0 +1,62 @@
+---
+title: "Data Science with R & Python"
+description: |
+  an R to Python (and vice versa) translation workshop in collaboration with Central Coast Python
+author:
+  - name: Samantha Csik
+    url: https://samanthacsik.github.io/
+    orcid: 0000-0002-5300-3075
+    affiliation: R-Ladies Santa Barbara
+    affiliation-url: https://www.meetup.com/rladies-santa-barbara/
+  - name: An Bui
+    url: https://an-bui.com/
+    orcid: 0000-0002-9548-7776
+    affiliation: R-Ladies Santa Barbara
+    affiliation-url: https://www.meetup.com/rladies-santa-barbara/
+  - name: Sean Helvey
+    url: http://www.seanhelvey.com/
+    affiliation: Central Coast Python
+    affiliation-url: https://www.meetup.com/central-coast-python/
+  - name: Lars Mininni
+    url: https://www.linkedin.com/in/larsmininni/
+    affiliation: Central Coast Python
+    affiliation-url: https://www.meetup.com/central-coast-python/
+date: 2021-12-15
+slug: csiketal2021RPython
+categories: [R-Ladies, R, Python]
+image: r_python.png
+draft: true
+---
+
+```{r}
+#| echo: false
+knitr::include_graphics("cover_slide.png")
+```
+
+<br>
+
+<div class="container">
+<div class="center">
+<button type="button" class="button-styling" onclick=window.location.href='https://docs.google.com/presentation/d/1jXb8wbcP2f7flSfLMoX2gui70G67XRjftJRMLselOlE/edit?usp=sharing'>{{< fa tv title="A television screen" >}} slides</button>
+<button type="button" class="button-styling" onclick=window.location.href='https://github.com/samanthacsik/RLadiesSB-RvsPython'>{{< fa code title="A symbol for code, </>" >}} source code</button> 
+<!-- <button type="button" class="button-styling" onclick=window.location.href='https://www.meetup.com/rladies-santa-barbara/events/281807986/'>{{< fa meetup title="The Meetup symbol, an 'm' inside a circle" >}} meetup event</button> -->
+<button type="button" class="button-styling" onclick=window.location.href='https://drive.google.com/file/d/1OenD9vq8pr558iuk1th2fjZBRs9sWoXt/view'>{{< fa video title="A video camera" >}} recording</button>
+</div>
+</div>
+
+<!-- <br> -->
+
+<!-- <div class="container"> -->
+<!-- <div class="center"> -->
+<!-- <button type="button" class="button-styling" onclick=window.location.href='https://www.meetup.com/rladies-santa-barbara/events/281807986/'>`r fontawesome::fa("meetup", fill = "#64605f", a11y = "sem")` meetup event</button> -->
+<!-- <button type="button" class="button-styling" onclick=window.location.href='https://drive.google.com/file/d/1OenD9vq8pr558iuk1th2fjZBRs9sWoXt/view'>`r fontawesome::fa("video", fill = "#64605f", a11y = "sem")` recording</button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+# Overview
+
+This workshop was the result of a collaborative effort between the [R-Ladies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/events/281807986/) and [Central Coast Python Meetup](https://www.meetup.com/central-coast-python/) groups. A special thanks to Sean Helvey for connecting with us to make this happen!
+
+# Abstract 
+
+Python can be a powerful alternative/complementary language to R, and while we here at R-Ladies are certainly partial to the latter, adding another language to our data science toolkit is something we are always excited for. In this R to Python (and vice versa) translation workshop, we learn to wrangle and visualize the same dataset using both languages.

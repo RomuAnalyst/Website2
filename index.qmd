@@ -6,16 +6,16 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/MarvinSchmittML
-    - icon: github
-      text: Github
-      href: https://github.com/marvinschmitt
+      href: https://twitter.com/Romu_Zam
+    #- icon: github
+      #text: Github
+      #href: https://github.com/RomuAnalyst
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
+      href: https://www.linkedin.com/in/romuald-zami-293a9031/
     - icon: envelope
       text: Email
-      href: "mailto:titi.minet971@gmail.com"
+      href: "mailto:romuanalyst@gmail.com"
 knitr:
   opts_chunk: 
     collapse: true
@@ -40,7 +40,15 @@ output-directory : docs
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
 <p class="card-text">Cours d'introduction à {{< fa brands r-project >}} et Posit (ex-Rstudio)</p>
-<div style="margin-top: auto;"><a href="test2.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+<div style="margin-top: auto;"><a href="R et Posit.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+</div>
+</div>
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Site web réalisé à partir de Quarto</p>
+<div style="margin-top: auto;"><a href=https://quarto.org/ class="card-link third-color-link heading-font">Quarto</a></div>
 </div>
 </div>
 :::
@@ -48,15 +56,7 @@ output-directory : docs
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
 <p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
-<div style="margin-top: auto;"><a href=https://quarto.org/ class="card-link third-color-link heading-font">BIO</a></div>
-</div>
-</div>
-:::
-::: {.g-col-12 .g-col-md-4}
-<div class="card h-100">
-<div class="card-body d-flex flex-column">
-<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
-<div style="margin-top: auto;"><a href="About.qmd" class="card-link third-color-link heading-font">Bio</a></div>
+<div style="margin-top: auto;"><a href="presentation.qmd" class="card-link third-color-link heading-font">Bio</a></div>
 </div>
 </div>
 :::

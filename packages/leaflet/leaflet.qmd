@@ -1,0 +1,74 @@
+---
+title: "**<u>leaflet</u>**"
+subtitle: Cartes intéractives
+categories:
+  - visualisation de données
+  - cartographie
+image: leaflet.png
+lang: fr
+page-layout: full
+format: html
+link-external-newwindow: true
+---
+
+----------------------
+
+
+::: {.grid}
+
+::: {.g-col-2}
+<div style="margin-top: auto;"><a href="leaflet.qmd">![](leaflet.png)</a></div>
+:::
+
+::: {.g-col-10}
+<div style="margin-top: auto;"><p class="card-text">Le package **leaflet** en R est une bibliothèque interactive de cartographie qui permet de créer des `cartes interactives` et de les intégrer dans des applications web ou des rapports RMarkdown. **Leaflet** est basé sur la bibliothèque JavaScript Leaflet.js, ce qui en fait une solution puissante pour la visualisation de données géospatiales.
+</p>
+</div>
+:::
+
+:::
+
+
+Les cartes créées avec "leaflet" sont interactives par défaut. Vous pouvez zoomer, faire glisser, et cliquer sur les marqueurs pour afficher des informations supplémentaires. Vous pouvez également personnaliser l'interaction en ajoutant des couches de contrôle. De plus, vous pouvez ajouter une couche de contrôle pour basculer entre différentes vues de carte, activer/désactiver les couches et ajouter des légendes.  
+
+Dans l'exemple ci dessous nous avons ajouté un popup qui donne des informations sur le lieu indiqué, l'IUT Paris Rives de Seine (lien vers le site internet et l'adresse)
+
+
+::: {.grid}
+
+::: {.g-col-6}
+```{r}
+
+```
+:::
+
+::: {.g-col-6}
+
+```{r message=F, eval=FALSE}
+
+if (!(require(leaflet))) install.packages("leaflet")
+if (!(require(htmlwidgets))) install.packages("htmlwidgets")
+```
+
+```{r}
+library(leaflet)
+library(htmlwidgets)
+
+adresse_iut <- paste(
+  "<b><a href='https://iutparis-seine.u-paris.fr/'>IUT Paris Rives de Seine</a></b>",
+  "143 Av. de Versailles",
+  "75016 Paris", sep = "<br/>"
+)
+
+carte <- leaflet() %>% 
+          addTiles() %>%
+          addPopups(2.267872726605464, 48.84218567506416, adresse_iut,
+            options = popupOptions(closeButton = FALSE)
+  )
+
+saveWidget(carte, file = "iut_leaflet.html")
+```
+
+:::
+
+:::

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./img/favicon.png" rel="icon" type="image/png">
+<link href="./img/tree.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -44,6 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,7 +61,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
     "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer"
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script>
@@ -99,17 +101,17 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="assets/ek-styles.css">
 <meta property="og:title" content="">
-<meta property="og:image" content="https://romuanalyst.github.io/RomuAnalyst_website/images/logo.png">
+<meta property="og:image" content="https://romuanalyst.github.io/Website/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
 <meta property="og:locale" content="fr-FR">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/img/favicon.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/Website/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="18">
-<meta name="twitter:image-width" content="18">
+<meta name="twitter:image-height" content="1600">
+<meta name="twitter:image-width" content="1600">
 </head>
 
 <body class="nav-fixed">
@@ -123,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="./img/tree.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
+    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst <i class="fa-solid fa-person-walking" aria-label="person-walking"></i><span class="icon-line"></span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -132,14 +134,22 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><i class="fa-solid fa-house-user" aria-label="house-user"></i></span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">R</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Cours</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
     <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
- <span class="dropdown-text"><i class="fa-brands fa-r-project"></i> et Posit</span></a>
+ <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Introduction_R.html" rel="" target="">
+ <span class="dropdown-text">Introduction à <i class="fa-brands fa-r-project" aria-label="r-project"></i></span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./test2.html" rel="" target="">
@@ -160,23 +170,19 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
+    <a class="nav-link" href="./posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
- <span class="menu-text">Rendu élèves</span></a>
+    <a class="nav-link" href="./packages.html" rel="" target="">
+ <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./packages.qmd" rel="" target="">
- <span class="menu-text">packages</span></a>
+    <a class="nav-link" href="./TP1.html" rel="" target="">
+ <span class="menu-text">Divers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community.qmd" rel="" target="">
- <span class="menu-text">community</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./About.html" rel="" target="">
+    <a class="nav-link" href="./presentation.html" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -207,10 +213,22 @@ ul.task-list li input[type="checkbox"] {
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
 <p class="card-text">
-Cours d’introduction à <i class="fa-brands fa-r-project"></i> et Posit (ex-Rstudio)
+Cours d’introduction à <i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit (ex-Rstudio)
 </p>
 <div style="margin-top: auto;">
-<a href="./test2.html" class="card-link third-color-link heading-font">Cours</a>
+<a href="./R et Posit.html" class="card-link third-color-link heading-font">Cours</a>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">
+Site web réalisé à partir de Quarto
+</p>
+<div style="margin-top: auto;">
+<a href="https://quarto.org/" class="card-link third-color-link heading-font">Quarto</a>
 </div>
 </div>
 </div>
@@ -222,19 +240,7 @@ Cours d’introduction à <i class="fa-brands fa-r-project"></i> et Posit (ex-Rs
 Vous voulez en savoir plus sur moi?<br> Voici un petit résumé
 </p>
 <div style="margin-top: auto;">
-<a href="https://quarto.org/" class="card-link third-color-link heading-font">BIO</a>
-</div>
-</div>
-</div>
-</div>
-<div class="g-col-12 g-col-md-4">
-<div class="card h-100">
-<div class="card-body d-flex flex-column">
-<p class="card-text">
-Vous voulez en savoir plus sur moi?<br> Voici un petit résumé
-</p>
-<div style="margin-top: auto;">
-<a href="./About.html" class="card-link third-color-link heading-font">Bio</a>
+<a href="./presentation.html" class="card-link third-color-link heading-font">Bio</a>
 </div>
 </div>
 </div>
@@ -264,7 +270,18 @@ Sous-titre
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Scraping et base Excel" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1698091476077" data-listing-reading-time-sort="4" data-listing-title-sort="Untitled" data-listing-filename-sort="Article suivant.qmd">
+<td>
+<span class="listing-date">undefined</span>
+</td>
+<td>
+<a href="./posts/Article/Article suivant.html" class="title listing-title">Untitled</a>
+</td>
+<td>
+<span class="listing-subtitle">undefined</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689204756841" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Scraping et base Excel" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">12/07/23</span>
 </td>
@@ -273,17 +290,6 @@ Sous-titre
 </td>
 <td>
 <span class="listing-subtitle">Collecte de données web et création de fichiers excel</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Extensions,Features" data-listing-date-sort="1666648800000" data-listing-file-modified-sort="1689259861622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Shinylive Extension" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">25/10/22</span>
-</td>
-<td>
-<a href="./posts/2022-10-25-shinylive-extension/index.html" class="title listing-title">Shinylive Extension</a>
-</td>
-<td>
-<span class="listing-subtitle">Embed Shinylive applications in Quarto documents</span>
 </td>
 </tr>
 </tbody>
@@ -298,19 +304,15 @@ Aucun article correspondant
 </main> 
   <hr class="about-sep">
    <div class="about-links">
-  <a href="https://twitter.com/MarvinSchmittML" class="about-link" rel="" target="">
+  <a href="https://twitter.com/Romu_Zam" class="about-link" rel="" target="">
     <i class="bi bi-twitter"></i>
      <span class="about-link-text">Twitter</span>
   </a>
-  <a href="https://github.com/marvinschmitt" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/marvin-schmitt-a85b321a2/" class="about-link" rel="" target="">
+  <a href="https://www.linkedin.com/in/romuald-zami-293a9031/" class="about-link" rel="" target="">
     <i class="bi bi-linkedin"></i>
      <span class="about-link-text">LinkedIn</span>
   </a>
-  <a href="mailto:titi.minet971@gmail.com" class="about-link" rel="" target="">
+  <a href="mailto:romuanalyst@gmail.com" class="about-link" rel="" target="">
     <i class="bi bi-envelope"></i>
      <span class="about-link-text">Email</span>
   </a>
@@ -657,7 +659,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("^(?:http:|https:)\/\/romuanalyst.github.io/Website2/**");
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/romuanalyst.github.io/Website/**");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
