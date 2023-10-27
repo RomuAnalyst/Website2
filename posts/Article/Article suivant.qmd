@@ -1,7 +1,16 @@
 ---
-title: "Untitled"
-format: html
-runtime: shiny
+title: Lignes de métro parisien
+subtitle: Lignes de métro passant par une station
+description: |
+  Cet article traite de l'extraction de données à partir d'un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours [**les boucles dans R**](/ia2.qmd).
+categories:
+  - R
+  - Cartographie
+  - Tables
+author: Romuanalyst
+date: "10/27/2023"
+image-alt: "Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."
+lang: fr
 page-layout: full
 ---
 
@@ -14,6 +23,7 @@ library(gtExtras)
 library(leaflet)
 library(htmlwidgets)
 library(tidyverse)
+library(shinylive)
 ```
 
 
@@ -22,24 +32,10 @@ Nous allons tenter d'avoir sur une carte les stations qui composent les lignes p
 dans le dataset, la cellule...
 
 
+<iframe src="https://rshiny-971.shinyapps.io/carte_metro/" width="100%" height="600px"></iframe>
 
-```{r, echo=FALSE}
-library(shiny)
 
-ui <- fluidPage(
-  selectInput("variable", "Sélectionnez une variable :", choices = metro$name),
-  textOutput("selected_variable")
-)
 
-server <- function(input, output) {
-  output$selected_variable <- renderText({
-    paste("Vous avez sélectionné :", input$variable)
-  })
-}
-
-shinyApp(ui, server)
-
-```
 
 
 ```{r}

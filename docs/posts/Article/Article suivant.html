@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Romuanalyst">
+<meta name="description" content="Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R.">
 
-<title>RomuAnalyst - Untitled</title>
+<title>RomuAnalyst - Lignes de métro parisien</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,17 +113,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../assets/ek-styles.css">
-<meta property="og:title" content="RomuAnalyst - Untitled">
-<meta property="og:description" content="">
+<meta property="og:title" content="RomuAnalyst - Lignes de métro parisien">
+<meta property="og:description" content="Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R.">
 <meta property="og:image" content="https://romuanalyst.github.io/Website/posts/Article/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
 <meta property="og:locale" content="fr-FR">
+<meta property="og:image:alt" content="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
 <meta name="twitter:image" content="https://romuanalyst.github.io/Website/posts/Article/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image:alt" content="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
 </head>
 
 <body class="nav-fixed">
@@ -158,8 +162,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Introduction à R.qmd" rel="" target="">
- <span class="dropdown-text">introduction à <i class="fa-brands fa-r-project" aria-label="r-project"></i></span></a>
+    <a class="dropdown-item" href="../../Introduction_R.html" rel="" target="">
+ <span class="dropdown-text">Introduction à <i class="fa-brands fa-r-project" aria-label="r-project"></i></span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../test2.html" rel="" target="">
@@ -218,14 +222,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
-</div>
+<h1 class="title">Lignes de métro parisien</h1>
+<p class="subtitle lead">Lignes de métro passant par une station</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Cartographie</div>
+    <div class="quarto-category">Tables</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    <p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours <a href="../../ia2.html"><strong>les boucles dans R</strong></a>.</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Romuanalyst </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 octobre 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -245,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.3     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
 ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -253,58 +280,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinylive)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous allons tenter d’avoir sur une carte les stations qui composent les lignes passant par la station Châtelet dans le dataset, la cellule…</p>
+<iframe src="https://rshiny-971.shinyapps.io/carte_metro/" width="100%" height="600px">
+</iframe>
 <div class="cell">
-<div class="cell-output-display">
-<p><iframe data-deferred-src="appe1086a08a329fcda160650d9730375bb/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...La cellule correspondant aux lignes de la station Châtelet contient des valeurs séparées par des virgules</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisez strsplit pour diviser les valeurs</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sep_lignes est maintenant une liste</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Accédez aux valeurs individuelles avec [[1]], [[2]], etc.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...La cellule correspondant aux lignes de la station Châtelet contient des valeurs séparées par des virgules</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisez strsplit pour diviser les valeurs</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sep_lignes est maintenant une liste</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Accédez aux valeurs individuelles avec [[1]], [[2]], etc.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(metro) <span class="co">#on "attache" le dataset metro aux codes que l'on va écrire. le dataset sera gardé en "mémoire"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> lines[name <span class="sc">==</span> <span class="st">"Châtelet"</span>] <span class="sc">%&gt;%</span> <span class="fu">strsplit</span>(<span class="st">", "</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(metro) <span class="co"># on "détache" le dataset</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(metro) <span class="co">#on "attache" le dataset metro aux codes que l'on va écrire. le dataset sera gardé en "mémoire"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> lines[name <span class="sc">==</span> <span class="st">"Châtelet"</span>] <span class="sc">%&gt;%</span> <span class="fu">strsplit</span>(<span class="st">", "</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(metro) <span class="co"># on "détache" le dataset</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>En d’autres termes :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lignes_chatelet <span class="ot">&lt;-</span> metro<span class="sc">$</span>lines[metro<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Châtelet"</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(lignes_chatelet, <span class="st">", "</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lignes_chatelet <span class="ot">&lt;-</span> metro<span class="sc">$</span>lines[metro<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Châtelet"</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(lignes_chatelet, <span class="st">", "</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"  "4"  "7"  "11" "14"</code></pre>
 </div>
 </div>
 <p>Les stations que nous allons étudier font parties des lignes : 1, 4, 7, 11, 14.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>metro1 <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sepa =</span> <span class="fu">strsplit</span>(lines,<span class="st">", "</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sep <span class="ot">&lt;-</span> metro1<span class="sc">$</span>sepa[[<span class="dv">7</span>]]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sep</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>metro1 <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sepa =</span> <span class="fu">strsplit</span>(lines,<span class="st">", "</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sep <span class="ot">&lt;-</span> metro1<span class="sc">$</span>sepa[[<span class="dv">7</span>]]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sep</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"  "4"  "7"  "11" "14"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(<span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), metro1<span class="sc">$</span>lines), ]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(<span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), metro1<span class="sc">$</span>lines), ]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de filtrage pour les valeurs exactes</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>filtrer_valeurs_exactes <span class="ot">&lt;-</span> <span class="cf">function</span>(metro1, lines, sep) {</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b("</span>, <span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), <span class="st">")</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(pattern, metro1[[lines]]), ]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(table_filtrée)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> <span class="fu">filtrer_valeurs_exactes</span>(metro1, <span class="st">"lines"</span>, sep)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table_filtrée)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de filtrage pour les valeurs exactes</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>filtrer_valeurs_exactes <span class="ot">&lt;-</span> <span class="cf">function</span>(metro1, lines, sep) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b("</span>, <span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), <span class="st">")</span><span class="sc">\\</span><span class="st">b"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(pattern, metro1[[lines]]), ]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(table_filtrée)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> <span class="fu">filtrer_valeurs_exactes</span>(metro1, <span class="st">"lines"</span>, sep)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table_filtrée)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 109 × 12
    name             caption lines connect_rer connect_tramway connect_transilien
@@ -323,77 +348,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 6 more variables: connect_other &lt;chr&gt;, passengers &lt;int&gt;, latitude &lt;dbl&gt;,
 #   longitude &lt;dbl&gt;, location &lt;chr&gt;, sepa &lt;list&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>icon <span class="ot">&lt;-</span> <span class="fu">makeIcon</span>(<span class="at">iconUrl =</span> <span class="st">"5227997.png"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> table_filtrée) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>longitude,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>latitude,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(table_filtrée<span class="sc">$</span>name, table_filtrée<span class="sc">$</span>location, <span class="at">sep =</span> <span class="st">"&lt;br&gt;"</span>),</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> icon</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>  <span class="fu">addPopups</span>(<span class="fl">2.347324</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">48.85835</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Châtelet"</span>,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>icon <span class="ot">&lt;-</span> <span class="fu">makeIcon</span>(<span class="at">iconUrl =</span> <span class="st">"5227997.png"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> table_filtrée) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>longitude,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>latitude,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(table_filtrée<span class="sc">$</span>name, table_filtrée<span class="sc">$</span>location, <span class="at">sep =</span> <span class="st">"&lt;br&gt;"</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> icon</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>  <span class="fu">addPopups</span>(<span class="fl">2.347324</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">48.85835</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Châtelet"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-33c5f7c6b7bfec6092fe" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-33c5f7c6b7bfec6092fe">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ec828754c954f1aba09e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ec828754c954f1aba09e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">head</span>(metro) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Station =</span> name, <span class="at">Lignes =</span> lines, <span class="at">Lieux =</span> caption, <span class="at">connect_autre =</span> connect_other, <span class="at">Nombre_de_passagers =</span> passengers, <span class="at">localisation =</span> location)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">replace</span>(metro_modifstr,<span class="fu">is.na</span>(metro_modifstr),<span class="st">""</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="fu">gt</span>(metro_modifstr) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Métro parisien"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>my_modified_gt_theme <span class="ot">&lt;-</span> <span class="cf">function</span>(gt_tbl) {</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Grab number of rows of data from gt object</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  n_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gt_tbl<span class="sc">$</span><span class="st">`</span><span class="at">_data</span><span class="st">`</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  gt_tbl <span class="sc">|&gt;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_options</span>(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">6</span>),</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.align =</span> <span class="st">'left'</span>,</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">column_labels.background.color =</span> <span class="st">'dodgerblue4'</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.title.font.size =</span> <span class="fu">px</span>(<span class="dv">26</span>),</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.subtitle.font.size =</span> <span class="fu">px</span>(<span class="dv">14</span>),</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">table_body.hlines.width =</span> <span class="fu">px</span>(<span class="dv">0</span>)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="fu">cell_text</span>(</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">'dodgerblue4'</span>,</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">weight =</span> <span class="st">'bold'</span>,</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">font =</span> <span class="fu">google_font</span>(<span class="st">'Merriweather'</span>)</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="at">groups =</span> <span class="st">'title'</span>)</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(<span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">'grey90'</span>),</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Use number of rows from data set</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> <span class="fu">seq</span>(<span class="dv">1</span>, n_rows, <span class="dv">2</span>)))</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>tableau <span class="sc">|&gt;</span></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">head</span>(metro) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Station =</span> name, <span class="at">Lignes =</span> lines, <span class="at">Lieux =</span> caption, <span class="at">connect_autre =</span> connect_other, <span class="at">Nombre_de_passagers =</span> passengers, <span class="at">localisation =</span> location)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">replace</span>(metro_modifstr,<span class="fu">is.na</span>(metro_modifstr),<span class="st">""</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="fu">gt</span>(metro_modifstr) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Métro parisien"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>my_modified_gt_theme <span class="ot">&lt;-</span> <span class="cf">function</span>(gt_tbl) {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Grab number of rows of data from gt object</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  n_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gt_tbl<span class="sc">$</span><span class="st">`</span><span class="at">_data</span><span class="st">`</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  gt_tbl <span class="sc">|&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_options</span>(</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">6</span>),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.align =</span> <span class="st">'left'</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">column_labels.background.color =</span> <span class="st">'dodgerblue4'</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.title.font.size =</span> <span class="fu">px</span>(<span class="dv">26</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.subtitle.font.size =</span> <span class="fu">px</span>(<span class="dv">14</span>),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">table_body.hlines.width =</span> <span class="fu">px</span>(<span class="dv">0</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="fu">cell_text</span>(</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">'dodgerblue4'</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">weight =</span> <span class="st">'bold'</span>,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">font =</span> <span class="fu">google_font</span>(<span class="st">'Merriweather'</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="at">groups =</span> <span class="st">'title'</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(<span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">'grey90'</span>),</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Use number of rows from data set</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> <span class="fu">seq</span>(<span class="dv">1</span>, n_rows, <span class="dv">2</span>)))</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>tableau <span class="sc">|&gt;</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="tfxgxmaskn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xuftqrcwfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#tfxgxmaskn table {
+#xuftqrcwfa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tfxgxmaskn thead, #tfxgxmaskn tbody, #tfxgxmaskn tfoot, #tfxgxmaskn tr, #tfxgxmaskn td, #tfxgxmaskn th {
+#xuftqrcwfa thead, #xuftqrcwfa tbody, #xuftqrcwfa tfoot, #xuftqrcwfa tr, #xuftqrcwfa td, #xuftqrcwfa th {
   border-style: none;
 }
 
-#tfxgxmaskn p {
+#xuftqrcwfa p {
   margin: 0;
   padding: 0;
 }
 
-#tfxgxmaskn .gt_table {
+#xuftqrcwfa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -419,12 +444,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_caption {
+#xuftqrcwfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tfxgxmaskn .gt_title {
+#xuftqrcwfa .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: initial;
@@ -436,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#tfxgxmaskn .gt_subtitle {
+#xuftqrcwfa .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -448,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#tfxgxmaskn .gt_heading {
+#xuftqrcwfa .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -460,13 +485,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_bottom_border {
+#xuftqrcwfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_col_headings {
+#xuftqrcwfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -481,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_col_heading {
+#xuftqrcwfa .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -501,7 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#tfxgxmaskn .gt_column_spanner_outer {
+#xuftqrcwfa .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -513,15 +538,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#tfxgxmaskn .gt_column_spanner_outer:first-child {
+#xuftqrcwfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tfxgxmaskn .gt_column_spanner_outer:last-child {
+#xuftqrcwfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tfxgxmaskn .gt_column_spanner {
+#xuftqrcwfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -533,11 +558,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#tfxgxmaskn .gt_spanner_row {
+#xuftqrcwfa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tfxgxmaskn .gt_group_heading {
+#xuftqrcwfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,7 +588,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#tfxgxmaskn .gt_empty_group_heading {
+#xuftqrcwfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -578,15 +603,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#tfxgxmaskn .gt_from_md > :first-child {
+#xuftqrcwfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tfxgxmaskn .gt_from_md > :last-child {
+#xuftqrcwfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tfxgxmaskn .gt_row {
+#xuftqrcwfa .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -605,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#tfxgxmaskn .gt_stub {
+#xuftqrcwfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -618,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tfxgxmaskn .gt_stub_row_group {
+#xuftqrcwfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -632,15 +657,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#tfxgxmaskn .gt_row_group_first td {
+#xuftqrcwfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tfxgxmaskn .gt_row_group_first th {
+#xuftqrcwfa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tfxgxmaskn .gt_summary_row {
+#xuftqrcwfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -650,16 +675,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tfxgxmaskn .gt_first_summary_row {
+#xuftqrcwfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_first_summary_row.thick {
+#xuftqrcwfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tfxgxmaskn .gt_last_summary_row {
+#xuftqrcwfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -669,7 +694,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_grand_summary_row {
+#xuftqrcwfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -679,7 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tfxgxmaskn .gt_first_grand_summary_row {
+#xuftqrcwfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -689,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_last_grand_summary_row_top {
+#xuftqrcwfa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -699,11 +724,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_striped {
+#xuftqrcwfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tfxgxmaskn .gt_table_body {
+#xuftqrcwfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -712,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_footnotes {
+#xuftqrcwfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -726,7 +751,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_footnote {
+#xuftqrcwfa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -735,7 +760,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tfxgxmaskn .gt_sourcenotes {
+#xuftqrcwfa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -749,7 +774,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tfxgxmaskn .gt_sourcenote {
+#xuftqrcwfa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -757,63 +782,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tfxgxmaskn .gt_left {
+#xuftqrcwfa .gt_left {
   text-align: left;
 }
 
-#tfxgxmaskn .gt_center {
+#xuftqrcwfa .gt_center {
   text-align: center;
 }
 
-#tfxgxmaskn .gt_right {
+#xuftqrcwfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tfxgxmaskn .gt_font_normal {
+#xuftqrcwfa .gt_font_normal {
   font-weight: normal;
 }
 
-#tfxgxmaskn .gt_font_bold {
+#xuftqrcwfa .gt_font_bold {
   font-weight: bold;
 }
 
-#tfxgxmaskn .gt_font_italic {
+#xuftqrcwfa .gt_font_italic {
   font-style: italic;
 }
 
-#tfxgxmaskn .gt_super {
+#xuftqrcwfa .gt_super {
   font-size: 65%;
 }
 
-#tfxgxmaskn .gt_footnote_marks {
+#xuftqrcwfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tfxgxmaskn .gt_asterisk {
+#xuftqrcwfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tfxgxmaskn .gt_indent_1 {
+#xuftqrcwfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tfxgxmaskn .gt_indent_2 {
+#xuftqrcwfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tfxgxmaskn .gt_indent_3 {
+#xuftqrcwfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tfxgxmaskn .gt_indent_4 {
+#xuftqrcwfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tfxgxmaskn .gt_indent_5 {
+#xuftqrcwfa .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -912,29 +937,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_tab <span class="ot">&lt;-</span> <span class="fu">gt_theme_pff</span>(tableau)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">filter</span>(lines <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> head</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(re)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_tab <span class="ot">&lt;-</span> <span class="fu">gt_theme_pff</span>(tableau)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">filter</span>(lines <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> head</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(re)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="khrewgsudi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#khrewgsudi table {
+<div id="emiburzhva" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#emiburzhva table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#khrewgsudi thead, #khrewgsudi tbody, #khrewgsudi tfoot, #khrewgsudi tr, #khrewgsudi td, #khrewgsudi th {
+#emiburzhva thead, #emiburzhva tbody, #emiburzhva tfoot, #emiburzhva tr, #emiburzhva td, #emiburzhva th {
   border-style: none;
 }
 
-#khrewgsudi p {
+#emiburzhva p {
   margin: 0;
   padding: 0;
 }
 
-#khrewgsudi .gt_table {
+#emiburzhva .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -960,12 +985,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_caption {
+#emiburzhva .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#khrewgsudi .gt_title {
+#emiburzhva .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -977,7 +1002,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#khrewgsudi .gt_subtitle {
+#emiburzhva .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -989,7 +1014,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#khrewgsudi .gt_heading {
+#emiburzhva .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1001,13 +1026,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_bottom_border {
+#emiburzhva .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_col_headings {
+#emiburzhva .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1022,7 +1047,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_col_heading {
+#emiburzhva .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1042,7 +1067,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#khrewgsudi .gt_column_spanner_outer {
+#emiburzhva .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1054,15 +1079,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#khrewgsudi .gt_column_spanner_outer:first-child {
+#emiburzhva .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#khrewgsudi .gt_column_spanner_outer:last-child {
+#emiburzhva .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#khrewgsudi .gt_column_spanner {
+#emiburzhva .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1074,11 +1099,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#khrewgsudi .gt_spanner_row {
+#emiburzhva .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#khrewgsudi .gt_group_heading {
+#emiburzhva .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1104,7 +1129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#khrewgsudi .gt_empty_group_heading {
+#emiburzhva .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1119,15 +1144,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#khrewgsudi .gt_from_md > :first-child {
+#emiburzhva .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#khrewgsudi .gt_from_md > :last-child {
+#emiburzhva .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#khrewgsudi .gt_row {
+#emiburzhva .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1146,7 +1171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#khrewgsudi .gt_stub {
+#emiburzhva .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1159,7 +1184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#khrewgsudi .gt_stub_row_group {
+#emiburzhva .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1173,15 +1198,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#khrewgsudi .gt_row_group_first td {
+#emiburzhva .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#khrewgsudi .gt_row_group_first th {
+#emiburzhva .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#khrewgsudi .gt_summary_row {
+#emiburzhva .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1191,16 +1216,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#khrewgsudi .gt_first_summary_row {
+#emiburzhva .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_first_summary_row.thick {
+#emiburzhva .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#khrewgsudi .gt_last_summary_row {
+#emiburzhva .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1210,7 +1235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_grand_summary_row {
+#emiburzhva .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1220,7 +1245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#khrewgsudi .gt_first_grand_summary_row {
+#emiburzhva .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1230,7 +1255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_last_grand_summary_row_top {
+#emiburzhva .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1240,11 +1265,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_striped {
+#emiburzhva .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#khrewgsudi .gt_table_body {
+#emiburzhva .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1253,7 +1278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_footnotes {
+#emiburzhva .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1267,7 +1292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_footnote {
+#emiburzhva .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1276,7 +1301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#khrewgsudi .gt_sourcenotes {
+#emiburzhva .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1290,7 +1315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#khrewgsudi .gt_sourcenote {
+#emiburzhva .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1298,63 +1323,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#khrewgsudi .gt_left {
+#emiburzhva .gt_left {
   text-align: left;
 }
 
-#khrewgsudi .gt_center {
+#emiburzhva .gt_center {
   text-align: center;
 }
 
-#khrewgsudi .gt_right {
+#emiburzhva .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#khrewgsudi .gt_font_normal {
+#emiburzhva .gt_font_normal {
   font-weight: normal;
 }
 
-#khrewgsudi .gt_font_bold {
+#emiburzhva .gt_font_bold {
   font-weight: bold;
 }
 
-#khrewgsudi .gt_font_italic {
+#emiburzhva .gt_font_italic {
   font-style: italic;
 }
 
-#khrewgsudi .gt_super {
+#emiburzhva .gt_super {
   font-size: 65%;
 }
 
-#khrewgsudi .gt_footnote_marks {
+#emiburzhva .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#khrewgsudi .gt_asterisk {
+#emiburzhva .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#khrewgsudi .gt_indent_1 {
+#emiburzhva .gt_indent_1 {
   text-indent: 5px;
 }
 
-#khrewgsudi .gt_indent_2 {
+#emiburzhva .gt_indent_2 {
   text-indent: 10px;
 }
 
-#khrewgsudi .gt_indent_3 {
+#emiburzhva .gt_indent_3 {
   text-indent: 15px;
 }
 
-#khrewgsudi .gt_indent_4 {
+#emiburzhva .gt_indent_4 {
   text-indent: 20px;
 }
 
-#khrewgsudi .gt_indent_5 {
+#emiburzhva .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1448,38 +1473,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>re2 <span class="ot">&lt;-</span> df_tab <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">add_text_img</span>(</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Métro parisien"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">url =</span> <span class="st">"https://cdn-icons-png.flaticon.com/512/50/50844.png"</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>re2 <span class="sc">|&gt;</span> </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>re2 <span class="ot">&lt;-</span> df_tab <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">add_text_img</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Métro parisien"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">url =</span> <span class="st">"https://cdn-icons-png.flaticon.com/512/50/50844.png"</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>re2 <span class="sc">|&gt;</span> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="kzjhegkmgy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kobwepqmia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#kzjhegkmgy table {
+#kobwepqmia table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kzjhegkmgy thead, #kzjhegkmgy tbody, #kzjhegkmgy tfoot, #kzjhegkmgy tr, #kzjhegkmgy td, #kzjhegkmgy th {
+#kobwepqmia thead, #kobwepqmia tbody, #kobwepqmia tfoot, #kobwepqmia tr, #kobwepqmia td, #kobwepqmia th {
   border-style: none;
 }
 
-#kzjhegkmgy p {
+#kobwepqmia p {
   margin: 0;
   padding: 0;
 }
 
-#kzjhegkmgy .gt_table {
+#kobwepqmia .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1505,12 +1530,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_caption {
+#kobwepqmia .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kzjhegkmgy .gt_title {
+#kobwepqmia .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: bold;
@@ -1522,7 +1547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#kzjhegkmgy .gt_subtitle {
+#kobwepqmia .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -1534,7 +1559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#kzjhegkmgy .gt_heading {
+#kobwepqmia .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1546,13 +1571,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_bottom_border {
+#kobwepqmia .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_col_headings {
+#kobwepqmia .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -1567,7 +1592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_col_heading {
+#kobwepqmia .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1587,7 +1612,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kzjhegkmgy .gt_column_spanner_outer {
+#kobwepqmia .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1599,15 +1624,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#kzjhegkmgy .gt_column_spanner_outer:first-child {
+#kobwepqmia .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kzjhegkmgy .gt_column_spanner_outer:last-child {
+#kobwepqmia .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kzjhegkmgy .gt_column_spanner {
+#kobwepqmia .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -1619,11 +1644,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#kzjhegkmgy .gt_spanner_row {
+#kobwepqmia .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kzjhegkmgy .gt_group_heading {
+#kobwepqmia .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1649,7 +1674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#kzjhegkmgy .gt_empty_group_heading {
+#kobwepqmia .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1664,15 +1689,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#kzjhegkmgy .gt_from_md > :first-child {
+#kobwepqmia .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kzjhegkmgy .gt_from_md > :last-child {
+#kobwepqmia .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kzjhegkmgy .gt_row {
+#kobwepqmia .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -1691,7 +1716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kzjhegkmgy .gt_stub {
+#kobwepqmia .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1704,7 +1729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kzjhegkmgy .gt_stub_row_group {
+#kobwepqmia .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1718,15 +1743,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#kzjhegkmgy .gt_row_group_first td {
+#kobwepqmia .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kzjhegkmgy .gt_row_group_first th {
+#kobwepqmia .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kzjhegkmgy .gt_summary_row {
+#kobwepqmia .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1736,16 +1761,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kzjhegkmgy .gt_first_summary_row {
+#kobwepqmia .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_first_summary_row.thick {
+#kobwepqmia .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kzjhegkmgy .gt_last_summary_row {
+#kobwepqmia .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1755,7 +1780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_grand_summary_row {
+#kobwepqmia .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1765,7 +1790,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kzjhegkmgy .gt_first_grand_summary_row {
+#kobwepqmia .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1775,7 +1800,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_last_grand_summary_row_top {
+#kobwepqmia .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1785,11 +1810,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_striped {
+#kobwepqmia .gt_striped {
   background-color: #F5F5F5;
 }
 
-#kzjhegkmgy .gt_table_body {
+#kobwepqmia .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1798,7 +1823,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_footnotes {
+#kobwepqmia .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1812,7 +1837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_footnote {
+#kobwepqmia .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1821,7 +1846,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kzjhegkmgy .gt_sourcenotes {
+#kobwepqmia .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1835,7 +1860,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kzjhegkmgy .gt_sourcenote {
+#kobwepqmia .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1843,63 +1868,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kzjhegkmgy .gt_left {
+#kobwepqmia .gt_left {
   text-align: left;
 }
 
-#kzjhegkmgy .gt_center {
+#kobwepqmia .gt_center {
   text-align: center;
 }
 
-#kzjhegkmgy .gt_right {
+#kobwepqmia .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kzjhegkmgy .gt_font_normal {
+#kobwepqmia .gt_font_normal {
   font-weight: normal;
 }
 
-#kzjhegkmgy .gt_font_bold {
+#kobwepqmia .gt_font_bold {
   font-weight: bold;
 }
 
-#kzjhegkmgy .gt_font_italic {
+#kobwepqmia .gt_font_italic {
   font-style: italic;
 }
 
-#kzjhegkmgy .gt_super {
+#kobwepqmia .gt_super {
   font-size: 65%;
 }
 
-#kzjhegkmgy .gt_footnote_marks {
+#kobwepqmia .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kzjhegkmgy .gt_asterisk {
+#kobwepqmia .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kzjhegkmgy .gt_indent_1 {
+#kobwepqmia .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kzjhegkmgy .gt_indent_2 {
+#kobwepqmia .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kzjhegkmgy .gt_indent_3 {
+#kobwepqmia .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kzjhegkmgy .gt_indent_4 {
+#kobwepqmia .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kzjhegkmgy .gt_indent_5 {
+#kobwepqmia .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1998,27 +2023,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>re2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>re2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="skjvlbwvkt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mfosyrjbzo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#skjvlbwvkt table {
+#mfosyrjbzo table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#skjvlbwvkt thead, #skjvlbwvkt tbody, #skjvlbwvkt tfoot, #skjvlbwvkt tr, #skjvlbwvkt td, #skjvlbwvkt th {
+#mfosyrjbzo thead, #mfosyrjbzo tbody, #mfosyrjbzo tfoot, #mfosyrjbzo tr, #mfosyrjbzo td, #mfosyrjbzo th {
   border-style: none;
 }
 
-#skjvlbwvkt p {
+#mfosyrjbzo p {
   margin: 0;
   padding: 0;
 }
 
-#skjvlbwvkt .gt_table {
+#mfosyrjbzo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2044,12 +2069,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_caption {
+#mfosyrjbzo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#skjvlbwvkt .gt_title {
+#mfosyrjbzo .gt_title {
   color: #333333;
   font-size: 30px;
   font-weight: bold;
@@ -2061,7 +2086,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#skjvlbwvkt .gt_subtitle {
+#mfosyrjbzo .gt_subtitle {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2073,7 +2098,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#skjvlbwvkt .gt_heading {
+#mfosyrjbzo .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2085,13 +2110,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_bottom_border {
+#mfosyrjbzo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_col_headings {
+#mfosyrjbzo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -2106,7 +2131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_col_heading {
+#mfosyrjbzo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2126,7 +2151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#skjvlbwvkt .gt_column_spanner_outer {
+#mfosyrjbzo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2138,15 +2163,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#skjvlbwvkt .gt_column_spanner_outer:first-child {
+#mfosyrjbzo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#skjvlbwvkt .gt_column_spanner_outer:last-child {
+#mfosyrjbzo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#skjvlbwvkt .gt_column_spanner {
+#mfosyrjbzo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -2158,11 +2183,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#skjvlbwvkt .gt_spanner_row {
+#mfosyrjbzo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#skjvlbwvkt .gt_group_heading {
+#mfosyrjbzo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2188,7 +2213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#skjvlbwvkt .gt_empty_group_heading {
+#mfosyrjbzo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2203,15 +2228,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#skjvlbwvkt .gt_from_md > :first-child {
+#mfosyrjbzo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#skjvlbwvkt .gt_from_md > :last-child {
+#mfosyrjbzo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#skjvlbwvkt .gt_row {
+#mfosyrjbzo .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -2230,7 +2255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#skjvlbwvkt .gt_stub {
+#mfosyrjbzo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2243,7 +2268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#skjvlbwvkt .gt_stub_row_group {
+#mfosyrjbzo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2257,15 +2282,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#skjvlbwvkt .gt_row_group_first td {
+#mfosyrjbzo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#skjvlbwvkt .gt_row_group_first th {
+#mfosyrjbzo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#skjvlbwvkt .gt_summary_row {
+#mfosyrjbzo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2275,16 +2300,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#skjvlbwvkt .gt_first_summary_row {
+#mfosyrjbzo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_first_summary_row.thick {
+#mfosyrjbzo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#skjvlbwvkt .gt_last_summary_row {
+#mfosyrjbzo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2294,7 +2319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_grand_summary_row {
+#mfosyrjbzo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2304,7 +2329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#skjvlbwvkt .gt_first_grand_summary_row {
+#mfosyrjbzo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2314,7 +2339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_last_grand_summary_row_top {
+#mfosyrjbzo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2324,11 +2349,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_striped {
+#mfosyrjbzo .gt_striped {
   background-color: #F5F5F5;
 }
 
-#skjvlbwvkt .gt_table_body {
+#mfosyrjbzo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2337,7 +2362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_footnotes {
+#mfosyrjbzo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2351,7 +2376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_footnote {
+#mfosyrjbzo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2360,7 +2385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#skjvlbwvkt .gt_sourcenotes {
+#mfosyrjbzo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2374,7 +2399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#skjvlbwvkt .gt_sourcenote {
+#mfosyrjbzo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2382,63 +2407,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#skjvlbwvkt .gt_left {
+#mfosyrjbzo .gt_left {
   text-align: left;
 }
 
-#skjvlbwvkt .gt_center {
+#mfosyrjbzo .gt_center {
   text-align: center;
 }
 
-#skjvlbwvkt .gt_right {
+#mfosyrjbzo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#skjvlbwvkt .gt_font_normal {
+#mfosyrjbzo .gt_font_normal {
   font-weight: normal;
 }
 
-#skjvlbwvkt .gt_font_bold {
+#mfosyrjbzo .gt_font_bold {
   font-weight: bold;
 }
 
-#skjvlbwvkt .gt_font_italic {
+#mfosyrjbzo .gt_font_italic {
   font-style: italic;
 }
 
-#skjvlbwvkt .gt_super {
+#mfosyrjbzo .gt_super {
   font-size: 65%;
 }
 
-#skjvlbwvkt .gt_footnote_marks {
+#mfosyrjbzo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#skjvlbwvkt .gt_asterisk {
+#mfosyrjbzo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#skjvlbwvkt .gt_indent_1 {
+#mfosyrjbzo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#skjvlbwvkt .gt_indent_2 {
+#mfosyrjbzo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#skjvlbwvkt .gt_indent_3 {
+#mfosyrjbzo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#skjvlbwvkt .gt_indent_4 {
+#mfosyrjbzo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#skjvlbwvkt .gt_indent_5 {
+#mfosyrjbzo .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

@@ -6,6 +6,15 @@
     "blog.qmd": [
       "posts/**/*.qmd",
       "docs/blog/posts/**/*.qmd"
+    ],
+    "posts.qmd": [
+      "posts"
+    ],
+    "packages.qmd": [
+      "packages/**/*.qmd"
+    ],
+    "TP1.qmd": [
+      "IUT"
     ]
   }
 }

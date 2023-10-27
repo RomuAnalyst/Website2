@@ -37,5 +37,38 @@
   },
   "posts/scrap.qmd": {
     "scrap.html": "c2d0a3f5"
+  },
+  "posts/Article/Article suivant.qmd": {
+    "Article suivant.html": "edaf76c0"
+  },
+  "posts.qmd": {
+    "posts.html": "3c3ae8dd"
+  },
+  "packages.qmd": {
+    "packages.html": "8e7303fa"
+  },
+  "TP1.qmd": {
+    "TP1.html": "b1ccb64e"
+  },
+  "IUT/TP du 14 novembre 2022/index.qmd": {
+    "index.html": "0c7e853f"
+  },
+  "packages/rvest/rvest.qmd": {
+    "rvest.html": "bac23e27"
+  },
+  "Introduction_R.qmd": {
+    "Introduction_R.html": "f1542950"
+  },
+  "packages/dplyr/dplyr.qmd": {
+    "dplyr.html": "b6a678d9"
+  },
+  "packages/ggplot2/ggplot2.qmd": {
+    "ggplot2.html": "5b43e9ee"
+  },
+  "presentation.qmd": {
+    "presentation.html": "ebee7be9"
+  },
+  "posts/Scrapping/index.qmd": {
+    "index.html": "709b752c"
   }
 }

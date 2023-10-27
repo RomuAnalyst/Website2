@@ -19,7 +19,7 @@
     "listing": "/posts.html",
     "items": [
       "/posts/Article/Article suivant.html",
-      "/posts/2022-02-15-feature-tables/index.html",
+      "/posts/Scrapping/index.html",
       "/posts/2022-10-25-shinylive-extension/index.html",
       "/posts/2022-07-25-feature-extensions/index.html",
       "/posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
@@ -31,7 +31,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/Article/Article suivant.html",
-      "/posts/2022-02-15-feature-tables/index.html",
+      "/posts/Scrapping/index.html",
       "/posts/2022-10-25-shinylive-extension/index.html",
       "/posts/2022-07-25-feature-extensions/index.html",
       "/posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
@@ -45,8 +45,7 @@
       "/packages/dplyr/dplyr.html",
       "/packages/ggplot2/ggplot2.html",
       "/packages/leaflet/leaflet.html",
-      "/packages/rvest/rvest.html",
-      "/packages/rvest/rvest2.html"
+      "/packages/rvest/rvest.html"
     ]
   },
   {
