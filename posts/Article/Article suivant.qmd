@@ -2,14 +2,13 @@
 title: Lignes de métro parisien
 subtitle: Lignes de métro passant par une station
 description: |
-  Cet article traite de l'extraction de données à partir d'un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours [**les boucles dans R**](/ia2.qmd).
+  Nous allons tenter d'avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l'on selectionnera. Les données sont issues du dataset *metro*, la cellule......pour la cartographie se référer au package [**Leaflet**](~/packages/leaflet/leaflet.qmd) et pour des tableaux de données plus présentables, [**gt**](~/packages/gt/gt.qmd).
 categories:
   - R
-  - Cartographie
-  - Tables
+  - cartographie
+  - table
 author: Romuanalyst
 date: "10/27/2023"
-image-alt: "Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."
 lang: fr
 page-layout: full
 ---
@@ -17,7 +16,7 @@ page-layout: full
 ## Quarto
 
 
-```{r}
+```{r setup, include=FALSE}
 library(gt)
 library(gtExtras)
 library(leaflet)
@@ -106,7 +105,7 @@ leaflet(data = table_filtrée) %>% addTiles() %>%
 
 
 ```{r}
-metro_modifstr <- head(metro) %>% rename(Station = name, Lignes = lines, Lieux = caption, connect_autre = connect_other, Nombre_de_passagers = passengers, localisation = location)
+metro_modifstr <- metro[sample(1:nrow(metro),15, replace = TRUE), ] %>% rename(Station = name, Lignes = lines, Lieux = caption, connect_autre = connect_other, Nombre_de_passagers = passengers, localisation = location)
 metro_modifstr <- replace(metro_modifstr,is.na(metro_modifstr),"")
 tableau <- gt(metro_modifstr) %>%
   tab_header(title = "Métro parisien",
@@ -153,7 +152,7 @@ re2 <- df_tab %>%
       "Métro parisien",
       url = "https://cdn-icons-png.flaticon.com/512/50/50844.png"
       ),
-    subtitle = 'Six premières lignes du dataset "metro" disponible dans le package {gt}'
+    subtitle = 'Quinze lignes aléatoires du dataset "metro" disponible dans le package {gt}'
   )
 
 re2 |> 

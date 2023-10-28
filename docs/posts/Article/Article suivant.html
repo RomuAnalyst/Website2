@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Romuanalyst">
-<meta name="description" content="Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R.">
+<meta name="description" content="Nous allons tenter d’avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l’on selectionnera. Les données sont issues du dataset metro, la cellule……pour la cartographie se référer au package Leaflet et pour des tableaux de données plus présentables, gt.">
 
 <title>RomuAnalyst - Lignes de métro parisien</title>
 <style>
@@ -114,18 +114,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../assets/ek-styles.css">
 <meta property="og:title" content="RomuAnalyst - Lignes de métro parisien">
-<meta property="og:description" content="Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours les boucles dans R.">
+<meta property="og:description" content="Nous allons tenter d’avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l’on selectionnera. Les données sont issues du dataset metro, la cellule……pour la cartographie se référer au package Leaflet et pour des tableaux de données plus présentables, gt.">
 <meta property="og:image" content="https://romuanalyst.github.io/Website/posts/Article/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
 <meta property="og:locale" content="fr-FR">
-<meta property="og:image:alt" content="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
 <meta name="twitter:image" content="https://romuanalyst.github.io/Website/posts/Article/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image:alt" content="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
 </head>
 
 <body class="nav-fixed">
@@ -226,14 +224,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p class="subtitle lead">Lignes de métro passant par une station</p>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
-    <div class="quarto-category">Cartographie</div>
-    <div class="quarto-category">Tables</div>
+    <div class="quarto-category">cartographie</div>
+    <div class="quarto-category">table</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines parties du code dans le cours <a href="../../ia2.html"><strong>les boucles dans R</strong></a>.</p>
+    <p>Nous allons tenter d’avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l’on selectionnera. Les données sont issues du dataset <em>metro</em>, la cellule……pour la cartographie se référer au package <a href="~/packages/leaflet/leaflet.qmd"><strong>Leaflet</strong></a> et pour des tableaux de données plus présentables, <a href="~/packages/gt/gt.qmd"><strong>gt</strong></a>.</p>
   </div>
 </div>
 
@@ -262,74 +260,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtExtras)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinylive)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Nous allons tenter d’avoir sur une carte les stations qui composent les lignes passant par la station Châtelet dans le dataset, la cellule…</p>
 <iframe src="https://rshiny-971.shinyapps.io/carte_metro/" width="100%" height="600px">
 </iframe>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...La cellule correspondant aux lignes de la station Châtelet contient des valeurs séparées par des virgules</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisez strsplit pour diviser les valeurs</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sep_lignes est maintenant une liste</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Accédez aux valeurs individuelles avec [[1]], [[2]], etc.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...La cellule correspondant aux lignes de la station Châtelet contient des valeurs séparées par des virgules</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisez strsplit pour diviser les valeurs</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sep_lignes est maintenant une liste</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Accédez aux valeurs individuelles avec [[1]], [[2]], etc.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(metro) <span class="co">#on "attache" le dataset metro aux codes que l'on va écrire. le dataset sera gardé en "mémoire"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> lines[name <span class="sc">==</span> <span class="st">"Châtelet"</span>] <span class="sc">%&gt;%</span> <span class="fu">strsplit</span>(<span class="st">", "</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(metro) <span class="co"># on "détache" le dataset</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(metro) <span class="co">#on "attache" le dataset metro aux codes que l'on va écrire. le dataset sera gardé en "mémoire"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> lines[name <span class="sc">==</span> <span class="st">"Châtelet"</span>] <span class="sc">%&gt;%</span> <span class="fu">strsplit</span>(<span class="st">", "</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(metro) <span class="co"># on "détache" le dataset</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>En d’autres termes :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lignes_chatelet <span class="ot">&lt;-</span> metro<span class="sc">$</span>lines[metro<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Châtelet"</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(lignes_chatelet, <span class="st">", "</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lignes_chatelet <span class="ot">&lt;-</span> metro<span class="sc">$</span>lines[metro<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Châtelet"</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sep_lignes <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(lignes_chatelet, <span class="st">", "</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sep_lignes[[<span class="dv">1</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"  "4"  "7"  "11" "14"</code></pre>
 </div>
 </div>
 <p>Les stations que nous allons étudier font parties des lignes : 1, 4, 7, 11, 14.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>metro1 <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sepa =</span> <span class="fu">strsplit</span>(lines,<span class="st">", "</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sep <span class="ot">&lt;-</span> metro1<span class="sc">$</span>sepa[[<span class="dv">7</span>]]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sep</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>metro1 <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sepa =</span> <span class="fu">strsplit</span>(lines,<span class="st">", "</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sep <span class="ot">&lt;-</span> metro1<span class="sc">$</span>sepa[[<span class="dv">7</span>]]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sep</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"  "4"  "7"  "11" "14"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(<span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), metro1<span class="sc">$</span>lines), ]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(<span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), metro1<span class="sc">$</span>lines), ]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de filtrage pour les valeurs exactes</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>filtrer_valeurs_exactes <span class="ot">&lt;-</span> <span class="cf">function</span>(metro1, lines, sep) {</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b("</span>, <span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), <span class="st">")</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(pattern, metro1[[lines]]), ]</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(table_filtrée)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> <span class="fu">filtrer_valeurs_exactes</span>(metro1, <span class="st">"lines"</span>, sep)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table_filtrée)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de filtrage pour les valeurs exactes</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>filtrer_valeurs_exactes <span class="ot">&lt;-</span> <span class="cf">function</span>(metro1, lines, sep) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b("</span>, <span class="fu">paste</span>(sep, <span class="at">collapse =</span> <span class="st">"|"</span>), <span class="st">")</span><span class="sc">\\</span><span class="st">b"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  table_filtrée <span class="ot">&lt;-</span> metro1[<span class="fu">grepl</span>(pattern, metro1[[lines]]), ]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(table_filtrée)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>table_filtrée <span class="ot">&lt;-</span> <span class="fu">filtrer_valeurs_exactes</span>(metro1, <span class="st">"lines"</span>, sep)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table_filtrée)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 109 × 12
    name             caption lines connect_rer connect_tramway connect_transilien
@@ -348,77 +326,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 6 more variables: connect_other &lt;chr&gt;, passengers &lt;int&gt;, latitude &lt;dbl&gt;,
 #   longitude &lt;dbl&gt;, location &lt;chr&gt;, sepa &lt;list&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>icon <span class="ot">&lt;-</span> <span class="fu">makeIcon</span>(<span class="at">iconUrl =</span> <span class="st">"5227997.png"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> table_filtrée) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>longitude,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>latitude,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(table_filtrée<span class="sc">$</span>name, table_filtrée<span class="sc">$</span>location, <span class="at">sep =</span> <span class="st">"&lt;br&gt;"</span>),</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> icon</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>  <span class="fu">addPopups</span>(<span class="fl">2.347324</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">48.85835</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Châtelet"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>icon <span class="ot">&lt;-</span> <span class="fu">makeIcon</span>(<span class="at">iconUrl =</span> <span class="st">"5227997.png"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> table_filtrée) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>longitude,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> table_filtrée<span class="sc">$</span>latitude,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(table_filtrée<span class="sc">$</span>name, table_filtrée<span class="sc">$</span>location, <span class="at">sep =</span> <span class="st">"&lt;br&gt;"</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> icon</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>  <span class="fu">addPopups</span>(<span class="fl">2.347324</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">48.85835</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Châtelet"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ec828754c954f1aba09e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ec828754c954f1aba09e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b597f5feed233a9f03c5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b597f5feed233a9f03c5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">head</span>(metro) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Station =</span> name, <span class="at">Lignes =</span> lines, <span class="at">Lieux =</span> caption, <span class="at">connect_autre =</span> connect_other, <span class="at">Nombre_de_passagers =</span> passengers, <span class="at">localisation =</span> location)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">replace</span>(metro_modifstr,<span class="fu">is.na</span>(metro_modifstr),<span class="st">""</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="fu">gt</span>(metro_modifstr) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Métro parisien"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>my_modified_gt_theme <span class="ot">&lt;-</span> <span class="cf">function</span>(gt_tbl) {</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Grab number of rows of data from gt object</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  n_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gt_tbl<span class="sc">$</span><span class="st">`</span><span class="at">_data</span><span class="st">`</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  gt_tbl <span class="sc">|&gt;</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_options</span>(</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">6</span>),</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.align =</span> <span class="st">'left'</span>,</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">column_labels.background.color =</span> <span class="st">'dodgerblue4'</span>,</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.title.font.size =</span> <span class="fu">px</span>(<span class="dv">26</span>),</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.subtitle.font.size =</span> <span class="fu">px</span>(<span class="dv">14</span>),</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">table_body.hlines.width =</span> <span class="fu">px</span>(<span class="dv">0</span>)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="fu">cell_text</span>(</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">'dodgerblue4'</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">weight =</span> <span class="st">'bold'</span>,</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">font =</span> <span class="fu">google_font</span>(<span class="st">'Merriweather'</span>)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="at">groups =</span> <span class="st">'title'</span>)</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(<span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">'grey90'</span>),</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Use number of rows from data set</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> <span class="fu">seq</span>(<span class="dv">1</span>, n_rows, <span class="dv">2</span>)))</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>tableau <span class="sc">|&gt;</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> metro[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(metro),<span class="dv">15</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), ] <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Station =</span> name, <span class="at">Lignes =</span> lines, <span class="at">Lieux =</span> caption, <span class="at">connect_autre =</span> connect_other, <span class="at">Nombre_de_passagers =</span> passengers, <span class="at">localisation =</span> location)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>metro_modifstr <span class="ot">&lt;-</span> <span class="fu">replace</span>(metro_modifstr,<span class="fu">is.na</span>(metro_modifstr),<span class="st">""</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="fu">gt</span>(metro_modifstr) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Métro parisien"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>my_modified_gt_theme <span class="ot">&lt;-</span> <span class="cf">function</span>(gt_tbl) {</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Grab number of rows of data from gt object</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  n_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gt_tbl<span class="sc">$</span><span class="st">`</span><span class="at">_data</span><span class="st">`</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  gt_tbl <span class="sc">|&gt;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_options</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">6</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.align =</span> <span class="st">'left'</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">column_labels.background.color =</span> <span class="st">'dodgerblue4'</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.title.font.size =</span> <span class="fu">px</span>(<span class="dv">26</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">heading.subtitle.font.size =</span> <span class="fu">px</span>(<span class="dv">14</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">table_body.hlines.width =</span> <span class="fu">px</span>(<span class="dv">0</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="fu">cell_text</span>(</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">'dodgerblue4'</span>,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">weight =</span> <span class="st">'bold'</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">font =</span> <span class="fu">google_font</span>(<span class="st">'Merriweather'</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="at">groups =</span> <span class="st">'title'</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_style</span>(<span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">'grey90'</span>),</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Use number of rows from data set</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> <span class="fu">seq</span>(<span class="dv">1</span>, n_rows, <span class="dv">2</span>)))</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>tableau <span class="sc">|&gt;</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="xuftqrcwfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="iifeydkmnb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#xuftqrcwfa table {
+#iifeydkmnb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xuftqrcwfa thead, #xuftqrcwfa tbody, #xuftqrcwfa tfoot, #xuftqrcwfa tr, #xuftqrcwfa td, #xuftqrcwfa th {
+#iifeydkmnb thead, #iifeydkmnb tbody, #iifeydkmnb tfoot, #iifeydkmnb tr, #iifeydkmnb td, #iifeydkmnb th {
   border-style: none;
 }
 
-#xuftqrcwfa p {
+#iifeydkmnb p {
   margin: 0;
   padding: 0;
 }
 
-#xuftqrcwfa .gt_table {
+#iifeydkmnb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -444,12 +422,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_caption {
+#iifeydkmnb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xuftqrcwfa .gt_title {
+#iifeydkmnb .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: initial;
@@ -461,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#xuftqrcwfa .gt_subtitle {
+#iifeydkmnb .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -473,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#xuftqrcwfa .gt_heading {
+#iifeydkmnb .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -485,13 +463,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_bottom_border {
+#iifeydkmnb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_col_headings {
+#iifeydkmnb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -506,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_col_heading {
+#iifeydkmnb .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -526,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#xuftqrcwfa .gt_column_spanner_outer {
+#iifeydkmnb .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -538,15 +516,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#xuftqrcwfa .gt_column_spanner_outer:first-child {
+#iifeydkmnb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xuftqrcwfa .gt_column_spanner_outer:last-child {
+#iifeydkmnb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xuftqrcwfa .gt_column_spanner {
+#iifeydkmnb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -558,11 +536,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#xuftqrcwfa .gt_spanner_row {
+#iifeydkmnb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xuftqrcwfa .gt_group_heading {
+#iifeydkmnb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -588,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#xuftqrcwfa .gt_empty_group_heading {
+#iifeydkmnb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -603,15 +581,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#xuftqrcwfa .gt_from_md > :first-child {
+#iifeydkmnb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xuftqrcwfa .gt_from_md > :last-child {
+#iifeydkmnb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xuftqrcwfa .gt_row {
+#iifeydkmnb .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -630,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#xuftqrcwfa .gt_stub {
+#iifeydkmnb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -643,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#xuftqrcwfa .gt_stub_row_group {
+#iifeydkmnb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -657,15 +635,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#xuftqrcwfa .gt_row_group_first td {
+#iifeydkmnb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xuftqrcwfa .gt_row_group_first th {
+#iifeydkmnb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xuftqrcwfa .gt_summary_row {
+#iifeydkmnb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -675,16 +653,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#xuftqrcwfa .gt_first_summary_row {
+#iifeydkmnb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_first_summary_row.thick {
+#iifeydkmnb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xuftqrcwfa .gt_last_summary_row {
+#iifeydkmnb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -694,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_grand_summary_row {
+#iifeydkmnb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -704,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#xuftqrcwfa .gt_first_grand_summary_row {
+#iifeydkmnb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -714,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_last_grand_summary_row_top {
+#iifeydkmnb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -724,11 +702,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_striped {
+#iifeydkmnb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xuftqrcwfa .gt_table_body {
+#iifeydkmnb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -737,7 +715,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_footnotes {
+#iifeydkmnb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -751,7 +729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_footnote {
+#iifeydkmnb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -760,7 +738,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#xuftqrcwfa .gt_sourcenotes {
+#iifeydkmnb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -774,7 +752,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#xuftqrcwfa .gt_sourcenote {
+#iifeydkmnb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -782,63 +760,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#xuftqrcwfa .gt_left {
+#iifeydkmnb .gt_left {
   text-align: left;
 }
 
-#xuftqrcwfa .gt_center {
+#iifeydkmnb .gt_center {
   text-align: center;
 }
 
-#xuftqrcwfa .gt_right {
+#iifeydkmnb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xuftqrcwfa .gt_font_normal {
+#iifeydkmnb .gt_font_normal {
   font-weight: normal;
 }
 
-#xuftqrcwfa .gt_font_bold {
+#iifeydkmnb .gt_font_bold {
   font-weight: bold;
 }
 
-#xuftqrcwfa .gt_font_italic {
+#iifeydkmnb .gt_font_italic {
   font-style: italic;
 }
 
-#xuftqrcwfa .gt_super {
+#iifeydkmnb .gt_super {
   font-size: 65%;
 }
 
-#xuftqrcwfa .gt_footnote_marks {
+#iifeydkmnb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xuftqrcwfa .gt_asterisk {
+#iifeydkmnb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xuftqrcwfa .gt_indent_1 {
+#iifeydkmnb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xuftqrcwfa .gt_indent_2 {
+#iifeydkmnb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xuftqrcwfa .gt_indent_3 {
+#iifeydkmnb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xuftqrcwfa .gt_indent_4 {
+#iifeydkmnb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xuftqrcwfa .gt_indent_5 {
+#iifeydkmnb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -853,9 +831,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_rer">connect_rer</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="connect_tramway">connect_tramway</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_tramway">connect_tramway</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="connect_transilien">connect_transilien</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
@@ -865,101 +843,200 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Argentine</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Boucicaut</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2079212</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87528</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.290000</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Bastille</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2288055</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84058</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.286621</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Nationale</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_right">1, 5, 8</td>
+<td headers="Lignes" class="gt_row gt_left">6</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">8069243</td>
-<td headers="latitude" class="gt_row gt_right">48.85308</td>
-<td headers="longitude" class="gt_row gt_right">2.369077</td>
-<td headers="localisation" class="gt_row gt_left">Paris 4th, Paris 11th, Paris 12th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Bérault</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1320290</td>
+<td headers="latitude" class="gt_row gt_right">48.83318</td>
+<td headers="longitude" class="gt_row gt_right">2.362718</td>
+<td headers="localisation" class="gt_row gt_left">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Ledru-Rollin</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2106827</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84528</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.428333</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Mandé, Vincennes</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Champs-Élysées—Clemenceau</td>
-<td headers="Lieux" class="gt_row gt_left">Grand Palais</td>
-<td headers="Lignes" class="gt_row gt_right">1, 13</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2570283</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85153</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.375160</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Boulogne—Pont de Saint-Cloud</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">10</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left">T2</td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">1909005</td>
-<td headers="latitude" class="gt_row gt_right">48.86750</td>
-<td headers="longitude" class="gt_row gt_right">2.313500</td>
-<td headers="localisation" class="gt_row gt_left">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Charles de Gaulle—Étoile</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2182738</td>
+<td headers="latitude" class="gt_row gt_right">48.84068</td>
+<td headers="longitude" class="gt_row gt_right">2.228331</td>
+<td headers="localisation" class="gt_row gt_left">Boulogne-Billancourt</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Georges</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 2, 6</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1258381</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87845</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.337382</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 9th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Picpus</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">6</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">931602</td>
+<td headers="latitude" class="gt_row gt_right">48.84515</td>
+<td headers="longitude" class="gt_row gt_right">2.400494</td>
+<td headers="localisation" class="gt_row gt_left">Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Nation</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">1, 2, 6, 9</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">A</td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4291663</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87389</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.295000</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Château de Vincennes</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">6050797</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84833</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.395833</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Mairie d'Ivry</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_right">1</td>
+<td headers="Lignes" class="gt_row gt_left">7</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">3617738</td>
-<td headers="latitude" class="gt_row gt_right">48.84444</td>
-<td headers="longitude" class="gt_row gt_right">2.440000</td>
-<td headers="localisation" class="gt_row gt_left">Paris 12th, Vincennes</td></tr>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2042071</td>
+<td headers="latitude" class="gt_row gt_right">48.81112</td>
+<td headers="longitude" class="gt_row gt_right">2.383390</td>
+<td headers="localisation" class="gt_row gt_left">Ivry-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mouton-Duvernet</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">4</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1131403</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83214</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.330325</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">5</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1666744</td>
+<td headers="latitude" class="gt_row gt_right">48.83800</td>
+<td headers="longitude" class="gt_row gt_right">2.360000</td>
+<td headers="localisation" class="gt_row gt_left">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis—Université</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T5</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3569990</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.94583</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.363610</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Porte Maillot</td>
+<td headers="Lieux" class="gt_row gt_left">Palais des Congrès</td>
+<td headers="Lignes" class="gt_row gt_left">1</td>
+<td headers="connect_rer" class="gt_row gt_left">C</td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">4138301</td>
+<td headers="latitude" class="gt_row gt_right">48.87806</td>
+<td headers="longitude" class="gt_row gt_right">2.281944</td>
+<td headers="localisation" class="gt_row gt_left">Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Jules Joffrin</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2854819</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.89244</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.344782</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 18th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Pelleport</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">3bis</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">229524</td>
+<td headers="latitude" class="gt_row gt_right">48.86867</td>
+<td headers="longitude" class="gt_row gt_right">2.401752</td>
+<td headers="localisation" class="gt_row gt_left">Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Pigalle</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">2, 12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3501831</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.88226</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.337573</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 9th, Paris 18th</td></tr>
   </tbody>
   
   
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_tab <span class="ot">&lt;-</span> <span class="fu">gt_theme_pff</span>(tableau)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">filter</span>(lines <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> head</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(re)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_tab <span class="ot">&lt;-</span> <span class="fu">gt_theme_pff</span>(tableau)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> metro <span class="sc">%&gt;%</span> <span class="fu">filter</span>(lines <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> head</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(re)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="emiburzhva" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#emiburzhva table {
+<div id="abxqgkqooz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#abxqgkqooz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#emiburzhva thead, #emiburzhva tbody, #emiburzhva tfoot, #emiburzhva tr, #emiburzhva td, #emiburzhva th {
+#abxqgkqooz thead, #abxqgkqooz tbody, #abxqgkqooz tfoot, #abxqgkqooz tr, #abxqgkqooz td, #abxqgkqooz th {
   border-style: none;
 }
 
-#emiburzhva p {
+#abxqgkqooz p {
   margin: 0;
   padding: 0;
 }
 
-#emiburzhva .gt_table {
+#abxqgkqooz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -985,12 +1062,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#emiburzhva .gt_caption {
+#abxqgkqooz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#emiburzhva .gt_title {
+#abxqgkqooz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1002,7 +1079,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#emiburzhva .gt_subtitle {
+#abxqgkqooz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1014,7 +1091,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#emiburzhva .gt_heading {
+#abxqgkqooz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1026,13 +1103,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#emiburzhva .gt_bottom_border {
+#abxqgkqooz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#emiburzhva .gt_col_headings {
+#abxqgkqooz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1047,7 +1124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#emiburzhva .gt_col_heading {
+#abxqgkqooz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1067,7 +1144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#emiburzhva .gt_column_spanner_outer {
+#abxqgkqooz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1079,15 +1156,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#emiburzhva .gt_column_spanner_outer:first-child {
+#abxqgkqooz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#emiburzhva .gt_column_spanner_outer:last-child {
+#abxqgkqooz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#emiburzhva .gt_column_spanner {
+#abxqgkqooz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1099,11 +1176,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#emiburzhva .gt_spanner_row {
+#abxqgkqooz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#emiburzhva .gt_group_heading {
+#abxqgkqooz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1129,7 +1206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#emiburzhva .gt_empty_group_heading {
+#abxqgkqooz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1144,15 +1221,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#emiburzhva .gt_from_md > :first-child {
+#abxqgkqooz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#emiburzhva .gt_from_md > :last-child {
+#abxqgkqooz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#emiburzhva .gt_row {
+#abxqgkqooz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1171,7 +1248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#emiburzhva .gt_stub {
+#abxqgkqooz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1184,7 +1261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#emiburzhva .gt_stub_row_group {
+#abxqgkqooz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1198,15 +1275,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#emiburzhva .gt_row_group_first td {
+#abxqgkqooz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#emiburzhva .gt_row_group_first th {
+#abxqgkqooz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#emiburzhva .gt_summary_row {
+#abxqgkqooz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1216,16 +1293,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#emiburzhva .gt_first_summary_row {
+#abxqgkqooz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#emiburzhva .gt_first_summary_row.thick {
+#abxqgkqooz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#emiburzhva .gt_last_summary_row {
+#abxqgkqooz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1235,7 +1312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#emiburzhva .gt_grand_summary_row {
+#abxqgkqooz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1245,7 +1322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#emiburzhva .gt_first_grand_summary_row {
+#abxqgkqooz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1255,7 +1332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#emiburzhva .gt_last_grand_summary_row_top {
+#abxqgkqooz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1265,11 +1342,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#emiburzhva .gt_striped {
+#abxqgkqooz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#emiburzhva .gt_table_body {
+#abxqgkqooz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1278,7 +1355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#emiburzhva .gt_footnotes {
+#abxqgkqooz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1292,7 +1369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#emiburzhva .gt_footnote {
+#abxqgkqooz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1301,7 +1378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#emiburzhva .gt_sourcenotes {
+#abxqgkqooz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1315,7 +1392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#emiburzhva .gt_sourcenote {
+#abxqgkqooz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1323,63 +1400,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#emiburzhva .gt_left {
+#abxqgkqooz .gt_left {
   text-align: left;
 }
 
-#emiburzhva .gt_center {
+#abxqgkqooz .gt_center {
   text-align: center;
 }
 
-#emiburzhva .gt_right {
+#abxqgkqooz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#emiburzhva .gt_font_normal {
+#abxqgkqooz .gt_font_normal {
   font-weight: normal;
 }
 
-#emiburzhva .gt_font_bold {
+#abxqgkqooz .gt_font_bold {
   font-weight: bold;
 }
 
-#emiburzhva .gt_font_italic {
+#abxqgkqooz .gt_font_italic {
   font-style: italic;
 }
 
-#emiburzhva .gt_super {
+#abxqgkqooz .gt_super {
   font-size: 65%;
 }
 
-#emiburzhva .gt_footnote_marks {
+#abxqgkqooz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#emiburzhva .gt_asterisk {
+#abxqgkqooz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#emiburzhva .gt_indent_1 {
+#abxqgkqooz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#emiburzhva .gt_indent_2 {
+#abxqgkqooz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#emiburzhva .gt_indent_3 {
+#abxqgkqooz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#emiburzhva .gt_indent_4 {
+#abxqgkqooz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#emiburzhva .gt_indent_5 {
+#abxqgkqooz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1473,38 +1550,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>re2 <span class="ot">&lt;-</span> df_tab <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">add_text_img</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Métro parisien"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">url =</span> <span class="st">"https://cdn-icons-png.flaticon.com/512/50/50844.png"</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">'Six premières lignes du dataset "metro" disponible dans le package {gt}'</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>re2 <span class="sc">|&gt;</span> </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>re2 <span class="ot">&lt;-</span> df_tab <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">add_text_img</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Métro parisien"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">url =</span> <span class="st">"https://cdn-icons-png.flaticon.com/512/50/50844.png"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">'Quinze lignes aléatoires du dataset "metro" disponible dans le package {gt}'</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>re2 <span class="sc">|&gt;</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="kobwepqmia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wbipylogfg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#kobwepqmia table {
+#wbipylogfg table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kobwepqmia thead, #kobwepqmia tbody, #kobwepqmia tfoot, #kobwepqmia tr, #kobwepqmia td, #kobwepqmia th {
+#wbipylogfg thead, #wbipylogfg tbody, #wbipylogfg tfoot, #wbipylogfg tr, #wbipylogfg td, #wbipylogfg th {
   border-style: none;
 }
 
-#kobwepqmia p {
+#wbipylogfg p {
   margin: 0;
   padding: 0;
 }
 
-#kobwepqmia .gt_table {
+#wbipylogfg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1530,12 +1607,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_caption {
+#wbipylogfg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kobwepqmia .gt_title {
+#wbipylogfg .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: bold;
@@ -1547,7 +1624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#kobwepqmia .gt_subtitle {
+#wbipylogfg .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -1559,7 +1636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#kobwepqmia .gt_heading {
+#wbipylogfg .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1571,13 +1648,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_bottom_border {
+#wbipylogfg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_col_headings {
+#wbipylogfg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -1592,7 +1669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_col_heading {
+#wbipylogfg .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1612,7 +1689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kobwepqmia .gt_column_spanner_outer {
+#wbipylogfg .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1624,15 +1701,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#kobwepqmia .gt_column_spanner_outer:first-child {
+#wbipylogfg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kobwepqmia .gt_column_spanner_outer:last-child {
+#wbipylogfg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kobwepqmia .gt_column_spanner {
+#wbipylogfg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -1644,11 +1721,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#kobwepqmia .gt_spanner_row {
+#wbipylogfg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kobwepqmia .gt_group_heading {
+#wbipylogfg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1674,7 +1751,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#kobwepqmia .gt_empty_group_heading {
+#wbipylogfg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1689,15 +1766,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#kobwepqmia .gt_from_md > :first-child {
+#wbipylogfg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kobwepqmia .gt_from_md > :last-child {
+#wbipylogfg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kobwepqmia .gt_row {
+#wbipylogfg .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -1716,7 +1793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kobwepqmia .gt_stub {
+#wbipylogfg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1729,7 +1806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kobwepqmia .gt_stub_row_group {
+#wbipylogfg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1743,15 +1820,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#kobwepqmia .gt_row_group_first td {
+#wbipylogfg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kobwepqmia .gt_row_group_first th {
+#wbipylogfg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kobwepqmia .gt_summary_row {
+#wbipylogfg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1761,16 +1838,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kobwepqmia .gt_first_summary_row {
+#wbipylogfg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_first_summary_row.thick {
+#wbipylogfg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kobwepqmia .gt_last_summary_row {
+#wbipylogfg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1780,7 +1857,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_grand_summary_row {
+#wbipylogfg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1790,7 +1867,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kobwepqmia .gt_first_grand_summary_row {
+#wbipylogfg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1800,7 +1877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_last_grand_summary_row_top {
+#wbipylogfg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1810,11 +1887,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_striped {
+#wbipylogfg .gt_striped {
   background-color: #F5F5F5;
 }
 
-#kobwepqmia .gt_table_body {
+#wbipylogfg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1823,7 +1900,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_footnotes {
+#wbipylogfg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1837,7 +1914,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_footnote {
+#wbipylogfg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1846,7 +1923,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kobwepqmia .gt_sourcenotes {
+#wbipylogfg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1860,7 +1937,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kobwepqmia .gt_sourcenote {
+#wbipylogfg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1868,63 +1945,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kobwepqmia .gt_left {
+#wbipylogfg .gt_left {
   text-align: left;
 }
 
-#kobwepqmia .gt_center {
+#wbipylogfg .gt_center {
   text-align: center;
 }
 
-#kobwepqmia .gt_right {
+#wbipylogfg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kobwepqmia .gt_font_normal {
+#wbipylogfg .gt_font_normal {
   font-weight: normal;
 }
 
-#kobwepqmia .gt_font_bold {
+#wbipylogfg .gt_font_bold {
   font-weight: bold;
 }
 
-#kobwepqmia .gt_font_italic {
+#wbipylogfg .gt_font_italic {
   font-style: italic;
 }
 
-#kobwepqmia .gt_super {
+#wbipylogfg .gt_super {
   font-size: 65%;
 }
 
-#kobwepqmia .gt_footnote_marks {
+#wbipylogfg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kobwepqmia .gt_asterisk {
+#wbipylogfg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kobwepqmia .gt_indent_1 {
+#wbipylogfg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kobwepqmia .gt_indent_2 {
+#wbipylogfg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kobwepqmia .gt_indent_3 {
+#wbipylogfg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kobwepqmia .gt_indent_4 {
+#wbipylogfg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kobwepqmia .gt_indent_5 {
+#wbipylogfg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1934,14 +2011,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <td colspan="11" class="gt_heading gt_title gt_font_normal" style="color: #104E8B; font-family: Merriweather; font-weight: bold;"><div style="display:inline;vertical-align: top;">Métro parisien</div><div style="display:inline;margin-left:10px"><img src="https://cdn-icons-png.flaticon.com/512/50/50844.png" style="height:30px;"></div></td>
     </tr>
     <tr class="gt_heading">
-      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Six premières lignes du dataset "metro" disponible dans le package {gt}</td>
+      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Quinze lignes aléatoires du dataset "metro" disponible dans le package {gt}</td>
     </tr>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_rer">connect_rer</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
@@ -1951,99 +2028,198 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Argentine</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Boucicaut</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2079212</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87528</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.290000</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Bastille</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2288055</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84058</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.286621</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Nationale</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1, 5, 8</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">6</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">8069243</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85308</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.369077</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 4th, Paris 11th, Paris 12th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Bérault</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1320290</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83318</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.362718</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Ledru-Rollin</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2106827</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84528</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.428333</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Mandé, Vincennes</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Champs-Élysées—Clemenceau</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped">Grand Palais</td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1, 13</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2570283</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85153</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.375160</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Boulogne—Pont de Saint-Cloud</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">10</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped">T2</td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1909005</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.86750</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.313500</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Charles de Gaulle—Étoile</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2182738</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.84068</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.228331</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Boulogne-Billancourt</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Georges</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 2, 6</td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1258381</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87845</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.337382</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 9th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Picpus</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">6</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">931602</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.84515</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.400494</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Nation</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">1, 2, 6, 9</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">A</td>
-<td headers="connect_tramway" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
 <td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4291663</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87389</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.295000</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Château de Vincennes</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">6050797</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84833</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.395833</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Mairie d'Ivry</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">7</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3617738</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.84444</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.440000</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 12th, Vincennes</td></tr>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2042071</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.81112</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.383390</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Ivry-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mouton-Duvernet</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">4</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1131403</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83214</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.330325</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">5</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1666744</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83800</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.360000</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis—Université</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T5</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3569990</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.94583</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.363610</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Porte Maillot</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Palais des Congrès</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">1</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped">C</td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">4138301</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.87806</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.281944</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Jules Joffrin</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2854819</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.89244</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.344782</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 18th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pelleport</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">3bis</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">229524</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.86867</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.401752</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Pigalle</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">2, 12</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3501831</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.88226</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.337573</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 9th, Paris 18th</td></tr>
   </tbody>
   
   
 </table>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>re2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>re2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="mfosyrjbzo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="buaqcaqylm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#mfosyrjbzo table {
+#buaqcaqylm table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mfosyrjbzo thead, #mfosyrjbzo tbody, #mfosyrjbzo tfoot, #mfosyrjbzo tr, #mfosyrjbzo td, #mfosyrjbzo th {
+#buaqcaqylm thead, #buaqcaqylm tbody, #buaqcaqylm tfoot, #buaqcaqylm tr, #buaqcaqylm td, #buaqcaqylm th {
   border-style: none;
 }
 
-#mfosyrjbzo p {
+#buaqcaqylm p {
   margin: 0;
   padding: 0;
 }
 
-#mfosyrjbzo .gt_table {
+#buaqcaqylm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2069,12 +2245,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_caption {
+#buaqcaqylm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mfosyrjbzo .gt_title {
+#buaqcaqylm .gt_title {
   color: #333333;
   font-size: 30px;
   font-weight: bold;
@@ -2086,7 +2262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#mfosyrjbzo .gt_subtitle {
+#buaqcaqylm .gt_subtitle {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2098,7 +2274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#mfosyrjbzo .gt_heading {
+#buaqcaqylm .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2110,13 +2286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_bottom_border {
+#buaqcaqylm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_col_headings {
+#buaqcaqylm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -2131,7 +2307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_col_heading {
+#buaqcaqylm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2151,7 +2327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#mfosyrjbzo .gt_column_spanner_outer {
+#buaqcaqylm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2163,15 +2339,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#mfosyrjbzo .gt_column_spanner_outer:first-child {
+#buaqcaqylm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mfosyrjbzo .gt_column_spanner_outer:last-child {
+#buaqcaqylm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mfosyrjbzo .gt_column_spanner {
+#buaqcaqylm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -2183,11 +2359,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#mfosyrjbzo .gt_spanner_row {
+#buaqcaqylm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mfosyrjbzo .gt_group_heading {
+#buaqcaqylm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2213,7 +2389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#mfosyrjbzo .gt_empty_group_heading {
+#buaqcaqylm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2228,15 +2404,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#mfosyrjbzo .gt_from_md > :first-child {
+#buaqcaqylm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mfosyrjbzo .gt_from_md > :last-child {
+#buaqcaqylm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mfosyrjbzo .gt_row {
+#buaqcaqylm .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -2255,7 +2431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#mfosyrjbzo .gt_stub {
+#buaqcaqylm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2268,7 +2444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#mfosyrjbzo .gt_stub_row_group {
+#buaqcaqylm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2282,15 +2458,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#mfosyrjbzo .gt_row_group_first td {
+#buaqcaqylm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mfosyrjbzo .gt_row_group_first th {
+#buaqcaqylm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mfosyrjbzo .gt_summary_row {
+#buaqcaqylm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2300,16 +2476,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#mfosyrjbzo .gt_first_summary_row {
+#buaqcaqylm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_first_summary_row.thick {
+#buaqcaqylm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mfosyrjbzo .gt_last_summary_row {
+#buaqcaqylm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2319,7 +2495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_grand_summary_row {
+#buaqcaqylm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2329,7 +2505,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#mfosyrjbzo .gt_first_grand_summary_row {
+#buaqcaqylm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2339,7 +2515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_last_grand_summary_row_top {
+#buaqcaqylm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2349,11 +2525,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_striped {
+#buaqcaqylm .gt_striped {
   background-color: #F5F5F5;
 }
 
-#mfosyrjbzo .gt_table_body {
+#buaqcaqylm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2362,7 +2538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_footnotes {
+#buaqcaqylm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2376,7 +2552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_footnote {
+#buaqcaqylm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2385,7 +2561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#mfosyrjbzo .gt_sourcenotes {
+#buaqcaqylm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2399,7 +2575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#mfosyrjbzo .gt_sourcenote {
+#buaqcaqylm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2407,63 +2583,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#mfosyrjbzo .gt_left {
+#buaqcaqylm .gt_left {
   text-align: left;
 }
 
-#mfosyrjbzo .gt_center {
+#buaqcaqylm .gt_center {
   text-align: center;
 }
 
-#mfosyrjbzo .gt_right {
+#buaqcaqylm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mfosyrjbzo .gt_font_normal {
+#buaqcaqylm .gt_font_normal {
   font-weight: normal;
 }
 
-#mfosyrjbzo .gt_font_bold {
+#buaqcaqylm .gt_font_bold {
   font-weight: bold;
 }
 
-#mfosyrjbzo .gt_font_italic {
+#buaqcaqylm .gt_font_italic {
   font-style: italic;
 }
 
-#mfosyrjbzo .gt_super {
+#buaqcaqylm .gt_super {
   font-size: 65%;
 }
 
-#mfosyrjbzo .gt_footnote_marks {
+#buaqcaqylm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mfosyrjbzo .gt_asterisk {
+#buaqcaqylm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mfosyrjbzo .gt_indent_1 {
+#buaqcaqylm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mfosyrjbzo .gt_indent_2 {
+#buaqcaqylm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mfosyrjbzo .gt_indent_3 {
+#buaqcaqylm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mfosyrjbzo .gt_indent_4 {
+#buaqcaqylm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mfosyrjbzo .gt_indent_5 {
+#buaqcaqylm .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2473,14 +2649,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <td colspan="11" class="gt_heading gt_title gt_font_normal" style=""><div style="display:inline;vertical-align: top;">Métro parisien</div><div style="display:inline;margin-left:10px"><img src="https://cdn-icons-png.flaticon.com/512/50/50844.png" style="height:30px;"></div></td>
     </tr>
     <tr class="gt_heading">
-      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Six premières lignes du dataset "metro" disponible dans le package {gt}</td>
+      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Quinze lignes aléatoires du dataset "metro" disponible dans le package {gt}</td>
     </tr>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_rer">connect_rer</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
@@ -2490,72 +2666,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left">Argentine</td>
+    <tr><td headers="Station" class="gt_row gt_left">Boucicaut</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_right">1</td>
+<td headers="Lignes" class="gt_row gt_left">8</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">2079212</td>
-<td headers="latitude" class="gt_row gt_right">48.87528</td>
-<td headers="longitude" class="gt_row gt_right">2.290000</td>
-<td headers="localisation" class="gt_row gt_left">Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Bastille</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2288055</td>
+<td headers="latitude" class="gt_row gt_right">48.84058</td>
+<td headers="longitude" class="gt_row gt_right">2.286621</td>
+<td headers="localisation" class="gt_row gt_left">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Nationale</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1, 5, 8</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">6</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">8069243</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85308</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.369077</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 4th, Paris 11th, Paris 12th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Bérault</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1320290</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83318</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.362718</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Ledru-Rollin</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_right">1</td>
+<td headers="Lignes" class="gt_row gt_left">8</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">2106827</td>
-<td headers="latitude" class="gt_row gt_right">48.84528</td>
-<td headers="longitude" class="gt_row gt_right">2.428333</td>
-<td headers="localisation" class="gt_row gt_left">Saint-Mandé, Vincennes</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Champs-Élysées—Clemenceau</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped">Grand Palais</td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1, 13</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2570283</td>
+<td headers="latitude" class="gt_row gt_right">48.85153</td>
+<td headers="longitude" class="gt_row gt_right">2.375160</td>
+<td headers="localisation" class="gt_row gt_left">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Boulogne—Pont de Saint-Cloud</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">10</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped">T2</td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1909005</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.86750</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.313500</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Charles de Gaulle—Étoile</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2182738</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.84068</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.228331</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Boulogne-Billancourt</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Saint-Georges</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_right">1, 2, 6</td>
+<td headers="Lignes" class="gt_row gt_left">12</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1258381</td>
+<td headers="latitude" class="gt_row gt_right">48.87845</td>
+<td headers="longitude" class="gt_row gt_right">2.337382</td>
+<td headers="localisation" class="gt_row gt_left">Paris 9th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Picpus</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">6</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">931602</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.84515</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.400494</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Nation</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">1, 2, 6, 9</td>
 <td headers="connect_rer" class="gt_row gt_left">A</td>
-<td headers="connect_tramway" class="gt_row gt_right"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
 <td headers="connect_transilien" class="gt_row gt_right"></td>
 <td headers="connect_autre" class="gt_row gt_right"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">4291663</td>
-<td headers="latitude" class="gt_row gt_right">48.87389</td>
-<td headers="longitude" class="gt_row gt_right">2.295000</td>
-<td headers="localisation" class="gt_row gt_left">Paris 8th, Paris 16th, Paris 17th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Château de Vincennes</td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">6050797</td>
+<td headers="latitude" class="gt_row gt_right">48.84833</td>
+<td headers="longitude" class="gt_row gt_right">2.395833</td>
+<td headers="localisation" class="gt_row gt_left">Paris 11th, Paris 12th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Mairie d'Ivry</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">7</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
 <td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3617738</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.84444</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.440000</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 12th, Vincennes</td></tr>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2042071</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.81112</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.383390</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Ivry-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Mouton-Duvernet</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">4</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1131403</td>
+<td headers="latitude" class="gt_row gt_right">48.83214</td>
+<td headers="longitude" class="gt_row gt_right">2.330325</td>
+<td headers="localisation" class="gt_row gt_left">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">5</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1666744</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83800</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.360000</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Saint-Denis—Université</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">13</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left">T5</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3569990</td>
+<td headers="latitude" class="gt_row gt_right">48.94583</td>
+<td headers="longitude" class="gt_row gt_right">2.363610</td>
+<td headers="localisation" class="gt_row gt_left">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Porte Maillot</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Palais des Congrès</td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">1</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped">C</td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">4138301</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.87806</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.281944</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Jules Joffrin</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">12</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2854819</td>
+<td headers="latitude" class="gt_row gt_right">48.89244</td>
+<td headers="longitude" class="gt_row gt_right">2.344782</td>
+<td headers="localisation" class="gt_row gt_left">Paris 18th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pelleport</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_left gt_striped">3bis</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">229524</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.86867</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.401752</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Pigalle</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_left">2, 12</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3501831</td>
+<td headers="latitude" class="gt_row gt_right">48.88226</td>
+<td headers="longitude" class="gt_row gt_right">2.337573</td>
+<td headers="localisation" class="gt_row gt_left">Paris 9th, Paris 18th</td></tr>
   </tbody>
   
   
