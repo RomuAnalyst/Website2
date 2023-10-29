@@ -2,7 +2,7 @@
 title: Lignes de métro parisien
 subtitle: Lignes de métro passant par une station
 description: |
-  Nous allons tenter d'avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l'on selectionnera. Les données sont issues du dataset *metro*, la cellule......pour la cartographie se référer au package [**Leaflet**](~/packages/leaflet/leaflet.qmd) et pour des tableaux de données plus présentables, [**gt**](~/packages/gt/gt.qmd).
+  Nous allons tenter d'avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l'on selectionnera. Les données sont issues du dataset *metro*, la cellule......pour la cartographie se référer au package [**Leaflet**](/packages/leaflet/leaflet.qmd) et pour des tableaux de données plus présentables, [**gt**](/packages/gt/gt.qmd).
 categories:
   - R
   - cartographie
@@ -22,7 +22,6 @@ library(gtExtras)
 library(leaflet)
 library(htmlwidgets)
 library(tidyverse)
-library(shinylive)
 ```
 
 
@@ -31,7 +30,7 @@ Nous allons tenter d'avoir sur une carte les stations qui composent les lignes p
 dans le dataset, la cellule...
 
 
-<iframe src="https://rshiny-971.shinyapps.io/carte_metro/" width="100%" height="600px"></iframe>
+<iframe src="https://rshiny-971.shinyapps.io/carte_metro/" width="100%" height="500px"></iframe>
 
 
 
@@ -159,4 +158,11 @@ re2 |>
   my_modified_gt_theme()
 
 re2
+```
+
+```{r}
+top10 <- metro1 %>% mutate(Station = name, nb_lignes = sapply(metro1$sepa, function(x) length(x))) %>% select(Station, nb_lignes) %>% arrange(desc(nb_lignes)) %>% head(10) %>% gt() %>%
+  gt_fa_repeats(nb_lignes, name = "train")
+top10
+
 ```
