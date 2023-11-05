@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    <p>Nous allons tenter d’avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l’on selectionnera. Les données sont issues du dataset <em>metro</em>, la cellule……pour la cartographie se référer au package <a href="../../packages/leaflet/leaflet.html"><strong>Leaflet</strong></a> et pour des tableaux de données plus présentables, <a href="../../packages/gt/gt.qmd"><strong>gt</strong></a>.</p>
+    <p>Nous allons tenter d’avoir sur une carte interactive, les stations qui composent les lignes passant par une station que l’on selectionnera. Les données sont issues du dataset <em>metro</em>, la cellule……pour la cartographie se référer au package <a href="../../packages/leaflet/leaflet.html"><strong>Leaflet</strong></a> et pour des tableaux de données plus présentables, <a href="../../packages/gt/gt.html"><strong>gt</strong></a>.</p>
   </div>
 </div>
 
@@ -338,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Châtelet"</span>,</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-dd02106de7409b747abc" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-dd02106de7409b747abc">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7ceffd6c2a4e34d46b9c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7ceffd6c2a4e34d46b9c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[48.875278,48.853082,48.845278,48.8675,48.873889,48.844444,48.858352,48.86541,48.888333,48.868977,48.844722,48.871944,48.857487,48.891852,48.880833,48.86108,48.848333,48.862644,48.885,48.847326,48.878056,48.846944,48.846111,48.855214,48.864531,48.883611,48.872083,48.88429,48.8655,48.870636,48.866111,48.867503,48.87549,48.877183,48.828333,48.8027,48.8092,48.872778,48.886667,48.855278,48.833901,48.864167,48.876111,48.880556,48.8625,48.81843,48.890278,48.843466,48.832139,48.851944,48.823189,48.896944,48.839194,48.853889,48.853611,48.846844,48.850909,48.893333,48.869722,48.842233,48.831483,48.83993,48.9039,48.876135,48.840597,48.87846,48.87307,48.89434,48.89158,48.91424,48.846052,48.920777,48.810388,48.87472,48.8364,48.881137,48.81112,48.822155,48.81592,48.84359,48.87708,48.85329,48.85868,48.819196,48.82096,48.82032,48.89709,48.86587,48.88788,48.851425,48.826665,48.803768,48.787175,48.795991,48.87684,48.86977,48.869831,48.8752,48.879788,48.873875,48.86119,48.875463,48.91167,48.893889,48.829822,48.834,48.827222,48.889481,48.904497],[2.29,2.369077,2.428333,2.3135,2.295,2.44,2.347324,2.32111,2.25,2.30989,2.373889,2.300556,2.351525,2.238539,2.272222,2.340283,2.395833,2.336578,2.259722,2.407759,2.281944,2.386389,2.418889,2.360859,2.329617,2.350556,2.376947,2.36586,2.3561,2.332353,2.3525,2.363811,2.32664,2.406655,2.326667,2.3173,2.3176,2.356111,2.349444,2.346389,2.332728,2.350556,2.358333,2.355,2.34611,2.31953,2.35,2.323072,2.330325,2.338889,2.325364,2.345,2.330606,2.333333,2.343889,2.326914,2.330652,2.348333,2.353889,2.32895,2.355692,2.380418,2.3925,2.344876,2.351774,2.362071,2.33393,2.381745,2.37707,2.403785,2.355738,2.410668,2.361849,2.33955,2.35225,2.364839,2.38339,2.358531,2.37789,2.352279,2.34845,2.35762,2.34149,2.360805,2.37044,2.36529,2.38588,2.33467,2.373578,2.361894,2.357678,2.363927,2.367564,2.368248,2.39296,2.3244,2.370687,2.389508,2.416289,2.385259,2.35343,2.398434,2.33389,2.314444,2.376781,2.386,2.368333,2.315206,2.321806],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAJZlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgExAAIAAAARAAAAWodpAAQAAAABAAAAbAAAAAAAAAAYAAAAAQAAABgAAAABd3d3Lmlua3NjYXBlLm9yZwAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABOgAwAEAAAAAQAAABMAAAAAbp/pPQAAAAlwSFlzAAADsQAAA7EB9YPtSQAAAi1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+d3d3Lmlua3NjYXBlLm9yZzwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4yNDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MjQ8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqCo2HgAAACDklEQVQ4EY2Uv0uWURTHfbWk0tIkSQWLlnIKXFRwcAgRl6ShQWhxc3FyF+pPaGoMWhoamltaMghSF8HBRTFESo0y8+2Hvn4+1+c8PL6vil/4eJ977rnnnnPveS3Vna5Glm7CVWiAffgFG/AXalSqsRwZnjDchnq4cGSqqzD+hwNYg1dwTJ4YcpOO43AH1uEPbMJ3+AH/YBu6oBsWIfalk5kneaqZ6mgWY3AZ2uFGNl5ifAxl0E9/9yVFCZZjVp1gAO/rGZiFd+WaPvIRRsGA+luBQSsRzIlqhTZYgnk4SasYe8E7vQ4G85B9/xTlyzXD18zoYR4UxOFb2PTTP1cshsEStXnZqvhAMfeOXNfPO1SpsupgF1kwwJ4eyNcsKi7bPtNP/1wRLEXGatpzMAQ6WooB4gH096A+8E6vQa4IFoYWPj6ArWALvIcrYBa+6i4Mwzuw/+5DrupgPvdd6IFP0AEvIDTBxwIMwBfw55WrOpjzb2DT3gIzLOoek5+ZwczOfE1L2oGn0AT20wxYnvf3Gpaz+SCjmecqPr3Z2F+TYIZmMA1vwJJ/g2XOwgN4CC8hMq3EK2JLXeyr2TtT8AgM4qt6kL62RD+8hedg69j47ksfjkqDG8vgj3gl+9ZuMEfXVsF1A+mfAjGmchyVJfsvxrvw7izPe7IllJmZxWcYAf1mIdqGz1rZa+fRsYZ1wyH4im3sv0T68gAAAABJRU5ErkJggg==","index":0}},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Argentine<br>Paris 16th, Paris 17th","Bastille<br>Paris 4th, Paris 11th, Paris 12th","Bérault<br>Saint-Mandé, Vincennes","Champs-Élysées—Clemenceau<br>Paris 8th","Charles de Gaulle—Étoile<br>Paris 8th, Paris 16th, Paris 17th","Château de Vincennes<br>Paris 12th, Vincennes","Châtelet<br>Paris 1st, Paris 4th","Concorde<br>Paris 1st","Esplanade de La Défense<br>Courbevoie, Puteaux","Franklin D. Roosevelt<br>Paris 8th","Gare de Lyon<br>Paris 12th","George V<br>Paris 8th","Hôtel de Ville<br>Paris 4th","La Défense<br>Puteaux","Les Sablons<br>Neuilly-sur-Seine","Louvre—Rivoli<br>Paris 1st","Nation<br>Paris 11th, Paris 12th","Palais Royal–Musée du Louvre<br>Paris 1st","Pont de Neuilly<br>Neuilly-sur-Seine","Porte de Vincennes<br>Paris 12th, Paris 20th","Porte Maillot<br>Paris 16th, Paris 17th","Reuilly—Diderot<br>Paris 12th","Saint-Mandé<br>Saint-Mandé","Saint-Paul<br>Paris 4th","Tuileries<br>Paris 1st","Barbès—Rochechouart<br>Paris 9th, Paris 10th, Paris 18th","Belleville<br>Paris 10th","Stalingrad<br>Paris 10th, Paris 19th","Arts et Métiers<br>Paris 3rd","Opéra<br>Paris 2nd, Paris 9th","Réaumur—Sébastopol<br>Paris 2nd, Paris 3rd","République<br>Paris 3rd, Paris 10th, Paris 11th","Saint-Lazare<br>Paris 8th, Paris 9th","Porte des Lilas<br>Paris 19th, Paris 20th","Alésia<br>Paris 14th","Bagneux—Lucie Aubrac<br>Bagneux","Barbara<br>Montrouge, Bagneux","Château d'Eau<br>Paris 10th","Château Rouge<br>Paris 18th","Cité<br>Paris 4th","Denfert-Rochereau<br>Paris 14th","Étienne Marcel<br>Paris 1st","Gare de l'Est<br>Paris 10th","Gare du Nord<br>Paris 10th","Les Halles<br>Paris 1st","Mairie de Montrouge<br>Montrouge","Marcadet—Poissonniers<br>Paris 18th","Montparnasse—Bienvenüe<br>Paris 6th, Paris 14th, Paris 15th","Mouton-Duvernet<br>Paris 14th","Odéon<br>Paris 6th","Porte d'Orléans<br>Paris 14th","Porte de Clignancourt<br>Paris 18th","Raspail<br>Paris 14th","Saint-Germain-des-Prés<br>Paris 6th","Saint-Michel<br>Paris 5th, Paris 6th","Saint-Placide<br>Paris 6th","Saint-Sulpice<br>Paris 6th","Simplon<br>Paris 18th","Strasbourg—Saint-Denis<br>Paris 2nd, Paris 3rd, Paris 10th","Vavin<br>Paris 6th, Paris 14th","Place d'Italie<br>Paris 13th","Bercy<br>Paris 12th","Aubervilliers—Pantin—Quatre Chemins<br>Aubervilliers","Cadet<br>Paris 9th","Censier—Daubenton<br>Paris 5th","Château-Landon<br>Paris 10th","Chaussée d'Antin—La Fayette<br>Paris 9th","Corentin Cariou<br>Paris 19th","Crimée<br>Paris 19th","Fort d'Aubervilliers<br>Aubervilliers","Jussieu<br>Paris 5th","La Courneuve—8 Mai 1945<br>La Courneuve","Le Kremlin—Bicêtre<br>Le Kremlin-Bicêtre","Le Peletier<br>Paris 9th","Les Gobelins<br>Paris 5th, Paris 13th","Louis Blanc<br>Paris 10th","Mairie d'Ivry<br>Ivry-sur-Seine","Maison Blanche<br>Paris 13th","Pierre et Marie Curie<br>Ivry-sur-Seine","Place Monge<br>Paris 5th","Poissonnière<br>Paris 9th, Paris 10th","Pont Marie<br>Paris 4th","Pont Neuf<br>Paris 1st","Porte d'Italie<br>Paris 13th","Porte d'Ivry<br>Paris 13th","Porte de Choisy<br>Paris 13th","Porte de la Villette<br>Paris 19th","Pyramides<br>Paris 1st","Riquet<br>Paris 19th","Sully—Morland<br>Paris 4th","Tolbiac<br>Paris 13th","Villejuif—Léo Lagrange<br>Villejuif","Villejuif—Louis Aragon<br>Villejuif","Villejuif—Paul Vaillant-Couturier<br>Villejuif","Place des Fêtes<br>Paris 19th","Madeleine<br>Paris 8th","Goncourt<br>Paris 10th, Paris 11th","Jourdain<br>Paris 19th, Paris 20th","Mairie des Lilas<br>Les Lilas","Pyrénées<br>Paris 19th, Paris 20th","Rambuteau<br>Paris 3rd, Paris 4th","Télégraphe<br>Paris 19th, Paris 20th","Mairie de Saint-Ouen<br>Saint-Ouen-sur-Seine","Porte de Clichy<br>Paris 17th","Bibliothèque François Mitterrand<br>Paris 13th","Cour Saint-Émilion<br>Paris 12th","Olympiades<br>Paris 13th","Pont Cardinet<br>Paris 17th","Saint-Ouen<br>Clichy, Saint-Ouen-sur-Seine"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[48.85835,2.347324,"Châtelet",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":false,"className":""}]}],"limits":{"lat":[48.787175,48.920777],"lng":[2.238539,2.44]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -379,24 +379,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="jmegsypqie" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="znzshajdkk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#jmegsypqie table {
+#znzshajdkk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jmegsypqie thead, #jmegsypqie tbody, #jmegsypqie tfoot, #jmegsypqie tr, #jmegsypqie td, #jmegsypqie th {
+#znzshajdkk thead, #znzshajdkk tbody, #znzshajdkk tfoot, #znzshajdkk tr, #znzshajdkk td, #znzshajdkk th {
   border-style: none;
 }
 
-#jmegsypqie p {
+#znzshajdkk p {
   margin: 0;
   padding: 0;
 }
 
-#jmegsypqie .gt_table {
+#znzshajdkk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -422,12 +422,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_caption {
+#znzshajdkk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jmegsypqie .gt_title {
+#znzshajdkk .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: initial;
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#jmegsypqie .gt_subtitle {
+#znzshajdkk .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -451,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#jmegsypqie .gt_heading {
+#znzshajdkk .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -463,13 +463,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_bottom_border {
+#znzshajdkk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_col_headings {
+#znzshajdkk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -484,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_col_heading {
+#znzshajdkk .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#jmegsypqie .gt_column_spanner_outer {
+#znzshajdkk .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 100%;
@@ -516,15 +516,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#jmegsypqie .gt_column_spanner_outer:first-child {
+#znzshajdkk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jmegsypqie .gt_column_spanner_outer:last-child {
+#znzshajdkk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jmegsypqie .gt_column_spanner {
+#znzshajdkk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -536,11 +536,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#jmegsypqie .gt_spanner_row {
+#znzshajdkk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jmegsypqie .gt_group_heading {
+#znzshajdkk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -566,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#jmegsypqie .gt_empty_group_heading {
+#znzshajdkk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -581,15 +581,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#jmegsypqie .gt_from_md > :first-child {
+#znzshajdkk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jmegsypqie .gt_from_md > :last-child {
+#znzshajdkk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jmegsypqie .gt_row {
+#znzshajdkk .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -608,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#jmegsypqie .gt_stub {
+#znzshajdkk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -621,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jmegsypqie .gt_stub_row_group {
+#znzshajdkk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -635,15 +635,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#jmegsypqie .gt_row_group_first td {
+#znzshajdkk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jmegsypqie .gt_row_group_first th {
+#znzshajdkk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jmegsypqie .gt_summary_row {
+#znzshajdkk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -653,16 +653,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jmegsypqie .gt_first_summary_row {
+#znzshajdkk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_first_summary_row.thick {
+#znzshajdkk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jmegsypqie .gt_last_summary_row {
+#znzshajdkk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -672,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_grand_summary_row {
+#znzshajdkk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -682,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jmegsypqie .gt_first_grand_summary_row {
+#znzshajdkk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -692,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_last_grand_summary_row_top {
+#znzshajdkk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -702,11 +702,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_striped {
+#znzshajdkk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jmegsypqie .gt_table_body {
+#znzshajdkk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -715,7 +715,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_footnotes {
+#znzshajdkk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -729,7 +729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_footnote {
+#znzshajdkk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -738,7 +738,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jmegsypqie .gt_sourcenotes {
+#znzshajdkk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -752,7 +752,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jmegsypqie .gt_sourcenote {
+#znzshajdkk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -760,63 +760,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jmegsypqie .gt_left {
+#znzshajdkk .gt_left {
   text-align: left;
 }
 
-#jmegsypqie .gt_center {
+#znzshajdkk .gt_center {
   text-align: center;
 }
 
-#jmegsypqie .gt_right {
+#znzshajdkk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jmegsypqie .gt_font_normal {
+#znzshajdkk .gt_font_normal {
   font-weight: normal;
 }
 
-#jmegsypqie .gt_font_bold {
+#znzshajdkk .gt_font_bold {
   font-weight: bold;
 }
 
-#jmegsypqie .gt_font_italic {
+#znzshajdkk .gt_font_italic {
   font-style: italic;
 }
 
-#jmegsypqie .gt_super {
+#znzshajdkk .gt_super {
   font-size: 65%;
 }
 
-#jmegsypqie .gt_footnote_marks {
+#znzshajdkk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jmegsypqie .gt_asterisk {
+#znzshajdkk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jmegsypqie .gt_indent_1 {
+#znzshajdkk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jmegsypqie .gt_indent_2 {
+#znzshajdkk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jmegsypqie .gt_indent_3 {
+#znzshajdkk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jmegsypqie .gt_indent_4 {
+#znzshajdkk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jmegsypqie .gt_indent_5 {
+#znzshajdkk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -831,11 +831,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_rer">connect_rer</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_tramway">connect_tramway</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_transilien">connect_transilien</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="connect_autre">connect_autre</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="connect_transilien">connect_transilien</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="latitude">latitude</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="longitude">longitude</th>
@@ -843,171 +843,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Porte d'Orléans</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">4</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T3a</td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4175817</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.82319</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.325364</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 14th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Pyramides</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">7, 14</td>
-<td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">3962698</td>
-<td headers="latitude" class="gt_row gt_right">48.86587</td>
-<td headers="longitude" class="gt_row gt_right">2.334670</td>
-<td headers="localisation" class="gt_row gt_left">Paris 1st</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mairie d'Issy</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Champs-Élysées—Clemenceau</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Grand Palais</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 13</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2874138</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.82415</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.273434</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Issy-les-Moulineaux</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Alexandre Dumas</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1909005</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.86750</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.313500</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Plaisance</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">2</td>
+<td headers="Lignes" class="gt_row gt_right">13</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">2476608</td>
-<td headers="latitude" class="gt_row gt_right">48.85591</td>
-<td headers="longitude" class="gt_row gt_right">2.394790</td>
-<td headers="localisation" class="gt_row gt_left">Paris 11th, Paris 20th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mairie de Saint-Ouen</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Région Île-de-France</td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13, 14</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3521753</td>
+<td headers="latitude" class="gt_row gt_right">48.83155</td>
+<td headers="longitude" class="gt_row gt_right">2.313741</td>
+<td headers="localisation" class="gt_row gt_left">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Cambronne</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">6</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4830810</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.91167</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.333890</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Ouen-sur-Seine</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Saint-Philippe du Roule</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1636566</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84754</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.302937</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">George V</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">9</td>
+<td headers="Lignes" class="gt_row gt_right">1</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">1935004</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3842260</td>
 <td headers="latitude" class="gt_row gt_right">48.87194</td>
-<td headers="longitude" class="gt_row gt_right">2.310036</td>
+<td headers="longitude" class="gt_row gt_right">2.300556</td>
 <td headers="localisation" class="gt_row gt_left">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Pelleport</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Volontaires</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">3bis</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">12</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">229524</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.86867</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.401752</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 20th</td></tr>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1734848</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84134</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.307504</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Arts et Métiers</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_right">3, 11</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2403042</td>
+<td headers="latitude" class="gt_row gt_right">48.86550</td>
+<td headers="longitude" class="gt_row gt_right">2.356100</td>
+<td headers="localisation" class="gt_row gt_left">Paris 3rd</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Voltaire</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">9</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3454006</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85780</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.380106</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th</td></tr>
     <tr><td headers="Station" class="gt_row gt_left">Falguière</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">12</td>
+<td headers="Lignes" class="gt_row gt_right">12</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
 <td headers="Nombre_de_passagers" class="gt_row gt_right">650291</td>
 <td headers="latitude" class="gt_row gt_right">48.84457</td>
 <td headers="longitude" class="gt_row gt_right">2.318287</td>
 <td headers="localisation" class="gt_row gt_left">Paris 15th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Lazare</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Sully—Morland</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">3, 12, 13, 14</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">E</td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;">J, L</td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;">TGV, TER, Intercités</td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">33128384</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87549</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.326640</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 9th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Odéon</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">4, 10</td>
-<td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">3478491</td>
-<td headers="latitude" class="gt_row gt_right">48.85194</td>
-<td headers="longitude" class="gt_row gt_right">2.338889</td>
-<td headers="localisation" class="gt_row gt_left">Paris 6th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Marcel Sembat</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">9</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">7</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3874792</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83367</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.243579</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Boulogne-Billancourt</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Campo Formio</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1124169</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85142</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.361894</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 4th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Pyrénées</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">5</td>
+<td headers="Lignes" class="gt_row gt_right">11</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">1016150</td>
-<td headers="latitude" class="gt_row gt_right">48.83500</td>
-<td headers="longitude" class="gt_row gt_right">2.358000</td>
-<td headers="localisation" class="gt_row gt_left">Paris 13th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Créteil—L'Échat</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Hôpital Henri Mondor</td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">2288587</td>
+<td headers="latitude" class="gt_row gt_right">48.87387</td>
+<td headers="longitude" class="gt_row gt_right">2.385259</td>
+<td headers="localisation" class="gt_row gt_left">Paris 19th, Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">5</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1660120</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.79596</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.449356</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Créteil</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Les Agnettes</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">13</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1666744</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83800</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.360000</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Basilique de Saint-Denis</td>
+<td headers="Lieux" class="gt_row gt_left">Hôtel de Ville</td>
+<td headers="Lignes" class="gt_row gt_right">13</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left">T1, T5</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3991395</td>
+<td headers="latitude" class="gt_row gt_right">48.93806</td>
+<td headers="longitude" class="gt_row gt_right">2.360830</td>
+<td headers="localisation" class="gt_row gt_left">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Charles de Gaulle—Étoile</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 2, 6</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">A</td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4291663</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87389</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.295000</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Les Sablons</td>
+<td headers="Lieux" class="gt_row gt_left">Jardin d'Acclimatation</td>
+<td headers="Lignes" class="gt_row gt_right">1</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">1890356</td>
-<td headers="latitude" class="gt_row gt_right">48.92306</td>
-<td headers="longitude" class="gt_row gt_right">2.285833</td>
-<td headers="localisation" class="gt_row gt_left">Asnières-sur-Seine, Gennevilliers</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis—Université</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3954920</td>
+<td headers="latitude" class="gt_row gt_right">48.88083</td>
+<td headers="longitude" class="gt_row gt_right">2.272222</td>
+<td headers="localisation" class="gt_row gt_left">Neuilly-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Javel—André Citroën</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T5</td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3569990</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.94583</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.363610</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis</td></tr>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">10</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">C</td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1589561</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84616</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.278716</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
   </tbody>
   
   
@@ -1020,23 +1020,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(re)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="ivmarumrre" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ivmarumrre table {
+<div id="qgozewblgg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qgozewblgg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ivmarumrre thead, #ivmarumrre tbody, #ivmarumrre tfoot, #ivmarumrre tr, #ivmarumrre td, #ivmarumrre th {
+#qgozewblgg thead, #qgozewblgg tbody, #qgozewblgg tfoot, #qgozewblgg tr, #qgozewblgg td, #qgozewblgg th {
   border-style: none;
 }
 
-#ivmarumrre p {
+#qgozewblgg p {
   margin: 0;
   padding: 0;
 }
 
-#ivmarumrre .gt_table {
+#qgozewblgg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1062,12 +1062,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_caption {
+#qgozewblgg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ivmarumrre .gt_title {
+#qgozewblgg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1079,7 +1079,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ivmarumrre .gt_subtitle {
+#qgozewblgg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1091,7 +1091,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ivmarumrre .gt_heading {
+#qgozewblgg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1103,13 +1103,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_bottom_border {
+#qgozewblgg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_col_headings {
+#qgozewblgg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1124,7 +1124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_col_heading {
+#qgozewblgg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1144,7 +1144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ivmarumrre .gt_column_spanner_outer {
+#qgozewblgg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1156,15 +1156,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ivmarumrre .gt_column_spanner_outer:first-child {
+#qgozewblgg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ivmarumrre .gt_column_spanner_outer:last-child {
+#qgozewblgg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ivmarumrre .gt_column_spanner {
+#qgozewblgg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1176,11 +1176,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ivmarumrre .gt_spanner_row {
+#qgozewblgg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ivmarumrre .gt_group_heading {
+#qgozewblgg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1206,7 +1206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ivmarumrre .gt_empty_group_heading {
+#qgozewblgg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1221,15 +1221,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ivmarumrre .gt_from_md > :first-child {
+#qgozewblgg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ivmarumrre .gt_from_md > :last-child {
+#qgozewblgg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ivmarumrre .gt_row {
+#qgozewblgg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1248,7 +1248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ivmarumrre .gt_stub {
+#qgozewblgg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1261,7 +1261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ivmarumrre .gt_stub_row_group {
+#qgozewblgg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1275,15 +1275,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ivmarumrre .gt_row_group_first td {
+#qgozewblgg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ivmarumrre .gt_row_group_first th {
+#qgozewblgg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ivmarumrre .gt_summary_row {
+#qgozewblgg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1293,16 +1293,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ivmarumrre .gt_first_summary_row {
+#qgozewblgg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_first_summary_row.thick {
+#qgozewblgg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ivmarumrre .gt_last_summary_row {
+#qgozewblgg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1312,7 +1312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_grand_summary_row {
+#qgozewblgg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1322,7 +1322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ivmarumrre .gt_first_grand_summary_row {
+#qgozewblgg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1332,7 +1332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_last_grand_summary_row_top {
+#qgozewblgg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1342,11 +1342,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_striped {
+#qgozewblgg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ivmarumrre .gt_table_body {
+#qgozewblgg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1355,7 +1355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_footnotes {
+#qgozewblgg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1369,7 +1369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_footnote {
+#qgozewblgg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1378,7 +1378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ivmarumrre .gt_sourcenotes {
+#qgozewblgg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1392,7 +1392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ivmarumrre .gt_sourcenote {
+#qgozewblgg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1400,63 +1400,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ivmarumrre .gt_left {
+#qgozewblgg .gt_left {
   text-align: left;
 }
 
-#ivmarumrre .gt_center {
+#qgozewblgg .gt_center {
   text-align: center;
 }
 
-#ivmarumrre .gt_right {
+#qgozewblgg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ivmarumrre .gt_font_normal {
+#qgozewblgg .gt_font_normal {
   font-weight: normal;
 }
 
-#ivmarumrre .gt_font_bold {
+#qgozewblgg .gt_font_bold {
   font-weight: bold;
 }
 
-#ivmarumrre .gt_font_italic {
+#qgozewblgg .gt_font_italic {
   font-style: italic;
 }
 
-#ivmarumrre .gt_super {
+#qgozewblgg .gt_super {
   font-size: 65%;
 }
 
-#ivmarumrre .gt_footnote_marks {
+#qgozewblgg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ivmarumrre .gt_asterisk {
+#qgozewblgg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ivmarumrre .gt_indent_1 {
+#qgozewblgg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ivmarumrre .gt_indent_2 {
+#qgozewblgg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ivmarumrre .gt_indent_3 {
+#qgozewblgg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ivmarumrre .gt_indent_4 {
+#qgozewblgg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ivmarumrre .gt_indent_5 {
+#qgozewblgg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1563,25 +1563,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_modified_gt_theme</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="bhqfrgeuhq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wlrgyzyfow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#bhqfrgeuhq table {
+#wlrgyzyfow table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bhqfrgeuhq thead, #bhqfrgeuhq tbody, #bhqfrgeuhq tfoot, #bhqfrgeuhq tr, #bhqfrgeuhq td, #bhqfrgeuhq th {
+#wlrgyzyfow thead, #wlrgyzyfow tbody, #wlrgyzyfow tfoot, #wlrgyzyfow tr, #wlrgyzyfow td, #wlrgyzyfow th {
   border-style: none;
 }
 
-#bhqfrgeuhq p {
+#wlrgyzyfow p {
   margin: 0;
   padding: 0;
 }
 
-#bhqfrgeuhq .gt_table {
+#wlrgyzyfow .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1607,12 +1607,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_caption {
+#wlrgyzyfow .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bhqfrgeuhq .gt_title {
+#wlrgyzyfow .gt_title {
   color: #333333;
   font-size: 26px;
   font-weight: bold;
@@ -1624,7 +1624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bhqfrgeuhq .gt_subtitle {
+#wlrgyzyfow .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -1636,7 +1636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bhqfrgeuhq .gt_heading {
+#wlrgyzyfow .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1648,13 +1648,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_bottom_border {
+#wlrgyzyfow .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_col_headings {
+#wlrgyzyfow .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -1669,7 +1669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_col_heading {
+#wlrgyzyfow .gt_col_heading {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1689,7 +1689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bhqfrgeuhq .gt_column_spanner_outer {
+#wlrgyzyfow .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #104E8B;
   font-size: 80%;
@@ -1701,15 +1701,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bhqfrgeuhq .gt_column_spanner_outer:first-child {
+#wlrgyzyfow .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bhqfrgeuhq .gt_column_spanner_outer:last-child {
+#wlrgyzyfow .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bhqfrgeuhq .gt_column_spanner {
+#wlrgyzyfow .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -1721,11 +1721,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bhqfrgeuhq .gt_spanner_row {
+#wlrgyzyfow .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bhqfrgeuhq .gt_group_heading {
+#wlrgyzyfow .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1751,7 +1751,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bhqfrgeuhq .gt_empty_group_heading {
+#wlrgyzyfow .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1766,15 +1766,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bhqfrgeuhq .gt_from_md > :first-child {
+#wlrgyzyfow .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bhqfrgeuhq .gt_from_md > :last-child {
+#wlrgyzyfow .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bhqfrgeuhq .gt_row {
+#wlrgyzyfow .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -1793,7 +1793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bhqfrgeuhq .gt_stub {
+#wlrgyzyfow .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1806,7 +1806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bhqfrgeuhq .gt_stub_row_group {
+#wlrgyzyfow .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1820,15 +1820,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bhqfrgeuhq .gt_row_group_first td {
+#wlrgyzyfow .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bhqfrgeuhq .gt_row_group_first th {
+#wlrgyzyfow .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bhqfrgeuhq .gt_summary_row {
+#wlrgyzyfow .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1838,16 +1838,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bhqfrgeuhq .gt_first_summary_row {
+#wlrgyzyfow .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_first_summary_row.thick {
+#wlrgyzyfow .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bhqfrgeuhq .gt_last_summary_row {
+#wlrgyzyfow .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1857,7 +1857,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_grand_summary_row {
+#wlrgyzyfow .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1867,7 +1867,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bhqfrgeuhq .gt_first_grand_summary_row {
+#wlrgyzyfow .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1877,7 +1877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_last_grand_summary_row_top {
+#wlrgyzyfow .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1887,11 +1887,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_striped {
+#wlrgyzyfow .gt_striped {
   background-color: #F5F5F5;
 }
 
-#bhqfrgeuhq .gt_table_body {
+#wlrgyzyfow .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1900,7 +1900,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_footnotes {
+#wlrgyzyfow .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1914,7 +1914,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_footnote {
+#wlrgyzyfow .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1923,7 +1923,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bhqfrgeuhq .gt_sourcenotes {
+#wlrgyzyfow .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1937,7 +1937,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bhqfrgeuhq .gt_sourcenote {
+#wlrgyzyfow .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1945,63 +1945,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bhqfrgeuhq .gt_left {
+#wlrgyzyfow .gt_left {
   text-align: left;
 }
 
-#bhqfrgeuhq .gt_center {
+#wlrgyzyfow .gt_center {
   text-align: center;
 }
 
-#bhqfrgeuhq .gt_right {
+#wlrgyzyfow .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bhqfrgeuhq .gt_font_normal {
+#wlrgyzyfow .gt_font_normal {
   font-weight: normal;
 }
 
-#bhqfrgeuhq .gt_font_bold {
+#wlrgyzyfow .gt_font_bold {
   font-weight: bold;
 }
 
-#bhqfrgeuhq .gt_font_italic {
+#wlrgyzyfow .gt_font_italic {
   font-style: italic;
 }
 
-#bhqfrgeuhq .gt_super {
+#wlrgyzyfow .gt_super {
   font-size: 65%;
 }
 
-#bhqfrgeuhq .gt_footnote_marks {
+#wlrgyzyfow .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bhqfrgeuhq .gt_asterisk {
+#wlrgyzyfow .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bhqfrgeuhq .gt_indent_1 {
+#wlrgyzyfow .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bhqfrgeuhq .gt_indent_2 {
+#wlrgyzyfow .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bhqfrgeuhq .gt_indent_3 {
+#wlrgyzyfow .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bhqfrgeuhq .gt_indent_4 {
+#wlrgyzyfow .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bhqfrgeuhq .gt_indent_5 {
+#wlrgyzyfow .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2016,11 +2016,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_rer">connect_rer</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="latitude">latitude</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="longitude">longitude</th>
@@ -2028,171 +2028,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Porte d'Orléans</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">4</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T3a</td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4175817</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.82319</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.325364</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 14th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pyramides</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">7, 14</td>
-<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3962698</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.86587</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.334670</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 1st</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mairie d'Issy</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">12</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Champs-Élysées—Clemenceau</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Grand Palais</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 13</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">2874138</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.82415</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.273434</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Issy-les-Moulineaux</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Alexandre Dumas</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1909005</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.86750</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.313500</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Plaisance</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">2</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">13</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2476608</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85591</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.394790</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 11th, Paris 20th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Mairie de Saint-Ouen</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Région Île-de-France</td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13, 14</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3521753</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83155</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.313741</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Cambronne</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">6</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4830810</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.91167</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.333890</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Ouen-sur-Seine</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Saint-Philippe du Roule</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1636566</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84754</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.302937</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">George V</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">9</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1935004</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3842260</td>
 <td headers="latitude" class="gt_row gt_right gt_striped">48.87194</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.310036</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.300556</td>
 <td headers="localisation" class="gt_row gt_left gt_striped">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Pelleport</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Volontaires</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">3bis</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">12</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">229524</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.86867</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.401752</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 20th</td></tr>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1734848</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84134</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.307504</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Arts et Métiers</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">3, 11</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2403042</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.86550</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.356100</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 3rd</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Voltaire</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">9</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3454006</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85780</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.380106</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 11th</td></tr>
     <tr><td headers="Station" class="gt_row gt_left gt_striped">Falguière</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">12</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">12</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
 <td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">650291</td>
 <td headers="latitude" class="gt_row gt_right gt_striped">48.84457</td>
 <td headers="longitude" class="gt_row gt_right gt_striped">2.318287</td>
 <td headers="localisation" class="gt_row gt_left gt_striped">Paris 15th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Lazare</td>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Sully—Morland</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">3, 12, 13, 14</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">E</td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;">J, L</td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;">TGV, TER, Intercités</td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">33128384</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87549</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.326640</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 9th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Odéon</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">4, 10</td>
-<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3478491</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85194</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.338889</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 6th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Marcel Sembat</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">9</td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">7</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3874792</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83367</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.243579</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Boulogne-Billancourt</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Campo Formio</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1124169</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.85142</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.361894</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 4th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pyrénées</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">5</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">11</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1016150</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.83500</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.358000</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Créteil—L'Échat</td>
-<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;">Hôpital Henri Mondor</td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">8</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2288587</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.87387</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.385259</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 19th, Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">5</td>
 <td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
 <td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1660120</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.79596</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.449356</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Créteil</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Les Agnettes</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">13</td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1666744</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.83800</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.360000</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Basilique de Saint-Denis</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Hôtel de Ville</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">13</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped">T1, T5</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3991395</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.93806</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.360830</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Charles de Gaulle—Étoile</td>
+<td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">1, 2, 6</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">A</td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">4291663</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.87389</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.295000</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 8th, Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Les Sablons</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Jardin d'Acclimatation</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1890356</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.92306</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.285833</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Asnières-sur-Seine, Gennevilliers</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis—Université</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3954920</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.88083</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.272222</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Neuilly-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left" style="background-color: #E5E5E5;">Javel—André Citroën</td>
 <td headers="Lieux" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Lignes" class="gt_row gt_left" style="background-color: #E5E5E5;">13</td>
-<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;">T5</td>
-<td headers="connect_transilien" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="connect_autre" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">3569990</td>
-<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.94583</td>
-<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.363610</td>
-<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Saint-Denis</td></tr>
+<td headers="Lignes" class="gt_row gt_right" style="background-color: #E5E5E5;">10</td>
+<td headers="connect_rer" class="gt_row gt_left" style="background-color: #E5E5E5;">C</td>
+<td headers="connect_tramway" class="gt_row gt_left" style="background-color: #E5E5E5;"></td>
+<td headers="connect_transilien" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="connect_autre" class="gt_row gt_right" style="background-color: #E5E5E5;"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right" style="background-color: #E5E5E5;">1589561</td>
+<td headers="latitude" class="gt_row gt_right" style="background-color: #E5E5E5;">48.84616</td>
+<td headers="longitude" class="gt_row gt_right" style="background-color: #E5E5E5;">2.278716</td>
+<td headers="localisation" class="gt_row gt_left" style="background-color: #E5E5E5;">Paris 15th</td></tr>
   </tbody>
   
   
@@ -2202,24 +2202,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>re2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="ldulesvehh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yltmkdrjeg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#ldulesvehh table {
+#yltmkdrjeg table {
   font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ldulesvehh thead, #ldulesvehh tbody, #ldulesvehh tfoot, #ldulesvehh tr, #ldulesvehh td, #ldulesvehh th {
+#yltmkdrjeg thead, #yltmkdrjeg tbody, #yltmkdrjeg tfoot, #yltmkdrjeg tr, #yltmkdrjeg td, #yltmkdrjeg th {
   border-style: none;
 }
 
-#ldulesvehh p {
+#yltmkdrjeg p {
   margin: 0;
   padding: 0;
 }
 
-#ldulesvehh .gt_table {
+#yltmkdrjeg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2245,12 +2245,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_caption {
+#yltmkdrjeg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ldulesvehh .gt_title {
+#yltmkdrjeg .gt_title {
   color: #333333;
   font-size: 30px;
   font-weight: bold;
@@ -2262,7 +2262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ldulesvehh .gt_subtitle {
+#yltmkdrjeg .gt_subtitle {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2274,7 +2274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ldulesvehh .gt_heading {
+#yltmkdrjeg .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2286,13 +2286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_bottom_border {
+#yltmkdrjeg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_col_headings {
+#yltmkdrjeg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(255, 255, 255, 0);
@@ -2307,7 +2307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_col_heading {
+#yltmkdrjeg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2327,7 +2327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ldulesvehh .gt_column_spanner_outer {
+#yltmkdrjeg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2339,15 +2339,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ldulesvehh .gt_column_spanner_outer:first-child {
+#yltmkdrjeg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ldulesvehh .gt_column_spanner_outer:last-child {
+#yltmkdrjeg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ldulesvehh .gt_column_spanner {
+#yltmkdrjeg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -2359,11 +2359,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ldulesvehh .gt_spanner_row {
+#yltmkdrjeg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ldulesvehh .gt_group_heading {
+#yltmkdrjeg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2389,7 +2389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ldulesvehh .gt_empty_group_heading {
+#yltmkdrjeg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2404,15 +2404,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ldulesvehh .gt_from_md > :first-child {
+#yltmkdrjeg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ldulesvehh .gt_from_md > :last-child {
+#yltmkdrjeg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ldulesvehh .gt_row {
+#yltmkdrjeg .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -2431,7 +2431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ldulesvehh .gt_stub {
+#yltmkdrjeg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -2444,7 +2444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ldulesvehh .gt_stub_row_group {
+#yltmkdrjeg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2458,15 +2458,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ldulesvehh .gt_row_group_first td {
+#yltmkdrjeg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ldulesvehh .gt_row_group_first th {
+#yltmkdrjeg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ldulesvehh .gt_summary_row {
+#yltmkdrjeg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2476,16 +2476,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ldulesvehh .gt_first_summary_row {
+#yltmkdrjeg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_first_summary_row.thick {
+#yltmkdrjeg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ldulesvehh .gt_last_summary_row {
+#yltmkdrjeg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2495,7 +2495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_grand_summary_row {
+#yltmkdrjeg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2505,7 +2505,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ldulesvehh .gt_first_grand_summary_row {
+#yltmkdrjeg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2515,7 +2515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_last_grand_summary_row_top {
+#yltmkdrjeg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2525,11 +2525,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_striped {
+#yltmkdrjeg .gt_striped {
   background-color: #F5F5F5;
 }
 
-#ldulesvehh .gt_table_body {
+#yltmkdrjeg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2538,7 +2538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_footnotes {
+#yltmkdrjeg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2552,7 +2552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_footnote {
+#yltmkdrjeg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2561,7 +2561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ldulesvehh .gt_sourcenotes {
+#yltmkdrjeg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2575,7 +2575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ldulesvehh .gt_sourcenote {
+#yltmkdrjeg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2583,63 +2583,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ldulesvehh .gt_left {
+#yltmkdrjeg .gt_left {
   text-align: left;
 }
 
-#ldulesvehh .gt_center {
+#yltmkdrjeg .gt_center {
   text-align: center;
 }
 
-#ldulesvehh .gt_right {
+#yltmkdrjeg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ldulesvehh .gt_font_normal {
+#yltmkdrjeg .gt_font_normal {
   font-weight: normal;
 }
 
-#ldulesvehh .gt_font_bold {
+#yltmkdrjeg .gt_font_bold {
   font-weight: bold;
 }
 
-#ldulesvehh .gt_font_italic {
+#yltmkdrjeg .gt_font_italic {
   font-style: italic;
 }
 
-#ldulesvehh .gt_super {
+#yltmkdrjeg .gt_super {
   font-size: 65%;
 }
 
-#ldulesvehh .gt_footnote_marks {
+#yltmkdrjeg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ldulesvehh .gt_asterisk {
+#yltmkdrjeg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ldulesvehh .gt_indent_1 {
+#yltmkdrjeg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ldulesvehh .gt_indent_2 {
+#yltmkdrjeg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ldulesvehh .gt_indent_3 {
+#yltmkdrjeg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ldulesvehh .gt_indent_4 {
+#yltmkdrjeg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ldulesvehh .gt_indent_5 {
+#yltmkdrjeg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2654,11 +2654,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Station">Station</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lieux">Lieux</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Lignes">Lignes</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_rer">connect_rer</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_tramway">connect_tramway</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_transilien">connect_transilien</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="connect_autre">connect_autre</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="Nombre_de_passagers">Nombre_de_passagers</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="latitude">latitude</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="background-color: #585D63; color: #FFFFFF; font-size: 10px; font-weight: bold; border-bottom-width: 2.5px; border-bottom-style: solid; border-bottom-color: #585d63;" scope="col" id="longitude">longitude</th>
@@ -2666,171 +2666,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="Station" class="gt_row gt_left">Porte d'Orléans</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">4</td>
-<td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_left">T3a</td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">4175817</td>
-<td headers="latitude" class="gt_row gt_right">48.82319</td>
-<td headers="longitude" class="gt_row gt_right">2.325364</td>
-<td headers="localisation" class="gt_row gt_left">Paris 14th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pyramides</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">7, 14</td>
-<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3962698</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.86587</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.334670</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 1st</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Mairie d'Issy</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">12</td>
+    <tr><td headers="Station" class="gt_row gt_left">Champs-Élysées—Clemenceau</td>
+<td headers="Lieux" class="gt_row gt_left">Grand Palais</td>
+<td headers="Lignes" class="gt_row gt_right">1, 13</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">2874138</td>
-<td headers="latitude" class="gt_row gt_right">48.82415</td>
-<td headers="longitude" class="gt_row gt_right">2.273434</td>
-<td headers="localisation" class="gt_row gt_left">Issy-les-Moulineaux</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Alexandre Dumas</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1909005</td>
+<td headers="latitude" class="gt_row gt_right">48.86750</td>
+<td headers="longitude" class="gt_row gt_right">2.313500</td>
+<td headers="localisation" class="gt_row gt_left">Paris 8th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Plaisance</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">2</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">13</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2476608</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85591</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.394790</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 11th, Paris 20th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Mairie de Saint-Ouen</td>
-<td headers="Lieux" class="gt_row gt_left">Région Île-de-France</td>
-<td headers="Lignes" class="gt_row gt_left">13, 14</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3521753</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.83155</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.313741</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 14th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Cambronne</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_right">6</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">4830810</td>
-<td headers="latitude" class="gt_row gt_right">48.91167</td>
-<td headers="longitude" class="gt_row gt_right">2.333890</td>
-<td headers="localisation" class="gt_row gt_left">Saint-Ouen-sur-Seine</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Saint-Philippe du Roule</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1636566</td>
+<td headers="latitude" class="gt_row gt_right">48.84754</td>
+<td headers="longitude" class="gt_row gt_right">2.302937</td>
+<td headers="localisation" class="gt_row gt_left">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">George V</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">9</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1935004</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3842260</td>
 <td headers="latitude" class="gt_row gt_right gt_striped">48.87194</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.310036</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.300556</td>
 <td headers="localisation" class="gt_row gt_left gt_striped">Paris 8th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Pelleport</td>
+    <tr><td headers="Station" class="gt_row gt_left">Volontaires</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">3bis</td>
+<td headers="Lignes" class="gt_row gt_right">12</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">229524</td>
-<td headers="latitude" class="gt_row gt_right">48.86867</td>
-<td headers="longitude" class="gt_row gt_right">2.401752</td>
-<td headers="localisation" class="gt_row gt_left">Paris 20th</td></tr>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1734848</td>
+<td headers="latitude" class="gt_row gt_right">48.84134</td>
+<td headers="longitude" class="gt_row gt_right">2.307504</td>
+<td headers="localisation" class="gt_row gt_left">Paris 15th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Arts et Métiers</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">3, 11</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2403042</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.86550</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.356100</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 3rd</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Voltaire</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_right">9</td>
+<td headers="connect_rer" class="gt_row gt_left"></td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">3454006</td>
+<td headers="latitude" class="gt_row gt_right">48.85780</td>
+<td headers="longitude" class="gt_row gt_right">2.380106</td>
+<td headers="localisation" class="gt_row gt_left">Paris 11th</td></tr>
     <tr><td headers="Station" class="gt_row gt_left gt_striped">Falguière</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">12</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">12</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
 <td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">650291</td>
 <td headers="latitude" class="gt_row gt_right gt_striped">48.84457</td>
 <td headers="longitude" class="gt_row gt_right gt_striped">2.318287</td>
 <td headers="localisation" class="gt_row gt_left gt_striped">Paris 15th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Saint-Lazare</td>
+    <tr><td headers="Station" class="gt_row gt_left">Sully—Morland</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">3, 12, 13, 14</td>
-<td headers="connect_rer" class="gt_row gt_left">E</td>
-<td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left">J, L</td>
-<td headers="connect_autre" class="gt_row gt_left">TGV, TER, Intercités</td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">33128384</td>
-<td headers="latitude" class="gt_row gt_right">48.87549</td>
-<td headers="longitude" class="gt_row gt_right">2.326640</td>
-<td headers="localisation" class="gt_row gt_left">Paris 8th, Paris 9th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Odéon</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">4, 10</td>
-<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3478491</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.85194</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.338889</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 6th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Marcel Sembat</td>
-<td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">9</td>
+<td headers="Lignes" class="gt_row gt_right">7</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">3874792</td>
-<td headers="latitude" class="gt_row gt_right">48.83367</td>
-<td headers="longitude" class="gt_row gt_right">2.243579</td>
-<td headers="localisation" class="gt_row gt_left">Boulogne-Billancourt</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Campo Formio</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1124169</td>
+<td headers="latitude" class="gt_row gt_right">48.85142</td>
+<td headers="longitude" class="gt_row gt_right">2.361894</td>
+<td headers="localisation" class="gt_row gt_left">Paris 4th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Pyrénées</td>
 <td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">5</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">11</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1016150</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.83500</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.358000</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Paris 13th</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Créteil—L'Échat</td>
-<td headers="Lieux" class="gt_row gt_left">Hôpital Henri Mondor</td>
-<td headers="Lignes" class="gt_row gt_left">8</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">2288587</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.87387</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.385259</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Paris 19th, Paris 20th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Saint-Marcel</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_right">5</td>
 <td headers="connect_rer" class="gt_row gt_left"></td>
 <td headers="connect_tramway" class="gt_row gt_left"></td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">1660120</td>
-<td headers="latitude" class="gt_row gt_right">48.79596</td>
-<td headers="longitude" class="gt_row gt_right">2.449356</td>
-<td headers="localisation" class="gt_row gt_left">Créteil</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left gt_striped">Les Agnettes</td>
-<td headers="Lieux" class="gt_row gt_left gt_striped"></td>
-<td headers="Lignes" class="gt_row gt_left gt_striped">13</td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1666744</td>
+<td headers="latitude" class="gt_row gt_right">48.83800</td>
+<td headers="longitude" class="gt_row gt_right">2.360000</td>
+<td headers="localisation" class="gt_row gt_left">Paris 13th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Basilique de Saint-Denis</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Hôtel de Ville</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">13</td>
+<td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
+<td headers="connect_tramway" class="gt_row gt_left gt_striped">T1, T5</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3991395</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.93806</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.360830</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Saint-Denis</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Charles de Gaulle—Étoile</td>
+<td headers="Lieux" class="gt_row gt_left"></td>
+<td headers="Lignes" class="gt_row gt_right">1, 2, 6</td>
+<td headers="connect_rer" class="gt_row gt_left">A</td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">4291663</td>
+<td headers="latitude" class="gt_row gt_right">48.87389</td>
+<td headers="longitude" class="gt_row gt_right">2.295000</td>
+<td headers="localisation" class="gt_row gt_left">Paris 8th, Paris 16th, Paris 17th</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left gt_striped">Les Sablons</td>
+<td headers="Lieux" class="gt_row gt_left gt_striped">Jardin d'Acclimatation</td>
+<td headers="Lignes" class="gt_row gt_right gt_striped">1</td>
 <td headers="connect_rer" class="gt_row gt_left gt_striped"></td>
 <td headers="connect_tramway" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_transilien" class="gt_row gt_left gt_striped"></td>
-<td headers="connect_autre" class="gt_row gt_left gt_striped"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">1890356</td>
-<td headers="latitude" class="gt_row gt_right gt_striped">48.92306</td>
-<td headers="longitude" class="gt_row gt_right gt_striped">2.285833</td>
-<td headers="localisation" class="gt_row gt_left gt_striped">Asnières-sur-Seine, Gennevilliers</td></tr>
-    <tr><td headers="Station" class="gt_row gt_left">Saint-Denis—Université</td>
+<td headers="connect_transilien" class="gt_row gt_right gt_striped"></td>
+<td headers="connect_autre" class="gt_row gt_right gt_striped"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right gt_striped">3954920</td>
+<td headers="latitude" class="gt_row gt_right gt_striped">48.88083</td>
+<td headers="longitude" class="gt_row gt_right gt_striped">2.272222</td>
+<td headers="localisation" class="gt_row gt_left gt_striped">Neuilly-sur-Seine</td></tr>
+    <tr><td headers="Station" class="gt_row gt_left">Javel—André Citroën</td>
 <td headers="Lieux" class="gt_row gt_left"></td>
-<td headers="Lignes" class="gt_row gt_left">13</td>
-<td headers="connect_rer" class="gt_row gt_left"></td>
-<td headers="connect_tramway" class="gt_row gt_left">T5</td>
-<td headers="connect_transilien" class="gt_row gt_left"></td>
-<td headers="connect_autre" class="gt_row gt_left"></td>
-<td headers="Nombre_de_passagers" class="gt_row gt_right">3569990</td>
-<td headers="latitude" class="gt_row gt_right">48.94583</td>
-<td headers="longitude" class="gt_row gt_right">2.363610</td>
-<td headers="localisation" class="gt_row gt_left">Saint-Denis</td></tr>
+<td headers="Lignes" class="gt_row gt_right">10</td>
+<td headers="connect_rer" class="gt_row gt_left">C</td>
+<td headers="connect_tramway" class="gt_row gt_left"></td>
+<td headers="connect_transilien" class="gt_row gt_right"></td>
+<td headers="connect_autre" class="gt_row gt_right"></td>
+<td headers="Nombre_de_passagers" class="gt_row gt_right">1589561</td>
+<td headers="latitude" class="gt_row gt_right">48.84616</td>
+<td headers="longitude" class="gt_row gt_right">2.278716</td>
+<td headers="localisation" class="gt_row gt_left">Paris 15th</td></tr>
   </tbody>
   
   
@@ -2844,23 +2844,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>top10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="uasztkcsyt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uasztkcsyt table {
+<div id="comqhtmrqc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#comqhtmrqc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uasztkcsyt thead, #uasztkcsyt tbody, #uasztkcsyt tfoot, #uasztkcsyt tr, #uasztkcsyt td, #uasztkcsyt th {
+#comqhtmrqc thead, #comqhtmrqc tbody, #comqhtmrqc tfoot, #comqhtmrqc tr, #comqhtmrqc td, #comqhtmrqc th {
   border-style: none;
 }
 
-#uasztkcsyt p {
+#comqhtmrqc p {
   margin: 0;
   padding: 0;
 }
 
-#uasztkcsyt .gt_table {
+#comqhtmrqc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2886,12 +2886,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_caption {
+#comqhtmrqc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uasztkcsyt .gt_title {
+#comqhtmrqc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2903,7 +2903,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#uasztkcsyt .gt_subtitle {
+#comqhtmrqc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2915,7 +2915,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#uasztkcsyt .gt_heading {
+#comqhtmrqc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2927,13 +2927,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_bottom_border {
+#comqhtmrqc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_col_headings {
+#comqhtmrqc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2948,7 +2948,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_col_heading {
+#comqhtmrqc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2968,7 +2968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#uasztkcsyt .gt_column_spanner_outer {
+#comqhtmrqc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2980,15 +2980,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#uasztkcsyt .gt_column_spanner_outer:first-child {
+#comqhtmrqc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uasztkcsyt .gt_column_spanner_outer:last-child {
+#comqhtmrqc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uasztkcsyt .gt_column_spanner {
+#comqhtmrqc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3000,11 +3000,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#uasztkcsyt .gt_spanner_row {
+#comqhtmrqc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uasztkcsyt .gt_group_heading {
+#comqhtmrqc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3030,7 +3030,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#uasztkcsyt .gt_empty_group_heading {
+#comqhtmrqc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3045,15 +3045,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#uasztkcsyt .gt_from_md > :first-child {
+#comqhtmrqc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uasztkcsyt .gt_from_md > :last-child {
+#comqhtmrqc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uasztkcsyt .gt_row {
+#comqhtmrqc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3072,7 +3072,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#uasztkcsyt .gt_stub {
+#comqhtmrqc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3085,7 +3085,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#uasztkcsyt .gt_stub_row_group {
+#comqhtmrqc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3099,15 +3099,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#uasztkcsyt .gt_row_group_first td {
+#comqhtmrqc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uasztkcsyt .gt_row_group_first th {
+#comqhtmrqc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uasztkcsyt .gt_summary_row {
+#comqhtmrqc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3117,16 +3117,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#uasztkcsyt .gt_first_summary_row {
+#comqhtmrqc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_first_summary_row.thick {
+#comqhtmrqc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uasztkcsyt .gt_last_summary_row {
+#comqhtmrqc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3136,7 +3136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_grand_summary_row {
+#comqhtmrqc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3146,7 +3146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#uasztkcsyt .gt_first_grand_summary_row {
+#comqhtmrqc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3156,7 +3156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_last_grand_summary_row_top {
+#comqhtmrqc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3166,11 +3166,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_striped {
+#comqhtmrqc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uasztkcsyt .gt_table_body {
+#comqhtmrqc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3179,7 +3179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_footnotes {
+#comqhtmrqc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3193,7 +3193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_footnote {
+#comqhtmrqc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3202,7 +3202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#uasztkcsyt .gt_sourcenotes {
+#comqhtmrqc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3216,7 +3216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#uasztkcsyt .gt_sourcenote {
+#comqhtmrqc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3224,63 +3224,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#uasztkcsyt .gt_left {
+#comqhtmrqc .gt_left {
   text-align: left;
 }
 
-#uasztkcsyt .gt_center {
+#comqhtmrqc .gt_center {
   text-align: center;
 }
 
-#uasztkcsyt .gt_right {
+#comqhtmrqc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uasztkcsyt .gt_font_normal {
+#comqhtmrqc .gt_font_normal {
   font-weight: normal;
 }
 
-#uasztkcsyt .gt_font_bold {
+#comqhtmrqc .gt_font_bold {
   font-weight: bold;
 }
 
-#uasztkcsyt .gt_font_italic {
+#comqhtmrqc .gt_font_italic {
   font-style: italic;
 }
 
-#uasztkcsyt .gt_super {
+#comqhtmrqc .gt_super {
   font-size: 65%;
 }
 
-#uasztkcsyt .gt_footnote_marks {
+#comqhtmrqc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uasztkcsyt .gt_asterisk {
+#comqhtmrqc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uasztkcsyt .gt_indent_1 {
+#comqhtmrqc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uasztkcsyt .gt_indent_2 {
+#comqhtmrqc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uasztkcsyt .gt_indent_3 {
+#comqhtmrqc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uasztkcsyt .gt_indent_4 {
+#comqhtmrqc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uasztkcsyt .gt_indent_5 {
+#comqhtmrqc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
