@@ -13,9 +13,11 @@
 <url>https://romuanalyst.github.io/Website/img/logo.png</url>
 <title>RomuAnalyst</title>
 <link>https://romuanalyst.github.io/Website/packages.html</link>
+<height>100</height>
+<width>100</width>
 </image>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 05 Nov 2023 11:11:43 GMT</lastBuildDate>
+<lastBuildDate>Sun, 05 Nov 2023 11:17:06 GMT</lastBuildDate>
 <item>
   <title>dplyr</title>
   <link>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</link>
@@ -116,7 +118,7 @@ font-style: inherit;">mean</span>(Petal.Length))</span></code></pre></div>
   <category>manipulation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:11:43 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:17:06 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
@@ -155,7 +157,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:11:43 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:17:06 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
@@ -2824,7 +2826,7 @@ font-style: inherit;">20</span> lignes aléatoires du dataset pizzaplace</span><
   <category>table</category>
   <category>personnalisation</category>
   <guid>https://romuanalyst.github.io/Website/packages/gt/gt.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:11:43 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:17:06 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/gt/gt.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
@@ -2956,7 +2958,7 @@ font-style: inherit;">"iut_leaflet.html"</span>)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>cartographie</category>
   <guid>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:11:43 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:17:06 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -3066,7 +3068,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>web</category>
   <category>table</category>
   <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:11:43 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:17:06 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 </channel>
