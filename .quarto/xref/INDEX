@@ -127,5 +127,8 @@
   },
   "resources.qmd": {
     "resources.html": "cb793c7f"
+  },
+  "packages/gt/gt.qmd": {
+    "gt.html": "5fbc7cc9"
   }
 }

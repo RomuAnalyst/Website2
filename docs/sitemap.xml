@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/packages.html</loc>
-    <lastmod>2023-10-29T11:28:07.126Z</lastmod>
+    <lastmod>2023-11-05T11:11:43.752Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/posts/2022-02-15-feature-tables/index.html</loc>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/posts/Article/Article suivant.html</loc>
-    <lastmod>2023-10-29T10:41:56.835Z</lastmod>
+    <lastmod>2023-10-29T11:29:51.389Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/packages/rvest/rvest2.html</loc>
@@ -238,7 +238,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/Introduction_R.html</loc>
-    <lastmod>2023-10-27T16:50:26.845Z</lastmod>
+    <lastmod>2023-10-29T11:29:47.007Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/posts/2022-10-25-shinylive-extension/index.html</loc>
@@ -299,5 +299,9 @@
   <url>
     <loc>https://romuanalyst.github.io/Website/resources.html</loc>
     <lastmod>2023-10-29T11:28:05.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/gt/gt.html</loc>
+    <lastmod>2023-11-05T11:11:43.203Z</lastmod>
   </url>
 </urlset>

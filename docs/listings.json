@@ -44,6 +44,7 @@
     "items": [
       "/packages/dplyr/dplyr.html",
       "/packages/ggplot2/ggplot2.html",
+      "/packages/gt/gt.html",
       "/packages/leaflet/leaflet.html",
       "/packages/rvest/rvest.html"
     ]

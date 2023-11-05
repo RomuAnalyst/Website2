@@ -1,0 +1,309 @@
+---
+title: "**<u>gt</u>**"
+subtitle: Personnalisation des tableaux de données
+categories:
+  - manipulation de données
+  - table
+  - personnalisation
+image: gt.svg
+lang: fr
+page-layout: full
+---
+
+----------------
+
+::: {.grid}
+
+::: {.g-col-2}
+<div style="margin-top: auto;"><a href="gt.qmd">![](gt.svg)</a></div>
+:::
+
+::: {.g-col-10}
+<div style="margin-top: auto;"><p class="card-text">Le package **gt** est une bibliothèque de R qui permet de créer et de `personnaliser des tableaux` de données de manière simple et élégante. Il a été développé pour simplifier la création de tableaux dans R en offrant des fonctionnalités de personnalisation avancées tout en étant convivial pour les utilisateurs. Nous verrons comment utiliser **gt** pour créer un tableau, personnaliser l'apparence, modifier les en-têtes, les couleurs, les polices, et bien plus encore.</p>  
+
+```r
+# Installation et chargement du package depuis le dépôt CRAN (Comprehensive R Archive Network)
+install.packages("gt")
+library(gt)
+```
+</p>
+</div>
+:::
+
+:::
+
+Le package gt permet de créer des tableaux de données à partir de différents types de données, notamment des dataframes, les tibbles et les data tables, des matrices et des listes. Il est également possible de créer des tableaux à partir de données externes, telles que des fichiers CSV ou des bases de données.  
+Ici, nous allons nous concentrer sur la création de tableaux à partir de données saisies dans R.
+
+:::{.callout-tip}
+## Pourquoi utiliser gt ? 
+
+Les avantages de l'utilisation du package gt par rapport à d'autres packages de création de tableaux sont les suivants :
+
+**1. Syntaxe simple et intuitive** :
+Le package gt offre une syntaxe simple et lisible pour créer des tableaux, ce qui le rend idéal pour les débutants. Vous pouvez créer des tableaux de données sans avoir besoin d'apprendre des commandes complexes.  
+**2. Personnalisation avancée** :
+Vous pouvez personnaliser facilement l'apparence de votre tableau en modifiant les en-têtes, les couleurs, les polices, et bien plus encore. Cela permet de créer des tableaux visuellement attrayants.  
+**3. Compatibilité avec les données R** :
+Le package gt est conçu pour fonctionner en harmonie avec les données R. Vous pouvez charger des données directement à partir de votre environnement R et les afficher sous forme de tableau.  
+**4. Intégration avec d'autres packages** :
+gt s'intègre parfaitement avec d'autres packages populaires tels que [**dplyr**](/packages/dplyr/dplyr.qmd) et [**ggplot2**](/packages/ggplot2/ggplot2.qmd). Vous pouvez manipuler vos données avec dplyr, puis les afficher dans un tableau gt.  
+**5. Exportation facile** :
+Vous pouvez exporter vos tableaux gt vers différents formats, notamment HTML, ce qui facilite le partage de vos résultats avec d'autres.
+:::
+
+## Création d'un tableau simple
+
+::: {.grid}
+
+::: {.g-col-10}
+```r
+library(gt)
+
+# création du dataframe "joueur"
+joueur <- data.frame( 
+  Nom = c("Curry", "James", "Harden", "Durant","Wemby", "Tatum", "Brown"),
+  Taille = paste(c(1.88, 2.06, 1.96, 2.08, 2.24, 2.03, 1.98), "m")
+)
+
+# création du tableau de base gt
+tableau <- joueur %>%
+  gt() 
+```
+:::
+
+::: {.g-col-2}
+```{r echo=FALSE}
+library(gt)
+
+joueur <- data.frame( 
+  Nom = c("Curry", "James", "Harden", "Durant","Wemby", "Tatum", "Brown"),
+  Taille = paste(c(1.88, 2.06, 1.96, 2.08, 2.24, 2.03, 1.98), "m")
+)
+
+tableau <- joueur %>%
+  gt() 
+tableau
+
+```
+
+:::
+
+:::
+
+Travail effectué : chargement du package gt, puis création d'un tableau de base à partir d'un dataframe en utilisant la fonction gt(). Le tableau est ensuite stocké dans la variable tableau et affiché dans la console.
+
+
+
+
+Voici un exemple montrant comment personnaliser un tableau gt avec des couleurs et des en-têtes de colonnes :  
+
+::: {.grid}
+
+::: {.g-col-10}
+```{r}
+# Petit rappel du dataframe "joueur"
+joueur <- data.frame(
+  Nom = c("Curry", "James", "Harden", "Durant", "Wemby", "Tatum", "Brown"),
+  Taille = paste(c(1.88, 2.06, 1.96, 2.08, 2.24, 2.03, 1.98), "m")
+)
+
+# Ajout d'une palette de couleurs, de nouvelles etiquettes de colonne, d'un titre et des sous-titres
+tableau <- joueur %>%
+  gt() %>%
+  data_color(columns = Taille,
+             palette = "viridis",
+             reverse = TRUE) %>%
+  cols_label(Nom = "Joueur",
+             Taille = "Taille (m)") %>%
+  tab_header(title = "Joueurs NBA",
+             subtitle = "Taille en mètres...🙂")
+```
+:::
+
+::: {.g-col-2}
+```{r echo=FALSE}
+tableau
+```
+:::
+
+:::
+
+
+Travail effectué : utilisation de **data_color** pour ajouter des couleurs aux données de la colonne "Taille" , **tab_header** pour personnaliser le titre et le sous-titre du tableau et **cols_label** pour modifier les étiquettes de colonnes.
+
+Cette petite introduction n'est qu'un très petit aperçu des possibilités de ce package. Nous tacherons d'aller un peu plus loin dans les prochaines lignes.
+
+
+
+## Agrégation
+
+Agrégation de données
+Le package gt vous permet également d'agrégation de données pour résumer les informations dans le tableau. Voici comment vous pouvez agréger des données dans un tableau gt :
+
+::: {.grid}
+
+::: {.g-col-8}
+```{r}
+# Création d'un tableau de base
+data <- data.frame(
+  Catégorie = c("Fruits", "Légumes", "Fruits", "Légumes"),
+  Produit = c("Pommes", "Carottes", "Bananes", "Brocolis"),
+  Quantité = c(10, 15, 8, 12)
+)
+
+tableau <- data %>%
+  gt()
+
+# Agrégation de données
+tableau_agrégé <- tableau %>%
+  grand_summary_rows(
+    columns = Quantité,
+    fns = list(Total = "sum")
+  )
+```
+:::
+
+::: {.g-col-4}
+```{r echo=FALSE}
+tableau_agrégé
+```
+:::
+
+:::
+
+Dans cet exemple, nous avons utilisé **grand_summary_rows** pour agréger les données dans la colonne "Quantité" en calculant la somme totale. Cela ajoute une ligne de résumé au tableau.
+
+Le *groupement* et *l'agrégation* de données dans le package *gt* sont utiles pour organiser et résumer des informations complexes dans vos tableaux, en permettant une visualisation plus claire des données.
+
+
+
+
+
+## Sauvegarde du tableau
+Sauvegarde en HTML
+Vos tableaux au format HTML, vous permettent de partager vos résultats de manière conviviale sur le web. Voici comment vous pouvez sauvegarder un tableau gt en HTML :
+
+```{r}
+# Création du tableau à partir du dataset mtcars
+df_mtcars <- mtcars %>% head(10) %>% gt()
+
+# Sauvegarder le tableau en format HTML
+gtsave(df_mtcars, file = "tableau_cars.html")
+```
+
+Dans cet exemple, nous avons créé un tableau de base avec le package gt, puis utilisé la fonction **gtsave** pour sauvegarder le tableau. Vous pouvez spécifier le nom du fichier HTML dans l'argument file.
+
+Exportation en d'autres formats
+Le package gt vous permet également d'exporter vos tableaux dans d'autres formats, tels que PDF et Excel. 
+Il est important de noter que pour exporter en PDF et Excel, vous devrez peut-être installer et charger d'autres packages R spécifiques à ces formats.. Assurez-vous d'installer et de charger les packages nécessaires avant d'effectuer l'exportation vers ces formats.
+
+L'exportation vers différents formats permet de partager vos tableaux avec d'autres de manière flexible, en fonction de leurs besoins.
+
+
+## Exemple : Analyse des ventes de pizzas
+
+Ici nous allons reprendre un code de la documentation {{< fa brands r-project >}} du package gt et l'adapter à notre cas d'étude. Nous utiliserons le dataset *pizzaplace* qui contient les données de vente d'une pizzeria.
+
+
+Vous trouverez dans le code suivant de nombreuses fonctions du package *gt* qui permettent de personnaliser le tableau. Les commentaires dans le code vous permettront de comprendre le rôle de chaque fonction.
+
+```{r}
+final <- pizzaplace |>
+  dplyr::group_by(type, size) |>  # regroupement par type et taille de pizza
+  dplyr::summarize(  # données aggrégées : nombre de pizza vendues et gain (somme des prix)
+    nb_vendu= dplyr::n(),
+    gain = sum(price),
+    .groups = "drop_last"
+  ) |>
+  dplyr::group_by(type) |>  # regroupement par type de pizza
+  dplyr::mutate(part_vendu = nb_vendu / sum(nb_vendu)) |>  # part des ventes pour chaque type de pizza en divisant le nombre de ventes par le total des ventes pour chaque type
+  dplyr::mutate(size = factor(  # conversion de la taille de pizza en facteur pour pouvoir la trier
+    size, levels = c("S", "M", "L", "XL", "XXL"))
+  ) |>
+  dplyr::arrange(type, size) |>  # tri par type de pizza (type) et taille de pizza (size).
+  gt(  # conversion en tableau gt
+    rowname_col = "size",
+    groupname_col = "type"
+  ) |> tab_header(title = "Ventes de pizzas et gains - 2015",
+                  subtitle = "Données de la pizzeria Pizzaplace") |>
+  cols_label(  # renommage des colonnes
+    nb_vendu = "Nombre de ventes",
+    gain = "Gains",
+    part_vendu = "Part des ventes"
+  ) |>
+  fmt_integer(columns = nb_vendu) |>  # formatage des nombres de ventes en entiers
+  fmt_currency(columns = gain,  # formatage des gains en euros
+               currency = "euro",
+               placement = "right",
+               incl_space = TRUE) |>
+  fmt_percent(  # formatage des pourcentages avec une décimale
+    columns = part_vendu,
+    decimals = 1
+  ) |>
+  cols_merge(  # fusion des colonnes "size" et "part_vendu" pour afficher la taille et la part de vente de cette pizza dans la même cellule
+    columns = c(size, part_vendu),
+    pattern = "{1} ({2})"
+  ) |>
+  cols_align(align = "left", columns = stub()) |> # alignement à gauche des colonnes
+  data_color(  # coloration des données en fonction de leur valeur
+    method = "numeric",
+    palette = "ggsci::purple_material"
+  )
+
+```
+
+Le tableau final reprend les données de ventes de pizzas et les agrège par type de pizza. Les données sont ensuite triées par type de pizza et taille de pizza.
+
+<center>**Ci-dessous, les 3 stades de la création du tableau :**</center>.
+
+::: {.grid}
+
+::: {.g-col-4}
+```r
+20 lignes aléatoires du dataset pizzaplace
+```
+```{r echo=FALSE}
+data.frame(pizzaplace[sample(1:nrow(pizzaplace),20, replace = TRUE), ])
+```
+:::
+
+::: {.g-col-4}
+```r
+Regroupement type et taille de pizza  
+(nombre de pizzas, somme des prix et part des ventes)
+```
+```{r echo=FALSE}
+```
+```{r echo=FALSE}
+type <- pizzaplace |>
+  dplyr::group_by(type, size) |>
+  dplyr::summarize(
+    nb_vendu= dplyr::n(),
+    gain = sum(price),
+    .groups = "drop_last"
+  ) |>
+  dplyr::group_by(type) |>
+  dplyr::mutate(part_vendu = nb_vendu / sum(nb_vendu)) |>
+  dplyr::mutate(size = factor(
+    size, levels = c("S", "M", "L", "XL", "XXL"))
+  ) |>
+  dplyr::arrange(type, size)
+
+
+data.frame(type)
+```
+:::
+
+::: {.g-col-4}
+```r
+Tableau final des données de ventes
+```
+```{r echo=FALSE}
+final
+```
+:::
+
+:::
+
+
