@@ -39,8 +39,8 @@ output-directory : docs
 ::: {.g-col-12 .g-col-md-4}
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
-<p class="card-text">Cours d'introduction à {{< fa brands r-project >}} et Posit (ex-Rstudio)</p>
-<div style="margin-top: auto;"><a href="R et Posit.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+<p class="card-text">Prendre (cours particuliers) {{< fa brands calendar >}} </p>
+<div style="margin-top: auto;"><a href=https://cal.com/romuanalyst class="card-link third-color-link heading-font">Cours</a></div>
 </div>
 </div>
 :::
