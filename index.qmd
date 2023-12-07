@@ -39,7 +39,7 @@ output-directory : docs
 ::: {.g-col-12 .g-col-md-4}
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
-<p class="card-text">Besoin de cours particuliers?<br>N'hésitez pas</p>
+<p class="card-text">Vous recherchez des cours particuliers ?<br>N'hésitez pas à me contacter</p>
 <div style="margin-top: auto;"><a href=https://cal.com/romuanalyst class="card-link third-color-link heading-font">{{< fa solid calendar >}}  Prendre rdv</a></div>
 </div>
 </div>
@@ -55,7 +55,7 @@ output-directory : docs
 ::: {.g-col-12 .g-col-md-4}
 <div class="card h-100">
 <div class="card-body d-flex flex-column">
-<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
+<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un bref résumé</p>
 <div style="margin-top: auto;"><a href="presentation.qmd" class="card-link third-color-link heading-font">Bio</a></div>
 </div>
 </div>
