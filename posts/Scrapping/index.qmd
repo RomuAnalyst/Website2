@@ -68,7 +68,7 @@ stats_2024 <- stats_2024[-1, ]
 ```
 
 
-<button id="toggleButton">Afficher/Cacher</button>
+<button id="toggleButton">Afficher/Cacher liste variables</button>
 <div id="hiddenText" style="display: none;">
 ``` markdown
 Variables explicatives :
