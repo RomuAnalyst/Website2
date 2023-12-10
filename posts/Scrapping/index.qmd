@@ -73,33 +73,33 @@ stats_2024 <- stats_2024[-1, ]
 ``` markdown
 Variables explicatives :
 
-  •	Team : Nom de l'équipe
-	•	Age : Moyenne d'âge de l'équipe
-	•	W : Nombre de victoires de l'équipe
-	•	L : Nombre de défaites de l'équipe
-	•	PW : Victoires pondérées (pondération en fonction de la qualité des adversaires)
-	•	PL : Défaites pondérées (pondération en fonction de la qualité des adversaires)
-	•	MOV : Marge de victoire moyenne
-	•	SOS : Force de l'opposition moyenne de l'équipe
-	•	SRS : Rating SRS (Simple Rating System) qui mesure la force relative d'une équipe (MOV + SOS)
-	•	ORtg : Offensive Rating, mesure l'efficacité offensive de l'équipe (nombre de points marqués pour 100 possessions)
-	•	DRtg : Defensive Rating, mesure l'efficacité défensive de l'équipe (nombre de points encaissés pour 100 possessions)
-	•	NRtg : Net Rating, différence entre ORtg et DRtg (ORtg - DRtg)
-	•	Pace : Rythme de jeu de l'équipe (nombre de possessions par match)
-	•	FTr : Ratio de lancers francs tentés par tirs tentés
-	•	3PAr : Ratio de tirs à 3 points tentés par tirs tentés
-	•	TS% : True Shooting Percentage, mesure l'efficacité globale des tirs (incluant les lancers francs et les tirs à 3 points)
-	•	eFG% : Effective Field Goal Percentage, mesure l'efficacité des tirs à deux points et des tirs à 3 points (pondérés)
-	•	TOV% : Turnover Percentage, pourcentage de pertes de balle par possession
-	•	ORB% : Offensive Rebound Percentage, pourcentage de rebonds offensifs récupérés par équipe
-	•	FT/FGA : Ratio de lancers francs tentés par tirs tentés
-	•	eFG% : Effective Field Goal Percentage de l'adversaire, mesure l'efficacité des tirs adverses à deux points et des tirs à 3 points (pondérés)
-	•	TOV% : Turnover Percentage de l'adversaire, pourcentage de pertes de balle adverses par possession
-	•	DRB% : Defensive Rebound Percentage, pourcentage de rebonds défensifs récupérés par équipe
-	•	FT/FGA : Ratio de lancers francs adverses tentés par tirs adverses tentés
-	•	Arena : Nom de l'arène où joue l'équipe
-	•	Attend. : Nombre total de spectateurs présents lors des matchs de l'équipe
-	•	Attend./G : Nombre moyen de spectateurs par match
+	-	Team : Nom de l'équipe
+	-	Age : Moyenne d'âge de l'équipe
+	-	W : Nombre de victoires de l'équipe
+	-	L : Nombre de défaites de l'équipe
+	-	PW : Victoires pondérées (pondération en fonction de la qualité des adversaires)
+	-	PL : Défaites pondérées (pondération en fonction de la qualité des adversaires)
+	-	MOV : Marge de victoire moyenne
+	-	SOS : Force de l'opposition moyenne de l'équipe
+	-	SRS : Rating SRS (Simple Rating System) qui mesure la force relative d'une équipe (MOV + SOS)
+	-	ORtg : Offensive Rating, mesure l'efficacité offensive de l'équipe (nombre de points marqués pour 100 possessions)
+	-	DRtg : Defensive Rating, mesure l'efficacité défensive de l'équipe (nombre de points encaissés pour 100 possessions)
+	-	NRtg : Net Rating, différence entre ORtg et DRtg (ORtg - DRtg)
+	-	Pace : Rythme de jeu de l'équipe (nombre de possessions par match)
+	-	FTr : Ratio de lancers francs tentés par tirs tentés
+	-	3PAr : Ratio de tirs à 3 points tentés par tirs tentés
+	-	TS% : True Shooting Percentage, mesure l'efficacité globale des tirs (incluant les lancers francs et les tirs à 3 points)
+	-	eFG% : Effective Field Goal Percentage, mesure l'efficacité des tirs à deux points et des tirs à 3 points (pondérés)
+	-	TOV% : Turnover Percentage, pourcentage de pertes de balle par possession
+	-	ORB% : Offensive Rebound Percentage, pourcentage de rebonds offensifs récupérés par équipe
+	-	FT/FGA : Ratio de lancers francs tentés par tirs tentés
+	-	eFG% : Effective Field Goal Percentage de l'adversaire, mesure l'efficacité des tirs adverses à deux points et des tirs à 3 points (pondérés)
+	-	TOV% : Turnover Percentage de l'adversaire, pourcentage de pertes de balle adverses par possession
+	-	DRB% : Defensive Rebound Percentage, pourcentage de rebonds défensifs récupérés par équipe
+	-	FT/FGA : Ratio de lancers francs adverses tentés par tirs adverses tentés
+	-	Arena : Nom de l'arène où joue l'équipe
+	-	Attend. : Nombre total de spectateurs présents lors des matchs de l'équipe
+	-	Attend./G : Nombre moyen de spectateurs par match
 
 ```
 </div>
@@ -128,19 +128,19 @@ document.getElementById("toggleButton").addEventListener("click", function() {
 
 ### Rapide analyse des valeurs :
 
-	•	L'équipe ayant le meilleur bilan est les Boston Celtics avec 16 victoires et 5 défaites.
-	•	L'équipe la plus jeune en moyenne est les Oklahoma City Thunder avec une moyenne d'âge de 23 ans.
-	•	L'équipe la plus âgée en moyenne est les Los Angeles Clippers avec une moyenne d'âge de 30.9 ans.
-	•	Les Celtics ont la plus grande marge de victoire moyenne (MOV) avec 8.48 points.
-	•	La force de l'opposition moyenne (SOS) la plus élevée est celle des Houston Rockets avec 0.48.
-	•	Le rating SRS (SRS) le plus élevé est celui des Celtics avec 10.22.
-	•	Les Celtics ont le meilleur ORtg (118.3) et les Pistons ont le plus faible ORtg (107.8).
-	•	Les Cavaliers ont le meilleur DRtg (111.5) et les Rockets ont le plus faible DRtg (109.7).
-	•	L'équipe avec le rythme de jeu le plus rapide est les Pacers avec un pace de 104.2 possessions par match.
-	•	Les Clippers ont le meilleur ratio de lancers francs tentés par tirs tentés (FT/FGA) avec 0.270.
-	•	Les Magic ont le plus haut ratio de lancers francs adverses tentés par tirs adverses tentés (FT/FGA) avec 0.247.
-	•	L'arène avec la plus grande affluence totale est le United Center avec 251,594 spectateurs.
-	•	L'arène avec la plus grande affluence moyenne par match est le Madison Square Garden (IV) avec 19,734 spectateurs par match.
+-   L'équipe ayant le meilleur bilan est les Boston Celtics avec 16 victoires et 5 défaites
+-   L'équipe la plus jeune en moyenne est les Oklahoma City Thunder avec une moyenne d'âge de 23 ans
+-   L'équipe la plus âgée en moyenne est les Los Angeles Clippers avec une moyenne d'âge de 30.9 ans
+-   Les Celtics ont la plus grande marge de victoire moyenne (MOV) avec 8.48 points
+-   La force de l'opposition moyenne (SOS) la plus élevée est celle des Houston Rockets avec 0.48
+-   Le rating SRS (SRS) le plus élevé est celui des Celtics avec 10.22
+-   Les Celtics ont le meilleur ORtg (118.3) et les Pistons ont le plus faible ORtg (107.8)
+-   Les Cavaliers ont le meilleur DRtg (111.5) et les Rockets ont le plus faible DRtg (109.7)
+-   L'équipe avec le rythme de jeu le plus rapide est les Pacers avec un pace de 104.2 possessions par match.
+-   Les Clippers ont le meilleur ratio de lancers francs tentés par tirs tentés (FT/FGA) avec 0.270
+-   Les Magic ont le plus haut ratio de lancers francs adverses tentés par tirs adverses tentés (FT/FGA) avec 0.247
+-   L'arène avec la plus grande affluence totale est le United Center avec 251,594 spectateurs
+-   L'arène avec la plus grande affluence moyenne par match est le Madison Square Garden (IV) avec 19,734 spectateurs par match
 	
 	
 Ces données fournissent des informations détaillées sur les performances des équipes de la NBA, leurs statistiques offensives et défensives, ainsi que des informations sur les spectateurs lors des matchs.
