@@ -266,6 +266,114 @@ Important
 <p>La légalité du scraping dépend de plusieurs facteurs, notamment les lois du pays dans lequel vous vous trouvez et les conditions d’utilisation du site web que vous souhaitez scraper. Dans de nombreux cas, le scraping peut être considéré comme une violation des conditions d’utilisation d’un site, ce qui pourrait entraîner des problèmes légaux.<br> Certains sites autorisent le scraping dans leurs conditions d’utilisation tant que cela n’engendre pas de surcharge du serveur ni de violations de la propriété intellectuelle. D’autres sites interdisent explicitement le scraping.<br> Il est important de revoir attentivement les conditions d’utilisation du site web ciblé et de consulter les lois en vigueur dans votre pays avant de vous engager dans le scraping. Il est recommandé de demander la permission du propriétaire du site web ou d’utiliser des sources de données publiques et librement accessibles pour éviter d’éventuels problèmes légaux.</p>
 </div>
 </div>
+<p>nous allons étudier des données NBA de la saison 2024 issues du site web : https://www.basketball-reference.com/leagues/NBA_2024.html</p>
+<p><img src="conf. NBA.png" class="img-fluid"></p>
+<p>La première table “Eastern Conference” comprend les statistiques des équipes de la conférence Est de la NBA. Nous allons explorer les différentes colonnes de la table pour comprendre les performances des équipes, les classements et les tendances dans la conférence Est.</p>
+<p>Notre scraping commencera par l’import des données sous forme de table :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://www.basketball-reference.com/leagues/NBA_2024.html"</span>   <span class="co"># recupération de l'url à scraper</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> url <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>()    <span class="co"># import des données sous forme de table</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tune liste de tous les tableaux importés est créée, nous allons nous intérésser au tableau n°1</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>stats_2024 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(table[<span class="dv">11</span>])      <span class="co"># affectation du nom "stats_2024" au tableau 11 convertit en dataframe (DF)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir les noms des colonnes en utilisant la première ligne du tableau car les intitulés de colonne sont décalés</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(stats_2024) <span class="ot">&lt;-</span> stats_2024[<span class="dv">1</span>, ]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer la première ligne du tableau</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>stats_2024 <span class="ot">&lt;-</span> stats_2024[<span class="sc">-</span><span class="dv">1</span>, ]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<button id="toggleButton">
+Afficher/Cacher
+</button>
+<div id="hiddenText" style="display: none;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">Variables explicatives :</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  • Team : Nom de l'équipe</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    •   Age : Moyenne d'âge de l'équipe</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    •   W : Nombre de victoires de l'équipe</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    •   L : Nombre de défaites de l'équipe</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    •   PW : Victoires pondérées (pondération en fonction de la qualité des adversaires)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    •   PL : Défaites pondérées (pondération en fonction de la qualité des adversaires)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    •   MOV : Marge de victoire moyenne</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    •   SOS : Force de l'opposition moyenne de l'équipe</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    •   SRS : Rating SRS (Simple Rating System) qui mesure la force relative d'une équipe (MOV + SOS)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    •   ORtg : Offensive Rating, mesure l'efficacité offensive de l'équipe (nombre de points marqués pour 100 possessions)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    •   DRtg : Defensive Rating, mesure l'efficacité défensive de l'équipe (nombre de points encaissés pour 100 possessions)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    •   NRtg : Net Rating, différence entre ORtg et DRtg (ORtg - DRtg)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    •   Pace : Rythme de jeu de l'équipe (nombre de possessions par match)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    •   FTr : Ratio de lancers francs tentés par tirs tentés</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    •   3PAr : Ratio de tirs à 3 points tentés par tirs tentés</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    •   TS% : True Shooting Percentage, mesure l'efficacité globale des tirs (incluant les lancers francs et les tirs à 3 points)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    •   eFG% : Effective Field Goal Percentage, mesure l'efficacité des tirs à deux points et des tirs à 3 points (pondérés)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    •   TOV% : Turnover Percentage, pourcentage de pertes de balle par possession</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    •   ORB% : Offensive Rebound Percentage, pourcentage de rebonds offensifs récupérés par équipe</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    •   FT/FGA : Ratio de lancers francs tentés par tirs tentés</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    •   eFG% : Effective Field Goal Percentage de l'adversaire, mesure l'efficacité des tirs adverses à deux points et des tirs à 3 points (pondérés)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    •   TOV% : Turnover Percentage de l'adversaire, pourcentage de pertes de balle adverses par possession</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    •   DRB% : Defensive Rebound Percentage, pourcentage de rebonds défensifs récupérés par équipe</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    •   FT/FGA : Ratio de lancers francs adverses tentés par tirs adverses tentés</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    •   Arena : Nom de l'arène où joue l'équipe</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    •   Attend. : Nombre total de spectateurs présents lors des matchs de l'équipe</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    •   Attend./G : Nombre moyen de spectateurs par match</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<style>
+#toggleButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+<script>
+document.getElementById("toggleButton").addEventListener("click", function() {
+  var hiddenText = document.getElementById("hiddenText");
+  if (hiddenText.style.display === "none") {
+    hiddenText.style.display = "block";
+  } else {
+    hiddenText.style.display = "none";
+  }
+});
+</script>
+<section id="rapide-analyse-des-valeurs" class="level3">
+<h3 class="anchored" data-anchor-id="rapide-analyse-des-valeurs">Rapide analyse des valeurs :</h3>
+<pre><code>•   L'équipe ayant le meilleur bilan est les Boston Celtics avec 16 victoires et 5 défaites.
+•   L'équipe la plus jeune en moyenne est les Oklahoma City Thunder avec une moyenne d'âge de 23 ans.
+•   L'équipe la plus âgée en moyenne est les Los Angeles Clippers avec une moyenne d'âge de 30.9 ans.
+•   Les Celtics ont la plus grande marge de victoire moyenne (MOV) avec 8.48 points.
+•   La force de l'opposition moyenne (SOS) la plus élevée est celle des Houston Rockets avec 0.48.
+•   Le rating SRS (SRS) le plus élevé est celui des Celtics avec 10.22.
+•   Les Celtics ont le meilleur ORtg (118.3) et les Pistons ont le plus faible ORtg (107.8).
+•   Les Cavaliers ont le meilleur DRtg (111.5) et les Rockets ont le plus faible DRtg (109.7).
+•   L'équipe avec le rythme de jeu le plus rapide est les Pacers avec un pace de 104.2 possessions par match.
+•   Les Clippers ont le meilleur ratio de lancers francs tentés par tirs tentés (FT/FGA) avec 0.270.
+•   Les Magic ont le plus haut ratio de lancers francs adverses tentés par tirs adverses tentés (FT/FGA) avec 0.247.
+•   L'arène avec la plus grande affluence totale est le United Center avec 251,594 spectateurs.
+•   L'arène avec la plus grande affluence moyenne par match est le Madison Square Garden (IV) avec 19,734 spectateurs par match.</code></pre>
+<p>Ces données fournissent des informations détaillées sur les performances des équipes de la NBA, leurs statistiques offensives et défensives, ainsi que des informations sur les spectateurs lors des matchs.</p>
 <p>Quarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:</p>
 <ul>
 <li>Specifying column alignment and widths.</li>
@@ -273,16 +381,17 @@ Important
 <li>Generating tables dynamically from executable code cells.</li>
 </ul>
 <p>This post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see <a href="../../docs/authoring/tables.qmd">Tables</a>.</p>
+</section>
 <section id="markdown-tables" class="level2">
 <h2 class="anchored" data-anchor-id="markdown-tables">Markdown Tables</h2>
 <p>The most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>| Default | Left | Right | Center |</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>|---------|:-----|------:|:------:|</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>| 12      | 12   |    12 |   12   |</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>| 123     | 123  |   123 |  123   |</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>| 1       | 1    |     1 |   1    |</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>: Demonstration of pipe table sytnax</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>| Default | Left | Right | Center |</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>|---------|:-----|------:|:------:|</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>| 12      | 12   |    12 |   12   |</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>| 123     | 123  |   123 |  123   |</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>| 1       | 1    |     1 |   1    |</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>: Demonstration of pipe table sytnax</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here is the table rendered to HTML:</p>
 <table class="table">
 <caption>Demonstration of pipe table syntax</caption>
@@ -318,21 +427,21 @@ Important
 <section id="caption-location" class="level4">
 <h4 class="anchored" data-anchor-id="caption-location">Caption Location</h4>
 <p>By default, table captions are positioned above tables. You can modify this behavior using the <code>tbl-cap-location</code> option. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="explicit-column-widths" class="level2">
 <h2 class="anchored" data-anchor-id="explicit-column-widths">Explicit Column Widths</h2>
 <p>Beyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the <code>tbl-colwidths</code> attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>| fruit  | price  |</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>|--------|--------:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>| apple  | 2.05   |</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>| pear   | 1.37   |</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>| orange | 3.09   |</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>: Fruit prices {tbl-colwidths="<span class="co">[</span><span class="ot">75,25</span><span class="co">]</span>"}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>| fruit  | price  |</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>|--------|--------:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>| apple  | 2.05   |</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>| pear   | 1.37   |</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>| orange | 3.09   |</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>: Fruit prices {tbl-colwidths="<span class="co">[</span><span class="ot">75,25</span><span class="co">]</span>"}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other <code>format</code> specific options.</p>
 <p>Valid values for the caption location include:</p>
 <table class="table">
@@ -361,14 +470,14 @@ Important
 <section id="computations" class="level2">
 <h2 class="anchored" data-anchor-id="computations">Computations</h2>
 <p>All of the options described above work for tables produced by executable code cells. For example, here we apply the <code>tbl-cap</code>, <code>tbl-colwidths</code> and <code>tbl-caption-location</code> options to a code cell:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Cars"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-colwidths: [60,40]</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap-location: margin</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(cars))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Cars"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-colwidths: [60,40]</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap-location: margin</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(cars))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the <a href="../../docs/authoring/tables.qmd">documentation</a>. for more detail.</p>
 <hr>
 
