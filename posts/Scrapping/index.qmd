@@ -29,7 +29,7 @@ Il est important de revoir attentivement les conditions d'utilisation du site we
 :::
 
 
-nous allons étudier des données NBA de la saison 2024 issues du site web : https://www.basketball-reference.com/leagues/NBA_2024.html
+Nous allons étudier des données NBA de la saison 2024 issues du site web : [https://www.basketball-reference.com/leagues/NBA_2024.html](https://www.basketball-reference.com/leagues/NBA_2024.html)
 
 
 ![](conf. NBA.png)
