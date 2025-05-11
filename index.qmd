@@ -1,15 +1,14 @@
 ---
 about:
   template: jolla
-  id: about-block
   image: "img/Avatar.png"
   links:
     - icon: twitter
       text: Twitter
       href: https://twitter.com/Romu_Zam
-    #- icon: github
-      #text: Github
-      #href: https://github.com/RomuAnalyst
+    - icon: github
+      text: Github
+      href: https://github.com/RomuAnalyst
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/romuald-zami-293a9031/

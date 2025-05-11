@@ -10,7 +10,7 @@ image: "image.png"
 ---
   
   
-***TP programmation statistique -- R***
+***1er TP programmation statistique -- R***
 
 *Tous les codes utilisés dans les étapes suivantes, doivent être visibles dans votre rendu final. Les questions sont indépendantes, donc ne restez pas bloqué sur une question.*
 
@@ -22,7 +22,7 @@ Pour la réalisation du TP, vous aurez besoin des packages suivants :
 
 Une fois les packages installés/chargés, vérifier que vous avez accès au dataset « starwars » (affichez le).
 
-1)  Afficher les personnages qui ont joué dans le film : The Phantom Menace
+1)  Combien de personnages sont présents dans le jeu de données starwars (nombre total)
 2)  Afficher les 10 premières lignes de la table
 3)  Combien y a t'il de personnages dans chaque espèce
 4)  Donner le nom des personnages de l'espèce Droid
@@ -39,7 +39,7 @@ genre <- data.frame(sex = c("male", "none", "female", "hermaphroditic","NA"), se
 Fusionner/joindre les 2 tables « starwars_reduit » et « genre » <!-- -->
 
 8)  Faire une moyenne par espèce de : height, mass, birth_year (utiliser le pipe)
-9)  Faire un nuage de points entre le poids et la taille (avec un titre)
+9)  Représentez graphiquement la taille moyenne par espèce (ne pas oublier le titre et les informations utiles à la compréhension).
 10) Faire un histogramme par espèce
-11) Ajouter un titre au graphique précedent, ainsi qu'un thème
-12) Représenter chaque espèce sur un graphique
+11) Afficher les personnages qui ont joué dans le film : The Phantom Menace
+12) Ajoutez votre propre personnage fictif à la table, avec vos propres caractéristiques, puis affichez la nouvelle table

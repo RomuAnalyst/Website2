@@ -133,5 +133,23 @@
   },
   "Calcom.qmd": {
     "Calcom.html": "06f2fbe5"
+  },
+  "posts/2022-06-21-rstudio-conf-2022-quarto/index.qmd": {
+    "index.html": "699c278e"
+  },
+  "posts/2022-07-25-feature-extensions/index.qmd": {
+    "index.html": "9048b3b7"
+  },
+  "posts/2022-02-13-feature-callouts/index.qmd": {
+    "index.html": "2bf1d5fa"
+  },
+  "posts/2022-02-17-advanced-layout/index.qmd": {
+    "index.html": "bf0b9f7b"
+  },
+  "projects/index.qmd": {
+    "index.html": "d6864fc3"
+  },
+  "IUT/dossier sans titre/index.qmd": {
+    "index.html": "dd65bcc9"
   }
 }

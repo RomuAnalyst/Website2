@@ -1,0 +1,39 @@
+---
+title: "Shinylive"
+author: "Romuald ZAMI"
+date: "11 mai 2025"
+categories:
+  - shiny
+  
+page-layout: full
+image: "akum.png"
+filters:
+  - shinylive
+---
+
+
+
+```{shinylive-r}
+#| standalone: true
+#| components: [editor, viewer]
+#| heigth: 500
+
+
+library(shiny)
+
+ui <- fluidPage(
+titlePanel("Hello Shiny!"),
+sliderInput("n", "N", 1, 100, 50),
+verbatimTextOutput("result")
+)
+
+server <- function(input, output, session) {
+output$result <- renderText({
+paste("La valeur de n * 2 est :", input$n * 2)
+})
+}
+
+shinyApp(ui, server)
+```
+
+

@@ -13,13 +13,16 @@
 <url>https://romuanalyst.github.io/Website/img/logo.png</url>
 <title>RomuAnalyst</title>
 <link>https://romuanalyst.github.io/Website/packages.html</link>
+<height>100</height>
+<width>100</width>
 </image>
-<generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 05 Nov 2023 11:20:12 GMT</lastBuildDate>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 11 May 2025 02:34:42 GMT</lastBuildDate>
 <item>
   <title>dplyr</title>
   <link>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -116,13 +119,14 @@ font-style: inherit;">mean</span>(Petal.Length))</span></code></pre></div>
   <category>manipulation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <pubDate>Sun, 11 May 2025 02:34:42 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>ggplot2</title>
   <link>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -155,13 +159,14 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <pubDate>Sun, 11 May 2025 02:34:42 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>gt</title>
   <link>https://romuanalyst.github.io/Website/packages/gt/gt.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -287,7 +292,6 @@ font-style: inherit;">gt</span>() </span></code></pre></div>
 <div class="g-col-2">
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="bwelppaqbi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#bwelppaqbi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -728,33 +732,46 @@ font-style: inherit;">gt</span>() </span></code></pre></div>
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Nom">Nom</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Taille">Taille</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Nom" class="gt_row gt_left">Curry</td>
-<td headers="Taille" class="gt_row gt_left">1.88 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">James</td>
-<td headers="Taille" class="gt_row gt_left">2.06 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Harden</td>
-<td headers="Taille" class="gt_row gt_left">1.96 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Durant</td>
-<td headers="Taille" class="gt_row gt_left">2.08 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Wemby</td>
-<td headers="Taille" class="gt_row gt_left">2.24 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Tatum</td>
-<td headers="Taille" class="gt_row gt_left">2.03 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Brown</td>
-<td headers="Taille" class="gt_row gt_left">1.98 m</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Nom" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Nom</th>
+<th id="Taille" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Taille</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Curry</td>
+<td class="gt_row gt_left" headers="Taille">1.88 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">James</td>
+<td class="gt_row gt_left" headers="Taille">2.06 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Harden</td>
+<td class="gt_row gt_left" headers="Taille">1.96 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">Durant</td>
+<td class="gt_row gt_left" headers="Taille">2.08 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Wemby</td>
+<td class="gt_row gt_left" headers="Taille">2.24 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">Tatum</td>
+<td class="gt_row gt_left" headers="Taille">2.03 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Brown</td>
+<td class="gt_row gt_left" headers="Taille">1.98 m</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -878,7 +895,6 @@ font-style: inherit;">"Taille en mètres...🙂"</span>)</span></code></pre></di
 <div class="g-col-2">
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="bedryswetb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#bedryswetb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1319,38 +1335,52 @@ font-style: inherit;">"Taille en mètres...🙂"</span>)</span></code></pre></di
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="2" class="gt_heading gt_title gt_font_normal" style="">Joueurs NBA</td>
-    </tr>
-    <tr class="gt_heading">
-      <td colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Taille en mètres...🙂</td>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Joueur">Joueur</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Taille (m)">Taille (m)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Nom" class="gt_row gt_left">Curry</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #FDE725; color: #000000;">1.88 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">James</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #31688E; color: #FFFFFF;">2.06 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Harden</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #8FD644; color: #000000;">1.96 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Durant</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #443A83; color: #FFFFFF;">2.08 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Wemby</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #440154; color: #FFFFFF;">2.24 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Tatum</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #21908D; color: #FFFFFF;">2.03 m</td></tr>
-    <tr><td headers="Nom" class="gt_row gt_left">Brown</td>
-<td headers="Taille" class="gt_row gt_left" style="background-color: #35B779; color: #FFFFFF;">1.98 m</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="2" class="gt_heading gt_title gt_font_normal">Joueurs NBA</th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Taille en mètres...🙂</th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="Joueur" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Joueur</th>
+<th id="Taille (m)" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Taille (m)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Curry</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #FDE725; color: #000000">1.88 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">James</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #31688E; color: #FFFFFF">2.06 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Harden</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #8FD644; color: #000000">1.96 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">Durant</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #443A83; color: #FFFFFF">2.08 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Wemby</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #440154; color: #FFFFFF">2.24 m</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Nom">Tatum</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #21908D; color: #FFFFFF">2.03 m</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Nom">Brown</td>
+<td class="gt_row gt_left" headers="Taille" style="background-color: #35B779; color: #FFFFFF">1.98 m</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1452,7 +1482,6 @@ font-style: inherit;">"sum"</span>)</span>
 <div class="g-col-4">
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="dijxigfoqn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#dijxigfoqn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1893,41 +1922,50 @@ font-style: inherit;">"sum"</span>)</span>
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Catégorie">Catégorie</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Produit">Produit</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Quantité">Quantité</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="stub_1_1 Catégorie" class="gt_row gt_left">Fruits</td>
-<td headers="stub_1_1 Produit" class="gt_row gt_left">Pommes</td>
-<td headers="stub_1_1 Quantité" class="gt_row gt_right">10</td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="stub_1_2 Catégorie" class="gt_row gt_left">Légumes</td>
-<td headers="stub_1_2 Produit" class="gt_row gt_left">Carottes</td>
-<td headers="stub_1_2 Quantité" class="gt_row gt_right">15</td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="stub_1_3 Catégorie" class="gt_row gt_left">Fruits</td>
-<td headers="stub_1_3 Produit" class="gt_row gt_left">Bananes</td>
-<td headers="stub_1_3 Quantité" class="gt_row gt_right">8</td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="stub_1_4 Catégorie" class="gt_row gt_left">Légumes</td>
-<td headers="stub_1_4 Produit" class="gt_row gt_left">Brocolis</td>
-<td headers="stub_1_4 Quantité" class="gt_row gt_right">12</td></tr>
-    <tr><th id="grand_summary_stub_1" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">sum</th>
-<td headers="grand_summary_stub_1 Catégorie" class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
-<td headers="grand_summary_stub_1 Produit" class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
-<td headers="grand_summary_stub_1 Quantité" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">45</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Catégorie" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Catégorie</th>
+<th id="Produit" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Produit</th>
+<th id="Quantité" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Quantité</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_1 Catégorie">Fruits</td>
+<td class="gt_row gt_left" headers="stub_1_1 Produit">Pommes</td>
+<td class="gt_row gt_right" headers="stub_1_1 Quantité">10</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_2 Catégorie">Légumes</td>
+<td class="gt_row gt_left" headers="stub_1_2 Produit">Carottes</td>
+<td class="gt_row gt_right" headers="stub_1_2 Quantité">15</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_3 Catégorie">Fruits</td>
+<td class="gt_row gt_left" headers="stub_1_3 Produit">Bananes</td>
+<td class="gt_row gt_right" headers="stub_1_3 Quantité">8</td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_4 Catégorie">Légumes</td>
+<td class="gt_row gt_left" headers="stub_1_4 Produit">Brocolis</td>
+<td class="gt_row gt_right" headers="stub_1_4 Quantité">12</td>
+</tr>
+<tr class="odd">
+<td id="grand_summary_stub_1" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" data-quarto-table-cell-role="th" scope="row">sum</td>
+<td class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Catégorie">—</td>
+<td class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Produit">—</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Quantité">45</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2296,7 +2334,6 @@ font-style: inherit;">20</span> lignes aléatoires du dataset pizzaplace</span><
 <div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">Tableau final des données de ventes</span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="cslvcogwwd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#cslvcogwwd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2737,79 +2774,107 @@ font-style: inherit;">20</span> lignes aléatoires du dataset pizzaplace</span><
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_title gt_font_normal" style="">Ventes de pizzas et gains - 2015</td>
-    </tr>
-    <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Données de la pizzeria Pizzaplace</td>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Nombre de ventes">Nombre de ventes</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gains">Gains</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="chicken">chicken</th>
-    </tr>
-    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">S (20.1%)</th>
-<td headers="chicken stub_1_1 nb_vendu" class="gt_row gt_right" style="background-color: #B761C5; color: #FFFFFF;">2,224</td>
-<td headers="chicken stub_1_1 gain" class="gt_row gt_right" style="background-color: #C683D2; color: #FFFFFF;">28,356.00 €</td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">M (35.2%)</th>
-<td headers="chicken stub_1_2 nb_vendu" class="gt_row gt_right" style="background-color: #9225AC; color: #FFFFFF;">3,894</td>
-<td headers="chicken stub_1_2 gain" class="gt_row gt_right" style="background-color: #9425AC; color: #FFFFFF;">65,224.50 €</td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">L (44.6%)</th>
-<td headers="chicken stub_1_3 nb_vendu" class="gt_row gt_right" style="background-color: #771EA0; color: #FFFFFF;">4,932</td>
-<td headers="chicken stub_1_3 gain" class="gt_row gt_right" style="background-color: #4F158E; color: #FFFFFF;">102,339.00 €</td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="classic">classic</th>
-    </tr>
-    <tr class="gt_row_group_first"><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">S (41.2%)</th>
-<td headers="classic stub_1_4 nb_vendu" class="gt_row gt_right" style="background-color: #4A148C; color: #FFFFFF;">6,139</td>
-<td headers="classic stub_1_4 gain" class="gt_row gt_right" style="background-color: #8E24AA; color: #FFFFFF;">69,870.25 €</td></tr>
-    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">M (27.6%)</th>
-<td headers="classic stub_1_5 nb_vendu" class="gt_row gt_right" style="background-color: #8E24AA; color: #FFFFFF;">4,112</td>
-<td headers="classic stub_1_5 gain" class="gt_row gt_right" style="background-color: #9926AF; color: #FFFFFF;">60,581.75 €</td></tr>
-    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">L (27.3%)</th>
-<td headers="classic stub_1_6 nb_vendu" class="gt_row gt_right" style="background-color: #8F24AA; color: #FFFFFF;">4,057</td>
-<td headers="classic stub_1_6 gain" class="gt_row gt_right" style="background-color: #8622A7; color: #FFFFFF;">74,518.50 €</td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">XL (3.7%)</th>
-<td headers="classic stub_1_7 nb_vendu" class="gt_row gt_right" style="background-color: #E5C7EA; color: #000000;">552</td>
-<td headers="classic stub_1_7 gain" class="gt_row gt_right" style="background-color: #DEB8E5; color: #000000;">14,076.00 €</td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">XXL (0.2%)</th>
-<td headers="classic stub_1_8 nb_vendu" class="gt_row gt_right" style="background-color: #F3E5F5; color: #000000;">28</td>
-<td headers="classic stub_1_8 gain" class="gt_row gt_right" style="background-color: #F3E5F5; color: #000000;">1,006.60 €</td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="supreme">supreme</th>
-    </tr>
-    <tr class="gt_row_group_first"><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">S (28.2%)</th>
-<td headers="supreme stub_1_9 nb_vendu" class="gt_row gt_right" style="background-color: #9D2AB1; color: #FFFFFF;">3,377</td>
-<td headers="supreme stub_1_9 gain" class="gt_row gt_right" style="background-color: #AA46BB; color: #FFFFFF;">47,463.50 €</td></tr>
-    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">M (33.8%)</th>
-<td headers="supreme stub_1_10 nb_vendu" class="gt_row gt_right" style="background-color: #8F24AA; color: #FFFFFF;">4,046</td>
-<td headers="supreme stub_1_10 gain" class="gt_row gt_right" style="background-color: #9225AC; color: #FFFFFF;">66,475.00 €</td></tr>
-    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">L (38.1%)</th>
-<td headers="supreme stub_1_11 nb_vendu" class="gt_row gt_right" style="background-color: #8121A5; color: #FFFFFF;">4,564</td>
-<td headers="supreme stub_1_11 gain" class="gt_row gt_right" style="background-color: #661A98; color: #FFFFFF;">94,258.50 €</td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="veggie">veggie</th>
-    </tr>
-    <tr class="gt_row_group_first"><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub">S (22.9%)</th>
-<td headers="veggie stub_1_12 nb_vendu" class="gt_row gt_right" style="background-color: #AD4BBD; color: #FFFFFF;">2,663</td>
-<td headers="veggie stub_1_12 gain" class="gt_row gt_right" style="background-color: #BF74CC; color: #FFFFFF;">32,386.75 €</td></tr>
-    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub">M (30.8%)</th>
-<td headers="veggie stub_1_13 nb_vendu" class="gt_row gt_right" style="background-color: #9926AF; color: #FFFFFF;">3,583</td>
-<td headers="veggie stub_1_13 gain" class="gt_row gt_right" style="background-color: #9E2BB1; color: #FFFFFF;">57,101.00 €</td></tr>
-    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub">L (46.4%)</th>
-<td headers="veggie stub_1_14 nb_vendu" class="gt_row gt_right" style="background-color: #6B1B9B; color: #FFFFFF;">5,403</td>
-<td headers="veggie stub_1_14 gain" class="gt_row gt_right" style="background-color: #4A148C; color: #FFFFFF;">104,202.70 €</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Ventes de pizzas et gains - 2015</th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Données de la pizzeria Pizzaplace</th>
+</tr>
+<tr class="gt_col_headings header">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Nombre de ventes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Nombre de ventes</th>
+<th id="Gains" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gains</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row odd">
+<td colspan="3" id="chicken" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">chicken</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">S (20.1%)</td>
+<td class="gt_row gt_right" headers="chicken stub_1_1 nb_vendu" style="background-color: #B761C5; color: #FFFFFF">2,224</td>
+<td class="gt_row gt_right" headers="chicken stub_1_1 gain" style="background-color: #C683D2; color: #FFFFFF">28,356.00 €</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">M (35.2%)</td>
+<td class="gt_row gt_right" headers="chicken stub_1_2 nb_vendu" style="background-color: #9225AC; color: #FFFFFF">3,894</td>
+<td class="gt_row gt_right" headers="chicken stub_1_2 gain" style="background-color: #9425AC; color: #FFFFFF">65,224.50 €</td>
+</tr>
+<tr class="even">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">L (44.6%)</td>
+<td class="gt_row gt_right" headers="chicken stub_1_3 nb_vendu" style="background-color: #771EA0; color: #FFFFFF">4,932</td>
+<td class="gt_row gt_right" headers="chicken stub_1_3 gain" style="background-color: #4F158E; color: #FFFFFF">102,339.00 €</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<td colspan="3" id="classic" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">classic</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">S (41.2%)</td>
+<td class="gt_row gt_right" headers="classic stub_1_4 nb_vendu" style="background-color: #4A148C; color: #FFFFFF">6,139</td>
+<td class="gt_row gt_right" headers="classic stub_1_4 gain" style="background-color: #8E24AA; color: #FFFFFF">69,870.25 €</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">M (27.6%)</td>
+<td class="gt_row gt_right" headers="classic stub_1_5 nb_vendu" style="background-color: #8E24AA; color: #FFFFFF">4,112</td>
+<td class="gt_row gt_right" headers="classic stub_1_5 gain" style="background-color: #9926AF; color: #FFFFFF">60,581.75 €</td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">L (27.3%)</td>
+<td class="gt_row gt_right" headers="classic stub_1_6 nb_vendu" style="background-color: #8F24AA; color: #FFFFFF">4,057</td>
+<td class="gt_row gt_right" headers="classic stub_1_6 gain" style="background-color: #8622A7; color: #FFFFFF">74,518.50 €</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">XL (3.7%)</td>
+<td class="gt_row gt_right" headers="classic stub_1_7 nb_vendu" style="background-color: #E5C7EA; color: #000000">552</td>
+<td class="gt_row gt_right" headers="classic stub_1_7 gain" style="background-color: #DEB8E5; color: #000000">14,076.00 €</td>
+</tr>
+<tr class="even">
+<td id="stub_1_8" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">XXL (0.2%)</td>
+<td class="gt_row gt_right" headers="classic stub_1_8 nb_vendu" style="background-color: #F3E5F5; color: #000000">28</td>
+<td class="gt_row gt_right" headers="classic stub_1_8 gain" style="background-color: #F3E5F5; color: #000000">1,006.60 €</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<td colspan="3" id="supreme" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">supreme</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td id="stub_1_9" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">S (28.2%)</td>
+<td class="gt_row gt_right" headers="supreme stub_1_9 nb_vendu" style="background-color: #9D2AB1; color: #FFFFFF">3,377</td>
+<td class="gt_row gt_right" headers="supreme stub_1_9 gain" style="background-color: #AA46BB; color: #FFFFFF">47,463.50 €</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_10" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">M (33.8%)</td>
+<td class="gt_row gt_right" headers="supreme stub_1_10 nb_vendu" style="background-color: #8F24AA; color: #FFFFFF">4,046</td>
+<td class="gt_row gt_right" headers="supreme stub_1_10 gain" style="background-color: #9225AC; color: #FFFFFF">66,475.00 €</td>
+</tr>
+<tr class="even">
+<td id="stub_1_11" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">L (38.1%)</td>
+<td class="gt_row gt_right" headers="supreme stub_1_11 nb_vendu" style="background-color: #8121A5; color: #FFFFFF">4,564</td>
+<td class="gt_row gt_right" headers="supreme stub_1_11 gain" style="background-color: #661A98; color: #FFFFFF">94,258.50 €</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<td colspan="3" id="veggie" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">veggie</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td id="stub_1_12" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">S (22.9%)</td>
+<td class="gt_row gt_right" headers="veggie stub_1_12 nb_vendu" style="background-color: #AD4BBD; color: #FFFFFF">2,663</td>
+<td class="gt_row gt_right" headers="veggie stub_1_12 gain" style="background-color: #BF74CC; color: #FFFFFF">32,386.75 €</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_13" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">M (30.8%)</td>
+<td class="gt_row gt_right" headers="veggie stub_1_13 nb_vendu" style="background-color: #9926AF; color: #FFFFFF">3,583</td>
+<td class="gt_row gt_right" headers="veggie stub_1_13 gain" style="background-color: #9E2BB1; color: #FFFFFF">57,101.00 €</td>
+</tr>
+<tr class="even">
+<td id="stub_1_14" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">L (46.4%)</td>
+<td class="gt_row gt_right" headers="veggie stub_1_14 nb_vendu" style="background-color: #6B1B9B; color: #FFFFFF">5,403</td>
+<td class="gt_row gt_right" headers="veggie stub_1_14 gain" style="background-color: #4A148C; color: #FFFFFF">104,202.70 €</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2824,13 +2889,14 @@ font-style: inherit;">20</span> lignes aléatoires du dataset pizzaplace</span><
   <category>table</category>
   <category>personnalisation</category>
   <guid>https://romuanalyst.github.io/Website/packages/gt/gt.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <pubDate>Sun, 11 May 2025 02:34:42 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/gt/gt.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>leaflet</title>
   <link>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2860,6 +2926,7 @@ Le package <strong>leaflet</strong> en R est une bibliothèque interactive de ca
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
@@ -2871,6 +2938,7 @@ background-color: null;
 font-style: inherit;">"leaflet"</span>)</span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
@@ -2956,13 +3024,14 @@ font-style: inherit;">"iut_leaflet.html"</span>)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>cartographie</category>
   <guid>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <pubDate>Sun, 11 May 2025 02:34:42 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>rvest</title>
   <link>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3066,7 +3135,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>web</category>
   <category>table</category>
   <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</guid>
-  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <pubDate>Sun, 11 May 2025 02:34:42 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 </channel>
