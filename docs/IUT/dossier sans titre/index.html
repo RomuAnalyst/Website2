@@ -43,11 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-8738d8afe61bf770d9dd7f276fd63b7e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-13400d2817258942deeade1db1051755.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<meta name="shinylive:serviceworker_dir" content="../..">
-<script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -227,26 +222,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<pre class="shinylive-r" data-engine="r"><code>#| standalone: true
-#| components: [editor, viewer]
-#| heigth: 500
-
-
-library(shiny)
-
-ui &lt;- fluidPage(
-titlePanel("Hello Shiny!"),
-sliderInput("n", "N", 1, 100, 50),
-verbatimTextOutput("result")
-)
-
-server &lt;- function(input, output, session) {
-output$result &lt;- renderText({
-paste("La valeur de n * 2 est :", input$n * 2)
-})
-}
-
-shinyApp(ui, server)</code></pre>
+<div class="iframe">
+<iframe src="https://romuanalyst.shinyapps.io/bslib" width="100%" height="800">
+</iframe>
+</div>
 
 
 

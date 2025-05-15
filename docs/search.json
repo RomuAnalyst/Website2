@@ -1257,6 +1257,6 @@
     "href": "IUT/dossier sans titre/index.html",
     "title": "Shinylive",
     "section": "",
-    "text": "#| standalone: true\n#| components: [editor, viewer]\n#| heigth: 500\n\n\nlibrary(shiny)\n\nui &lt;- fluidPage(\ntitlePanel(\"Hello Shiny!\"),\nsliderInput(\"n\", \"N\", 1, 100, 50),\nverbatimTextOutput(\"result\")\n)\n\nserver &lt;- function(input, output, session) {\noutput$result &lt;- renderText({\npaste(\"La valeur de n * 2 est :\", input$n * 2)\n})\n}\n\nshinyApp(ui, server)"
+    "text": "&lt;iframe src=“https://romuanalyst.shinyapps.io/bslib”"
   }
 ]
