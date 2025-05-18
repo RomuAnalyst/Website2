@@ -1279,5 +1279,26 @@
     "title": "Génération données aléatoires",
     "section": "Conclusion",
     "text": "Conclusion\nCe document illustre la génération, l’analyse descriptive et graphique de données aléatoires en R, avec une mise en forme améliorée et une meilleure expérience utilisateur. ```"
+  },
+  {
+    "objectID": "IUT/Autoweb/index.html#introduction",
+    "href": "IUT/Autoweb/index.html#introduction",
+    "title": "Génération données aléatoires",
+    "section": "Introduction",
+    "text": "Introduction\nCe document présente un code R qui génère un jeu de données aléatoires, l’enregistre dans un fichier CSV et visualise les résultats avec des graphiques esthétiques."
+  },
+  {
+    "objectID": "IUT/Autoweb/index.html#exécution-du-code-r",
+    "href": "IUT/Autoweb/index.html#exécution-du-code-r",
+    "title": "Génération données aléatoires",
+    "section": "Exécution du Code R",
+    "text": "Exécution du Code R\n\n# Installer les packages nécessaires si absent\n\nto_install &lt;- c(\"ggplot2\", \"dplyr\", \"readr\")\n\nnew_packages &lt;- to_install[!(to_install %in% installed.packages()[,\"Package\"])]\n\nif(length(new_packages)) install.packages(new_packages)\n\n \n\n# Charger les bibliothèques nécessaires\n\nlibrary(dplyr)\n\nlibrary(ggplot2)\n\nlibrary(readr)\n\n\nGénération du DataFrame\n\n# Création du dataframe df\n\ndf &lt;- tibble(x = 1:10, y = rnorm(10))\n\n \n\n# Ajout d'une troisième colonne z comme produit de x et y\n\ndf &lt;- df %&gt;% mutate(z = x * y)\n\n \n\n# Enregistrement dans un fichier CSV\n\nwrite_csv(df, \"donnees_aleatoires.csv\")\n\n \n\n# Affichage du dataframe\n\ndf\n\n# A tibble: 10 × 3\n       x        y        z\n   &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1     1  0.00653  0.00653\n 2     2  1.33     2.66   \n 3     3  0.648    1.94   \n 4     4 -1.79    -7.16   \n 5     5 -0.340   -1.70   \n 6     6  1.19     7.14   \n 7     7 -1.21    -8.50   \n 8     8  0.846    6.77   \n 9     9 -0.319   -2.87   \n10    10  1.00    10.0    \n\n\n\n\nAnalyse Descriptive\n\n# Statistiques descriptives\nsummary(df)\n\n       x               y                 z          \n Min.   : 1.00   Min.   :-1.7906   Min.   :-8.4957  \n 1st Qu.: 3.25   1st Qu.:-0.3345   1st Qu.:-2.5789  \n Median : 5.50   Median : 0.3271   Median : 0.9747  \n Mean   : 5.50   Mean   : 0.1358   Mean   : 0.8315  \n 3rd Qu.: 7.75   3rd Qu.: 0.9637   3rd Qu.: 5.7416  \n Max.   :10.00   Max.   : 1.3281   Max.   :10.0282  \n\n\n\n\nVisualisation des Données\n\n# Graphique de dispersion avec personnalisation\nggplot(df, aes(x = x, y = y)) +\n  geom_point(color = \"#1f78b4\", size = 3) +  # Points en bleu\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#e31a1c\", linetype = \"dashed\") +  # Ligne de tendance rouge\n  labs(title = \"Graphique de Dispersion avec Régression\",\n       subtitle = \"Analyse des relations entre x et y\",\n       x = \"Valeur de x\",\n       y = \"Valeur de y\") +\n  theme_minimal(base_size = 14)  # Thème modernisé\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\nAnalyse Graphique\n\n# Histogramme de la colonne y\nggplot(df, aes(x = y)) +\n  geom_histogram(binwidth = 0.5, fill = \"#1f78b4\", color = \"white\") +\n  labs(title = \"Histogramme de la variable y\",\n       x = \"Valeur de y\",\n       y = \"Fréquence\") +\n  theme_minimal(base_size = 14)\n\n\n\n\n\n\n\n# Boxplot de la colonne y\nggplot(df, aes(x = \"\", y = y)) +\n  geom_boxplot(fill = \"#1f78b4\") +\n  labs(title = \"Boxplot de la variable y\",\n       y = \"Valeur de y\") +\n  theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "IUT/Autoweb/index.html#conclusion",
+    "href": "IUT/Autoweb/index.html#conclusion",
+    "title": "Génération données aléatoires",
+    "section": "Conclusion",
+    "text": "Conclusion\nCe document illustre la génération, l’analyse descriptive et graphique de données aléatoires en R, avec une mise en forme améliorée et une meilleure expérience utilisateur. ```"
   }
 ]
