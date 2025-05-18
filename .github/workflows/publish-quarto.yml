@@ -35,12 +35,12 @@ jobs:
 
       - name: Render QMD file
         run: |
-          R -e 'rmarkdown::render("index.qmd")'
+          R -e 'rmarkdown::render("IUT/Autoweb/index.qmd")'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Répertoire où se trouve le fichier HTML généré
+          publish_dir: ./IUT/Autoweb  # Répertoire où se trouve le fichier HTML généré
           publish_branch: gh-pages  # Branche où déployer
           publish_path: "index.html"  # Nom du fichier HTML à déployer
