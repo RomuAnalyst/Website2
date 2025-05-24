@@ -26,7 +26,11 @@ jobs:
           # Remplacez 'ma-page.qmd' par le nom de votre fichier Quarto dans IUT/
           sed -i "s/date: .*/date: $(date +%Y-%m-%d)/" IUT/Autoweb/index.qmd
 
-      - name: Générer la page index.qmd à la racine
+      - name: Générer le HTML pour le fichier IUT/ma-page.qmd
+        run: |
+          quarto render IUT/Autoweb/index.qmd
+
+      - name: Générer le HTML pour index.qmd à la racine
         run: |
           quarto render index.qmd
 
