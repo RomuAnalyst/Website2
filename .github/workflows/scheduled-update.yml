@@ -1,4 +1,4 @@
-name: Mise à jour quotidienne Quarto (IUT + index)
+name: Mise à jour quotidienne Quarto (HTML dans doc/)
 
 on:
   schedule:
@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pages: write
 
     steps:
       - name: Checkout du dépôt
@@ -26,17 +25,18 @@ jobs:
           # Remplacez 'ma-page.qmd' par le nom de votre fichier Quarto dans IUT/
           sed -i "s/date: .*/date: $(date +%Y-%m-%d)/" IUT/Autoweb/index.qmd
 
-      - name: Générer le HTML pour le fichier IUT/ma-page.qmd
+      - name: Générer le HTML pour le fichier IUT/ma-page.qmd dans doc/
         run: |
-          quarto render IUT/Autoweb/index.qmd
+          quarto render IUT/Autoweb/index.qmd --output-dir docs/IUT/Autoweb
 
-      - name: Générer le HTML pour index.qmd à la racine
+      - name: Générer le HTML pour index.qmd à la racine dans doc/
         run: |
-          quarto render index.qmd
+          quarto render index.qmd --output-dir docs
 
-      - name: Générer et déployer tout le site
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit et push des fichiers HTML générés
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add docs/*.html
+          git commit -m "Mise à jour automatique des fichiers HTML dans doc/ [skip ci]" || echo "Pas de modifications"
+          git push
