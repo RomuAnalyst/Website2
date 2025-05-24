@@ -1,0 +1,38 @@
+name: Mise à jour quotidienne Quarto (IUT + index)
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # 2h00 UTC chaque jour
+  workflow_dispatch:
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: latest
+
+      - name: Mettre à jour le fichier Quarto du dossier IUT
+        run: |
+          # Remplacez 'ma-page.qmd' par le nom de votre fichier Quarto dans IUT/
+          sed -i "s/date: .*/date: $(date +%Y-%m-%d)/" IUT/Autoweb/index.qmd
+
+      - name: Générer la page index.qmd à la racine
+        run: |
+          quarto render index.qmd
+
+      - name: Générer et déployer tout le site
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
